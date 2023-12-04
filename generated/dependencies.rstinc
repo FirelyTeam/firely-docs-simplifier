@@ -6,15 +6,15 @@
    * - `Dapper <https://www.nuget.org/packages/Dapper>`__
      - Apache-2.0
    * - `Firely.Fhir.Packages <https://www.nuget.org/packages/Firely.Fhir.Packages>`__
-     - BSD 3-Clause
+     - BSD-3-Clause
    * - `Hl7.DSTU2.FhirPath <https://www.nuget.org/packages/Hl7.DSTU2.FhirPath>`__
-     - BSD 3-Clause
+     - BSD-3-Clause
    * - `Hl7.Fhir.Base <https://www.nuget.org/packages/Hl7.Fhir.Base>`__
      - BSD-3-Clause
    * - `Hl7.Fhir.DSTU2 <https://www.nuget.org/packages/Hl7.Fhir.DSTU2>`__
-     - BSD 3-Clause
+     - BSD-3-Clause
    * - `Hl7.Fhir.DSTU2.Support <https://www.nuget.org/packages/Hl7.Fhir.DSTU2.Support>`__
-     - BSD 3-Clause
+     - BSD-3-Clause
    * - `Hl7.Fhir.R4 <https://www.nuget.org/packages/Hl7.Fhir.R4>`__
      - BSD-3-Clause
    * - `Hl7.Fhir.R4B <https://www.nuget.org/packages/Hl7.Fhir.R4B>`__
@@ -30,7 +30,7 @@
    * - `Hl7.Fhir.Specification.Data.STU3 <https://www.nuget.org/packages/Hl7.Fhir.Specification.Data.STU3>`__
      - BSD-3-Clause
    * - `Hl7.Fhir.Specification.DSTU2 <https://www.nuget.org/packages/Hl7.Fhir.Specification.DSTU2>`__
-     - BSD 3-Clause
+     - BSD-3-Clause
    * - `Hl7.Fhir.STU3 <https://www.nuget.org/packages/Hl7.Fhir.STU3>`__
      - BSD-3-Clause
    * - `Hl7.Fhir.Validation.Legacy.R4 <https://www.nuget.org/packages/Hl7.Fhir.Validation.Legacy.R4>`__
@@ -130,9 +130,9 @@
    * - `Microsoft.Orleans.Runtime.Abstractions <https://www.nuget.org/packages/Microsoft.Orleans.Runtime.Abstractions>`__
      - MIT
    * - `Microsoft.TypeScript.MSBuild <https://www.nuget.org/packages/Microsoft.TypeScript.MSBuild>`__
-     - Custom
+     - Microsoft
    * - `Microsoft.VisualStudio.Azure.Containers.Tools.Targets <https://www.nuget.org/packages/Microsoft.VisualStudio.Azure.Containers.Tools.Targets>`__
-     - Custom
+     - Microsoft
    * - `MiniProfiler.AspNetCore.Mvc <https://www.nuget.org/packages/MiniProfiler.AspNetCore.Mvc>`__
      - MIT
    * - `MiniProfiler.EntityFrameworkCore <https://www.nuget.org/packages/MiniProfiler.EntityFrameworkCore>`__
@@ -174,15 +174,15 @@
    * - `System.ValueTuple <https://www.nuget.org/packages/System.ValueTuple>`__
      - MIT
    * - `Vonk.Core <https://www.nuget.org/packages/Vonk.Core>`__
-     - Custom
+     - Firely
    * - `Vonk.Facade.Relational <https://www.nuget.org/packages/Vonk.Facade.Relational>`__
-     - Custom
+     - Firely
    * - `Vonk.Fhir.R3 <https://www.nuget.org/packages/Vonk.Fhir.R3>`__
-     - Custom
+     - Firely
    * - `Vonk.Fhir.R4 <https://www.nuget.org/packages/Vonk.Fhir.R4>`__
-     - Custom
+     - Firely
    * - `Vonk.Fhir.R5 <https://www.nuget.org/packages/Vonk.Fhir.R5>`__
-     - Custom
+     - Firely
    * - `YamlDotNet <https://www.nuget.org/packages/YamlDotNet>`__
      - MIT
 
