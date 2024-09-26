@@ -6,14 +6,14 @@ Accessibility
 Firely Accessibility Conformance Report - WCAG Edition
 ------------------------------------------------------
 
-(Based on VPAT® Version 2.4)
+(Based on VPAT® Version 2.5)
 
 **Name of Product/Version:** Simplifier.net  
 
-**Report Date:** 22-12-2020  
+**Report Date:** 25-09-2024
 
-**Product Description:** Simplifier.net by Firely is an online platform for collaborating on,
-and publishing the artifacts from, FHIR specifications.
+**Product Description:** Simplifier.net by Firely is an online platform for collaborating
+and publishing the artifacts from FHIR specifications.
 
 **Contact Information:** Please contact simplifier@fire.ly with any questions or suggestions
 for improvements.
@@ -29,15 +29,15 @@ General notes
 
 * The tree rendering of FHIR resources can be navigated by keyboard when Javascript is enabled:
   
-  - Tab until the full three is selected.
+  - Tab until the full tree is selected.
   - Then navigate the three rows with the up and down arrows. When using a screen reader this
     can be done after 'Scan mode' is turned off.
-  - Three nodes can be opened/collapsed by selecting the node and pressing Space bar or Enter.
+  - Tree nodes can be opened/collapsed by selecting the node and pressing Space bar or Enter.
 
   The Details page on a resource and dictionary rendering in an Implementation Guide provide
   static alternatives.
 
-* The Monaco Editor which is embedded in many places on the site provides powerfull accessibility
+* The Monaco Editor which is embedded in many places on the site provides powerful accessibility
   features and a dedicated menu which is highlighted when using a screen reader. More information
   can be found in the `Monaco Editor Accessibility Guide <https://github.com/microsoft/monaco-editor/wiki/Monaco-Editor-Accessibility-Guide>`_.
 
@@ -45,6 +45,7 @@ Changelog
 
 * Nov 30, 2020: First edition published.
 * Dec 22, 2020: Accessibility scan completed and major issues resolved.
+* Sep 25, 2024: Second edition published.
 
 Evaluation Methods Used
 ~~~~~~~~~~~~~~~~~~~~~~~
@@ -82,6 +83,13 @@ accessibility standard/guidelines:
       Level AA: Yes
       
       Level AAA: No
+  
+  * - `Web Content Accessibility Guidelines 2.2`_
+    - Level A: Yes
+      
+      Level AA: Yes
+      
+      Level AAA: No  
 
 Terms
 -----
@@ -149,14 +157,28 @@ Tests were executed with the following pages, taken as representative for the fu
   * - 8
     - Search page
     - https://simplifier.net/search
-      
-      (Postponed until after upcoming redesign)
   * - 9
     - Snippet page
     - https://simplifier.net/snippet/wardweistra/18
   * - 10
     - Documentation page
     - https://docs.fire.ly/simplifier/index.html
+  * - 11
+    - Sign up page
+    - https://simplifier.net/signup
+  * - 12
+    - Upload file page
+    - https://simplifier.net/accessibilitytestingproject/upload
+  * - 13
+    - Upload snippet page
+    - https://simplifier.net/snippet
+  * - 14
+    - Jurisdiction page
+    - https://simplifier.net/jurisdictions/nl
+  * - 15
+    - News page
+    - https://simplifier.net/organization/firely/news/158
+  
    
 
 WCAG 2.x Report
@@ -165,7 +187,7 @@ WCAG 2.x Report
 Note: When reporting on conformance with the WCAG 2.x Success Criteria,
 they are scoped for full pages, complete processes, and
 accessibility-supported ways of using technology as documented in the
-`WCAG 2.0 Conformance Requirements`_.
+`WCAG 2.2 Conformance Requirements`_.
 
 Table 1: Success Criteria, Level A
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -181,35 +203,41 @@ Table 1: Success Criteria, Level A
   * - `1.1.1 Non-text Content`_
       
       (Level A)
-    - Supports
-    - Resolved issues:
-
-      * On Firely Docs DevDays banner has no alt text, search bar no form label
-      * [SIM-1403] Add alt text to home page images
-
+    - Partially supports
+    - Known issues
+      
+       * [SIM-4057] Alt text missing for image in homepage
+       * [SIM-4058] Alt text missing for Avatars in news section in Organization home page
+       * [SIM-4053] Alt text missing for images in news pages
+       * [SIM-4048] Multiple accessibility issues with Captcha-image in Sign up page
+       * [SIM-4080] Missing alternative text in multiple test pages
+  
   * - `1.2.1 Audio-only and Video-only`_
       
       (Level A)
     - Supports
-    - No audio or video content is used.
+    - No pre recorded audio. Video from youtube.com contains subtitles that is a text alternative.
 
   * - `1.2.2 Captions`_
       
       (Level A)
     - Supports
-    - No audio or video content is used.
+    - Video from youtube.com contains subtitles.
 
   * - `1.2.3 Audio Description or Media Alternative`_
       
       (Level A)
     - Supports
-    - No audio or video content is used.
+    - Video from youtube.com contains subtitles.
 
   * - `1.3.1 Info and Relationships`_
       
       (Level A)
-    - Supports
-    - Sections are labeled with relevant ARIA tags.
+    - Partially Supports
+    - Known issues
+      
+       * [SIM-4077] Broken ARIA reference in multiple test pages
+       * [SIM-4072] Empty Table header in multiple test pages
 
   * - `1.3.2 Meaningful Sequence`_
       
@@ -235,7 +263,7 @@ Table 1: Success Criteria, Level A
   
       (Level A)
     - Supports
-    - No audio is used.
+    - Audio of videos from youtube.com can be controlled 
 
   * - `2.1.1 Keyboard`_
   
@@ -243,38 +271,21 @@ Table 1: Success Criteria, Level A
     - Partially Supports
     - For keyboard navigation in the FHIR resource tree and the embedded Monaco code editors, see general notes above.
 
-      Resolved issues
-
-      * [SIM-1355] Feedback button is not accessible by tab
-      * [SIM-1358] Hide visually hidden menu items from project/resource menu for screen readers
-      * [SIM-1357] Alternative for/navigate by keyboard resource tree
-      * [SIM-1401] Keyboard navigation for instance tree
-      * [SIM-1397] Can't reach diff/hybrid/snapshot button with tab
-      * [SIM-1359] In IG editor > IG settings: Can't change tab with keyboard
-      * [SIM-1406] Can't reach certain menu items using tab on Organization and Snippet page
-      * [SIM-1388] Subscribe menu item on project/resource page not accessible by keyboard navigation
-
       Known issues
 
-      * [SIM-1382] Edit button for canonical base URLs on project not accessible with keyboard only
-      * [SIM-1384] Can't activate the checkmarks on the Create a new package page
+       * [SIM-1382] Edit button for canonical base URLs on project not accessible with keyboard only
+       * [SIM-1384] Can't activate the check marks on the Create a new package page
 
   * - `2.1.2 No Keyboard Trap`_
   
       (Level A)
     - Partially Supports
     - On tab trapping in the embedded Monaco code editors, see general note above.
-      
-      Resolved issues
-
-      * [SIM-1354] The code editor for project settings is a keyboard trap and needs to be replaced with code editor used elsewhere.
-      * [SIM-1380] keyboard trap: manage dependencies on project, search field
-      * [SIM-1379] keyboard trap: create new package, release notes field
 
       Known issues
 
-      * [SIM-1378] keyboard trap: create issue on project / add comment on issue
-      * [SIM-1381] keyboard trap: create script connector
+       * [SIM-1378] keyboard trap: create issue on project / add comment on issue
+       * [SIM-1381] keyboard trap: create script connector
 
   * - `2.1.4 Character Key Shortcuts`_
   
@@ -305,39 +316,36 @@ Table 1: Success Criteria, Level A
       
       (Level A)
     - Supports
-    - Resolved issues
+    - Known issues
+    
+       * [SIM-4054] Contact Sales Button and contact button is not easily accessible through Keyboard
       
-      * [SIM-1365] Make it easier to skip to main content by providing ARIA indications for blocks.
 
   * - `2.4.2 Page Titled`_
       
       (Level A)
     - Supports
-    - Resolved issues
+    - Known issues
 
-      * [SIM-1366] Reverse page title order: Content for repeated SIMPLIFIER.net
-
-      Known issues
-
-      * [SIM-1367] Consider using different page title per resource/project/package tab
+       * [SIM-1367] Consider using different page title per resource/project/package tab
 
   * - `2.4.3 Focus Order`_
       
       (Level A)
     - Supports
-    - Resolved issues
+    - Known issues
 
-      * [SIM-1358] Put project/package/resource menu in right tab order. 
-      * [SIM-1358] Main buttons of project/package/resource menu are not selectable
+       * [SIM-1476] Keyboard navigation order in file management page is incorrect
 
   * - `2.4.4 Link Purpose (In Context)`_
       
       (Level A)
-    - Supports
-    - Resolved issues:
-      
-      * [SIM-1411] Validation page has nondescriptive links
-      * [SIM-1369] Better text around Avatar image/link
+    - Partially Supports
+    - Known issues:
+    
+       * [SIM-4081] Empty link in snippet page
+       * [SIM-4079] Empty button in multiple test pages
+
 
   * - `2.5.1 Pointer Gestures`_
       
@@ -345,8 +353,8 @@ Table 1: Success Criteria, Level A
     - Partially Supports
     - Known issues:
     
-      * [SIM-1371] Drag and drop for page reordering in IG editor has no keyboard/button alternative
-      * [SIM-1387] Unable to succesfully navigate account avatar with keyboard only
+       * [SIM-1371] Drag and drop for page reordering in IG editor has no keyboard/button alternative
+       * [SIM-1387] Unable to succesfully navigate account avatar with keyboard only
 
   * - `2.5.2 Pointer Cancellation`_
       
@@ -357,8 +365,10 @@ Table 1: Success Criteria, Level A
   * - `2.5.3 Label in Name`_
       
       (Level A 2.1 only)
-    - Supports
-    - 
+    - Partially Supports
+    - Known issues:
+    
+       * [SIM-4078] Missing form label in multiple test pages
 
   * - `2.5.4 Motion Actuation`_
       
@@ -370,9 +380,7 @@ Table 1: Success Criteria, Level A
       
       (Level A)
     - Supports
-    - Resolved issues
-      
-      * [SIM-1372] Define English as the language for every Simplifier page
+    - The default human language is identified by the lang attribute on the html element.
 
   * - `3.2.1 On Focus`_
       
@@ -386,51 +394,52 @@ Table 1: Success Criteria, Level A
     - Supports
     - No change of context is executed when changing input, without user actuation.
 
+  * - `3.2.6 Consistent Help`_
+      
+      (Level A 2.2 only)
+    - Supports
+    - Feedback button exists at the top navigation bar on every page and on entering the details, a support person can get in touch with the user.
+
+  * - `3.3.7 Redundant Entry`_
+      
+      (Level  2.2 only)
+    - Supports
+    - Redundant information is not asked in any pages.
+      Exception is only in Change Password page and this exception is allowed as per Success criteria.
+
   * - `3.3.1 Error Identification`_
       
       (Level A)
     - Partially Supports
     - Known issues
       
-      * [SIM-1373] Error message on deleting team with packages/project linked is time based
-      * [SIM-1413] Incorrect URL message on Account settings page is time based
-      * Confirmation of copied canonical or resource is time based popup
+       * [SIM-1373] Error message on deleting team with packages/project linked is time based
+       * [SIM-1413] Incorrect URL message on Account settings page is time based
+       * Confirmation of copied canonical or resource is time based popup
 
   * - `3.3.2 Labels or Instructions`_
       
       (Level A)
-    - Supports
-    - Resolved issues
-      
-      * [SIM-1374] No label for main search bar on home page and search bar on other pages
+    - Partially Supports
+    - Known issues:
+    
+       * [SIM-4078] Missing form label in multiple test pages
 
   * - `4.1.1 Parsing`_
       
       (Level A)
     - Partially Supports
-    - Resolved issues
-      
-      * [SIM-1398] Broken ARIA menu in Avatar drop down menu
-      * [SIM-1399] Broken ARIA menu in resource settings menu item
-      * [SIM-1400] Broken ARIA menus in project
-      * [SIM-1416] Broken ARIA menus in Signup page and Home signup form
-      * [SIM-1386] W3 Validator reports errors on certain pages.
-      
-      Known issues
+    - Known issues
 
-      * [SIM-1389] Tree rendering HTML errors
+       * [SIM-1389] Tree rendering HTML errors
       
   * - `4.1.2 Name, Role, Value`_
       
       (Level A)
     - Partially Supports
-    - Resolved issues
-
-      * [SIM-1368] Buttons without text: Copy button next to API link, Canonical link, (embed) Snippet URL, etc.
-      
-      Known issues
+    - Known issues
     
-      * [SIM-1384] Check boxes on package creation third tab are not tab accessible.
+       * [SIM-1384] Check boxes on package creation third tab are not tab accessible.
 
 
 Table 2: Success Criteria, Level AA
@@ -454,7 +463,7 @@ Table 2: Success Criteria, Level AA
     
       (Level AA)
     - Supports
-    - No video content used.
+    - Videos from youtube.com have subtitles that can be used as audio description.
 
   * - `1.3.4 Orientation`_
     
@@ -468,15 +477,14 @@ Table 2: Success Criteria, Level AA
     - Partially Supports
     - Known issues
     
-      * [SIM-1376] Use standard input type on Signup, Login and Account Settings (eg type=name)
+       * [SIM-1376] Use standard input type on Signup, Login and Account Settings (eg type=name)
 
   * - `1.4.3 Contrast (Minimum)`_
     
       (Level AA)
     - Partially Supports
-    - On constrast in the embedded Monaco code editors, see general note above.
+    - On contrast in the embedded Monaco code editors, see general note above.
       
-      Contrast issues on website header and footer and Implementation Guides footer have been resolved [SIM-1377].
       Contrast issues in website main content will be addressed in upcoming change of website colors.
     
   * - `1.4.4 Resize text`_
@@ -527,20 +535,39 @@ Table 2: Success Criteria, Level AA
   * - `2.4.6 Headings and Labels`_
     
       (Level AA)
-    - Supports
-    - Resolved issues
-
-      * [SIM-1396] Make tabs on resource/project/etc. page headings and indicate active state      
-      * [SIM-1405] Feedback popup is missing label and has orphaned label
-      * [SIM-1408] Missing form labels and empty buttons on Project page
-
+    - Partially Supports
+    - Known issues
+    
+       * [SIM-4078] Missing form label in multiple test pages
+  
   * - `2.4.7 Focus Visible`_
     
       (Level AA)
     - Supports
-    - Resolved issues
+    - When a user interface component receives keyboard focus, the component is not entirely hidden due to author-created content.
+
+  * - `2.4.11 Focus Not Obscured (Minimum)`_
+    
+      (Level AA 2.2 only)
+    - Partially Supports
+    - Known issues
+    
+       * [SIM-4063] Delete confirmation box is hidden by the Completed successfully overlay
+
+  * - `2.5.7 Dragging Movements`_
+    
+      (Level AA 2.2 only)
+    - Partially Supports
+    - Known Issues:
+
+       * [SIM-4048] Captcha-image in Sign up page cannot be accessed with a keyboard/ completely relies on mouse drag
+       * [SIM-1371] Drag and drop for page reordering in IG editor has no keyboard/button alternative
       
-      * [SIM-1356] Avatar shows no visible indication of being selected with tab
+  * - `2.5.8 Target Size (Minimum)`_
+    
+      (Level AA 2.2 only)
+    - Supports
+    - 
 
   * - `3.1.2 Language of Parts`_
     
@@ -563,7 +590,7 @@ Table 2: Success Criteria, Level AA
     
       (Level AA)
     - Supports
-    - 
+    - Components that have the same functionality within a set of Web pages are identified consistently.
 
   * - `3.3.3 Error Suggestion`_
     
@@ -579,6 +606,12 @@ Table 2: Success Criteria, Level AA
     - No financial transactions, legal transactions or test results are handled.
       All data delete operations require an extra confirmation step.
 
+  * - `3.3.8 Accessible Authentication (Minimum)`_
+    
+      (Level AA 2.2 only)
+    - Supports
+    - Sign up page displays an object that needs to be dragged into a position to solve the puzzle and a mechanism exists with instructions to assist the user.
+
   * - `4.1.3 Status Messages`_
     
       (Level AA 2.1 only)
@@ -587,7 +620,8 @@ Table 2: Success Criteria, Level AA
 
 .. _Web Content Accessibility Guidelines 2.0: http://www.w3.org/TR/2008/REC-WCAG20-20081211
 .. _Web Content Accessibility Guidelines 2.1: https://www.w3.org/TR/WCAG21
-.. _WCAG 2.0 Conformance Requirements: https://www.w3.org/TR/WCAG20/#conformance-reqs
+.. _Web Content Accessibility Guidelines 2.2: https://www.w3.org/TR/WCAG22
+.. _WCAG 2.2 Conformance Requirements: https://www.w3.org/TR/WCAG22/#conformance-to-wcag-2-2
 
 .. _WAVE Web Accessibility Evaluation Tool: https://wave.webaim.org/
 .. _Microsoft Narrator: https://support.microsoft.com/en-us/windows/complete-guide-to-narrator-e4397a0d-ef4f-b386-d8ae-c172f109bdb1
@@ -618,6 +652,8 @@ Table 2: Success Criteria, Level AA
 .. _3.1.1 Language of Page: http://www.w3.org/TR/WCAG20/#meaning-doc-lang-id
 .. _3.2.1 On Focus: http://www.w3.org/TR/WCAG20/#consistent-behavior-receive-focus
 .. _3.2.2 On Input: http://www.w3.org/TR/WCAG20/#consistent-behavior-unpredictable-change
+.. _3.2.6 Consistent Help: https://www.w3.org/TR/WCAG22/#consistent-help
+.. _3.3.7 Redundant Entry: https://www.w3.org/TR/WCAG22/#redundant-entry
 .. _3.3.1 Error Identification: http://www.w3.org/TR/WCAG20/#minimize-error-identified
 .. _3.3.2 Labels or Instructions: http://www.w3.org/TR/WCAG20/#minimize-error-cues
 .. _4.1.1 Parsing: http://www.w3.org/TR/WCAG20/#ensure-compat-parses
@@ -637,9 +673,17 @@ Table 2: Success Criteria, Level AA
 .. _2.4.5 Multiple Ways: http://www.w3.org/TR/WCAG20/#navigation-mechanisms-mult-loc
 .. _2.4.6 Headings and Labels: http://www.w3.org/TR/WCAG20/#navigation-mechanisms-descriptive
 .. _2.4.7 Focus Visible: http://www.w3.org/TR/WCAG20/#navigation-mechanisms-focus-visible
+.. _2.4.11 Focus Not Obscured (Minimum): https://www.w3.org/TR/WCAG22/#focus-not-obscured-minimum
+.. _2.5.7 Dragging Movements: https://www.w3.org/TR/WCAG22/#dragging-movements
+.. _2.5.8 Target Size (Minimum): https://www.w3.org/TR/WCAG22/#target-size-minimum
 .. _3.1.2 Language of Parts: http://www.w3.org/TR/WCAG20/#meaning-other-lang-id
 .. _3.2.3 Consistent Navigation: http://www.w3.org/TR/WCAG20/#consistent-behavior-consistent-locations
 .. _3.2.4 Consistent Identification: http://www.w3.org/TR/WCAG20/#consistent-behavior-consistent-functionality
 .. _3.3.3 Error Suggestion: http://www.w3.org/TR/WCAG20/#minimize-error-suggestions
 .. _3.3.4 Error Prevention (Legal, Financial, Data): http://www.w3.org/TR/WCAG20/#minimize-error-reversible
+.. _3.3.8 Accessible Authentication (Minimum): https://www.w3.org/TR/WCAG22/#accessible-authentication-minimum
 .. _4.1.3 Status Messages: https://www.w3.org/TR/WCAG21/#status-messages
+
+.. _2.4.12 Focus Not Obscured (Enhanced): https://www.w3.org/TR/WCAG22/#focus-not-obscured-enhanced
+.. _2.4.13 Focus Appearance: https://www.w3.org/TR/WCAG22/#focus-appearance
+.. _3.3.9 Accessible Authentication (Enhanced): https://www.w3.org/TR/WCAG22/#accessible-authentication-enhanced
