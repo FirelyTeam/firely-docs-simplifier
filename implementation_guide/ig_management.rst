@@ -121,3 +121,92 @@ Manage your IG using GitHub
 
 The GitHub webhook allows managing your Implementation Guide, without using the editor itself. You can find more information on how to set this up in the `GitHub integration documentation <../data_governance_and_quality_control/simplifierGithub.html#github-webhook-to-manage-implementation-guides>`_.
 
+Pre-Requisites
+--------------
+
+Below are the necessary pre-requisites needed for managing an implementation guide in Github
+
+- Create An account on Simplifier.net with the ability to create an Implementation Guide
+
+- Create a Github account
+
+- Install Git on your local computer
+
+----------------------------------------------------------------------------------------------
+
+1. Introduction
+---------------
+
+This guide will provide step by step instructions on managing your implementation Guide using Github.
+
+2. Setting up a Github Repository
+---------------------------------
+
+2.1 Create a Repository
+
+   1. Log into your Github account.
+
+   2. Click on the + icon in the top right corner and select New repository
+
+   3. Enter a repository name, description, and choose visibility (Public or Private)
+
+   4. Optionally, you can add a README file, a .gitignore file as well as the ability to choose a license.
+
+   5. Click Create Repository
+
+   .. image:: ../images/GithubNewRepository.png
+      :scale: 75%
+
+   .. image:: ../images/GithubCreateNewRepository.png
+      :scale: 75%
+
+3. Syncing A Simplifier Project with Github
+-----------------------------------------
+
+3.1 Download the Project
+
+   - On your Simplifier project page, look for the Download icon and choose the option "zip project"
+
+   - Download your project as a .zip file
+
+   - Unzip your project and move it to directory of the locally cloned repository on your workstation
+
+
+3.2 Commit Changes to Github
+
+   - CD to the folder of the Cloned Repository
+
+      Example: cd C:\Temp\Simplifier Docs Clone 2
+
+   - Add files to the repository using Git Bash
+
+   .. image:: ../images/addfilestoGitrepository.png
+      :scale: 75%
+
+   - Commit the Changes (add a note for the changes made)
+
+.. image:: ../commitfilestoGitrepository.png
+      :scale: 75%
+
+   - Push the file changes to Github
+
+.. image:: ../pushchangestoGitrepository.png
+      :scale: 75%
+
+
+4. Link Github repository to Simplifier project
+-----------------------------------------------
+
+   - Navigate to a Simplifier project 
+
+In the tool bar on the top of the page you will see a Github icon that allows you to link a Git repository
+
+.. image:: ../LinkGitrepositorytosimplifierproject.png
+      :scale: 75%
+
+You will then be prompted to Login with you Github account and grant Simplifier access to your repository
+
+.. image:: ../Linksimplifierprojecttorepository.png
+      :scale: 75%
+
+Fill out the Repository Owner, Repository, Branch, Webhook and Delete strategy
