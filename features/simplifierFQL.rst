@@ -20,3 +20,10 @@ You can also share the query you made with other Simplifier users or embed your 
 .. image:: ../images/FQLShare.png
    :scale: 75%
       
+It is also possible to upload .fql files to your project and render them in implementation guides. This allows you to keep your queries in your project and share them with your team.
+
+Syntax:
+
+.. code-block:: rst
+
+   {{render:filename.fql}}

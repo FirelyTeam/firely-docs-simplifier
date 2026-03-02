@@ -11,7 +11,7 @@ For our members with an Enterprise plan there is the functionality to create and
 
 Organization Management
 -----------------------
-Once you have made your account you can alter the properties of your organization, create custom workflows, manage members, and follow your organization’s newsfeed. These settings can be accessed via the ``Manage`` dropdown once you are on your organization’s page. The quickest way to visit your organization's page is to select it from the ``Organizations`` tab in your `personal portal <../administration/simplifierPersonalContent.html#personal-portal>`_
+Once you have made your account you can alter the properties of your organization, create custom workflows, manage members, and follow your organization’s newsfeed. These settings can be accessed via the ``Manage`` dropdown once you are on your organization’s page. The quickest way to visit your organization's page is to select it from the ``Organizations`` tab in your :ref:`personal portal <personal_portal>`.
 
 .. image:: ../images/OrganizationSettings.PNG
     :align: center

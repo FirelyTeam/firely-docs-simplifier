@@ -7,7 +7,10 @@ Click on your avatar in the top right corner to access your personal menu. From 
 
 .. image:: ../images/UserMenu.PNG 
    :scale: 75%
-      
+
+
+
+.. _personal_portal:      
 Personal Portal
 """""""""""""""
 All your personal content is accessible through your personal portal. The following tabs are available:
@@ -35,6 +38,7 @@ This page shows your user profile as visible to other Simplifier users. It shows
         
 
 You can now add your usual social media handles, like Facebook, Twitter, LinkedIn etc. to your user profile. We provide this for users that want to have the option of having other users contact them about their work on Simplifier.
+
 
 You can add these in your account settings, and you can view this directly from your own profile page. Your profile page can be found in the User Menu of your Portal dropdown.
 
