@@ -8,6 +8,14 @@ This page contains the release notes of the current major version of simplifier.
 Current release
 ~~~~~~~~~~~~~~~
 
+Release Simplifier 2026.1, March 19th, 2026
+----------------------------------------
+You can find the full release notes on `Simplifier. <https://simplifier.net/organization/firely/news/195>`_
+
+Release Simplifier 2025.5, December 18th, 2025
+----------------------------------------
+You can find the full release notes on `Simplifier. <https://simplifier.net/organization/firely/news/192>`_
+
 Release Simplifier 2025.4, September 2nd, 2025
 ----------------------------------------
 You can find the full release notes on `Simplifier. <https://simplifier.net/organization/firely/news/184>`_ 

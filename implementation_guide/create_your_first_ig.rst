@@ -76,6 +76,9 @@ After adding these statements in the editor refresh the page, by pressing Crtl +
 - ``{{namingsystems:ProjectName}}``				- lists all namespaces of a project in a table
 - ``{{render:canonicalUrl}}``                   - renders and parses any file type 
 - ``{{source:canonicalUrl}}``                   - renders any filetype unparsed. In case of a profile, it will render the xml or json, and for an FQL file, it will render the script text
+- ``{{metadata}}``                              - renders a consistent metadata table for the resource
+
+You can customize which metadata fields are included by listing them as attributes, for example: ``{{metadata, url, version, publisher}}``
 
 The following statements add an index within the IG. 
 
@@ -212,16 +215,16 @@ FQL table generation
 
 With the introduction of FQL  it is now possible to create dynamic tables in your IG. FQL tables retrieve information from the resources in the select scope. Below is an example of the syntax. For more information and examples please look at our `documentation <https://simplifier.net/docs/fql>`_.
 
-.. code-block:: SQL
+.. code-block:: html
 
-    
-    @```
-
-    from <your recources>
-    where <option>
-    select <what you want in the table>
-    
-    ```
+    <fql>
+        from
+            StructureDefinition
+        select
+            name, type, kind, url
+        order by
+            name
+    </fql>
 
 You can also save your FQL statements in order to re-use them on different pages and even in different projects. In the IG editor, the option for saving your custom snippets is available. This will save your statements in a .snippet.md file which is than usable within every IG page in that specific project. The .snippet.md file(s) can be downloaded and uploaded in different projects to use them across your organization. 
 

@@ -64,6 +64,23 @@ We do not recommend you alter these unless you have a specific desire to use an 
 * **style-folder** - Provides the folder of your custom style sheet.
 * **version** - Specifies the specific version of you style sheet. By default it will select the latest version. 
 
+Consolidated Metadata Table in Implementation Guides
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+It's now easier to create a consistent table with all the metadata of resources within your Implementation Guides.
+Just use the new ``{{metadata}}`` widget and a consistent table will be shown with the resource metadata.
+
+.. note::
+
+    A full metadata table with one single widget.
+
+Do you want to customize which fields are included?
+Just provide a list as the second attribute, for example:
+
+.. code-block:: text
+
+    {{metadata, url, version, publisher}}
+
 CSS-editor
 ^^^^^^^^^^
 
@@ -73,6 +90,22 @@ For our Enterprise Licenses the feature "Custom Layout" is available. Here you c
    :scale: 75%
 
 With this editor you can edit your Style Sheet to make overall changes in the overall look and feel of your IG. For example, you may change the color of the navigation bar to blue or add your own logo to it. It is also possible to reset your changes by going back to the original CSS or download the original CSS as a seperate file, so you can compare the differences with your own code.
+
+Custom Preview for Your Own Styles in the IG Editor
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Want your Implementation Guide to match your branding precisely?
+The IG editor already allows you to adjust your own CSS and HTML templates.
+Release 2026.1 adds the ability to set a custom preview image for your custom styles.
+This preview appears in the list of available styles, so team members can quickly see which look and feel corresponds to which style.
+
+To configure this, add a file called ``preview.png`` in:
+
+.. code-block:: text
+
+    guides/<your guide>/styles/<your style>/
+
+For the best result, use an image size of 250 by 150 pixels.
 
 Here below are a couple of examples that you can use to configure the lay-out of your IG:
 
