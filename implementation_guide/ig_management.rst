@@ -44,7 +44,7 @@ To use your IG outside of Simplifier, click on the Export button next to your IG
 Create a copy of your IG
 ------------------------
 
-Since the release of Simplifier 28.0 it is possible to create a copy of your Implementation guide. Due to the complexity of the feature it is currently (21-01-2022) a beta release. 
+Since the release of Simplifier 28.0 it is possible to create a copy of your Implementation guide.
 
 .. image:: ../images/CopyGuide.png
    :scale: 75%
@@ -55,22 +55,6 @@ A guide can be copied to the same project or to another project. The ``Target pr
    :scale: 75%
 
 You can now have multiple version of your Implementation Guide live in the same project (or different projects). You could have one IG use a release package as the scope while the development version uses the live developement version of your project. 
-
-.. _ig_migration:
-
-Migrating your legacy Guide
----------------------------
-
-Guides created before Simplifier 28.0 are still stored in the legacy way as separate markdown files. These guides first have to be migrated to the new way of storing guides. 
-
-.. image:: ../images/LegacyGuides.png
-   :scale: 75%
-
-This functionality is a beta release so please follow the warning and migration steps in the Migrate Guide window. In the Migrate Guide window a different target project can also be selected. Migrating a guide **does not** delete the legacy guide. 
-
-Migrating a legacy guide will re-create the guide with the correct folder structure and guide.yaml etc. a. The legacy guide urlkey will be re-named to <old-urlkey>-backup and use the previous urlkey for the newly created one.
-
-After a guide is migrated or copied, please make sure all your internal page links and references are still working. To be sure your pagelinks won't break, please use internal links using topics. <link to topics>
 
 .. _ig_convert:
 

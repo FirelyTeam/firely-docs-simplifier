@@ -76,12 +76,9 @@ Dependencies
 ------------
 Currently references to other profiles are resolved by latest version. By adding package dependencies, references will be resolved in those packages. This gives you much better versioning control over the resources you include.
 
-Currently this only works for downloaded packages. In the next release it will work for snapshot generation, validation and link generation.
-
-Packages
+Releases
 ----------
-The ``Packages`` tab shows all released versions of a project. Project members may use this beta functionality to release project versions containing (a selection of) resources as a package. 
-`Packages <../features/simplifierPackages.html#package-management>`_  are now public BETA. We encourage you to try them out. But you should not use them for production environments yet. 
+The ``Releases`` tab shows all released FHIR package versions of a project. 
 
 
 Subscriptions
@@ -161,9 +158,6 @@ Administration
 --------------
 This option is only available for project members with an admin role. Use this option if you want to delete your project or if you want to change its visibility to either public or private.
 
-Score
------
-This beta functionality scores your project based on some predefined quality criteria.
 
 Add resources to your project
 """""""""""""""""""""""""""""
