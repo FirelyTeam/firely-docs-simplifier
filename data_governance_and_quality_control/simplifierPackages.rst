@@ -1,7 +1,7 @@
 .. _package_management:
 
-Package management
-========================
+Package Releases and Dependencies
+=================================
 
 
 .. important::
@@ -13,10 +13,10 @@ Package management
 
 Simplifier.net offers functionality to handle packages and dependencies. This functionality allows you to publish packages based on your project resources, which can be immediately installed and used by people implementing your profiles. The Simplifier FHIR package server is NPM compatible. You may either connect to this server using a NPM client or use our cross platform FHIR command line tool called Firely Terminal. On this page we will explain how to manage packages and dependencies in Simplifier, how to use Firely Terminal to install packages for validation, how to manage packages and how to create your own packages in Firely Terminal.
 
-Packages
----------------------------
+Package Releases
+----------------
 
-View packages
+View releases
 ^^^^^^^^^^^^^
 Visit the ``Releases`` tab of any Simplifier project to see which packages are published from this project. For more information about a package and its content, click on the name of the package. 
 
@@ -48,8 +48,8 @@ If you have a combination of private and public packages in your feeds you can s
 
 
 
-Create packages
-^^^^^^^^^^^^^^^^
+Create releases
+^^^^^^^^^^^^^^^
 
 Visit the ``Releases`` tab of your project and click on ``Create`` > ``Create new package`` to create a new package. Provide a name, version number, description and release notes for your package. Note that the name of your package should include at least one dot. Indicate if your package is a prelease package or not and click ``Create`` to publish your package. 
 To create a new version of an existing package, click on ``Create`` and select ``Create new version for..`` followed by the name of your package. Add the required information and click ``Create`` to publish the new version of your package.
@@ -65,7 +65,7 @@ Packages can be created as private packages or public packages. Private packages
 The package created with the highest semver will get the tag ``latest`` added to the package. Please `see how semver works with <https://semver.org>`_ regards to versioning and pre-release tags. 
 
 
-Unlist Packages
+Unlist releases
 ^^^^^^^^^^^^^^^
 Once a package is created it can be used by other implementers to build their project on top of. For this reason we do not delete packages from the Registry. Once a package is created it is there to stay. Implementers can depend on the availability of published packaged. 
 

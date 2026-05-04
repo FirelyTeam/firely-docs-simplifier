@@ -31,7 +31,7 @@ In addition to the release notes in the :ref:`release notes <release_notes>`. A 
   Simplifier Overview <simplifierIntro>
   Starting with Simplifier <getting_started/getting_started>
   Team and Organization management <administration/administration>
-  Data Governance and Quality Control <data_governance_and_quality_control/data_governance_and_quality_control>
+  Project Governance, Releases, and Quality Control <data_governance_and_quality_control/data_governance_and_quality_control>
   Implementation Guide <implementation_guide/implementation_guide>
   Additional features and playgrounds<features/features>
   Dependencies

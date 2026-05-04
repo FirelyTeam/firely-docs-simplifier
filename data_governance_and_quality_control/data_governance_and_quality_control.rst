@@ -1,9 +1,9 @@
 .. _data_governance_and_quality_control:
 
-Data Governance and Quality Control
-===================================
+Project Governance, Releases, and Quality Control
+=================================================
 
-Here you will find the documentation of Simplifier's Data Governance and Quality Control tooling.
+This section covers how Simplifier helps you control package quality, package distribution, dependency management, and related governance workflows across your projects.
 
 .. toctree::
    :maxdepth: 1
@@ -14,6 +14,7 @@ Here you will find the documentation of Simplifier's Data Governance and Quality
    simplifierQualityControl
    simplifierPackages
    simplifierPackageFeeds
+   simplifierPackageFeedsTechnicalReference
    simplifierPackageCreationCheck
    simplifierForgeIntegration
    simplifierGithub
