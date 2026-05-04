@@ -3,58 +3,55 @@
 Package Feeds
 =============
 
+Manage and distribute private FHIR packages with controlled access.
+
 What is a package feed?
 -----------------------
 
-Plain-English explanation
-~~~~~~~~~~~~~~~~~~~~~~~~~
+You already know what a FHIR package is: a collection of resources such as profiles, extensions,
+and value sets that other projects can use as a dependency.
 
-You already know what a FHIR package is: a collection of FHIR resources such as profiles, extensions, and value sets that other projects can use as a dependency.
+On Simplifier, packages are published to a feed - a named container with its own access controls.
+By default this is the main public feed. A **private feed** is your own separate space, visible
+only to members of the managing team.
 
-On Simplifier, public packages are published to the main public feed by default. A package feed is the place where published packages live.
+.. list-table::
+   :widths: 50 50
+   :header-rows: 1
 
-A private package feed is a separate package space with its own access control. People can only see packages in that feed if they have access to the managing team.
+   * - Public feed
+     - Private feed
+   * - Shared and visible to everyone. The default for all published packages.
+     - Visible only to the managing team. Required for packages that should stay internal.
 
-Public vs. private feeds
-~~~~~~~~~~~~~~~~~~~~~~~~
-
-The public feed is shared and visible to everyone.
-
-Private feeds are used for packages that should only be available to a specific team or group of collaborators.
-
-Private packages can only be found and accessed through a feed. They no longer appear under the Packages tab on the portal, organization, or team pages.
+.. note::
+   Private packages can only be found and accessed through a feed. They no longer appear under
+   the Packages tab on portal, organization, or team pages.
 
 Do I need one?
 --------------
 
-When a private feed helps
-~~~~~~~~~~~~~~~~~~~~~~~~~
+A private feed helps when you want to keep packages internal, share work-in-progress with a
+controlled group, depend on private packages managed by your team, or build an Implementation
+Guide around profiles that should stay private.
 
-A private feed helps when you want to keep packages internal, share work in progress with a controlled group, or depend on private packages managed by your team.
-
-It is also useful when you are building an Implementation Guide based on profiles that should stay private.
-
-When the public feed is enough
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-If all your packages are public and you do not rely on private dependencies, the main Simplifier public feed is usually enough.
+If all your packages are public and you have no private dependencies, the main Simplifier public
+feed is usually enough.
 
 Key concepts before you start
 -----------------------------
 
-Feeds, teams, and projects
-~~~~~~~~~~~~~~~~~~~~~~~~~~
+**Feeds, teams, and projects**
 
-A feed is linked to a team, and team members inherit access to the feed and its packages.
+- A feed is linked to a team - team members inherit access to the feed and all packages in it.
+- Every private package lives in exactly one feed.
+- Your project must have a feed assigned before it can use private packages.
 
-Every private package lives in exactly one feed. Your project must have a feed assigned before it can use private packages.
+**The Restore step**
 
-The Restore step
-~~~~~~~~~~~~~~~~
-
-After changing dependencies or assigning a different feed, run **Restore** from the **Dependencies** tab. Restore rebuilds the dependency closure for the project.
-
-When the Restore button turns green, a restore is required.
+After changing dependencies or assigning a different feed, run **Restore** from the Dependencies
+tab. This rebuilds the dependency closure for the project. When the Restore button turns green,
+a restore is required.
 
 Set up a feed (step by step)
 ----------------------------
