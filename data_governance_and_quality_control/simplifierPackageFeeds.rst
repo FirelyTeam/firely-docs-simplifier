@@ -25,8 +25,7 @@ only to members of the managing team.
      - Visible only to the managing team. Required for packages that should stay internal.
 
 .. note::
-   Private packages can only be found and accessed through a feed. They no longer appear under
-   the Packages tab on portal, organization, or team pages.
+   Private packages are accessible through a feed and appear under the Packages tab on portal, organization, or team pages.
 
 Do I need one?
 --------------
@@ -43,15 +42,17 @@ Key concepts before you start
 
 **Feeds, teams, and projects**
 
-- A feed is linked to a team - team members inherit access to the feed and all packages in it.
+- Access control for packages is managed at the feed level. All members of the team linked to the feed have access to every package inside that feed.
 - Every private package lives in exactly one feed.
 - Your project must have a feed assigned before it can use private packages.
 
 **The Restore step**
 
 After changing dependencies or assigning a different feed, run **Restore** from the Dependencies
-tab. This rebuilds the dependency closure for the project. When the Restore button turns green,
-a restore is required.
+tab. This rebuilds the dependency closure for the project. When you change feeds, the resolution
+scope changes - your project may have dependencies to packages that don't exist in your new feed.
+Restoring ensures all dependencies are resolved correctly against the assigned feed. When the
+Restore button turns green, a restore is required.
 
 Set up a feed (step by step)
 ----------------------------
@@ -68,11 +69,7 @@ In your project, go to **Manage > Choose Feed**.
 
 .. image:: ../images/ChooseFeed.png
 
-You can select an existing feed or create a new one.
-
-.. image:: ../images/ConfigureFeed.png
-
-When creating the feed, provide:
+You can select an existing feed or create a new one. When creating a new feed, provide:
 
 * **Feed key**: a short URL-safe identifier such as ``my-org-internal``. The key is globally unique across Simplifier.
 * **Title**: a readable name for the feed.

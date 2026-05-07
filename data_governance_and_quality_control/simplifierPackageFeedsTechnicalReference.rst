@@ -28,7 +28,7 @@ Feed admins can manage a feed from the **Feeds** tab on the organization or port
 
 Feed admins can update the title, feed key, and distribution settings after creation. For permanent feeds, the feed key cannot be changed.
 
-Package admins can view distribution details under **Administration > Distribution**.
+Distribution details are viewable under **Administration > Distribution**, showing only the versions accessible to the current user. Anonymous users see only public versions, while package admins see both public and private versions.
 
 .. image:: ../images/PackageDistribution.png
 
@@ -110,7 +110,7 @@ Public projects cannot use private feeds. For the same reason, a private project
 Changing the assigned feed
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Changing a project feed is possible from **Dependencies**, but each feed change deletes the project dependency closure and requires a full Restore.
+A project feed is changed from **Manage > Choose Feed**. Each feed change deletes the project dependency closure and requires a full Restore.
 
 Dependency closure and Restore
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
