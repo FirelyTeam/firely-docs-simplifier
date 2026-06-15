@@ -3,7 +3,7 @@ Embedded Rendering
 
 .. important::
 
-    `This feature is available for anyone with a registered Simplifier account`_.
+    *This feature is available for anyone with a registered Simplifier account.*
 
 Simplifier enables rendering of profiles as a tree, XML or table. Users with an enterprise account can also embed rendering in their own website by using the following URL and copying it into their own code:: 
 

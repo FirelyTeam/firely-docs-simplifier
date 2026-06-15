@@ -10,7 +10,8 @@ Click on your avatar in the top right corner to access your personal menu. From 
 
 
 
-.. _personal_portal:      
+.. _personal_portal:
+
 Personal Portal
 """""""""""""""
 All your personal content is accessible through your personal portal. The following tabs are available:
