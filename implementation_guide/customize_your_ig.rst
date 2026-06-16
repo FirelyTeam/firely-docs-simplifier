@@ -68,7 +68,7 @@ Consolidated Metadata Table in Implementation Guides
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 It's now easier to create a consistent table with all the metadata of resources within your Implementation Guides.
-Just use the new ``{{metadata}}`` widget and a consistent table will be shown with the resource metadata.
+Just use the new ``{{metadata:canonicalUrl}}`` widget and a consistent table will be shown with the resource metadata.
 
 .. note::
 
@@ -79,7 +79,7 @@ Just provide a list as the second attribute, for example:
 
 .. code-block:: text
 
-    {{metadata, url, version, publisher}}
+    {{metadata:canonicalUrl, url, version, publisher}}
 
 CSS-editor
 ^^^^^^^^^^
