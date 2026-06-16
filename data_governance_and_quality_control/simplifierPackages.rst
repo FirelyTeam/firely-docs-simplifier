@@ -65,6 +65,26 @@ Packages can be created as private packages or public packages. Private packages
 The package created with the highest semver will get the tag ``latest`` added to the package. Please `see how semver works with <https://semver.org>`_ regards to versioning and pre-release tags. 
 
 
+Pin canonical references
+^^^^^^^^^^^^^^^^^^^^^^^^
+
+When you create a package you can choose to pin its canonical references. Unversioned canonical references resolve to whatever version happens to be in scope, and that version can change as your dependencies evolve. Pinning locks each reference to the version found in the dependency closure at creation time, so the package keeps resolving to the versions you built and tested against.
+
+You will find the option on the ``Content`` tab of the package creation wizard, under ``Versioning``. Tick ``Pin canonical references to their resolved version`` before you create the package.
+
+.. image:: ../images/PackageCanonicalPinning.png
+   :scale: 75%
+
+With this option enabled, when the package is created:
+
+* Unversioned canonical references (for example ``baseDefinition`` or type profiles) are pinned to the version found in the dependency closure.
+* Every resource that does not already have a version is given the package version in its ``version`` element.
+
+.. note::
+
+    Canonical pinning is currently in beta. We recommend running the `canonical-pinning <https://simplifier.net/docs/QualityControl/Home/FHIR-actions/Pinning.page.md>`_ Quality Control rule before creating a package with pinning enabled, so you can catch any issues first.
+
+
 Unlist releases
 ^^^^^^^^^^^^^^^
 Once a package is created it can be used by other implementers to build their project on top of. For this reason we do not delete packages from the Registry. Once a package is created it is there to stay. Implementers can depend on the availability of published packaged. 
@@ -200,7 +220,3 @@ Firely Terminal
 Firely Terminal is our (free) command line tool for FHIR. Firely Terminal allows you to communicate with any FHIR server. With simple commands you can easily download, upload, validate and transform resources, zip them, bundle them or split bundles. Firely Terminal offers many features. One of them is to install and create FHIR packages.
 
 Learn :ref:`more about Firely Terminal <firely_terminal_docs:firely_terminal_home>` and :ref:`managing FHIR packages on the command line in particular <firely_terminal_docs:Package_management>`.
-
-
-
-
