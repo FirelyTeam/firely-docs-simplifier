@@ -186,20 +186,17 @@ Validating with different validators
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 Quality Control now utilizes the Firely .NET SDK Validator as the default engine across Simplifier. This updated validator provides more comprehensive error detection and improved error messages.
 
-If you require specific validation behaviors, you can customize the validator engine using the optional flavor parameter in your Quality Control configuration.
+If you require specific validation behaviors, you can customize the validator engine using the optional ``flavor`` parameter in your Quality Control configuration.
 
 Available Flavors
 
-You can choose one of the following values:
+The ``flavor`` parameter on the ``validate`` action accepts one of the following values:
 
-`firely` (Default): The new Firely .NET SDK Validator. Best for current standard validation and improved issue detection.
+``firely`` (Default): The Firely .NET SDK Validator. Best for current standard validation and improved issue detection.
 
-`netsdk`: The Legacy .NET validator. Use this if you need to strictly match older validation logic.
+``netsdk``: The legacy .NET validator. Use this if you need to strictly match older validation logic.
 
-`java`: The HL7 Java Validator.
-
-
-To explicitly switch to a specific validator (for example, the legacy netsdk), add the flavor parameter to your validation action:
+To explicitly switch to a specific validator (for example, the legacy ``netsdk``), add the ``flavor`` parameter to your validation action:
 
 .. code-block:: yaml
 
@@ -207,8 +204,20 @@ To explicitly switch to a specific validator (for example, the legacy netsdk), a
     action: validate
     flavor: netsdk
 
-**Note**: You can also toggle between these validators in the Validator Playground using the drop-down menu to test specific resources before adding them to your Quality Control configuration.
+If you omit the ``flavor`` parameter, ``firely`` is used by default.
 
+Validating with the HL7 Java Validator
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+The HL7 Java Validator runs as its own Quality Control action and is currently only for beta-users.
+
+Add it to your Quality Control configuration as its own action:
+
+.. code-block:: yaml
+
+  - category: resource
+    action: java-validate
+
+**Note**: The Java validator is also available in the Validator Playground via the drop-down menu, where it is currently limited to beta users.
 
 Suppression
 ^^^^^^^^^^^
