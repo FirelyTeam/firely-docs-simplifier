@@ -220,6 +220,7 @@ At the top of the screen you will find the Atom feed button. This allows you to 
    :scale: 50%
       
 .. _issue_tracker:
+
 Issue Tracker
 """""""""""""
 

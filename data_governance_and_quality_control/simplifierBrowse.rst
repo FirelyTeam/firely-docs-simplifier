@@ -67,7 +67,7 @@ Set your ``FHIR version`` + ``Category`` (Profiles) + ``Resource`` (Resource typ
 
 
 Searching for packages
----------------------
+----------------------
 
 ``Packages`` + ``Organization``
 ``Packages`` + ``Nationality`` only works when a jurisdiction is added to a package. See, for example, what happens when you set the nationality to UK, DK, or US.

@@ -107,7 +107,7 @@ Manage your IG using GitHub
 
 The GitHub webhook enables you to manage your Implementation Guide (IG) without using the editor interface directly. Detailed instructions for setting this up can be found in the `GitHub integration documentation <../data_governance_and_quality_control/simplifierGithub.html#github-webhook-to-manage-implementation-guides>`_.
 
-Implementation Guides are now organized in a folder-based structure, providing greater flexibility for templating and editing. Each IG includes a configuration file called guide.yaml and requires a specific folder structure to function correctly. If you still have a legacy guide, we highly recommend :ref:`migrating to the new IG style <ig_migration>`. 
+Implementation Guides are now organized in a folder-based structure, providing greater flexibility for templating and editing. Each IG includes a configuration file called guide.yaml and requires a specific folder structure to function correctly. If you still have a legacy guide, we highly recommend migrating to the new IG style. 
 
 When you create an IG using the Simplifier UI, an initial guide.yaml file and the required folders are automatically generated. It is advisable to add a few folders and empty pages to familiarize yourself with the required structure. Once this is done, you can move your IG to GitHub. 
 

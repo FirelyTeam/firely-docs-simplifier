@@ -10,7 +10,7 @@ To embed a diagram directly, use the standard PlantUML syntax within your conten
 
 Example:
 
-.. code-block:: plantuml
+.. code-block:: text
 
    @startuml
    Bob -> Alice : hello
