@@ -76,11 +76,34 @@ After adding these statements in the editor refresh the page, by pressing Crtl +
 - ``{{namingsystems:ProjectName}}``				- lists all namespaces of a project in a table
 - ``{{render:canonicalUrl}}``                   - renders and parses any file type 
 - ``{{source:canonicalUrl}}``                   - renders any filetype unparsed. In case of a profile, it will render the xml or json, and for an FQL file, it will render the script text
-- ``{{metadata}}``                              - renders a consistent metadata table for the resource
+- ``{{metadata:canonicalUrl}}``                 - renders a consistent metadata table for the resource
 
-You can customize which metadata fields are included by listing them as attributes, for example: ``{{metadata, url, version, publisher}}``
+You can customize which metadata fields are included by listing them as attributes, for example: ``{{metadata:canonicalUrl, url, version, publisher}}``
 
-The following statements add an index within the IG. 
+Metadata fields
+"""""""""""""""
+The ``metadata`` widget renders a table of metadata fields for the referenced resource, for example:
+
+::
+
+    {{metadata:http://acme.org/StructureDefinition/profile-patient, render-metadata-title}}
+
+The supported fields depend on the resource type:
+
+- **Conformance resources**: ``url``, ``version``, ``publisher``, ``status``, ``experimental``, ``description``, ``purpose``, ``useContext``, ``contact``
+- **MessageDefinition**: ``title``, ``event``, ``category``
+- **StructureDefinition**: ``context`` (for extensions)
+
+The widget behaves as follows:
+
+- If no fields are specified, all non-empty fields are rendered in the default order defined by the FHIR specification.
+- If fields are specified, only those fields are rendered (when non-empty) in the order they were listed.
+- When the optional ``render-metadata-title`` flag is set, a title is also displayed containing the ResourceType + ``name`` of the resource.
+
+
+Index
+"""""
+The following statements add an index within the IG.
 
 - ``{{index:root}}``	- gives an index of the entire IG 
 - ``{{index:current}}`` - gives an index of the current selected element
