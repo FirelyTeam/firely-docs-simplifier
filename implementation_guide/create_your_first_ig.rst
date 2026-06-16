@@ -98,7 +98,7 @@ The widget behaves as follows:
 
 - If no fields are specified, all non-empty fields are rendered in the default order defined by the FHIR specification.
 - If fields are specified, only those fields are rendered (when non-empty) in the order they were listed.
-- When the optional ``render-metadata-title`` flag is set, a title is also displayed containing the ``name`` of the resource.
+- When the optional ``render-metadata-title`` flag is set, a title is also displayed containing the ResourceType + ``name`` of the resource.
 
 
 Index
