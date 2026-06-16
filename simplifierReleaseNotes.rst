@@ -8,7 +8,7 @@ This page contains the release notes of simplifier.net.
 
 Simplifier 2026.3, June 15th, 2026
 -------------------------------------------
-You can find the full release notes on `Simplifier. <https://simplifier.net/organization/firely/news/TODO>`_
+You can find the full release notes on `Simplifier. <https://simplifier.net/organization/firely/news/200>`_
 
 Simplifier 2026.2, April 16th, 2026
 -------------------------------------------
