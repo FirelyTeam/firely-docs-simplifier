@@ -24,3 +24,4 @@ This pages below will elaborate further on getting started and how you can use t
   customize_your_ig
   ig_management
   simplifierPublishedGuides
+  ig_help/ig_help
