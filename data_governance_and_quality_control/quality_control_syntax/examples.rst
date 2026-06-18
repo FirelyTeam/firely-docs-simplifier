@@ -45,6 +45,26 @@ Here are some example rules you might consider when writing your own.
      predicate: iif(publisher.exists() and contact.name.exists(), publisher in contact.name)
      error-message: "Resource has publisher not listed as one of the contacts"
 
+**Validating a match between name and id**: when your profiling guidelines specify conventions, you can enforce them. Here a convention was decided for the ``name`` and ``id`` of a ValueSet.
+
+::
+
+   - name: valueset-id-matches-name
+     filter: ValueSet.exists()
+     predicate: id = name.substring(0,6) + '-' + name.substring(6)
+     status: "Checking if all ValueSet ids match the names, including a dash"
+     error-message: "ValueSet id must match name with a dash"
+
+**Validating correct id naming for extensions**: you can filter to specific resources, like checking the ``id`` value only for extensions.
+
+::
+
+   - name: extension-starts-with
+     filter: StructureDefinition.exists() and StructureDefinition.type = 'Extension'
+     status: "Checking whether extension starts with Extension-UKCore"
+     predicate: id.startsWith('Extension-UKCore')
+     error-message: "Resource does not start with Extension-UKCore"
+
 Unit testing
 ------------
 

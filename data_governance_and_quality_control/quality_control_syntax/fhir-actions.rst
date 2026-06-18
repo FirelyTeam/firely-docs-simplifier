@@ -82,12 +82,23 @@ The ``validate`` action validates all resources against the base profiles and th
    - category: resource
      action: validate
 
-By default, all validation uses the Firely .NET SDK validator. You can override this per validation action by selecting a different validator flavor:
+By default, all validation uses the Firely .NET SDK validator, which provides comprehensive error detection and improved error messages. You can override this per validation action with the optional ``flavor`` parameter:
+
+- ``firely`` (default): the Firely .NET SDK validator.
+- ``netsdk``: the legacy .NET validator, for strictly matching older validation logic.
 
 ::
 
-   - flavor: firely   # Default, Firely .NET SDK validator
-   - flavor: netsdk   # Legacy .NET validator
+   - category: resource
+     action: validate
+     flavor: netsdk
+
+**HL7 Java validator**: the HL7 Java validator runs as its own Quality Control action (currently for beta users). Add it as its own action. It is also available in the Validator Playground via the drop-down menu (also limited to beta users).
+
+::
+
+   - category: resource
+     action: java-validate
 
 Dependencies
 ------------

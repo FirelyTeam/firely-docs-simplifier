@@ -3,7 +3,18 @@
 Introduction
 ============
 
-*Simplifier.net* and *Firely Terminal* come with a Quality Control Engine to help you improve the quality of your FHIR projects. The QC engine performs a series of rule checks. By default there are two series of rules (minimal and recommended) that you can run on your project, but you can also define your own rules.
+*Simplifier.net* and *Firely Terminal* come with a Quality Control Engine to help you improve the quality of your FHIR projects. The QC engine performs a series of rule checks on selected files in your project, on your local computer, or on every change to your source code repository. By default there are three rule series (free, minimal and recommended) that you can run on your project (described below), but you can also define your own rules.
+
+.. figure:: ../../images/simplifier-quality-control.gif
+   :alt: Simplifier.net Quality Control progress bar
+   :scale: 75%
+
+   Quality Control being executed on a project
+
+On Simplifier, the output is saved in the Issues tab at the project level. You can filter on Quality Control there to see the issues found.
+
+.. image:: ../../images/QualityControlIssues.png
+   :scale: 75%
 
 Following one of the core principles of Simplifier, *eating your own dogfood*, you use the same language (YAML) that we used for the defaults to define your own rules. This way we share the experience and deal with the same challenges that you would face as a user. It is the same reason we write all our documentation in the Simplifier Implementation Guide editor.
 
