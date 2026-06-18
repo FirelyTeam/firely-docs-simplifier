@@ -61,4 +61,9 @@ html_theme = 'sphinx_rtd_theme'
 html_static_path = ['_static']
 
 master_doc = 'index'
-html_theme_options = {'navigation_depth': 3}
+html_theme_options = {'navigation_depth': -1}
+
+# FQL has no dedicated Pygments lexer; we highlight it as 'sql' (best keyword/string
+# coverage). FQL's JSON-like '{ }' select blocks can't be fully parsed and fall back to
+# relaxed highlighting - suppress that non-fatal warning class so builds stay clean.
+suppress_warnings = ['misc.highlighting_failure']

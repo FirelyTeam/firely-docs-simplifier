@@ -18,7 +18,7 @@ Please see the `best practices on writing a FHIR Implementation Guide <https://b
    :maxdepth: 1
    :titlesonly:
 
-   howtoformattext/howtoformattext
-   guide-setup/guide-setup
-   renderingfhir/renderingfhir
-   othertopics/othertopics
+   howtoformattext
+   guide-setup
+   renderingfhir
+   othertopics

@@ -28,7 +28,4 @@ You may want to choose to keep the version numbers between the FHIR package and 
      * You could for example spot a typo in your IG release and overwrite it with a new IG release (with the same version number still) still pointing to the same package as scope.
      * You could spot an issue with the released package version, release a new package version (with a new version number) and publish an IG with the scope pointing to the new package version but still under the same IG version. This makes your IG URL/version number also more stable to share with others than a package version number.
 
-
-We will, at some point, start showing on package/project pages what IGs are available about this exact scope. And even, once we have the feature to specify which IG page is about what resource, on a resource level within these package versions/projects.
-
 The Publish Guide wizard is very self explanatory, you can make your guide Public or Private, Read-only or Overwritable and you can choose to set this guide as the default as mentioned above. Project admins can later make changes to the initial settings. 

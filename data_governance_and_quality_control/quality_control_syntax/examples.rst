@@ -1,12 +1,11 @@
+.. _qc_examples:
+
 Examples
---------
+========
 
-Here are some example rules, that you might consider when writing your own rules:
+Here are some example rules you might consider when writing your own.
 
-Validating resources in a single folder
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-This example validates all resources in a single folder. It also suppresses all parssing errors
+**Validating resources in a single folder**: this validates all resources in a single folder, and suppresses all parsing errors.
 
 ::
 
@@ -14,47 +13,60 @@ This example validates all resources in a single folder. It also suppresses all 
      files: /examples/*.xml
      suppress: https://simplifier.net/qc/errors/evaluation|PARSING
 
-Checking canonical base URLs
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-This example validates whether the canonicals for your conformance resources start with the right base URL:
+**Checking canonical base URLs**: this validates whether the canonicals for your conformance resources start with the right base URL.
 
 ::
 
    - name: canonical-starts-with
      filter: url.exists() and ImplementationGuide.exists().not()
-     # Excluding IGs for now, since they have a Simplifier.net canonical
      status: "Checking if canonical URL starts with correct base"
      predicate: url.startsWith('https://fhir.hl7.org.uk/')
      error-message: "Canonical URL doesn't start with correct base"
 
-Checking if Publisher and Contact are filled (correctly)
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-Quality Control is a powerfull way to check for consistent metadata on all of your resources. In this case we are validating if the values of publisher and contact are filled correctly and whether they match each other.
+**Checking if publisher and contact are filled correctly**: Quality Control is a powerful way to check for consistent metadata on all of your resources. Here we validate whether ``publisher`` and ``contact`` are filled correctly and match each other.
 
 ::
 
    - name: publisher-filled
-     filter: (StructureDefinition or ValueSet or CodeSystem or 
-     CapabilityStatement or SearchParameter or NamingSystem or 
-     ConceptMap).exists()
-     # Excluding IGs for now, since they don't have a way to set metadata
+     filter: (StructureDefinition or ValueSet or CodeSystem or CapabilityStatement or SearchParameter or NamingSystem or ConceptMap).exists()
      status: "Checking if all resources have publisher filled"
      predicate: publisher.exists() and (publisher in ('HL7 UK' | 'NHS Digital'))
      error-message: "Publisher not filled (correctly)"
 
    - name: contact-filled
-     filter: (StructureDefinition or ValueSet or CodeSystem or CapabilityStatement or          
-     SearchParameter or NamingSystem or ConceptMap).exists()
-     # Excluding IGs for now, since they don't have a way to set metadata
+     filter: (StructureDefinition or ValueSet or CodeSystem or CapabilityStatement or SearchParameter or NamingSystem or ConceptMap).exists()
      status: "Checking if all resources have contact filled"
      predicate: contact.name.exists() and ('HL7 UK' in contact.name or 'NHS Digital' in contact.name)
      error-message: "Contact not filled (correctly)"
 
    - name: publisher-equals-contact
      filter: (StructureDefinition or ValueSet or CodeSystem or CapabilityStatement or SearchParameter or NamingSystem or ConceptMap).exists()
-     # Excluding IGs for now, since they don't have a way to set metadata
      status: "Checking if publisher is one of the contacts"
      predicate: iif(publisher.exists() and contact.name.exists(), publisher in contact.name)
      error-message: "Resource has publisher not listed as one of the contacts"
+
+Unit testing
+------------
+
+Unit testing is a strategy from software engineering to make sure some errors do not occur, and other errors *do* occur. Some errors are good. For errors you do not want, you use regular validation. But say you have a profile that requires a Patient to have no more than two identifiers. To check that you implemented it properly, you want to create an example Patient with three identifiers and have that example fail. With regular validation those errors would always be returned (and it would be bad if they were not). For that you can add unit tests using the ``assert`` action.
+
+**The assert rule**: ``assert`` checks for error systems or codes in the output of the validator. If the error is there, the assertion passes; if it is not, it reports an error. You can see it as an error-inverter. The following rule feeds all resources in ``invalid-examples`` ending in ``.missingref.xml`` and makes sure error code ``4005`` is in the output (the full error is ``http://hl7.org/fhir/dotnet-api-operation-outcome|4005``, but the code alone is usually sufficient).
+
+::
+
+   - files: /invalid-examples/*.missingref.xml
+     assert: 4005
+     # error code for missing references
+
+**Approach**: the general approach is to put all profiles and extensions in one folder, your good examples in another, and your failing examples in a third. Run regular validation on all but the failing examples, and run the unit test (assert) on the failing ones.
+
+::
+
+   - action: validate
+     files: /conformance-resources/*.*
+
+   - action: validate
+     files: /good-examples/*.json
+
+   - assert: any
+     files: /failing-examples/*-cardinality.json

@@ -117,7 +117,7 @@ On Simplifier you can start by creating your own package.bake.yaml file.
 In that yaml file you can specify if you want snapshots included for all you resources, or if you only want a specific selection of resources and example instances added to your package. You can even transform FSH files in your project into resources when creating your package!
 
 
-`Find our full documentation and examples on the Bake Pipeline on Simplifier. <https://simplifier.net/docs/bake>`_
+See the full :ref:`Bake syntax documentation <bake>` for the script format, all available steps, and a worked example.
 
 
 .. image:: ../images/BakeYamlFile.png

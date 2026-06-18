@@ -53,6 +53,6 @@ Quick Navigation
 - `I want to create a package using Simplifier <./data_governance_and_quality_control/simplifierPackages.html>`_
 - `I want to use Simplifier in combination with Github <./data_governance_and_quality_control/simplifierGithub.html>`_
 - `I want to load my Simplifier resources in Firely Server <./features/simplifierFirely-server.html>`_
-- `I want to query FHIR resources <./features/simplifierFQL.html>`_
+- `I want to query FHIR resources <./features/fql/simplifierFQLPlayground.html>`_
 - `I want to create an implementation guide for my project <./implementation_guide/implementation_guide.html>`_
 
