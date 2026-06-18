@@ -11,7 +11,7 @@ This section covers how Simplifier helps you control package quality, package di
 
    simplifierBrowse
    simplifierCanonicalClaims
-   quality_control_syntax/quality_control_syntax
+   quality_control/quality_control_syntax
    simplifierPackages
    simplifierPackageFeeds
    simplifierPackageFeedsTechnicalReference
