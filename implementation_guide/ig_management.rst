@@ -111,7 +111,7 @@ Implementation Guides are now organized in a folder-based structure, providing g
 
 When you create an IG using the Simplifier UI, an initial guide.yaml file and the required folders are automatically generated. It is advisable to add a few folders and empty pages to familiarize yourself with the required structure. Once this is done, you can move your IG to GitHub. 
 
-To do this, download the project locally (extract it) and copy your IG to your GitHub repository. Make sure to maintain the same folder structure as in the downloaded project. This applies to both the guide folders and your resources. Any changes to the folder structure may result in duplicates or break the link to the guide.yaml file, causing issues with rendering. If this occurs, please contact Simplifier support through your `JIRA portal <../https://firely.atlassian.net/servicedesk/customer/portal/1>`_. or email us at simplifier@fire.ly and we will assist you. 
+To do this, download the project locally (extract it) and copy your IG to your GitHub repository. Make sure to maintain the same folder structure as in the downloaded project. This applies to both the guide folders and your resources. Any changes to the folder structure may result in duplicates or break the link to the guide.yaml file, causing issues with rendering. If this occurs, please contact Simplifier support through your `JIRA portal <https://firely.atlassian.net/servicedesk/customer/portal/1>`_. or email us at simplifier@fire.ly and we will assist you. 
 
 Once everything is set up, you can make changes locally using your preferred editor and sync them back to Simplifier.
 

@@ -11,7 +11,7 @@ Simplifier organizes all content (e.g. resources and Implementation Guides) in p
 
 Open your project
 """""""""""""""""
-For an overview of your projects, go to your `personal portal <../administration/simplifierPersonalContent.html>`_ by clicking on your avatar in the top right corner.
+For an overview of your projects, go to your `personal portal <simplifierPersonalContent.html>`_ by clicking on your avatar in the top right corner.
 
 .. image:: ../images/UserMenu.PNG 
    :scale: 75%
@@ -124,7 +124,7 @@ Here you can edit the following properties:
 	- Turn issues on or off for this project (when activated the issues tab will be visible on the project page depending on the user's role)
 	- With the issues visibility setting you can chose whether issues are visible to all Simplifier users or project members only. 
 	- With the community issues setting you can chose whether all Simplifier users or only project members can create or respond to issues.
-- Publishing project resources to the `FHIR registry <../FHIRRegistry.html#fhir-registry>`_ (registry.fhir.org). Note that this setting is only available in public projects. Private projects and test projects are excluded from the registry.
+- Publishing project resources to the `FHIR registry <https://registry.fhir.org>`_ (registry.fhir.org). Note that this setting is only available in public projects. Private projects and test projects are excluded from the registry.
 
 Project url
 -----------
