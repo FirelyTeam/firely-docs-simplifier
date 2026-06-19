@@ -42,7 +42,7 @@ Filters select which files in your project a rule applies to. You can specify mo
         - "!package.json"
         - /*.xml
 
-**FhirPath filters**: filter resources on a FhirPath predicate, so only files for which the statement is true remain in your selection. Any statement that resolves to a single value (or an unambiguous true/false) works; a resource type such as ``Patient`` is also a valid expression. QC currently supports FhirPath v2.0.0 (see the `FhirPath standard <http://hl7.org/fhirpath/>`__).
+**FHIRPath filters**: filter resources on a FHIRPath predicate, so only files for which the statement is true remain in your selection. Any statement that resolves to a single value (or an unambiguous true/false) works; a resource type such as ``Patient`` is also a valid expression. QC currently supports FHIRPath v2.0.0 (see the `FHIRPath standard <http://hl7.org/fhirpath/>`__).
 
 ::
 

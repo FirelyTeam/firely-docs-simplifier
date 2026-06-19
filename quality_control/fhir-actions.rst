@@ -8,7 +8,7 @@ These actions operate on the FHIR content of your resources.
 Predicate
 ---------
 
-The ``predicate`` action gives an error for each resource where the predicate (a FhirPath expression) evaluates to false.
+The ``predicate`` action gives an error for each resource where the predicate (a FHIRPath expression) evaluates to false.
 
 ::
 
@@ -19,7 +19,7 @@ The ``predicate`` action gives an error for each resource where the predicate (a
 Same
 ----
 
-The ``same`` action makes sure all values at a specific location in a resource are the same. You can provide any FhirPath expression, as long as it produces a single value. This is useful when the actual value is not fixed; for example, it is good practice for all resources in a project to have the same version, but that value changes over time.
+The ``same`` action makes sure all values at a specific location in a resource are the same. You can provide any FHIRPath expression, as long as it produces a single value. This is useful when the actual value is not fixed; for example, it is good practice for all resources in a project to have the same version, but that value changes over time.
 
 ::
 

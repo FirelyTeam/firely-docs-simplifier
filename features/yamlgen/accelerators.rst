@@ -27,7 +27,7 @@ The following YAML produces a patient with id "4":
 Path shortcuts
 --------------
 
-YAML can become verbose when you start nesting. To avoid this, YamlGen allows the use of paths, much like the ones used in FhirPath. You can dot into the details directly:
+YAML can become verbose when you start nesting. To avoid this, YamlGen allows the use of paths, much like the ones used in FHIRPath. You can dot into the details directly:
 
 ::
 

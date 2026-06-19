@@ -21,7 +21,7 @@ The select clause in FQL does what you expect: it is a projection from the origi
    select
        name
 
-This does not produce a single value. The field ``name`` is actually a FhirPath expression, so if there is more than one name in the resource, they all go to the output. ``name`` is also a tree in itself, because it contains sub fields, so this query produces a set of name-trees in the output.
+This does not produce a single value. The field ``name`` is actually a FHIRPath expression, so if there is more than one name in the resource, they all go to the output. ``name`` is also a tree in itself, because it contains sub fields, so this query produces a set of name-trees in the output.
 
 **All fields**: use the ``*`` field to select all fields in a select statement.
 
@@ -30,7 +30,7 @@ This does not produce a single value. The field ``name`` is actually a FhirPath 
    from Patient
    select *
 
-**FhirPath field**: as long as you describe an actual path, you can use FhirPath as a field designator. The following syntaxes are valid:
+**FHIRPath field**: as long as you describe an actual path, you can use FHIRPath as a field designator. The following syntaxes are valid:
 
 .. code:: sql
 
@@ -41,7 +41,7 @@ This does not produce a single value. The field ``name`` is actually a FhirPath 
        name.given,
        name.given[0]
 
-Note that a FhirPath statement can have more than one result. Since ``name.given`` can have multiple values, your select set will result in an array for the field ``given`` as well. It will not give you the ``name`` structure.
+Note that a FHIRPath statement can have more than one result. Since ``name.given`` can have multiple values, your select set will result in an array for the field ``given`` as well. It will not give you the ``name`` structure.
 
 **JSON-like field definitions**: you can explicitly set the name of a field by using JSON format.
 
@@ -52,7 +52,7 @@ Note that a FhirPath statement can have more than one result. Since ``name.given
        lastname: name[0].family,
        firstname: name[0].given
 
-This lets you set the name of a field, but it also allows defining full FhirPath expressions:
+This lets you set the name of a field, but it also allows defining full FHIRPath expressions:
 
 .. code:: sql
 
@@ -73,7 +73,7 @@ FQL allows you to group results with a ``group by`` clause, which is quite simil
 
 As you can see, the ``group by`` precedes the ``select`` statement, to allow concatenation or pipelining of results.
 
-**Aggregation**: FhirPath already provides aggregation functions (FhirPath is the inner language FQL uses to get values), so a typical group function like ``count()`` can be used on groups:
+**Aggregation**: FHIRPath already provides aggregation functions (FHIRPath is the inner language FQL uses to get values), so a typical group function like ``count()`` can be used on groups:
 
 .. code:: sql
 
@@ -81,7 +81,7 @@ As you can see, the ``group by`` precedes the ``select`` statement, to allow con
    group by name.family
    select family, group.count()
 
-Because we are working with tree-structured data, many more options open up, like doing a count over a full FhirPath expression:
+Because we are working with tree-structured data, many more options open up, like doing a count over a full FHIRPath expression:
 
 .. code:: sql
 
@@ -100,7 +100,7 @@ The where clause can be used in several places: following a ``from`` clause, fol
 
 **In a for clause**: you filter subtrees of data, which allows keeping paired arrays aligned. See the For section below for more.
 
-A where clause expects one or more FhirPath expressions that have a boolean outcome. In the following query, ``name.given = 'Chalmers'`` is a FhirPath expression that filters any Patient that has at least one given name equal to 'Chalmers':
+A where clause expects one or more FHIRPath expressions that have a boolean outcome. In the following query, ``name.given = 'Chalmers'`` is a FHIRPath expression that filters any Patient that has at least one given name equal to 'Chalmers':
 
 .. code:: sql
 
@@ -112,7 +112,7 @@ A where clause expects one or more FhirPath expressions that have a boolean outc
      name.given[0],
      name.family
 
-Even though FhirPath has boolean logic, FQL also lets you add multiple expressions separated by an ``and`` keyword. It is up to you whether you use the FhirPath internal logic or the FQL variety.
+Even though FHIRPath has boolean logic, FQL also lets you add multiple expressions separated by an ``and`` keyword. It is up to you whether you use the FHIRPath internal logic or the FQL variety.
 
 .. code:: sql
 
@@ -222,7 +222,7 @@ The query above will do the following search request to the FHIR server, before 
 
    https://vonk.fire.ly/Patient?name=Chalmers&_id=123
 
-**Note**: since a FHIR server is allowed to ignore unknown and unimplemented parameters, this statement can produce unpredictable results. It is recommended to repeat your filter in the actual where clause, where you can use FhirPath expressions that are guaranteed and accurate.
+**Note**: since a FHIR server is allowed to ignore unknown and unimplemented parameters, this statement can produce unpredictable results. It is recommended to repeat your filter in the actual where clause, where you can use FHIRPath expressions that are guaranteed and accurate.
 
 Using
 ~~~~~
@@ -355,7 +355,7 @@ Other than the field names, it would produce the same result as writing:
 Complex dereferencing
 ~~~~~~~~~~~~~~~~~~~~~
 
-Note that although dereferencing in its basic form uses dot notation, you can actually use any FhirPath expression. The following will work:
+Note that although dereferencing in its basic form uses dot notation, you can actually use any FHIRPath expression. The following will work:
 
 .. code:: sql
 
@@ -377,7 +377,7 @@ See the For clause section for more information.
 For clause
 ~~~~~~~~~~
 
-For basic single field selections, a path-like FhirPath statement is usually good enough. But sometimes you want to have a table result within your selection.
+For basic single field selections, a path-like FHIRPath statement is usually good enough. But sometimes you want to have a table result within your selection.
 
 We already covered the ``for`` clause as top-level syntax under Filtering:
 
@@ -431,7 +431,7 @@ In FQL you can simply write:
       id,
       name.given
 
-This assumes you have to deal with only one name. If you have multiple names, the FhirPath statement ``name.given`` will actually produce an array. In many cases you do not want an array as a result value. To fix that, you can either take only the first (``name.given[0]``) or do a join between the ``Patient`` and the array of ``given``:
+This assumes you have to deal with only one name. If you have multiple names, the FHIRPath statement ``name.given`` will actually produce an array. In many cases you do not want an array as a result value. To fix that, you can either take only the first (``name.given[0]``) or do a join between the ``Patient`` and the array of ``given``:
 
 .. code:: sql
 
@@ -582,16 +582,16 @@ This results in the following structure:
                id
                profile
 
-When you define a named group, you can nest to any depth. Your 'position' in the resource you are getting data from will not change, so with this example you still access fields from the root of the resource. To descend into the resource, use a FhirPath expression, a ``for`` clause, or a grouped unwrap.
+When you define a named group, you can nest to any depth. Your 'position' in the resource you are getting data from will not change, so with this example you still access fields from the root of the resource. To descend into the resource, use a FHIRPath expression, a ``for`` clause, or a grouped unwrap.
 
 .. _fql_fhirpath:
 
-FhirPath
+FHIRPath
 --------
 
-FhirPath is a fundamental part of FQL. As you might have read, FQL is a combination of the power of SQL, JSON and FhirPath. But it is FhirPath that gets the values out of your data.
+FHIRPath is a fundamental part of FQL. As you might have read, FQL is a combination of the power of SQL, JSON and FHIRPath. But it is FHIRPath that gets the values out of your data.
 
-Whenever you select fields in FQL, you do that with FhirPath. In the following statement you see, with gradually increasing complexity, how values are extracted from a resource:
+Whenever you select fields in FQL, you do that with FHIRPath. In the following statement you see, with gradually increasing complexity, how values are extracted from a resource:
 
 .. code:: sql
 
@@ -604,7 +604,7 @@ Whenever you select fields in FQL, you do that with FhirPath. In the following s
 
        identifier { system, value }
 
-The FhirPath expressions in the above FQL query are:
+The FHIRPath expressions in the above FQL query are:
 
 ::
 
@@ -621,18 +621,18 @@ And for the last line there are actually three:
    system
    value
 
-The following sections describe how FhirPath works and how you can apply it.
+The following sections describe how FHIRPath works and how you can apply it.
 
 Dot notation
 ~~~~~~~~~~~~
 
-FQL is all about getting data from the inside of a tree structure into a new form, most of all table form, and it uses the power of FhirPath to do that. FhirPath is a language developed as part of the FHIR standard to get values out of FHIR resources, and FHIR resources are trees.
+FQL is all about getting data from the inside of a tree structure into a new form, most of all table form, and it uses the power of FHIRPath to do that. FHIRPath is a language developed as part of the FHIR standard to get values out of FHIR resources, and FHIR resources are trees.
 
-**Descending**: FhirPath uses a syntax common to many programming languages: it uses dots to drill into (descend into) a structure. The official term for this is dereferencing. The statement ``Patient.name.given`` drills from the root of the tree, the ``Patient``, into the ``name`` of the patient, and after that into the given part of the name.
+**Descending**: FHIRPath uses a syntax common to many programming languages: it uses dots to drill into (descend into) a structure. The official term for this is dereferencing. The statement ``Patient.name.given`` drills from the root of the tree, the ``Patient``, into the ``name`` of the patient, and after that into the given part of the name.
 
 **Multiple branches**: since each descent can result in more than one branch (a patient can have more than one name), each descent leads to more values. So ``Patient.name`` gives you back all the names of the patient, ``name.given`` gives you back all given names of the patient's name, and ``Patient.name.given`` gives you all givens of all names of the patient.
 
-**Optional resource name**: in any FhirPath statement it is optional to add the root of the path, the resource name. So the following statements produce the same outcome:
+**Optional resource name**: in any FHIRPath statement it is optional to add the root of the path, the resource name. So the following statements produce the same outcome:
 
 ::
 
@@ -646,7 +646,7 @@ Just as the dot notation gives you all branches that match the name after the do
 
 **Zero is first**: in the world of computer languages, we refer to the first element in any collection as element zero. If you find this confusing, think of your age. In the first year of your life your age is zero. The moment you become one is when year zero has ended. That is how we look at indexes too.
 
-**Providing an index**: in FhirPath you can describe which element you want in a collection by using square brackets. So the first name of a patient is ``Patient.name[0]``, and the first given name of that first name is:
+**Providing an index**: in FHIRPath you can describe which element you want in a collection by using square brackets. So the first name of a patient is ``Patient.name[0]``, and the first given name of that first name is:
 
 ::
 
@@ -655,9 +655,9 @@ Just as the dot notation gives you all branches that match the name after the do
 Functions
 ~~~~~~~~~
 
-Once you have a value, or a collection of values, you often want to do something more specific with it. So, besides getting data out of a resource, you might also want to change that data. For that, FhirPath has the concept of functions. Sometimes a function just limits the data you get, but often it helps you change it or tells you something about that data.
+Once you have a value, or a collection of values, you often want to do something more specific with it. So, besides getting data out of a resource, you might also want to change that data. For that, FHIRPath has the concept of functions. Sometimes a function just limits the data you get, but often it helps you change it or tells you something about that data.
 
-A function is called by using a dot after a FhirPath field name, followed by two round brackets ``(`` and ``)``. Between those brackets you might have to provide some additional information, depending on the function.
+A function is called by using a dot after a FHIRPath field name, followed by two round brackets ``(`` and ``)``. Between those brackets you might have to provide some additional information, depending on the function.
 
 **The exists() function**: ``exists()`` tells you whether the value you are looking for is actually there. If it is, the function gives back ``True``; otherwise ``False``. So the following expression checks whether a patient record has a birthDate:
 
@@ -683,7 +683,7 @@ The expression ``Patient.name.given.count()`` will return the value ``4``.
 
    Patient.telecom.exists(system = 'phone')
 
-**Evaluation**: since the primary design goal for FhirPath was validation (expressing how a resource *should* look), there are a lot of functions that tell you whether something is true.
+**Evaluation**: since the primary design goal for FHIRPath was validation (expressing how a resource *should* look), there are a lot of functions that tell you whether something is true.
 
 Comparison expressions
 ~~~~~~~~~~~~~~~~~~~~~~

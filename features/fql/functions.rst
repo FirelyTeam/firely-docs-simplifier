@@ -3,7 +3,7 @@
 Functions
 =========
 
-FQL ships with a few FhirPath functions that are specifically created and tailored to FQL. They are part of the FQL core infrastructure, so you can use them wherever you use FQL. This page describes two of them: the :ref:`link function <fql_functions_link>` and the :ref:`fields function <fql_functions_fields>`.
+FQL ships with a few FHIRPath functions that are specifically created and tailored to FQL. They are part of the FQL core infrastructure, so you can use them wherever you use FQL. This page describes two of them: the :ref:`link function <fql_functions_link>` and the :ref:`fields function <fql_functions_fields>`.
 
 .. _fql_functions_link:
 

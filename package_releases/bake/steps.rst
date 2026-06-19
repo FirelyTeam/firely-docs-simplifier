@@ -39,7 +39,7 @@ The ``files`` filter accepts a file pattern as configuration. Any file that matc
 Filter
 ~~~~~~
 
-The ``filter`` command accepts a FhirPath predicate to filter files. Any file that contains a resource matching the predicate is passed through.
+The ``filter`` command accepts a FHIRPath predicate to filter files. Any file that contains a resource matching the predicate is passed through.
 
 ::
 

@@ -4,7 +4,7 @@ Introduction
 What is FQL
 -----------
 
-FQL is a query language that allows you to retrieve, filter and project data from any data source containing FHIR Resources. It brings the power of three existing languages: **SQL, JSON and FhirPath**. The primary use case for FQL is to provide users who write Implementation Guides in Simplifier with a tool to generate up-to-date tables of data that can only be found inside resources.
+FQL is a query language that allows you to retrieve, filter and project data from any data source containing FHIR Resources. It brings the power of three existing languages: **SQL, JSON and FHIRPath**. The primary use case for FQL is to provide users who write Implementation Guides in Simplifier with a tool to generate up-to-date tables of data that can only be found inside resources.
 To execute an FQL query in your documentation, use the ``<fql>`` tag. This XML-based syntax allows for better integration with Simplifier's advanced rendering features.
 
 **Basic Usage:**
@@ -31,13 +31,13 @@ FQL is designed to give as much power to the user as possible without bringing c
 Built on familiar languages
 ---------------------------
 
-FQL borrows from and merges two well known and widely adopted languages, SQL and JSON, and uses FhirPath to fill the functional gaps. FhirPath is very effective at solving the more complex problems, while its simplest form stays compatible with SQL and JSON.
+FQL borrows from and merges two well known and widely adopted languages, SQL and JSON, and uses FHIRPath to fill the functional gaps. FHIRPath is very effective at solving the more complex problems, while its simplest form stays compatible with SQL and JSON.
 
-**SQL** is generally much easier to learn than languages like GraphQL or CQL, and is the simplest way to instruct a data source to start providing data. FQL adopts much of SQL's basic paradigm. SQL is limited in two areas, though: querying non-tabular data (for that gap we use FhirPath) and structuring non-tabular data (for that gap we use JSON).
+**SQL** is generally much easier to learn than languages like GraphQL or CQL, and is the simplest way to instruct a data source to start providing data. FQL adopts much of SQL's basic paradigm. SQL is limited in two areas, though: querying non-tabular data (for that gap we use FHIRPath) and structuring non-tabular data (for that gap we use JSON).
 
 **JSON** is powerful, terse and expressive in defining structures. In FQL you can use JSON-like structures in any select clause, though we use the original JSON without names in quotes, to more closely match SQL.
 
-**FhirPath** is expressive and terse in drilling into tree structures. Every expression in FQL, for example in the where clause, is a FhirPath expression. Every field is also a FhirPath statement, as long as it is in a 'path'-like form. If you use the JSON format of first defining a field name, you can use a full FhirPath expression as the value.
+**FHIRPath** is expressive and terse in drilling into tree structures. Every expression in FQL, for example in the where clause, is a FHIRPath expression. Every field is also a FHIRPath statement, as long as it is in a 'path'-like form. If you use the JSON format of first defining a field name, you can use a full FHIRPath expression as the value.
 
 Multi-source paradigm
 ---------------------

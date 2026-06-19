@@ -144,7 +144,7 @@ Here you can select one of the custom workflows of your organization to use it i
 
 Metadata Expressions
 --------------------
-Here you can define how to extract metadata, like title, URL key, filename/path from a resource using FhirPath. For more information also take a look at :ref:`Metadata Expressions. <Metadata_Expressions>`
+Here you can define how to extract metadata, like title, URL key, filename/path from a resource using FHIRPath. For more information also take a look at :ref:`Metadata Expressions. <Metadata_Expressions>`
 
 .. _Canonical_Claims:
 

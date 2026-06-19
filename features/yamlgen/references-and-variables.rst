@@ -48,10 +48,10 @@ which results in:
    Patient/example:
        name.given: $lastname[#]
 
-FhirPath
+FHIRPath
 --------
 
-You can also integrate FhirPath when you create examples. Use FhirPath in any value by enclosing it with ``<< >>``:
+You can also integrate FHIRPath when you create examples. Use FHIRPath in any value by enclosing it with ``<< >>``:
 
 ::
 

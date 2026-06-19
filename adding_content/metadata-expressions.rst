@@ -15,12 +15,12 @@ The metadata expressions editor enables you to define what Simplifier should dis
 
     The most important metadata fields for a resource you can set with metadata expressions: (1) the UrlKey, (2) the Title and (3) the Description.
 
-When editing the metadata expressions you will have access to the default expressions used by Simplifier. If your FhirPath expressions are missing, are not correct or the value extracted is empty, Simplifier will fall back to the default expressions. If a default expression is not able to provide a value, a generic text based on the resource type will be used. Workflow and FilePath don't have a default expression. For FilePath in this case, if the extracted value is empty or missing, the fallback will be the original/generated filepath of the uploaded file.
+When editing the metadata expressions you will have access to the default expressions used by Simplifier. If your FHIRPath expressions are missing, are not correct or the value extracted is empty, Simplifier will fall back to the default expressions. If a default expression is not able to provide a value, a generic text based on the resource type will be used. Workflow and FilePath don't have a default expression. For FilePath in this case, if the extracted value is empty or missing, the fallback will be the original/generated filepath of the uploaded file.
 
-As a convention, you must specify the resource type followed by the property (Title, Description, UrlKey, Workflow or FilePath) with a semicolon and the FhirPath expression based on which we extract the value.
+As a convention, you must specify the resource type followed by the property (Title, Description, UrlKey, Workflow or FilePath) with a semicolon and the FHIRPath expression based on which we extract the value.
 
 .. tip::
-  For more information on how to use FhirPath, visit the following link to the FhirPath specification: http://hl7.org/fhirpath/
+  For more information on how to use FHIRPath, visit the following link to the FHIRPath specification: http://hl7.org/fhirpath/
 
 Title and Description
 ---------------------
@@ -33,7 +33,7 @@ Example:
    Patient.Title: identifier
    Patient.Description: name.family
 
-Note that in this example, identifier and name.family are both collections that could contain more than one item. By default Simplifier only takes the first item of a collection. We built a custom FhirPath function to concatenate multiple items called ``glue()``. The items are separated by the argument that is passed to this function.
+Note that in this example, identifier and name.family are both collections that could contain more than one item. By default Simplifier only takes the first item of a collection. We built a custom FHIRPath function to concatenate multiple items called ``glue()``. The items are separated by the argument that is passed to this function.
 
 Example:
 
@@ -53,7 +53,7 @@ Note that the ``|`` character usually functions as an ``OR`` operator, as Simpli
 
        Organization.Title: name | identifier[0].value
 
-In some cases, you may want to select the first item of a collection yourself. For example, when you want to add additional text as well. In this situation, you could also use the ``first()`` function that is available in FhirPath.
+In some cases, you may want to select the first item of a collection yourself. For example, when you want to add additional text as well. In this situation, you could also use the ``first()`` function that is available in FHIRPath.
 
 Example:
 
@@ -71,12 +71,12 @@ FilePath
 Special attention must be paid to the FilePath property. Since the filepath of the file is used for matching files in Simplifier, uniqueness is necessary. The extracted value for FilePath using the metadata expression must be unique within the project. Otherwise, a default fallback will be used or a new filepath will be generated.
 
 .. warning::
-   In case the project is linked to a Github repository and there is a FhirPath expression specified for FilePath in the metadata expressions screen, the resulting value must match the filepath of the file in Github. If the filepath doesn't match, the link is broken and the file will not be synced anymore.
+   In case the project is linked to a Github repository and there is a FHIRPath expression specified for FilePath in the metadata expressions screen, the resulting value must match the filepath of the file in Github. If the filepath doesn't match, the link is broken and the file will not be synced anymore.
 
 
 Workflow
 --------
-The Workflow property is populated using a FhirPath expression for extracting a value from the extension of the resource. The extracted workflow key will be used to identify the corresponding workflow status from the custom workflow selected within the project in Simplifier.
+The Workflow property is populated using a FHIRPath expression for extracting a value from the extension of the resource. The extracted workflow key will be used to identify the corresponding workflow status from the custom workflow selected within the project in Simplifier.
 
 Example:
 
@@ -86,7 +86,7 @@ Example:
 
 Extras
 ------
-When a property (Title, Description, UrlKey, Workflow or FilePath) should use the same FhirPath expression for all resource types, the generic Resource can be used.
+When a property (Title, Description, UrlKey, Workflow or FilePath) should use the same FHIRPath expression for all resource types, the generic Resource can be used.
 
 Example:
 

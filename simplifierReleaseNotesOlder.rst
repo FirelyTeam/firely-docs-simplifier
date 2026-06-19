@@ -40,7 +40,7 @@ Other Enhancements
 
 -  **YamlGen**: Now generates random content for backbone elements.
 -  **FQL**: Can now filter on categories "Profile", "Example", "Extension".
--  FQL syntax update: Correctly parses the FhirPath expression ``(<expression>).not()``.
+-  FQL syntax update: Correctly parses the FHIRPath expression ``(<expression>).not()``.
 -  Numerous textual improvements and fixes.
 -  Guides markdown frontmatter (YAML) IntelliSense: Typing `canonical:` will trigger autocomplete for the canonical URLs in scope.
 -  Improved package publication, allowing users to upload/publish packages directly through the Simplifier API.
@@ -284,7 +284,7 @@ Features
       - Reduced memory footprint of FQL queries, by releasing data sooner
       - We make use of .NET7 improvements and EF7 bulk features
 #. Packages: packages now have an administrative menu.
-#. Playgrounds: We have improved the playground user interface for FQL, PlantUML, YamlGen and FhirPath. Also, we have a new system for sharing playground scripts and results with shorter links that no longer break when scripts are too long.
+#. Playgrounds: We have improved the playground user interface for FQL, PlantUML, YamlGen and FHIRPath. Also, we have a new system for sharing playground scripts and results with shorter links that no longer break when scripts are too long.
 
 
 Release 30.3.0, March 29th, 2023
@@ -330,7 +330,7 @@ Features
         - You can now include functions in YAMLGen
         - Tree variables are  now allowed.
 
-#. FhirPath playground: The FHIRPath playground now has an improved user interface.
+#. FHIRPath playground: The FHIRPath playground now has an improved user interface.
 
 
 Bugfixes
@@ -363,7 +363,7 @@ Features
 Bugfixes
 ~~~~~~~~
 
-#. Firely server: In the previous version of simplifier.net users with MAC OS experienced that after trying to download and run the project as a FHIR server in Docker, the CapabilityStatement of Firely server was not loading correctly on first try. This issue was caused by the Windows OS specific seperators in the Powershell scripts that are downloaded when pressing the yellow download button. This issue is now fixed and users should be able to succesfully try out Firely server via this route on MAC OS, with the CapabilityStatement loeding correctly on first try.
+#. Firely Server: In the previous version of simplifier.net users with MAC OS experienced that after trying to download and run the project as a FHIR server in Docker, the CapabilityStatement of Firely Server was not loading correctly on first try. This issue was caused by the Windows OS specific seperators in the Powershell scripts that are downloaded when pressing the yellow download button. This issue is now fixed and users should be able to succesfully try out Firely Server via this route on MAC OS, with the CapabilityStatement loeding correctly on first try.
 #. IG: the use of multiple pagelinks within one sentence in the IG previously led to rendering issues. This has been fixed and it is now possible to use multiple pagelinks within one sentence without breakage or error.
 
 
