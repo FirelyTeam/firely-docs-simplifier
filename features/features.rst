@@ -14,7 +14,5 @@ Here you will find the documentation of Simplifier's additional features.
   simplifierConnectors
   simplifierEmbeddedRendering
   simplifierDocumentationRedirection
-  bake/bake
   fql/fql
-  simplifierPlantUML
   yamlgen/yamlgen

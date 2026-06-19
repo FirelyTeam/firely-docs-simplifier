@@ -175,5 +175,17 @@ Here below are a couple of examples that you can use to configure the lay-out of
         padding: 0.5em;
     }
 
+Search page
+^^^^^^^^^^^
+
+You can add a search page to your guide using a Google Custom Search Engine. Create one at https://cse.google.com and set your IG's URL as the domain to be searched. Then paste the snippet into a page (replace the ``cx`` value with your own engine id):
+
+.. code:: html
+
+   <script async src="https://cse.google.com/cse.js?cx=YOUR-CSE-ID"></script>
+   <div class="gcse-search"></div>
+
+Results appear once Google has indexed your IG, which can take a little while after you create it.
+
 
 

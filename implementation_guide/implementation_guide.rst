@@ -21,7 +21,9 @@ This pages below will elaborate further on getting started and how you can use t
   :titlesonly:
 
   create_your_first_ig
+  rendering_fhir
+  page_setup
   customize_your_ig
+  simplifierPlantUML
   ig_management
   simplifierPublishedGuides
-  ig_help/ig_help
