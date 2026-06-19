@@ -46,14 +46,92 @@ You can add ``*.rules.yaml`` files to your project. All rules files in the root 
 Default rule series
 -------------------
 
-Simplifier provides three default rule series: free, minimal, and recommended.
+Simplifier provides three default rule series: free, minimal, and recommended. Each series builds on the previous one.
 
 **Free series**: available to all users. It checks whether resources can be parsed as FHIR resources, whether they include an ``.id`` element, and whether a version is set. That last check supports canonical pinning during release (see :ref:`Pinning <qc_fhir-actions>`).
 
-**Minimal series**: a very small set of rules that we know everyone agrees on. The bulk validation rule is included in the minimal series. Bulk validation is one of the most extensive forms of validation, so in that respect the minimal series is not small; it is, however, what the FHIR standard describes that resources should adhere to.
+.. code:: yaml
 
-**Recommended series**: a more opinionated set of rules, of what we believe a FHIR project should conform to. We acknowledge that these are more opinionated, so we separated them. Here you can think of rules like 'every resource should have an id'.
+   - action: parse
+     name: parse-fhir-resources
+     status: "Checking if all FHIR Resource files can be parsed"
+     files:
+       - /**/*.xml
+       - /**/*.json
+       - "!package.json"
+       - "!fhirpkg.lock.json"
 
-.. note::
+   - name: id-mandatory
+     status: "Checking if all resources have an id"
+     predicate: id.exists()
+     error-message: "Resource {{filepath}} must have an id"
 
-   *(migration TODO)* The free, minimal and recommended rule sets are rendered live on Simplifier and are a snapshot in time, subject to change. Review whether to add a static copy or screenshot here.
+   - name: explicit-version
+     predicate: version.exists() = false
+     status: "Checking for resources with an explicit version"
+     severity: info
+     error: EXPLICIT_VERSION
+     error-message: This resource has an explicit version, which Simplifier will not overwrite during package creation. Verify that this version is correct and intentional, as it will differ from the package version.
+
+**Minimal series**: a small set of rules that we know everyone agrees on. It adds bulk validation, which is one of the most extensive forms of validation, so in that respect the minimal series is not small; it is, however, what the FHIR standard describes that resources should adhere to.
+
+.. code:: yaml
+
+   # This is the minimal rule series
+
+   - action: parse
+     name: parse-fhir-resources
+     status: "Checking if all FHIR Resource files can be parsed"
+     files:
+       - /**/*.xml
+       - /**/*.json
+       - "!package.json"
+
+   - name: explicit-version
+     predicate: version.exists() = false
+     status: "Checking for resources with an explicit version"
+     severity: info
+     error: EXPLICIT_VERSION
+     error-message: This resource has an explicit version, which Simplifier will not overwrite during package creation. Verify that this version is correct and intentional, as it will differ from the package version.
+
+   - name: resource-validation
+     status: "Validating resources against the FHIR standard and their profiles"
+     action: validate
+     category: Resource
+     suppress:
+       - 6005
+       - eld-16
+
+   - action: unique
+     name: unique-canonicals
+     status: "Checking if all StructureDefinitions have a unique canonical"
+     category: StructureDefinition
+     unique: url
+
+   - include: manifest
+
+**Recommended series**: a more opinionated set of rules, of what we believe a FHIR project should conform to. We acknowledge that these are more opinionated, so we separated them. It includes the minimal series and adds rules such as the ones below.
+
+.. code:: yaml
+
+   - include: minimal
+
+   - name: no-snapshot
+     status: "Checking that structure definitions do not have a pre-generated snapshot"
+     category: StructureDefinition
+     predicate: snapshot.element.count() = 0
+     error-message: You should not generate a snapshot in your source. Allow consuming tools to generate the snapshot.
+
+   - name: valid-ids
+     status: Check for valid ids
+     predicate: id.matches('^[A-Za-z0-9\-\.]{1,64}$')
+     error-message: The resource must have a valid id
+
+   - name: valid-names
+     category: StructureDefinition
+     predicate: name.contains(' ').not()
+     error-message: The name of a StructureDefinition should not contain spaces
+
+   - name: unique-names
+     category: Conformance
+     unique: name

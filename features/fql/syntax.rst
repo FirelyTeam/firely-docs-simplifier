@@ -302,11 +302,6 @@ The FQL syntax allows you to put JSON blocks almost anywhere in your select stat
        firstname: name.given,
        lastname: name.family
 
-.. note::
-
-   *(migration TODO)* This query was rendered with live results on Simplifier.
-   Consider adding a screenshot of the output table.
-
 Nested values
 ~~~~~~~~~~~~~
 
@@ -501,12 +496,6 @@ This results in one output row *per StructureDefinition*, while the following st
    select
        human
 
-.. note::
-
-   *(migration TODO)* Example output was rendered live on Simplifier:
-   ``from StructureDefinition for snapshot.element.constraint select human take 3``.
-   Consider adding a screenshot of the output table.
-
 In some cases you want to display the array of a single resource as a table. For this purpose a top-level ``for`` clause is also useful: the select field list is grouped as one row with three columns for each page.
 
 .. code:: sql
@@ -518,12 +507,6 @@ In some cases you want to display the array of a single resource as a table. For
        title,
        kind
    }
-
-.. note::
-
-   *(migration TODO)* Example output (top pages from this very Guide) was rendered live on Simplifier:
-   ``from ImplementationGuide for page.page select { source, title, kind }``.
-   Consider adding a screenshot of the output table.
 
 Types
 ~~~~~

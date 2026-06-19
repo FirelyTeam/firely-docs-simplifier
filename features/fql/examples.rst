@@ -31,11 +31,6 @@ Also note that if you move the ``for`` clause to a top-level statement, you will
        greeting: 'Hello ' & given.first() & ' ' & family
    }
 
-.. note::
-
-   *(migration TODO)* This query was rendered with live results on Simplifier.
-   Consider adding a screenshot of the output table.
-
 Profiles in your project
 ------------------------
 
@@ -92,10 +87,6 @@ All Profiles or Examples
    where type != 'Extension'
    select name, description, status
 
-.. note::
-
-   *(migration TODO)* This query was rendered with live results on Simplifier.
-   Consider adding a screenshot of the output table.
 
 **Details from all Extensions**: the same, but for extensions, including the context they apply to.
 
@@ -105,10 +96,6 @@ All Profiles or Examples
    where type = 'Extension'
    select title , description, status, context.expression
 
-.. note::
-
-   *(migration TODO)* This query was rendered with live results on Simplifier.
-   Consider adding a screenshot of the output table.
 
 Finding ValueSet compositions
 -----------------------------
