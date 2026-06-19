@@ -1,5 +1,5 @@
-Simplifier Forge Integration
-----------------------------
+Forge synchronization
+=====================
 
 Simplifier and our datamodelling tool Forge work hand in hand. With our new project synchronization feature this has become even easier. For more information on this feature please see our Forge documentation `here. <https://docs.fire.ly/projects/Forge/features/IntegrationwithSimplifier.html>`_
 
@@ -11,7 +11,7 @@ But there are certainly cases where you can accidentally overwrite each other’
 
 We do keep the history of resources, but first you will have to notice that something got lost.
 
-If you really want great collision detection it is probably best to connect your Simplifier project to a branch of a GitHub repository and collaborate in there: https://docs.fire.ly/projects/Simplifier/simplifierGithub.html. The drawbacks could be:
+If you really want great collision detection it is probably best to connect your Simplifier project to a branch of a GitHub repository and collaborate in there (see :doc:`github`). The drawbacks could be:
 
   - Git can be a bit complicated to work with.
   - The synchronization is one-way, from GitHub to Simplifier. Editing of Implementation Guides currently happens in Simplifier, so whenever you want those changes back to GitHub you will need to synchronise them from Simplifier to your local computer (with Forge or Firely Terminal) and then commit the changes back to GitHub.

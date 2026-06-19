@@ -30,8 +30,10 @@ In addition to the release notes in the :ref:`release notes <release_notes>`. A 
   
   Simplifier Overview <simplifierIntro>
   Starting with Simplifier <getting_started/getting_started>
+  Adding content to your project (sync strategy) <adding_content/adding_content>
   Team and Organization management <administration/administration>
-  Project Governance, Releases, and Quality Control <data_governance_and_quality_control/data_governance_and_quality_control>
+  Quality Control <quality_control/quality_control>
+  Package Releases <package_releases/package_releases>
   Implementation Guide <implementation_guide/implementation_guide>
   Additional features and playgrounds<features/features>
   Dependencies

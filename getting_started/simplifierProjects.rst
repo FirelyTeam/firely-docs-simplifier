@@ -146,9 +146,47 @@ Metadata Expressions
 --------------------
 Here you can define how to extract metadata, like title, URL key, filename/path from a resource using FhirPath. For more information also take a look at :ref:`Metadata Expressions. <Metadata_Expressions>`
 
+.. _Canonical_Claims:
+
 Canonical claims
 ----------------
-Project owners can customize their base canonical URLs to brand their projects. Canonical URLs of resources will only be valid if they match the canonical base URL of their project. For more information see our documentation on :ref:`Canonical Claims. <Canonical_Claims>` 
+Project owners can customize their base canonical URLs to brand their projects. Canonical claims are used and recognized as a certificate, or proof of origin, for your resources: a resource's canonical URL is only valid if it matches a canonical base claimed by the project. You can claim canonicals on a project, package, and resource level.
+
+**On project level**: claim a canonical under the ``Canonical claims`` option in the project Manage dropdown. The Canonical claims page shows the claimed canonicals and the status of each claim.
+
+.. image:: ../images/ClaimedBaseUrl.png
+   :scale: 75%
+
+Claiming a canonical declares ownership of it. If another user disputes your claim and has the legitimate claim, a site admin can set your claim as invalid. Reach out to us if you want to open a dispute about invalid canonical claims.
+
+.. image:: ../images/InvalidClaim.png
+   :scale: 75%
+
+If your project contains resources with a canonical base that is not claimed, Simplifier shows a warning on the Project page, and the ``Canonical claims`` option shows which claims you are missing. This could also indicate that some resources have an unintended canonical (base) URL. You can create custom bulk validation rules to validate your entire project using our :ref:`Quality Control <QC>` feature.
+
+.. image:: ../images/MissingClaims.png
+   :scale: 75%
+
+.. image:: ../images/SuggestedClaims.png
+   :scale: 75%
+
+**In packages**: after a package is created, its canonicals can be managed under the package Administration. The claim statuses are the same as on the project level.
+
+.. image:: ../images/PackageCanonicals.png
+   :scale: 75%
+
+**On a resource level**: every resource shows a status next to its canonical URL indicating whether the base was claimed by the project. The status can be valid, a warning that the base was not claimed, or an error stating the canonical is invalid (for example, when it is already claimed by another organization or user).
+
+.. image:: ../images/ValidResourceCanonical.png
+   :scale: 75%
+
+.. image:: ../images/CanonicalWarning.png
+   :scale: 75%
+
+.. image:: ../images/ResourceInvalid.png
+   :scale: 75%
+
+**Best practice**: when adding canonical claims, we recommend using the longest common denominator. For resources generated from the IG editor, the default canonical base is ``https://simplifier.net/guide``; everyone is allowed to claim this canonical in their projects and packages.
 
 Import log
 ----------
@@ -157,46 +195,6 @@ Use this option to retrieve a log with all uploads to your project.
 Administration
 --------------
 This option is only available for project members with an admin role. Use this option if you want to delete your project or if you want to change its visibility to either public or private.
-
-
-Add resources to your project
-"""""""""""""""""""""""""""""
-On the Resources tab you can find all the Conformance and Example Resources for the project. 
-
-If you have "Write" rights to a project you will see an option to ``Upload`` resources at the top of the Project Page. Here you can choose one of the following options: 
-
-*1. Upload a local file*
-
-The following Upload options are available:
-
-* You can upload **.json** or **.xml**
-* You can upload a single **resource** or multiple in a **bundle**
-* You can upload a **.zip** file containing multiple files
-
-*2. Fetch a resource from another FHIR server*
-
-If you choose to add resources from a FHIR server, you can do a simple GET or a FHIR search. The first will add a single resource, the latter will let you add multiple resources at once. 
-
-Examples:
-
-* To add a Patient resource with id "example" : 
-	``http://example.org/fhir/Patient/example`` 
-* To add all Patient resources that conform to the DAF profile: 
-	``http://example.org/fhir/Patient?profile=http://hl7.org/fhir/StringDefinition/daf-patient``
-
-*3. Copy/Paste json or xml code*
-
-By selecting the Copy/Paste option, you can add your own **json** or **xml** code to add a single resource or a bundle of resources. If your code contains a **bundle**, you can either upload it as a single resource or select the **split bundle** check box to upload all entries as separate resources. 
-
-*Adding multiple resources at once*
-
-If you add a batch of resources (via a bundle, a zip, or a search query), you can choose how to publish the resources that are part of the batch.
-The following options are available:
-
-* Do not publish these resources automatically
-* Publish these resources when their status is "Active" (examples will always be published)
-* Publish all of them
-
 Team Management
 """""""""""""""
 .. important::

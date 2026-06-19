@@ -1,9 +1,9 @@
 .. _package_feeds_technical_reference:
 
-Package Feeds - Technical Reference
-===================================
+Technical reference
+===================
 
-This page contains the technical reference for working with package feeds in Simplifier. If you are new to feeds, start with the :doc:`Getting started guide <simplifierPackageFeeds>`.
+This page contains the technical reference for working with package feeds in Simplifier. If you are new to feeds, start with the :doc:`Getting started guide <getting-started>`.
 
 Feed status
 -----------
@@ -30,7 +30,7 @@ Feed admins can update the title, feed key, and distribution settings after crea
 
 Distribution details are viewable under **Administration > Distribution**, showing only the versions accessible to the current user. Anonymous users see only public versions, while package admins see both public and private versions.
 
-.. image:: ../images/PackageDistribution.png
+.. image:: ../../images/PackageDistribution.png
 
 Deleting a feed
 ~~~~~~~~~~~~~~~
@@ -64,7 +64,7 @@ Requirements:
 
 Set upstream feeds from the **Upstreams** tab on the feed page.
 
-.. image:: ../images/UpstreamFeeds.png
+.. image:: ../../images/UpstreamFeeds.png
 
 Restore behavior by source
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -183,4 +183,4 @@ Cross-team upstream feeds not supported
 
 Setting upstream feeds across different teams is not supported.
 
-New to feeds? Start with the :doc:`Getting started guide <simplifierPackageFeeds>`.
+New to feeds? Start with the :doc:`Getting started guide <getting-started>`.

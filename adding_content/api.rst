@@ -109,7 +109,7 @@ The API for **public FHIR packages** is documented and can be tested directly on
 
 The API for **private FHIR packages** is exactly the same as the public API, but requires authentication. You can use the JWT token you retrieved in the previous section to authenticate your requests. Additionally, it uses the :ref:`package feed <package_feeds>` Urlkey as the base URL for the API, for example ``https://packages.simplifier.net/feeds/mySimplifierPackageFeedUrlkey/`` for a package feed with the URL key ``mySimplifierPackageFeedUrlkey``.
 
-**Note**: It is not possible to create a package using the API. For more information on how to create a package please read our `documentation <../data_governance_and_quality_control/simplifierPackages.html#publish-packages>`_ on packages. 
+**Note**: It is not possible to create a package using the API. For more information on how to create a package please read our `documentation <../package_releases/simplifierPackages.html#publish-packages>`_ on packages. 
 
 NPM compatible endpoint
 =======================

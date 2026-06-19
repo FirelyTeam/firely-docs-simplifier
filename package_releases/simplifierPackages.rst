@@ -1,7 +1,7 @@
 .. _package_management:
 
-Package Releases and Dependencies
-=================================
+Creating and publishing packages
+================================
 
 
 .. important::

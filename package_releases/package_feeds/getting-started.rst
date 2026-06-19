@@ -1,7 +1,5 @@
-.. _package_feeds:
-
-Package Feeds
-=============
+Getting started
+===============
 
 Manage and distribute private FHIR packages with controlled access.
 
@@ -67,7 +65,7 @@ Private feeds can only be used with private projects. If your project is public,
 
 In your project, go to **Manage > Choose Feed**.
 
-.. image:: ../images/ChooseFeed.png
+.. image:: ../../images/ChooseFeed.png
 
 You can select an existing feed or create a new one. When creating a new feed, provide:
 
@@ -77,16 +75,16 @@ You can select an existing feed or create a new one. When creating a new feed, p
 
 After creation, the feed is assigned and visible on your project page.
 
-.. image:: ../images/CreateFeed.png
+.. image:: ../../images/CreateFeed.png
 
-.. image:: ../images/PackageFeed.png
+.. image:: ../../images/PackageFeed.png
 
 3. Run Restore
 ~~~~~~~~~~~~~~
 
 Go to the **Dependencies** tab and run **Restore**.
 
-.. image:: ../images/PackageClosureError.png
+.. image:: ../../images/PackageClosureError.png
 
 This rebuilds the dependency closure using the assigned feed.
 
@@ -115,6 +113,6 @@ Can I use packages from two different feeds?
 Can I make a package public after publishing to a private feed?
   No. Private-to-public promotion is not currently supported.
 
-Need more detail? See the :doc:`Technical reference <simplifierPackageFeedsTechnicalReference>`.
+Need more detail? See the :doc:`Technical reference <technical-reference>`.
 
 
