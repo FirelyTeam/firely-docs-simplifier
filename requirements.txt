@@ -1,3 +1,3 @@
 sphinx-autobuild
 sphinx_rtd_theme
-sphinx-reredirects==0.1.6  # last version supporting RTD's Python 3.7
+sphinx-reredirects
