@@ -1,7 +1,7 @@
 .. _adding_content:
 
-Adding content to your project (sync strategy)
-==============================================
+Adding and syncing content
+==========================
 
 A Simplifier project is, in effect, a small FHIR server. There are several ways to get FHIR content into it, ranging from a one-off manual upload to fully automated synchronization. Pick the approach that fits how your team works:
 

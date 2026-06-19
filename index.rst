@@ -30,7 +30,7 @@ In addition to the release notes in the :ref:`release notes <release_notes>`. A 
   
   Simplifier Overview <simplifierIntro>
   Starting with Simplifier <getting_started/getting_started>
-  Adding content to your project (sync strategy) <adding_content/adding_content>
+  Adding and syncing content <adding_content/adding_content>
   Team and Organization management <administration/administration>
   Quality Control <quality_control/quality_control>
   Package Releases <package_releases/package_releases>
