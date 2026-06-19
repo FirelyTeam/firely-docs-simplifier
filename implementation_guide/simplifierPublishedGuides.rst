@@ -1,31 +1,29 @@
-Published Guides
-----------------
+.. _published_guides:
+
+Publishing your guide
+---------------------
 
 .. important::
 
     This feature is available on all paid plans. `See the pricing page for details. <https://simplifier.net/pricing>`_
 
+By default, a guide is rendered live from its source, so you have a single live version online. **Publishing** a guide creates a versioned *snapshot*: a static version, disconnected from the source. You can publish as many versions as you like, which makes it effortless to keep, for example, a ballotable and a final publication side by side. (If you would rather host the guide yourself, you can still export it as a static website with the Export option.)
 
-Until now a guide was rendered directly from the source. This limited users to only have one live version online. If they wanted more they had to export their guide as a static website. And host it themselves using the Export guide option. 
-With Published guides you can publish a guide in Simplifier as a snapshot (disconnected from the source). These publications are versioned, so you can publish as many as you like. It makes it possible to have ballotable and final publications without effort.
+Publishing a guide goes hand in hand with :ref:`releasing a FHIR package <package_management>`. A typical flow looks like this:
 
-Full process of publishing as we see it:
+#. You keep one editable version of your guide in your project, the head of your development branch (just like your resources).
+#. When you are happy with the conformance resources, you :ref:`release a FHIR package <package_management>`. You then point your editable guide's scope at that released package version and check that everything looks right.
+#. If so, you publish a release of your guide. You can also make it the new default guide, which is where people land when they open the guide URL without a version number (or with ``current``).
+#. You then switch your editable guide's scope back to the project (``current``) and continue editing the next release of both.
 
-* You have (generally) one editable version of your Implementation Guide in your project. This is, just like for the resources, the head of the development branch.
+You may want to keep the guide and package version numbers in sync, but a few things differ between the two release processes:
 
-* Once you're happy with the conformance resources you release a FHIR package.Then you change the scope for your editable IG to the package version you have just released and check if everything looks peachy.
+- The guide version number is currently just a string. We may enforce semver for Simplifier-created guides for consistency.
+- A guide version can be **overwritable** or **read-only** (you can switch a read-only release to overwritable later). Package versions are always final and can only be unlisted. For example:
 
-* If so, you make a release of your Implementation Guide (Publish). You may also want to make it the new default IG (where people go if they have the IG url without a version number or ``current``).
+  - You could spot a typo in a guide release and overwrite it with a new release under the same version number, still pointing at the same package.
+  - You could spot an issue in a released package, release a new package version, and publish a guide whose scope points at the new package, still under the same guide version. This keeps your guide URL and version number stable to share with others.
 
-* Then you switch the scope of your editable IG back to the project (``current``) and edit away on the next release of both.
+The Publish Guide wizard walks you through the options: Public or Private, Read-only or Overwritable, and whether to set the guide as the default. Project admins can change these settings later.
 
-You may want to choose to keep the version numbers between the FHIR package and IG the same, but there are a few nuances differing between their release processes:
-
-* The IG version number is currently just a string. We may choose for Simplifier-created IGs to enforce semver there for consistency.
-  
-* You can choose to make an IG version overwritable (you can also do this after as first publishing as read-only). Package versions are of course final and can only be unlisted.
-
-     * You could for example spot a typo in your IG release and overwrite it with a new IG release (with the same version number still) still pointing to the same package as scope.
-     * You could spot an issue with the released package version, release a new package version (with a new version number) and publish an IG with the scope pointing to the new package version but still under the same IG version. This makes your IG URL/version number also more stable to share with others than a package version number.
-
-The Publish Guide wizard is very self explanatory, you can make your guide Public or Private, Read-only or Overwritable and you can choose to set this guide as the default as mentioned above. Project admins can later make changes to the initial settings. 
+See also :ref:`Package Releases <package_releases>` for publishing and distributing the FHIR packages your guide is built on.
