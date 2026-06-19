@@ -36,7 +36,7 @@ Switch to the ``Files`` tab to see the content of the package.
 .. image:: ../images/PackageFiles.png
    :scale: 75%
 
-If you have a combination of private and public packages in your feeds you can see a full overwiew of your packages in the ``Distribution`` view accessible for package team menbers through the package Administration. 
+If you have a combination of private and public packages in your feeds you can see a full overview of your packages in the ``Distribution`` view accessible for package team members through the package Administration. 
 
 
 .. image:: ../images/PackageDistribution.png
@@ -130,10 +130,10 @@ Below you can find an example of how to use the package.bake.yaml file in your o
 .. code-block:: yaml
 
   # Transform all resources to JSON (Mandatory according to the specification)
-  tranform-to-json:
+  transform-to-json:
     - source: input
     - category: Resource
-    - tranform: json
+    - transform: json
     - target: bucket1
 
   # Generate snapshots for all StructureDefinitions (Optional)

@@ -13,7 +13,7 @@ Welcome to Simplifier's documentation!
 .. image:: ./images/Simplifier-illustration.png
   :align: right
   :width: 250px
-  :alt: Illustration of Simplfier.net
+  :alt: Illustration of Simplifier.net
 
 `Simplifier.net <https://simplifier.net>`_ is a FHIR specification development, collaboration and publishing platform.
 Below you will find the documentation for the platform.

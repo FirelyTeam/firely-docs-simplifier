@@ -66,7 +66,7 @@ On the ``Team`` tab you can find all project members and their role. This tab al
 
 Log
 ---
-On the ``Log`` tab you can see all the changes that have been made to this project in the past. This is a good way to stay in touch with whats happening within your favorite projects. 
+On the ``Log`` tab you can see all the changes that have been made to this project in the past. This is a good way to stay in touch with what's happening within your favorite projects. 
 
 Issues
 ------
@@ -232,7 +232,7 @@ Would you like to capture feedback about your resources from users? The Issue tr
    :scale: 50%
       
 
-There are two additional options that display once you have turned Issue tracking on. You have the option to limit Issue visibility to project members only or make them publicly visible. The issues that are reported by the community can also be limited to be visable to your project members only or visible to the public.
+There are two additional options that display once you have turned Issue tracking on. You have the option to limit Issue visibility to project members only or make them publicly visible. The issues that are reported by the community can also be limited to be visible to your project members only or visible to the public.
 
 These issues can either be reported at resource level or at project level. At the project level you will see issues that are project specific and issues from all resources in that project on the ``Issues`` tab.
 

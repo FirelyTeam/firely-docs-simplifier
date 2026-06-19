@@ -21,7 +21,7 @@ We've introduced new rules and filters to improve quality control:
 -  **manifest**: Evaluates the correctness of ``package.json``.
 -  **dependency**: Provides a full analysis of your dependency closure, including upgrade suggestions.
 
-Here is an example of the new rules for chekcing the package manifest and package dependencies, as part of the minimal validation rules:
+Here is an example of the new rules for checking the package manifest and package dependencies, as part of the minimal validation rules:
 
 .. image:: ./images/DependencyChecking.png
       :alt: Dependency Checking
@@ -184,7 +184,7 @@ Bugfixes
 ~~~~~~~~
 
 #. IG editor: Clicking the Preview button would take you to a different url compared to clicking the hyperlink just below it. This is now fixed.
-#. IG editor: The keyboard shortcut crtl+f2 to ``Change All Occurences`` was not working. This is now fixed.
+#. IG editor: The keyboard shortcut crtl+f2 to ``Change All Occurrences`` was not working. This is now fixed.
 #. IG editor: The expand option would result in an empty tab when working with custom tabs in your IG. It is now possible to use the expand option again and render your trees as expected.
 #. IG editor: Rendering a page using ``{{page:`` or ``{{render:`` that contains a ``{{pagelink:`` gets converted correctly now into an anchor.
 #. IG editor: When copying content from the IG Help pages the content of the original page would be updated with all information of the help page. This is now fixed.
@@ -363,7 +363,7 @@ Features
 Bugfixes
 ~~~~~~~~
 
-#. Firely Server: In the previous version of simplifier.net users with MAC OS experienced that after trying to download and run the project as a FHIR server in Docker, the CapabilityStatement of Firely Server was not loading correctly on first try. This issue was caused by the Windows OS specific seperators in the Powershell scripts that are downloaded when pressing the yellow download button. This issue is now fixed and users should be able to succesfully try out Firely Server via this route on MAC OS, with the CapabilityStatement loeding correctly on first try.
+#. Firely Server: In the previous version of simplifier.net users with MAC OS experienced that after trying to download and run the project as a FHIR server in Docker, the CapabilityStatement of Firely Server was not loading correctly on first try. This issue was caused by the Windows OS specific separators in the Powershell scripts that are downloaded when pressing the yellow download button. This issue is now fixed and users should be able to successfully try out Firely Server via this route on MAC OS, with the CapabilityStatement loeding correctly on first try.
 #. IG: the use of multiple pagelinks within one sentence in the IG previously led to rendering issues. This has been fixed and it is now possible to use multiple pagelinks within one sentence without breakage or error.
 
 
@@ -375,7 +375,7 @@ Features
 
 #. IG editor: You can now switch between pages and files. The layout of the IG editor has been cleaned up and users now have more control over metadata and the configuration files behind the rendering. It is also possible to use PlantUML in the IG now.
 #. Captcha: We added captcha to Simplifier.net.
-#. Index management: We continously work on improving our search, but that often requires re-indexing. Simplifier now has an Index management page, to manage and switch indexes.
+#. Index management: We continuously work on improving our search, but that often requires re-indexing. Simplifier now has an Index management page, to manage and switch indexes.
 #. Cloud upgrade: Simplifier's cloud storage has been upgraded to assure quick rendering and improved user experience.
 #. Zullip: Simplifier now has a bot on `Zulip <https://chat.fhir.org/#narrow/stream/328836-tooling.2FPackage-Crawlers>`_ where we publish the logs of the Package metafeed burner. It is possible to find here if and why a package was not imported.
 

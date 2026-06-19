@@ -46,7 +46,7 @@ Currently we only enabled this for Windows 10, using PowerShell. Later we will a
       
 #. The script will:
 
-   * pull the neccessary images from the Docker hub (vonk-web and vonk-mongo-db)
+   * pull the necessary images from the Docker hub (vonk-web and vonk-mongo-db)
    * start the containers
    * import conformance resources from the specification AND your Simplifier project
    * import the examples from your Simplifier project

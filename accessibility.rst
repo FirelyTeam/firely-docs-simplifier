@@ -354,7 +354,7 @@ Table 1: Success Criteria, Level A
     - Known issues:
     
        * [SIM-1371] Drag and drop for page reordering in IG editor has no keyboard/button alternative
-       * [SIM-1387] Unable to succesfully navigate account avatar with keyboard only
+       * [SIM-1387] Unable to successfully navigate account avatar with keyboard only
 
   * - `2.5.2 Pointer Cancellation`_
       

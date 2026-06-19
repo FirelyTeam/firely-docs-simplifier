@@ -1,7 +1,7 @@
 .. _features:
 
-Aditional features and playgrounds
-==================================
+Additional features and playgrounds
+===================================
 
 Here you will find the documentation of Simplifier's additional features.
 

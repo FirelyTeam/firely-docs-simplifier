@@ -54,16 +54,16 @@ A guide can be copied to the same project or to another project. The ``Target pr
 .. image:: ../images/TargetProject.png
    :scale: 75%
 
-You can now have multiple version of your Implementation Guide live in the same project (or different projects). You could have one IG use a release package as the scope while the development version uses the live developement version of your project. 
+You can now have multiple version of your Implementation Guide live in the same project (or different projects). You could have one IG use a release package as the scope while the development version uses the live development version of your project. 
 
 .. _ig_convert:
 
-Convert guide.yaml to a Simplifier webbased IG.
------------------------------------------------
+Convert guide.yaml to a Simplifier web-based IG.
+------------------------------------------------
 
 Sometimes you see an implementation guide on Simplifier that just simply blows you away and you want to see how this has been created. Luckily, you can create a copy of those guides in a project of your own and take a look at their IG editor content. 
 
-Guides created after August 2021 are stored in the new folder based storing way. These implementation guides can still be converted to a Simplifier webbased IG in a (private) project using the guide.yaml file. 
+Guides created after August 2021 are stored in the new folder based storing way. These implementation guides can still be converted to a Simplifier web-based IG in a (private) project using the guide.yaml file. 
 
 Please follow these steps to create your own edition of a Simplifier IG. 
 
@@ -81,14 +81,14 @@ Please follow these steps to create your own edition of a Simplifier IG.
 
 7. Wait for the IG to be created and you are good to go. 
 
-Convert ImplementationGuide resource to a Simplifier webbased IG
-----------------------------------------------------------------
+Convert ImplementationGuide resource to a Simplifier web-based IG
+-----------------------------------------------------------------
 
 .. important::
 
     This feature only works for Legacy guides in order to ensure backwards compabibility and will therefore create a guide in the legacy way of Markdown files.
 
-An ImplementationGuide resource can be converted to a Simplifier webbased IG. This comes in handy if you for example accidently deleted your IG or if you want to duplicate your IG in another project.
+An ImplementationGuide resource can be converted to a Simplifier web-based IG. This comes in handy if you for example accidentally deleted your IG or if you want to duplicate your IG in another project.
 
 - Make sure that the project contains the ImplementationGuide resource and all the belonging content (.md pages, images, etc.)
 

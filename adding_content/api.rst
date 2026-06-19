@@ -81,9 +81,9 @@ Basic Auth directly. However, going forward we recommend the JWT authentication 
 Features API
 """"""""""""
 
-The Simplifier Features API allows you to retrieve feautures for your account on the
-platform, like the feautures your plan gives you access to, the projects you have 
-accesss to and the files within them.
+The Simplifier Features API allows you to retrieve features for your account on the
+platform, like the features your plan gives you access to, the projects you have 
+access to and the files within them.
 
 The currently supported calls include:
 
