@@ -18,7 +18,7 @@
 # -- Project information -----------------------------------------------------
 
 project = 'Simplifier.net'
-copyright = '2024, Firely'
+copyright = '2026, Firely'
 author = 'Firely'
 
 # -- General configuration ---------------------------------------------------
@@ -28,6 +28,7 @@ author = 'Firely'
 # ones.
 extensions = [
     'sphinx.ext.intersphinx',
+    'sphinx_reredirects',
 ]
 
 intersphinx_mapping = {
@@ -37,6 +38,38 @@ intersphinx_mapping = {
     'firely_net_sdk_docs': ('https://docs.fire.ly/projects/Firely-NET-SDK/en/latest/', None),
     'firely_server_docs': ('https://docs.fire.ly/projects/Firely-Server/en/latest/', None)
     }
+
+# -- Redirects for the docs restructure (sphinx-reredirects) ----------------
+# Maps OLD docname (deleted/moved) -> NEW docname (no .rst, no .html).
+# Relative redirect URLs are computed below so we don't hand-count "../".
+import posixpath
+
+_redirect_moves = {
+    # --- git-detected renames (high confidence) ---
+    "features/YAMLGen": "features/yamlgen/yamlgenplayground",
+    "features/simplifierFQL": "features/fql/simplifierFQLPlayground",
+    "features/api": "adding_content/api",
+    "features/simplifierPlantUML": "implementation_guide/simplifierPlantUML",
+    "data_governance_and_quality_control/simplifierForgeIntegration": "adding_content/forge",
+    "data_governance_and_quality_control/simplifierGithub": "adding_content/github",
+    "data_governance_and_quality_control/simplifierBrowse": "getting_started/simplifierBrowse",
+    "data_governance_and_quality_control/simplifierPackages": "package_releases/simplifierPackages",
+    "data_governance_and_quality_control/simplifierPackageCreationCheck": "package_releases/simplifierPackageCreationCheck",
+    "data_governance_and_quality_control/simplifierPackageFeeds": "package_releases/package_feeds/getting-started",
+    "data_governance_and_quality_control/simplifierPackageFeedsTechnicalReference": "package_releases/package_feeds/technical-reference",
+    "data_governance_and_quality_control/simplifierQualityControl": "quality_control/quality_control",
+
+    # --- mapped by hand from content (LOWER confidence — review these) ---
+    # Section landing page was dissolved; pointing at the closest successor.
+    "data_governance_and_quality_control/data_governance_and_quality_control": "package_releases/package_releases",
+    "data_governance_and_quality_control/simplifierCanonicalClaims": "getting_started/simplifierProjects.html#canonical-claims",
+
+}
+
+redirects = {
+    old: posixpath.relpath(new, posixpath.dirname(old)) + ".html"
+    for old, new in _redirect_moves.items()
+}
 
 # Add any paths that contain templates here, relative to this directory.
 templates_path = ['_templates']
