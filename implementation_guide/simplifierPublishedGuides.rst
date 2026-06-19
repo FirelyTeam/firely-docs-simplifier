@@ -3,7 +3,7 @@ Published Guides
 
 .. important::
 
-    `This is a feature for all paid plans <https://simplifier.net/pricing>`_.
+    This feature is available on all paid plans. `See the pricing page for details. <https://simplifier.net/pricing>`_
 
 
 Until now a guide was rendered directly from the source. This limited users to only have one live version online. If they wanted more they had to export their guide as a static website. And host it themselves using the Export guide option. 

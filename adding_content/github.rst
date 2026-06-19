@@ -5,7 +5,7 @@ GitHub integration
 
 .. important::
 
-    `This feature is available from the Team plan and up <https://simplifier.net/pricing>`_.
+    This feature is available from the Team plan and up. `See the pricing page for details. <https://simplifier.net/pricing>`_
 
 The GitHub integration enables you to link Simplier projects to GitHub repositories. When linking the project with the repository, the
 resources from the repository are fetched and added to your Simplifier project. The GitHub integration is part of the paid account plans of Simplifier. This page will elaborate further on how to perform the linking.

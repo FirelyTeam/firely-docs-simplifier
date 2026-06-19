@@ -5,7 +5,7 @@ Team Management
 
 .. important::
 
-  `This feature is available from the Team plan and up <https://simplifier.net/pricing>`_
+  This feature is available from the Team plan and up. `See the pricing page for details. <https://simplifier.net/pricing>`_
 
 In your project, the license holder and Admin users can add more Team members. Under the ``Team`` tab you can add more Team members by inviting them by entering a valid emailaddress. 
 

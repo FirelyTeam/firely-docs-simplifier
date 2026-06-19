@@ -5,7 +5,7 @@ Projects
 
 .. important::
 
-    `Private and multiple projects are available from the Professional plan and up <https://simplifier.net/pricing>`_.
+    Private and multiple projects are available from the Professional plan and up. `See the pricing page for details. <https://simplifier.net/pricing>`_
 
 Simplifier organizes all content (e.g. resources and Implementation Guides) in projects. A project can be used to share all your FHIR resources and documentation with the community as well as to collaborate with other project members.
 
@@ -199,7 +199,7 @@ Team Management
 """""""""""""""
 .. important::
 
-    `From the Team plan and up, you are allowed to work with multiple users on a project <https://simplifier.net/pricing>`_.
+    Working with multiple users on a project is available from the Team plan and up. `See the pricing page for details. <https://simplifier.net/pricing>`_
 
 The ``Teams`` tab displays a list of all the members with rights to that project. In this section you can invite Simplifier and non-Simplifier members to your project by clicking the ``Invite User`` button and typing in an emailaddress. For more information on Team Management please look at our :ref:`Team Management page <Team_Management>`.
 
@@ -224,7 +224,7 @@ Issue Tracker
 
 .. important::
 
-    `Issue tracking is available from the Team plan and up, collecting public feedback comes with the Enterprise plan. <https://simplifier.net/pricing>`_
+    Issue tracking is available from the Team plan and up; collecting public feedback comes with the Enterprise plan. `See the pricing page for details. <https://simplifier.net/pricing>`_
 
 Would you like to capture feedback about your resources from users? The Issue tracker option is a great way to do this. If you go to the ``Settings`` dropdown menu and then select ``Properties``. You will see the option to Enable Issues at the bottom of your screen. By selecting the On option, you enable the issue tracking feature of your project.
 

@@ -3,7 +3,7 @@ Customizable IG design
 
 .. important::
 
-    `This feature is available from the Team plan and up <https://simplifier.net/pricing>`_.
+    This feature is available from the Team plan and up. `See the pricing page for details. <https://simplifier.net/pricing>`_
 
 
 

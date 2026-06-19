@@ -32,7 +32,7 @@ Export your IG
 
 .. important::
 
-    `This feature is available from the Professional plan and up <https://simplifier.net/pricing>`_.
+    This feature is available from the Professional plan and up. `See the pricing page for details. <https://simplifier.net/pricing>`_
 
 To use your IG outside of Simplifier, click on the Export button next to your IG in the Guides section of your project. 
 
