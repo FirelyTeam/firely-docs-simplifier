@@ -71,7 +71,7 @@ FilePath
 Special attention must be paid to the FilePath property. Since the filepath of the file is used for matching files in Simplifier, uniqueness is necessary. The extracted value for FilePath using the metadata expression must be unique within the project. Otherwise, a default fallback will be used or a new filepath will be generated.
 
 .. warning::
-   In case the project is linked to a Github repository and there is a FHIRPath expression specified for FilePath in the metadata expressions screen, the resulting value must match the filepath of the file in Github. If the filepath doesn't match, the link is broken and the file will not be synced anymore.
+   In case the project is linked to a GitHub repository and there is a FHIRPath expression specified for FilePath in the metadata expressions screen, the resulting value must match the filepath of the file in GitHub. If the filepath doesn't match, the link is broken and the file will not be synced anymore.
 
 
 Workflow

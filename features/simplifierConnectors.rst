@@ -34,12 +34,12 @@ To create a connector your own personal use or for publication and use by others
    3.	Click on “Connectors” in the portal menu.
    4.	Click on “Create”.
    5.	Fill in the metadata for your connector under the "Properties" tab.
-   6.	Use the “Script Editor” tab to write the actual script. **Note:** You have to write your script using Javascript. 
+   6.	Use the “Script Editor” tab to write the actual script. **Note:** You have to write your script using JavaScript. 
 
 
       Example: 
 
-      .. code-block:: Javascript
+      .. code-block:: JavaScript
 
        // trivial connector that redirects the webpage to example.com with a parameter to the resource
        // the connector was used with
@@ -53,7 +53,7 @@ To create a connector your own personal use or for publication and use by others
 Available libraries
 -------------------
 
-There are several things that you will likely do when you write a connector script. And to make this as easy as possible, your script will have access to the following Javascript libraries:
+There are several things that you will likely do when you write a connector script. And to make this as easy as possible, your script will have access to the following JavaScript libraries:
 
 	- JQuery 2.1.1
 	- JQuery.Redirect 1.0.1
@@ -67,14 +67,14 @@ To perform actual FHIR requests, you have access to several methods and variable
 fhirServer
 	Wrapper of the `fhir.js <https://github.com/FHIR/fhir.js>`_ client with a jQuery adapter. You will instantiate a new client by providing the base url and you will have access to all the functionality provided by fhir.js with an embedded jQuery adapter (which is required by the plain fhir.js constructor). For example: 
 	
-	.. code-block:: Javascript
+	.. code-block:: JavaScript
 	
 		var client = fhirServer("www.example.com");
 	
 simplifier
 	This is a ready to use fhir.js client that connects to Simplifier. When your connector is executed by a user, they will do that from the page that shows a resource. The FHIR endpoint of that resource can be accessed in the following manner:
 	
-	.. code-block:: Javascript
+	.. code-block:: JavaScript
 	
 		simplifier.ResourceEndpoint // contains the URL the resource is accessible at
 	
@@ -82,14 +82,14 @@ simplifier
 	
 	You will also have access to the resource itself in JSON or XML in case of post calls to another server.
 	
-	.. code-block:: Javascript
+	.. code-block:: JavaScript
 	
 		simplifier.ResourceJson // contains the JSON of the resource
 		simplifier.ResourceXml  // contains the XML of the resource
 		
 	Since in essence it is a fhir.js client, the simplifier client also exposes all other methods from in fhir.js like:
 	
-	.. code-block:: Javascript
+	.. code-block:: JavaScript
 	
 			simplifier.read(...)
 			
@@ -100,7 +100,7 @@ returnUrl
 $.get()
 	JQuery's AJAX function to fetch data from a server:
 
-	.. code-block:: Javascript
+	.. code-block:: JavaScript
 	
 		$.get(url).success(function()
 		{
@@ -111,7 +111,7 @@ $.get()
 $.post()
 	JQuery's AJAX function to post data to a server:
 	
-	.. code-block:: Javascript
+	.. code-block:: JavaScript
 	
 		$.post(url, body).success(function()
 		{
@@ -122,7 +122,7 @@ $.post()
 $.redirect()
 	Simplifier's addition to JQuery to do a POST redirect to a webpage with a payload:
 
-	.. code-block:: Javascript
+	.. code-block:: JavaScript
 	
 		$.redirect(url, body);
 
@@ -132,14 +132,14 @@ There are two categories of read-only connectors: ones that redirect and ones th
 
 Read-only connectors supply data to an external service but the service doesn't write back to Simplifier, example:
 
-	.. code-block:: Javascript
+	.. code-block:: JavaScript
 	
 	        // a simple redirect that provides the target location with the resource endpoint of the current page.
 		window.location.href = "https://fhir-formats.github.io/index.html?loadResource="+simplifier.ResourceEndpoint;
 	
 AJAX connectors run a query on an external server and can use Simplifier to render the result as an OperationOutcome:
 
-	.. code-block:: Javascript
+	.. code-block:: JavaScript
 	
             // sample connector that validates the patient resource
             // and uses Simplifier to render the outcome

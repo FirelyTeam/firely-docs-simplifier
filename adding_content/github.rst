@@ -43,13 +43,13 @@ GitHub Sync enables you to synchronize your Simplifier project with the linked G
 
 GitHub UpSync
 -------------
-It is not possible to upsync to Github directly. A workaround would be to sync your Simplifier work with your local folder using Forge or Firely Terminal and then commit that to Github. 
+It is not possible to upsync to GitHub directly. A workaround would be to sync your Simplifier work with your local folder using Forge or Firely Terminal and then commit that to GitHub. 
 
 .. _gh_include:
 
 GitHub Include/Exclude
 ----------------------
-The include/exclude feature allows users to specify the folders or file types that should be fetched from GitHub into Simplifier. This also applies to the folders or file types that you would like to be excluded from the import. You are able to specify these rules right after the initial link to the repository, before the initial import or later by accessing the ``Settings`` option from the ``Github`` dropdown menu on the project page.
+The include/exclude feature allows users to specify the folders or file types that should be fetched from GitHub into Simplifier. This also applies to the folders or file types that you would like to be excluded from the import. You are able to specify these rules right after the initial link to the repository, before the initial import or later by accessing the ``Settings`` option from the ``GitHub`` dropdown menu on the project page.
 By default, everything is included. If include statements are added then everything else (not included in your include statement) will be excluded by default. Simplifier only imports xml, json, images, and markdown file types. Comments are also supported using the "#" character.
 The syntax is the following:
 
@@ -127,7 +127,7 @@ From now on, you can edit the guide.yaml and the IG pages from within your GitHu
 
 .. _gh_rights:
 
-Github Rights explanation
+GitHub Rights explanation
 -------------------------
 
 An overview of the process:

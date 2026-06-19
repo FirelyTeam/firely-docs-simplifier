@@ -27,7 +27,7 @@ General notes
   our users in creating accessible content, the flexibility of the platform requires users to
   check their own generated content for accessibility.
 
-* The tree rendering of FHIR resources can be navigated by keyboard when Javascript is enabled:
+* The tree rendering of FHIR resources can be navigated by keyboard when JavaScript is enabled:
   
   - Tab until the full tree is selected.
   - Then navigate the three rows with the up and down arrows. When using a screen reader this

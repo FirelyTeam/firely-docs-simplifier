@@ -45,7 +45,7 @@ You can place the ``$auto`` pseudo-field on any level that is not an actual valu
 - **example**: takes example values from the profile
 - **random**: generates random values
 - **fixed**: puts the fixed values from the profile
-- **code**: fills in a random code from the referenced valueset or codesystem
+- **code**: fills in a random code from the referenced ValueSet or CodeSystem
 - **empty**: generates empty values
 
 They are consumed in order, so you put the ones that always produce a value last. This creates a full example:

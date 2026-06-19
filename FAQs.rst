@@ -17,7 +17,7 @@ This is possible by using `Metadata Expressions <./adding_content/metadata-expre
 Can I sync from Simplifier back to GitHub using Simplifier GitHub Sync?
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-It is only possible to sync from GitHub to Simplifier and not the other way round. A workaround would be to sync your Simplifier work with your local folder using Forge or Firely Terminal and then commit that to Github. 
+It is only possible to sync from GitHub to Simplifier and not the other way round. A workaround would be to sync your Simplifier work with your local folder using Forge or Firely Terminal and then commit that to GitHub. 
 For more information, have a look at our `GitHub Sync documentation <./adding_content/github.html>`_.
 
 Does Simplifier support Custom Resources?

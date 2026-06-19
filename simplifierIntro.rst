@@ -51,7 +51,7 @@ Quick Navigation
 
 - `I want to create a project in Simplifier <./getting_started/simplifierProjects.html>`_
 - `I want to create a package using Simplifier <./package_releases/simplifierPackages.html>`_
-- `I want to use Simplifier in combination with Github <./adding_content/github.html>`_
+- `I want to use Simplifier in combination with GitHub <./adding_content/github.html>`_
 - `I want to load my Simplifier resources in Firely Server <./features/simplifierFirely-server.html>`_
 - `I want to query FHIR resources <./features/fql/simplifierFQLPlayground.html>`_
 - `I want to create an implementation guide for my project <./implementation_guide/implementation_guide.html>`_

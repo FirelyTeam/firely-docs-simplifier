@@ -60,7 +60,7 @@ If you experience service lags in Simplifier.net, it could be that services are 
 It is also possible to raise an issue from here.
 
 All our tooling is built on top of the official Firely .NET SDK developed and managed by Firely. The `SDK is open source
-and maintained on Github <https://github.com/FirelyTeam/firely-net-sdk/>`_ and `issues are publicly tracked there <https://github.com/FirelyTeam/firely-net-sdk/issues>`_.
+and maintained on GitHub <https://github.com/FirelyTeam/firely-net-sdk/>`_ and `issues are publicly tracked there <https://github.com/FirelyTeam/firely-net-sdk/issues>`_.
 
 HL7 is maintaining a `known issue list for the FHIR specifications on
 their Confluence <https://confluence.hl7.org/display/FHIR/Known+Issues+with+the+published+FHIR+Specifications>`_.
@@ -355,7 +355,7 @@ Features
 #. FHIRPath: A FHIRPath playground is now available at https://simplifier.net/fhirpath
 #. Validator: A validator playground is now available at https://simplifier.net/validator
 #. IG editor: You can now reference resources in your IG using resourceType/ID of the resource. This is helpful for e.g. linking to specific examples.
-#. Github: It is now possible to link multiple projects to one Github repository branch.
+#. GitHub: It is now possible to link multiple projects to one GitHub repository branch.
 #. Reporting issues: The process for submitting issues has been made easier by allowing users that are not yet logged in to see the issue button. Upon clicking the issue button they will be guided to log in.
 #. Packages: Unlisted packages have been made more easily distinguishable.
 #. Beta: The package graph visualisation page is now available for beta users.
