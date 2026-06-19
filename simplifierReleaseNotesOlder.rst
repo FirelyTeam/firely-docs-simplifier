@@ -363,7 +363,7 @@ Features
 Bugfixes
 ~~~~~~~~
 
-#. Firely Server: In the previous version of simplifier.net users with MAC OS experienced that after trying to download and run the project as a FHIR server in Docker, the CapabilityStatement of Firely Server was not loading correctly on first try. This issue was caused by the Windows OS specific separators in the Powershell scripts that are downloaded when pressing the yellow download button. This issue is now fixed and users should be able to successfully try out Firely Server via this route on MAC OS, with the CapabilityStatement loeding correctly on first try.
+#. Firely Server: In the previous version of simplifier.net users with macOS experienced that after trying to download and run the project as a FHIR server in Docker, the CapabilityStatement of Firely Server was not loading correctly on first try. This issue was caused by the Windows OS specific separators in the PowerShell scripts that are downloaded when pressing the yellow download button. This issue is now fixed and users should be able to successfully try out Firely Server via this route on macOS, with the CapabilityStatement loeding correctly on first try.
 #. IG: the use of multiple pagelinks within one sentence in the IG previously led to rendering issues. This has been fixed and it is now possible to use multiple pagelinks within one sentence without breakage or error.
 
 

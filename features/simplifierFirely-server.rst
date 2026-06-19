@@ -12,7 +12,7 @@ We have tried to make that extremely simple for you, using Firely Server. Here i
        <iframe width="560" height="315" src="https://www.youtube.com/embed/FcIgCRO82mI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
     </div>
 
-Currently we only enabled this for Windows 10, using PowerShell. Later we will add support for Linux and/or MacOS.
+Currently we only enabled this for Windows 10, using PowerShell. Later we will add support for Linux and/or macOS.
 
 #. Install `Docker for Windows <https://www.docker.com/get-docker>`_
 #. Start it.
@@ -34,7 +34,7 @@ Currently we only enabled this for Windows 10, using PowerShell. Later we will a
 
 #. Unzip the downloaded file. For this explanation we choose to unzip to ``c:\programs\demo-VonkDockerServer``
 #. Open a PowerShell window
-#. Since we have not (yet) signed the Powershell script that will start the server, you need to temporarily allow execution of downloaded scripts::
+#. Since we have not (yet) signed the PowerShell script that will start the server, you need to temporarily allow execution of downloaded scripts::
 
       Set-ExecutionPolicy -ExecutionPolicy Unrestricted -Scope Process
 
@@ -102,7 +102,7 @@ Configuration checks
 
 Still no luck? Please contact us on server@fire.ly. Please include:
 
-- the output of the Powershell script ./start-firely-server.ps1
+- the output of the PowerShell script ./start-firely-server.ps1
 - version info of Windows
 - version info of Docker for Windows
 - any other information you think is relevant.

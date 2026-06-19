@@ -139,7 +139,7 @@ An overview of the process:
 
 We would strongly prefer to only ask for read-only access on the specific repository you have connected, but this has not been possible with the GitHub API.
 
-The only available Oauth scope to be able to read a private GitHub repository is repo, which indeed also grants us write rights: Scopes for OAuth Apps - GitHub Docs. This is a current limitation.
+The only available OAuth scope to be able to read a private GitHub repository is repo, which indeed also grants us write rights: Scopes for OAuth Apps - GitHub Docs. This is a current limitation.
 
   - One way to limit the scope of access:
       - Create a GitHub user account that only has rights on the GitHub repos and branches that you want Simplifier to be able to access. While we currently only need read access on your repository's files, given the need to be able to create webhooks this likely still is of the access level admin.
