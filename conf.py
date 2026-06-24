@@ -66,10 +66,16 @@ _redirect_moves = {
 
 }
 
-redirects = {
-    old: posixpath.relpath(new, posixpath.dirname(old)) + ".html"
-    for old, new in _redirect_moves.items()
-}
+redirects = {}
+for old, new in _redirect_moves.items():
+    # A target may carry an anchor (e.g. "page.html#section"); split it off so
+    # the relative path is computed on the docname only and ".html" isn't
+    # appended after the fragment.
+    doc, sep, frag = new.partition("#")
+    if doc.endswith(".html"):
+        doc = doc[:-len(".html")]
+    target = posixpath.relpath(doc, posixpath.dirname(old)) + ".html"
+    redirects[old] = target + (sep + frag if frag else "")
 
 # Add any paths that contain templates here, relative to this directory.
 templates_path = ['_templates']
