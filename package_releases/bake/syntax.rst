@@ -31,7 +31,7 @@ YAML is a very simple but expressive configuration language. Here are the basics
 
    cars:
      - Volvo
-     - Volkwagen
+     - Volkswagen
      - Chrysler
 
 **JSON**: each item in a list can be a value or another YAML structure with its own properties and sub-properties. You can also write objects inline, as JSON.

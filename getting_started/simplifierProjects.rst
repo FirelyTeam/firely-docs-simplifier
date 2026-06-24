@@ -16,7 +16,7 @@ For an overview of your projects, go to your `personal portal <simplifierPersona
 .. image:: ../images/UserMenu.PNG 
    :scale: 75%
       
-The Projects tabs lists all projects you are involved in, either because you created the project yourself (making you the owner of the project) or because you are invited to the project as a project member.
+The Projects tab lists all projects you are involved in, either because you created the project yourself (making you the owner of the project) or because you are invited to the project as a project member.
 
 .. image:: ../images/PersonalPortal.PNG
    :scale: 75%
@@ -36,7 +36,7 @@ Each project contains a couple of tabs depending on the settings of the project 
    
 Introduction
 ------------
-This section serves as an overview of your project. This is a good area to share information about your project with people that may be team members or viewing your project for the first time. 
+This section serves as an overview of your project. This is a good area to share information about your project with people who may be team members or viewing your project for the first time. 
 
 On the ``Introduction`` page of a project you can find:
 
@@ -95,7 +95,7 @@ You can find your current subscriptions in your user portal under the ``Subscrip
       
 Create a project
 """"""""""""""""
-In the Projects tabs on your Portal page you can find the button labeled ``Create``. 
+In the Projects tab on your Portal page you can find the button labeled ``Create``. 
 
 .. image:: ../images/PersonalPortal.PNG
    :scale: 75%
@@ -122,13 +122,13 @@ Here you can edit the following properties:
 - The scope of your project (core, international, national, institute, regional or test). As choosing the right scope will make it easier for others to find your project, please use test for all test projects and test projects only.
 - Issue tracking by project members and other Simplifier users:
 	- Turn issues on or off for this project (when activated the issues tab will be visible on the project page depending on the user's role)
-	- With the issues visibility setting you can chose whether issues are visible to all Simplifier users or project members only. 
-	- With the community issues setting you can chose whether all Simplifier users or only project members can create or respond to issues.
+	- With the issues visibility setting you can choose whether issues are visible to all Simplifier users or project members only. 
+	- With the community issues setting you can choose whether all Simplifier users or only project members can create or respond to issues.
 - Publishing project resources to the `FHIR registry <https://registry.fhir.org>`_ (registry.fhir.org). Note that this setting is only available in public projects. Private projects and test projects are excluded from the registry.
 
 Project url
 -----------
-Here you can edit the URL key to your project on Simplifier, which is by default the name of your project. Be careful editing the URL key in a later stadium as it will break all existing links to your project.
+Here you can edit the URL key to your project on Simplifier, which is by default the name of your project. Be careful editing the URL key at a later stage as it will break all existing links to your project.
 
 Documentation url
 -----------------
@@ -201,9 +201,9 @@ Team Management
 
     Working with multiple users on a project is available from the Team plan and up. `See the pricing page for details. <https://simplifier.net/pricing>`_
 
-The ``Teams`` tab displays a list of all the members with rights to that project. In this section you can invite Simplifier and non-Simplifier members to your project by clicking the ``Invite User`` button and typing in an emailaddress. For more information on Team Management please look at our :ref:`Team Management page <Team_Management>`.
+The ``Teams`` tab displays a list of all the members with rights to that project. In this section you can invite Simplifier and non-Simplifier members to your project by clicking the ``Invite User`` button and typing in an email address. For more information on Team Management please look at our :ref:`Team Management page <Team_Management>`.
 
-Along the top of the ``Teams`` tab you will find a summary of User information for your project. The number of users, the max users allowed for this project (in accordance with the type of plan you have), and the number of invitations you have pending (the number of users who have a not yet accepted an invitation).  
+Along the top of the ``Teams`` tab you will find a summary of User information for your project. The number of users, the max users allowed for this project (in accordance with the type of plan you have), and the number of invitations you have pending (the number of users who have not yet accepted an invitation).  
 
 .. image:: ../images/Numberofmembers.png
    :scale: 75%

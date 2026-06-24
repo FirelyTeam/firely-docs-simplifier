@@ -11,7 +11,7 @@ Click on ``Browse`` or the Implementation Guide itself for a preview of the guid
 The IG editor
 -------------
 
-The IG editor opens on the page of the root folder. Simplifier stores newly created IGs in a folder-based structure, allowing you to easily ``copy`` guides and maintain multiple versions of their guides.
+The IG editor opens on the page of the root folder. Simplifier stores newly created IGs in a folder-based structure, allowing you to easily ``copy`` guides and maintain multiple versions of your guides.
 
 To adjust the settings of your IG, click on the Settings icon (the gear wheel). This lets you adjust the title and privacy on the Settings tab, or select an IG rendering format and stylesheet on the Style tab. In the settings you can also select a ``scope`` for your guide. The scope determines where the rendered resources in your guide come from: released packages or your live development project.
 
@@ -70,7 +70,7 @@ A **Two Level Menu** rendering displays your IG with the elements in tabs along 
 .. image:: ../images/IGHorizontalNavigation.png
    :scale: 75%
 
-A **HL7 format** rendering displays the elements in tabs along the top of the page like the Two Level Menu, but in the style of an HL7 IG.
+An **HL7 format** rendering displays the elements in tabs along the top of the page like the Two Level Menu, but in the style of an HL7 IG.
 
 Every folder contains an index file, displayed as the folder's homepage, and can have child pages added with the ``+`` icon. The image below shows the folder structure on the left and the rendered Implementation Guide on the right:
 

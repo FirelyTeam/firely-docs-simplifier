@@ -169,7 +169,7 @@ Create a Patient resource based on the profile and using the extension:
 Custom accelerators
 -------------------
 
-Sometimes writing each part of a structure on a separate line is more verbose than necessary. YamlGen lets you define a custom accelerator on any FHIR type, which allows inlining those structures. You reference sub nodes using ``< >`` angular brackets.
+Sometimes writing each part of a structure on a separate line is more verbose than necessary. YamlGen lets you define a custom accelerator on any FHIR type, which allows inlining those structures. You reference sub nodes using ``< >`` angle brackets.
 
 **HumanName example**:
 

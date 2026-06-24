@@ -17,7 +17,7 @@ To execute an FQL query in your documentation, use the ``<fql>`` tag. This XML-b
        </fql>
 
 
-Although the primary goal is to make tables from FHIR data, FQL can be used in a much broader scope and can cast data into almost any form. FQL is also implemented in `Firely Terminal <https://simplifier.net/downloads/firely-terminal>`__, a command line tool that is your swiss army knife for operating with FHIR resources. You can execute FQL queries on your own projects, using a statement like this:
+Although the primary goal is to make tables from FHIR data, FQL can be used in a much broader scope and can cast data into almost any form. FQL is also implemented in `Firely Terminal <https://simplifier.net/downloads/firely-terminal>`__, a command line tool that is your Swiss army knife for operating with FHIR resources. You can execute FQL queries on your own projects, using a statement like this:
 
 ::
 

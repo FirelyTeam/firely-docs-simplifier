@@ -17,7 +17,7 @@ The metadata expressions editor enables you to define what Simplifier should dis
 
 When editing the metadata expressions you will have access to the default expressions used by Simplifier. If your FHIRPath expressions are missing, are not correct or the value extracted is empty, Simplifier will fall back to the default expressions. If a default expression is not able to provide a value, a generic text based on the resource type will be used. Workflow and FilePath don't have a default expression. For FilePath in this case, if the extracted value is empty or missing, the fallback will be the original/generated filepath of the uploaded file.
 
-As a convention, you must specify the resource type followed by the property (Title, Description, UrlKey, Workflow or FilePath) with a semicolon and the FHIRPath expression based on which we extract the value.
+As a convention, you must specify the resource type followed by the property (Title, Description, UrlKey, Workflow or FilePath) with a colon and the FHIRPath expression based on which we extract the value.
 
 .. tip::
   For more information on how to use FHIRPath, visit the following link to the FHIRPath specification: http://hl7.org/fhirpath/
