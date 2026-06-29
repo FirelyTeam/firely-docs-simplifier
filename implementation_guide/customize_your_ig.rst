@@ -33,7 +33,7 @@ Internal IG content placeholders:
 
 * **page-title** - Renders page title as specified in the IG's tree table. 
 * **page** - Renders the navigation index on the right side.
-* **page-withe-children** - Renders the index tree on the left side. 
+* **page-with-children** - Renders the index tree on the left side. 
 * **footer** - Renders the Simplifier footer at the bottom of your IG pages. 
   
 Style specific placeholders:
