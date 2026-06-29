@@ -5,18 +5,18 @@ Projects
 
 .. important::
 
-    `Private and multiple projects are available from the Professional plan and up <https://simplifier.net/pricing>`_.
+    Private and multiple projects are available from the Professional plan and up. `See the pricing page for details. <https://simplifier.net/pricing>`_
 
 Simplifier organizes all content (e.g. resources and Implementation Guides) in projects. A project can be used to share all your FHIR resources and documentation with the community as well as to collaborate with other project members.
 
 Open your project
 """""""""""""""""
-For an overview of your projects, go to your `personal portal <../administration/simplifierPersonalContent.html>`_ by clicking on your avatar in the top right corner.
+For an overview of your projects, go to your `personal portal <simplifierPersonalContent.html>`_ by clicking on your avatar in the top right corner.
 
 .. image:: ../images/UserMenu.PNG 
    :scale: 75%
       
-The Projects tabs lists all projects you are involved in, either because you created the project yourself (making you the owner of the project) or because you are invited to the project as a project member.
+The Projects tab lists all projects you are involved in, either because you created the project yourself (making you the owner of the project) or because you are invited to the project as a project member.
 
 .. image:: ../images/PersonalPortal.PNG
    :scale: 75%
@@ -36,7 +36,7 @@ Each project contains a couple of tabs depending on the settings of the project 
    
 Introduction
 ------------
-This section serves as an overview of your project. This is a good area to share information about your project with people that may be team members or viewing your project for the first time. 
+This section serves as an overview of your project. This is a good area to share information about your project with people who may be team members or viewing your project for the first time. 
 
 On the ``Introduction`` page of a project you can find:
 
@@ -66,7 +66,7 @@ On the ``Team`` tab you can find all project members and their role. This tab al
 
 Log
 ---
-On the ``Log`` tab you can see all the changes that have been made to this project in the past. This is a good way to stay in touch with whats happening within your favorite projects. 
+On the ``Log`` tab you can see all the changes that have been made to this project in the past. This is a good way to stay in touch with what's happening within your favorite projects. 
 
 Issues
 ------
@@ -95,7 +95,7 @@ You can find your current subscriptions in your user portal under the ``Subscrip
       
 Create a project
 """"""""""""""""
-In the Projects tabs on your Portal page you can find the button labeled ``Create``. 
+In the Projects tab on your Portal page you can find the button labeled ``Create``. 
 
 .. image:: ../images/PersonalPortal.PNG
    :scale: 75%
@@ -122,13 +122,13 @@ Here you can edit the following properties:
 - The scope of your project (core, international, national, institute, regional or test). As choosing the right scope will make it easier for others to find your project, please use test for all test projects and test projects only.
 - Issue tracking by project members and other Simplifier users:
 	- Turn issues on or off for this project (when activated the issues tab will be visible on the project page depending on the user's role)
-	- With the issues visibility setting you can chose whether issues are visible to all Simplifier users or project members only. 
-	- With the community issues setting you can chose whether all Simplifier users or only project members can create or respond to issues.
-- Publishing project resources to the `FHIR registry <../FHIRRegistry.html#fhir-registry>`_ (registry.fhir.org). Note that this setting is only available in public projects. Private projects and test projects are excluded from the registry.
+	- With the issues visibility setting you can choose whether issues are visible to all Simplifier users or project members only. 
+	- With the community issues setting you can choose whether all Simplifier users or only project members can create or respond to issues.
+- Publishing project resources to the `FHIR registry <https://registry.fhir.org>`_ (registry.fhir.org). Note that this setting is only available in public projects. Private projects and test projects are excluded from the registry.
 
 Project url
 -----------
-Here you can edit the URL key to your project on Simplifier, which is by default the name of your project. Be careful editing the URL key in a later stadium as it will break all existing links to your project.
+Here you can edit the URL key to your project on Simplifier, which is by default the name of your project. Be careful editing the URL key at a later stage as it will break all existing links to your project.
 
 Documentation url
 -----------------
@@ -144,11 +144,49 @@ Here you can select one of the custom workflows of your organization to use it i
 
 Metadata Expressions
 --------------------
-Here you can define how to extract metadata, like title, URL key, filename/path from a resource using FhirPath. For more information also take a look at :ref:`Metadata Expressions. <Metadata_Expressions>`
+Here you can define how to extract metadata, like title, URL key, filename/path from a resource using FHIRPath. For more information also take a look at :ref:`Metadata Expressions. <Metadata_Expressions>`
+
+.. _Canonical_Claims:
 
 Canonical claims
 ----------------
-Project owners can customize their base canonical URLs to brand their projects. Canonical URLs of resources will only be valid if they match the canonical base URL of their project. For more information see our documentation on :ref:`Canonical Claims. <Canonical_Claims>` 
+Project owners can customize their base canonical URLs to brand their projects. Canonical claims are used and recognized as a certificate, or proof of origin, for your resources: a resource's canonical URL is only valid if it matches a canonical base claimed by the project. You can claim canonicals on a project, package, and resource level.
+
+**On project level**: claim a canonical under the ``Canonical claims`` option in the project Manage dropdown. The Canonical claims page shows the claimed canonicals and the status of each claim.
+
+.. image:: ../images/ClaimedBaseUrl.png
+   :scale: 75%
+
+Claiming a canonical declares ownership of it. If another user disputes your claim and has the legitimate claim, a site admin can set your claim as invalid. Reach out to us if you want to open a dispute about invalid canonical claims.
+
+.. image:: ../images/InvalidClaim.png
+   :scale: 75%
+
+If your project contains resources with a canonical base that is not claimed, Simplifier shows a warning on the Project page, and the ``Canonical claims`` option shows which claims you are missing. This could also indicate that some resources have an unintended canonical (base) URL. You can create custom bulk validation rules to validate your entire project using our :ref:`Quality Control <QC>` feature.
+
+.. image:: ../images/MissingClaims.png
+   :scale: 75%
+
+.. image:: ../images/SuggestedClaims.png
+   :scale: 75%
+
+**In packages**: after a package is created, its canonicals can be managed under the package Administration. The claim statuses are the same as on the project level.
+
+.. image:: ../images/PackageCanonicals.png
+   :scale: 75%
+
+**On a resource level**: every resource shows a status next to its canonical URL indicating whether the base was claimed by the project. The status can be valid, a warning that the base was not claimed, or an error stating the canonical is invalid (for example, when it is already claimed by another organization or user).
+
+.. image:: ../images/ValidResourceCanonical.png
+   :scale: 75%
+
+.. image:: ../images/CanonicalWarning.png
+   :scale: 75%
+
+.. image:: ../images/ResourceInvalid.png
+   :scale: 75%
+
+**Best practice**: when adding canonical claims, we recommend using the longest common denominator. For resources generated from the IG editor, the default canonical base is ``https://simplifier.net/guide``; everyone is allowed to claim this canonical in their projects and packages.
 
 Import log
 ----------
@@ -157,55 +195,15 @@ Use this option to retrieve a log with all uploads to your project.
 Administration
 --------------
 This option is only available for project members with an admin role. Use this option if you want to delete your project or if you want to change its visibility to either public or private.
-
-
-Add resources to your project
-"""""""""""""""""""""""""""""
-On the Resources tab you can find all the Conformance and Example Resources for the project. 
-
-If you have "Write" rights to a project you will see an option to ``Upload`` resources at the top of the Project Page. Here you can choose one of the following options: 
-
-*1. Upload a local file*
-
-The following Upload options are available:
-
-* You can upload **.json** or **.xml**
-* You can upload a single **resource** or multiple in a **bundle**
-* You can upload a **.zip** file containing multiple files
-
-*2. Fetch a resource from another FHIR server*
-
-If you choose to add resources from a FHIR server, you can do a simple GET or a FHIR search. The first will add a single resource, the latter will let you add multiple resources at once. 
-
-Examples:
-
-* To add a Patient resource with id "example" : 
-	``http://example.org/fhir/Patient/example`` 
-* To add all Patient resources that conform to the DAF profile: 
-	``http://example.org/fhir/Patient?profile=http://hl7.org/fhir/StringDefinition/daf-patient``
-
-*3. Copy/Paste json or xml code*
-
-By selecting the Copy/Paste option, you can add your own **json** or **xml** code to add a single resource or a bundle of resources. If your code contains a **bundle**, you can either upload it as a single resource or select the **split bundle** check box to upload all entries as separate resources. 
-
-*Adding multiple resources at once*
-
-If you add a batch of resources (via a bundle, a zip, or a search query), you can choose how to publish the resources that are part of the batch.
-The following options are available:
-
-* Do not publish these resources automatically
-* Publish these resources when their status is "Active" (examples will always be published)
-* Publish all of them
-
 Team Management
 """""""""""""""
 .. important::
 
-    `From the Team plan and up, you are allowed to work with multiple users on a project <https://simplifier.net/pricing>`_.
+    Working with multiple users on a project is available from the Team plan and up. `See the pricing page for details. <https://simplifier.net/pricing>`_
 
-The ``Teams`` tab displays a list of all the members with rights to that project. In this section you can invite Simplifier and non-Simplifier members to your project by clicking the ``Invite User`` button and typing in an emailaddress. For more information on Team Management please look at our :ref:`Team Management page <Team_Management>`.
+The ``Teams`` tab displays a list of all the members with rights to that project. In this section you can invite Simplifier and non-Simplifier members to your project by clicking the ``Invite User`` button and typing in an email address. For more information on Team Management please look at our :ref:`Team Management page <Team_Management>`.
 
-Along the top of the ``Teams`` tab you will find a summary of User information for your project. The number of users, the max users allowed for this project (in accordance with the type of plan you have), and the number of invitations you have pending (the number of users who have a not yet accepted an invitation).  
+Along the top of the ``Teams`` tab you will find a summary of User information for your project. The number of users, the max users allowed for this project (in accordance with the type of plan you have), and the number of invitations you have pending (the number of users who have not yet accepted an invitation).  
 
 .. image:: ../images/Numberofmembers.png
    :scale: 75%
@@ -226,7 +224,7 @@ Issue Tracker
 
 .. important::
 
-    `Issue tracking is available from the Team plan and up, collecting public feedback comes with the Enterprise plan. <https://simplifier.net/pricing>`_
+    Issue tracking is available from the Team plan and up; collecting public feedback comes with the Enterprise plan. `See the pricing page for details. <https://simplifier.net/pricing>`_
 
 Would you like to capture feedback about your resources from users? The Issue tracker option is a great way to do this. If you go to the ``Settings`` dropdown menu and then select ``Properties``. You will see the option to Enable Issues at the bottom of your screen. By selecting the On option, you enable the issue tracking feature of your project.
 
@@ -234,7 +232,7 @@ Would you like to capture feedback about your resources from users? The Issue tr
    :scale: 50%
       
 
-There are two additional options that display once you have turned Issue tracking on. You have the option to limit Issue visibility to project members only or make them publicly visible. The issues that are reported by the community can also be limited to be visable to your project members only or visible to the public.
+There are two additional options that display once you have turned Issue tracking on. You have the option to limit Issue visibility to project members only or make them publicly visible. The issues that are reported by the community can also be limited to be visible to your project members only or visible to the public.
 
 These issues can either be reported at resource level or at project level. At the project level you will see issues that are project specific and issues from all resources in that project on the ``Issues`` tab.
 

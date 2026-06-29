@@ -12,6 +12,7 @@ Here you will find some stepping stones in getting familiar with Simplifier.
    simplifierPersonalContent
    simplifierProjects
    simplifierResources
-   
+   simplifierBrowse
+
    
    

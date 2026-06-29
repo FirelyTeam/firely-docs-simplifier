@@ -3,7 +3,7 @@ Customizable IG design
 
 .. important::
 
-    `This feature is available from the Team plan and up <https://simplifier.net/pricing>`_.
+    This feature is available from the Team plan and up. `See the pricing page for details. <https://simplifier.net/pricing>`_
 
 
 
@@ -33,7 +33,7 @@ Internal IG content placeholders:
 
 * **page-title** - Renders page title as specified in the IG's tree table. 
 * **page** - Renders the navigation index on the right side.
-* **page-withe-children** - Renders the index tree on the left side. 
+* **page-with-children** - Renders the index tree on the left side. 
 * **footer** - Renders the Simplifier footer at the bottom of your IG pages. 
   
 Style specific placeholders:
@@ -89,7 +89,7 @@ For our Enterprise Licenses the feature "Custom Layout" is available. Here you c
 .. image:: ../images/IGEditorSettings.png   
    :scale: 75%
 
-With this editor you can edit your Style Sheet to make overall changes in the overall look and feel of your IG. For example, you may change the color of the navigation bar to blue or add your own logo to it. It is also possible to reset your changes by going back to the original CSS or download the original CSS as a seperate file, so you can compare the differences with your own code.
+With this editor you can edit your Style Sheet to make overall changes in the overall look and feel of your IG. For example, you may change the color of the navigation bar to blue or add your own logo to it. It is also possible to reset your changes by going back to the original CSS or download the original CSS as a separate file, so you can compare the differences with your own code.
 
 Custom Preview for Your Own Styles in the IG Editor
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -174,6 +174,18 @@ Here below are a couple of examples that you can use to configure the lay-out of
         background-color: #eeecec;
         padding: 0.5em;
     }
+
+Search page
+^^^^^^^^^^^
+
+You can add a search page to your guide using a Google Custom Search Engine. Create one at https://cse.google.com and set your IG's URL as the domain to be searched. Then paste the snippet into a page (replace the ``cx`` value with your own engine id):
+
+.. code:: html
+
+   <script async src="https://cse.google.com/cse.js?cx=YOUR-CSE-ID"></script>
+   <div class="gcse-search"></div>
+
+Results appear once Google has indexed your IG, which can take a little while after you create it.
 
 
 

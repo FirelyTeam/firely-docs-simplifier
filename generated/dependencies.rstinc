@@ -9,7 +9,7 @@
      - Apache-2.0
    * - `Firely.Fhir.Packages <https://www.nuget.org/packages/Firely.Fhir.Packages>`__
      - BSD-3-Clause
-   * - `Hl7.DSTU2.FhirPath <https://www.nuget.org/packages/Hl7.DSTU2.FhirPath>`__
+   * - `Hl7.DSTU2.FHIRPath <https://www.nuget.org/packages/Hl7.DSTU2.FHIRPath>`__
      - BSD-3-Clause
    * - `Hl7.Fhir.Base <https://www.nuget.org/packages/Hl7.Fhir.Base>`__
      - BSD-3-Clause

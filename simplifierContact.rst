@@ -8,9 +8,9 @@ simplifier@fire.ly or (for customers) `our premium support desk <https://firely.
 
 You can also contact us via the Simplifier.net website, in which case there are two options:
 
-1.	The `Contact <https://www.simplifier.net/ui/Info/Contact>`_ link in the lower left of the Simplifier.net website. This link offers an area to fill in more specific information about the user or company associated with the contact. Use this link for all inquiries about setting up new accounts and services.
+1.	The `Contact <https://simplifier.net/contact>`_ link in the lower left of the Simplifier.net website. This link offers an area to fill in more specific information about the user or company associated with the contact. Use this link for all inquiries about setting up new accounts and services.
 
-.. image:: ./images/Contact.PNG
+.. image:: ./images/Contact.png
   :align: center
 
 
