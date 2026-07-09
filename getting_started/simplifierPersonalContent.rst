@@ -20,7 +20,7 @@ All your personal content is accessible through your personal portal. The follow
 * **Bookmarks**: Use this tab to quickly access your favourite projects and publications. You can bookmark projects or resources by using the ``Bookmark`` button at the top right corner of the Project or Resource page. 
 * **Connectors**: Here you can create and edit your `connectors <../features/simplifierConnectors.html#connectors>`_ or shop for new connectors.
 * **Organizations**: This tab shows an overview of the organizations you are part of. You can access your `organization portals <../administration/simplifierOrganizationPortal.html#organization-portal>`_ from here or create a new organization if you have the rights to do so.
-* **Implementation guides**: In older versions of Simplifier, this was the place to `create and edit implementation guides <../features/simplifierIGeditor.html#implementation-guide-editor>`_, but they are moved to projects. Old implementation guides that are not yet linked to a project can still be accessed here. If you want to have your guide moved to a project, please contact us by using the feedback button on the top right.
+* **Implementation guides**: In older versions of Simplifier, this was the place to `create and edit implementation guides <../implementation_guide/create_your_first_ig.html>`_, but they are moved to projects. Old implementation guides that are not yet linked to a project can still be accessed here. If you want to have your guide moved to a project, please contact us by using the feedback button on the top right.
 
 Invites Page
 """"""""""""

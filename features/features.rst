@@ -1,7 +1,7 @@
 .. _features:
 
-Aditional features and playgrounds
-==================================
+Additional features and playgrounds
+===================================
 
 Here you will find the documentation of Simplifier's additional features.
 
@@ -11,11 +11,8 @@ Here you will find the documentation of Simplifier's additional features.
   
   simplifierFirely-server
   simplifierBackupAndSynchronization
-  api
   simplifierConnectors
   simplifierEmbeddedRendering
   simplifierDocumentationRedirection
-  FQL Playground <simplifierFQL>
-  simplifierPlantUML
-  YAML Gen Playground <YAMLGen>
-  
+  fql/fql
+  yamlgen/yamlgen

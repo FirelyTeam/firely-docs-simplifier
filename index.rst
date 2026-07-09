@@ -13,16 +13,10 @@ Welcome to Simplifier's documentation!
 .. image:: ./images/Simplifier-illustration.png
   :align: right
   :width: 250px
-  :alt: Illustration of Simplfier.net
+  :alt: Illustration of Simplifier.net
 
 `Simplifier.net <https://simplifier.net>`_ is a FHIR specification development, collaboration and publishing platform.
 Below you will find the documentation for the platform.
-
-Release notes
--------------
-In addition to the release notes in the :ref:`release notes <release_notes>`. A shorter summary and other announcements can be found on the `Simplifier news page <https://simplifier.net/organization/firely/~news>`_.
-
-
 
 .. toctree::
   :maxdepth: 1
@@ -30,12 +24,18 @@ In addition to the release notes in the :ref:`release notes <release_notes>`. A 
   
   Simplifier Overview <simplifierIntro>
   Starting with Simplifier <getting_started/getting_started>
+  Adding and syncing content <adding_content/adding_content>
   Team and Organization management <administration/administration>
-  Project Governance, Releases, and Quality Control <data_governance_and_quality_control/data_governance_and_quality_control>
+  Quality Control <quality_control/quality_control>
+  Package Releases <package_releases/package_releases>
   Implementation Guide <implementation_guide/implementation_guide>
   Additional features and playgrounds<features/features>
   Dependencies
   Release notes <simplifierReleaseNotes>
   FAQs <FAQs>
-  Contact <simplifierContact>  
+  Contact <simplifierContact>
   Accessibility <accessibility>
+
+----
+
+For the latest changes, see the :ref:`release notes <release_notes>`. A shorter summary and other announcements are on the `Simplifier news page <https://simplifier.net/organization/firely/~news>`_.

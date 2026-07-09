@@ -27,7 +27,7 @@ General notes
   our users in creating accessible content, the flexibility of the platform requires users to
   check their own generated content for accessibility.
 
-* The tree rendering of FHIR resources can be navigated by keyboard when Javascript is enabled:
+* The tree rendering of FHIR resources can be navigated by keyboard when JavaScript is enabled:
   
   - Tab until the full tree is selected.
   - Then navigate the three rows with the up and down arrows. When using a screen reader this
@@ -354,7 +354,7 @@ Table 1: Success Criteria, Level A
     - Known issues:
     
        * [SIM-1371] Drag and drop for page reordering in IG editor has no keyboard/button alternative
-       * [SIM-1387] Unable to succesfully navigate account avatar with keyboard only
+       * [SIM-1387] Unable to successfully navigate account avatar with keyboard only
 
   * - `2.5.2 Pointer Cancellation`_
       
@@ -618,7 +618,7 @@ Table 2: Success Criteria, Level AA
     - Supports
     - There where status is conveyed by graphical elements, like a progress bar, the status is programmatically available to the user agent.
 
-.. _Web Content Accessibility Guidelines 2.0: http://www.w3.org/TR/2008/REC-WCAG20-20081211
+.. _Web Content Accessibility Guidelines 2.0: https://www.w3.org/TR/2008/REC-WCAG20-20081211/
 .. _Web Content Accessibility Guidelines 2.1: https://www.w3.org/TR/WCAG21
 .. _Web Content Accessibility Guidelines 2.2: https://www.w3.org/TR/WCAG22
 .. _WCAG 2.2 Conformance Requirements: https://www.w3.org/TR/WCAG22/#conformance-to-wcag-2-2
@@ -626,61 +626,61 @@ Table 2: Success Criteria, Level AA
 .. _WAVE Web Accessibility Evaluation Tool: https://wave.webaim.org/
 .. _Microsoft Narrator: https://support.microsoft.com/en-us/windows/complete-guide-to-narrator-e4397a0d-ef4f-b386-d8ae-c172f109bdb1
 
-.. _1.1.1 Non-text Content: http://www.w3.org/TR/WCAG20/#text-equiv-all
-.. _1.2.1 Audio-only and Video-only: http://www.w3.org/TR/WCAG20/#media-equiv-av-only-alt
-.. _1.2.2 Captions: http://www.w3.org/TR/WCAG20/#media-equiv-captions
-.. _1.2.3 Audio Description or Media Alternative: http://www.w3.org/TR/WCAG20/#media-equiv-audio-desc
-.. _1.3.1 Info and Relationships: http://www.w3.org/TR/WCAG20/#content-structure-separation-programmatic
-.. _1.3.2 Meaningful Sequence: http://www.w3.org/TR/WCAG20/#content-structure-separation-sequence
-.. _1.3.3 Sensory Characteristics: http://www.w3.org/TR/WCAG20/#content-structure-separation-understanding
-.. _1.4.1 Use of Color: http://www.w3.org/TR/WCAG20/#visual-audio-contrast-without-color
-.. _1.4.2 Audio Control: http://www.w3.org/TR/WCAG20/#visual-audio-contrast-dis-audio
-.. _2.1.1 Keyboard: http://www.w3.org/TR/WCAG20/#keyboard-operation-keyboard-operable
-.. _2.1.2 No Keyboard Trap: http://www.w3.org/TR/WCAG20/#keyboard-operation-trapping
+.. _1.1.1 Non-text Content: https://www.w3.org/TR/WCAG20/#text-equiv-all
+.. _1.2.1 Audio-only and Video-only: https://www.w3.org/TR/WCAG20/#media-equiv-av-only-alt
+.. _1.2.2 Captions: https://www.w3.org/TR/WCAG20/#media-equiv-captions
+.. _1.2.3 Audio Description or Media Alternative: https://www.w3.org/TR/WCAG20/#media-equiv-audio-desc
+.. _1.3.1 Info and Relationships: https://www.w3.org/TR/WCAG20/#content-structure-separation-programmatic
+.. _1.3.2 Meaningful Sequence: https://www.w3.org/TR/WCAG20/#content-structure-separation-sequence
+.. _1.3.3 Sensory Characteristics: https://www.w3.org/TR/WCAG20/#content-structure-separation-understanding
+.. _1.4.1 Use of Color: https://www.w3.org/TR/WCAG20/#visual-audio-contrast-without-color
+.. _1.4.2 Audio Control: https://www.w3.org/TR/WCAG20/#visual-audio-contrast-dis-audio
+.. _2.1.1 Keyboard: https://www.w3.org/TR/WCAG20/#keyboard-operation-keyboard-operable
+.. _2.1.2 No Keyboard Trap: https://www.w3.org/TR/WCAG20/#keyboard-operation-trapping
 .. _2.1.4 Character Key Shortcuts: https://www.w3.org/TR/WCAG21/#character-key-shortcuts
-.. _2.2.1 Timing Adjustable: http://www.w3.org/TR/WCAG20/#time-limits-required-behaviors
-.. _2.2.2 Pause, Stop, Hide: http://www.w3.org/TR/WCAG20/#time-limits-pause
-.. _2.3.1 Three Flashes or Below Threshold: http://www.w3.org/TR/WCAG20/#seizure-does-not-violate
-.. _2.4.1 Bypass Blocks: http://www.w3.org/TR/WCAG20/#navigation-mechanisms-skip
-.. _2.4.2 Page Titled: http://www.w3.org/TR/WCAG20/#navigation-mechanisms-title
-.. _2.4.3 Focus Order: http://www.w3.org/TR/WCAG20/#navigation-mechanisms-focus-order
-.. _2.4.4 Link Purpose (In Context): http://www.w3.org/TR/WCAG20/#navigation-mechanisms-refs
+.. _2.2.1 Timing Adjustable: https://www.w3.org/TR/WCAG20/#time-limits-required-behaviors
+.. _2.2.2 Pause, Stop, Hide: https://www.w3.org/TR/WCAG20/#time-limits-pause
+.. _2.3.1 Three Flashes or Below Threshold: https://www.w3.org/TR/WCAG20/#seizure-does-not-violate
+.. _2.4.1 Bypass Blocks: https://www.w3.org/TR/WCAG20/#navigation-mechanisms-skip
+.. _2.4.2 Page Titled: https://www.w3.org/TR/WCAG20/#navigation-mechanisms-title
+.. _2.4.3 Focus Order: https://www.w3.org/TR/WCAG20/#navigation-mechanisms-focus-order
+.. _2.4.4 Link Purpose (In Context): https://www.w3.org/TR/WCAG20/#navigation-mechanisms-refs
 .. _2.5.1 Pointer Gestures: https://www.w3.org/TR/WCAG21/#pointer-gestures
 .. _2.5.2 Pointer Cancellation: https://www.w3.org/TR/WCAG21/#pointer-cancellation
 .. _2.5.3 Label in Name: https://www.w3.org/TR/WCAG21/#label-in-name
 .. _2.5.4 Motion Actuation: https://www.w3.org/TR/WCAG21/#motion-actuation
-.. _3.1.1 Language of Page: http://www.w3.org/TR/WCAG20/#meaning-doc-lang-id
-.. _3.2.1 On Focus: http://www.w3.org/TR/WCAG20/#consistent-behavior-receive-focus
-.. _3.2.2 On Input: http://www.w3.org/TR/WCAG20/#consistent-behavior-unpredictable-change
+.. _3.1.1 Language of Page: https://www.w3.org/TR/WCAG20/#meaning-doc-lang-id
+.. _3.2.1 On Focus: https://www.w3.org/TR/WCAG20/#consistent-behavior-receive-focus
+.. _3.2.2 On Input: https://www.w3.org/TR/WCAG20/#consistent-behavior-unpredictable-change
 .. _3.2.6 Consistent Help: https://www.w3.org/TR/WCAG22/#consistent-help
 .. _3.3.7 Redundant Entry: https://www.w3.org/TR/WCAG22/#redundant-entry
-.. _3.3.1 Error Identification: http://www.w3.org/TR/WCAG20/#minimize-error-identified
-.. _3.3.2 Labels or Instructions: http://www.w3.org/TR/WCAG20/#minimize-error-cues
-.. _4.1.1 Parsing: http://www.w3.org/TR/WCAG20/#ensure-compat-parses
-.. _4.1.2 Name, Role, Value: http://www.w3.org/TR/WCAG20/#ensure-compat-rsv
+.. _3.3.1 Error Identification: https://www.w3.org/TR/WCAG20/#minimize-error-identified
+.. _3.3.2 Labels or Instructions: https://www.w3.org/TR/WCAG20/#minimize-error-cues
+.. _4.1.1 Parsing: https://www.w3.org/TR/WCAG20/#ensure-compat-parses
+.. _4.1.2 Name, Role, Value: https://www.w3.org/TR/WCAG20/#ensure-compat-rsv
 
-.. _1.2.4 Captions (Live): http://www.w3.org/TR/WCAG20/#media-equiv-real-time-captions
-.. _1.2.5 Audio Description (Prerecorded): http://www.w3.org/TR/WCAG20/#media-equiv-audio-desc-only
+.. _1.2.4 Captions (Live): https://www.w3.org/TR/WCAG20/#media-equiv-real-time-captions
+.. _1.2.5 Audio Description (Prerecorded): https://www.w3.org/TR/WCAG20/#media-equiv-audio-desc-only
 .. _1.3.4 Orientation: https://www.w3.org/TR/WCAG21/#orientation
 .. _1.3.5 Identify Input Purpose: https://www.w3.org/TR/WCAG21/#identify-input-purpose
-.. _1.4.3 Contrast (Minimum): http://www.w3.org/TR/WCAG20/#visual-audio-contrast-contrast
-.. _1.4.4 Resize text: http://www.w3.org/TR/WCAG20/#visual-audio-contrast-scale
-.. _1.4.5 Images of Text: http://www.w3.org/TR/WCAG20/#visual-audio-contrast-text-presentation
+.. _1.4.3 Contrast (Minimum): https://www.w3.org/TR/WCAG20/#visual-audio-contrast-contrast
+.. _1.4.4 Resize text: https://www.w3.org/TR/WCAG20/#visual-audio-contrast-scale
+.. _1.4.5 Images of Text: https://www.w3.org/TR/WCAG20/#visual-audio-contrast-text-presentation
 .. _1.4.10 Reflow: https://www.w3.org/TR/WCAG21/#reflow
 .. _1.4.11 Non-text Contrast: https://www.w3.org/TR/WCAG21/#non-text-contrast
 .. _1.4.12 Text Spacing: https://www.w3.org/TR/WCAG21/#text-spacing
 .. _1.4.13 Content on Hover or Focus: https://www.w3.org/TR/WCAG21/#content-on-hover-or-focus
-.. _2.4.5 Multiple Ways: http://www.w3.org/TR/WCAG20/#navigation-mechanisms-mult-loc
-.. _2.4.6 Headings and Labels: http://www.w3.org/TR/WCAG20/#navigation-mechanisms-descriptive
-.. _2.4.7 Focus Visible: http://www.w3.org/TR/WCAG20/#navigation-mechanisms-focus-visible
+.. _2.4.5 Multiple Ways: https://www.w3.org/TR/WCAG20/#navigation-mechanisms-mult-loc
+.. _2.4.6 Headings and Labels: https://www.w3.org/TR/WCAG20/#navigation-mechanisms-descriptive
+.. _2.4.7 Focus Visible: https://www.w3.org/TR/WCAG20/#navigation-mechanisms-focus-visible
 .. _2.4.11 Focus Not Obscured (Minimum): https://www.w3.org/TR/WCAG22/#focus-not-obscured-minimum
 .. _2.5.7 Dragging Movements: https://www.w3.org/TR/WCAG22/#dragging-movements
 .. _2.5.8 Target Size (Minimum): https://www.w3.org/TR/WCAG22/#target-size-minimum
-.. _3.1.2 Language of Parts: http://www.w3.org/TR/WCAG20/#meaning-other-lang-id
-.. _3.2.3 Consistent Navigation: http://www.w3.org/TR/WCAG20/#consistent-behavior-consistent-locations
-.. _3.2.4 Consistent Identification: http://www.w3.org/TR/WCAG20/#consistent-behavior-consistent-functionality
-.. _3.3.3 Error Suggestion: http://www.w3.org/TR/WCAG20/#minimize-error-suggestions
-.. _3.3.4 Error Prevention (Legal, Financial, Data): http://www.w3.org/TR/WCAG20/#minimize-error-reversible
+.. _3.1.2 Language of Parts: https://www.w3.org/TR/WCAG20/#meaning-other-lang-id
+.. _3.2.3 Consistent Navigation: https://www.w3.org/TR/WCAG20/#consistent-behavior-consistent-locations
+.. _3.2.4 Consistent Identification: https://www.w3.org/TR/WCAG20/#consistent-behavior-consistent-functionality
+.. _3.3.3 Error Suggestion: https://www.w3.org/TR/WCAG20/#minimize-error-suggestions
+.. _3.3.4 Error Prevention (Legal, Financial, Data): https://www.w3.org/TR/WCAG20/#minimize-error-reversible
 .. _3.3.8 Accessible Authentication (Minimum): https://www.w3.org/TR/WCAG22/#accessible-authentication-minimum
 .. _4.1.3 Status Messages: https://www.w3.org/TR/WCAG21/#status-messages
 

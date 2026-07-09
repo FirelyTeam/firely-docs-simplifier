@@ -4,7 +4,7 @@ Organizations
 ^^^^^^^^^^^^^
 .. important::
 
-    `This feature is available from the Enterprise plan <https://simplifier.net/pricing>`_.
+    This feature is available on the Enterprise plan. `See the pricing page for details. <https://simplifier.net/pricing>`_
 
 
 For our members with an Enterprise plan there is the functionality to create and manage an organizational account within Simplifier. An Organization account allows you to create and share projects, resources, and Implementation Guides via your organization with others within and outside your organization. You can add members and adjust rights to the project.  

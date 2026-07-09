@@ -21,7 +21,7 @@ We've introduced new rules and filters to improve quality control:
 -  **manifest**: Evaluates the correctness of ``package.json``.
 -  **dependency**: Provides a full analysis of your dependency closure, including upgrade suggestions.
 
-Here is an example of the new rules for chekcing the package manifest and package dependencies, as part of the minimal validation rules:
+Here is an example of the new rules for checking the package manifest and package dependencies, as part of the minimal validation rules:
 
 .. image:: ./images/DependencyChecking.png
       :alt: Dependency Checking
@@ -40,7 +40,7 @@ Other Enhancements
 
 -  **YamlGen**: Now generates random content for backbone elements.
 -  **FQL**: Can now filter on categories "Profile", "Example", "Extension".
--  FQL syntax update: Correctly parses the FhirPath expression ``(<expression>).not()``.
+-  FQL syntax update: Correctly parses the FHIRPath expression ``(<expression>).not()``.
 -  Numerous textual improvements and fixes.
 -  Guides markdown frontmatter (YAML) IntelliSense: Typing `canonical:` will trigger autocomplete for the canonical URLs in scope.
 -  Improved package publication, allowing users to upload/publish packages directly through the Simplifier API.
@@ -60,7 +60,7 @@ If you experience service lags in Simplifier.net, it could be that services are 
 It is also possible to raise an issue from here.
 
 All our tooling is built on top of the official Firely .NET SDK developed and managed by Firely. The `SDK is open source
-and maintained on Github <https://github.com/FirelyTeam/firely-net-sdk/>`_ and `issues are publicly tracked there <https://github.com/FirelyTeam/firely-net-sdk/issues>`_.
+and maintained on GitHub <https://github.com/FirelyTeam/firely-net-sdk/>`_ and `issues are publicly tracked there <https://github.com/FirelyTeam/firely-net-sdk/issues>`_.
 
 HL7 is maintaining a `known issue list for the FHIR specifications on
 their Confluence <https://confluence.hl7.org/display/FHIR/Known+Issues+with+the+published+FHIR+Specifications>`_.
@@ -184,7 +184,7 @@ Bugfixes
 ~~~~~~~~
 
 #. IG editor: Clicking the Preview button would take you to a different url compared to clicking the hyperlink just below it. This is now fixed.
-#. IG editor: The keyboard shortcut crtl+f2 to ``Change All Occurences`` was not working. This is now fixed.
+#. IG editor: The keyboard shortcut crtl+f2 to ``Change All Occurrences`` was not working. This is now fixed.
 #. IG editor: The expand option would result in an empty tab when working with custom tabs in your IG. It is now possible to use the expand option again and render your trees as expected.
 #. IG editor: Rendering a page using ``{{page:`` or ``{{render:`` that contains a ``{{pagelink:`` gets converted correctly now into an anchor.
 #. IG editor: When copying content from the IG Help pages the content of the original page would be updated with all information of the help page. This is now fixed.
@@ -284,7 +284,7 @@ Features
       - Reduced memory footprint of FQL queries, by releasing data sooner
       - We make use of .NET7 improvements and EF7 bulk features
 #. Packages: packages now have an administrative menu.
-#. Playgrounds: We have improved the playground user interface for FQL, PlantUML, YamlGen and FhirPath. Also, we have a new system for sharing playground scripts and results with shorter links that no longer break when scripts are too long.
+#. Playgrounds: We have improved the playground user interface for FQL, PlantUML, YamlGen and FHIRPath. Also, we have a new system for sharing playground scripts and results with shorter links that no longer break when scripts are too long.
 
 
 Release 30.3.0, March 29th, 2023
@@ -330,7 +330,7 @@ Features
         - You can now include functions in YAMLGen
         - Tree variables are  now allowed.
 
-#. FhirPath playground: The FHIRPath playground now has an improved user interface.
+#. FHIRPath playground: The FHIRPath playground now has an improved user interface.
 
 
 Bugfixes
@@ -355,7 +355,7 @@ Features
 #. FHIRPath: A FHIRPath playground is now available at https://simplifier.net/fhirpath
 #. Validator: A validator playground is now available at https://simplifier.net/validator
 #. IG editor: You can now reference resources in your IG using resourceType/ID of the resource. This is helpful for e.g. linking to specific examples.
-#. Github: It is now possible to link multiple projects to one Github repository branch.
+#. GitHub: It is now possible to link multiple projects to one GitHub repository branch.
 #. Reporting issues: The process for submitting issues has been made easier by allowing users that are not yet logged in to see the issue button. Upon clicking the issue button they will be guided to log in.
 #. Packages: Unlisted packages have been made more easily distinguishable.
 #. Beta: The package graph visualisation page is now available for beta users.
@@ -363,7 +363,7 @@ Features
 Bugfixes
 ~~~~~~~~
 
-#. Firely server: In the previous version of simplifier.net users with MAC OS experienced that after trying to download and run the project as a FHIR server in Docker, the CapabilityStatement of Firely server was not loading correctly on first try. This issue was caused by the Windows OS specific seperators in the Powershell scripts that are downloaded when pressing the yellow download button. This issue is now fixed and users should be able to succesfully try out Firely server via this route on MAC OS, with the CapabilityStatement loeding correctly on first try.
+#. Firely Server: In the previous version of simplifier.net users with macOS experienced that after trying to download and run the project as a FHIR server in Docker, the CapabilityStatement of Firely Server was not loading correctly on first try. This issue was caused by the Windows OS specific separators in the PowerShell scripts that are downloaded when pressing the yellow download button. This issue is now fixed and users should be able to successfully try out Firely Server via this route on macOS, with the CapabilityStatement loeding correctly on first try.
 #. IG: the use of multiple pagelinks within one sentence in the IG previously led to rendering issues. This has been fixed and it is now possible to use multiple pagelinks within one sentence without breakage or error.
 
 
@@ -375,7 +375,7 @@ Features
 
 #. IG editor: You can now switch between pages and files. The layout of the IG editor has been cleaned up and users now have more control over metadata and the configuration files behind the rendering. It is also possible to use PlantUML in the IG now.
 #. Captcha: We added captcha to Simplifier.net.
-#. Index management: We continously work on improving our search, but that often requires re-indexing. Simplifier now has an Index management page, to manage and switch indexes.
+#. Index management: We continuously work on improving our search, but that often requires re-indexing. Simplifier now has an Index management page, to manage and switch indexes.
 #. Cloud upgrade: Simplifier's cloud storage has been upgraded to assure quick rendering and improved user experience.
 #. Zullip: Simplifier now has a bot on `Zulip <https://chat.fhir.org/#narrow/stream/328836-tooling.2FPackage-Crawlers>`_ where we publish the logs of the Package metafeed burner. It is possible to find here if and why a package was not imported.
 
