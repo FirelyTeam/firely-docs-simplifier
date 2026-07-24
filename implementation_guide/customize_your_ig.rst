@@ -24,7 +24,7 @@ Information retrieved from the IG settings:
 Customizable placeholders:
 """"""""""""""""""""""""""
 * **breadcrumbs** - Adds a site-wide table of contents. You can add this in the HTML template on the level of your choice. 
-*  **index:root** - Adds the table of content, with the **levels:x** you can determine how much of the sub-sub folders and pages you want in your table. 
+* **index:root** - Adds the table of content, with the **levels:x** you can determine how much of the sub-sub folders and pages you want in your table. 
 
 
 Internal IG content placeholders:
@@ -174,6 +174,77 @@ Here below are a couple of examples that you can use to configure the lay-out of
         background-color: #eeecec;
         padding: 0.5em;
     }
+
+Numbered headings
+^^^^^^^^^^^^^^^^^^
+
+You can have Simplifier automatically number every heading in your guide. In the IG editor, open **Settings** (the gear icon) and on the **Settings** tab set **Use numbered headings?** to **Yes**. This numbers all Markdown headings (``#`` through ``######``) throughout the guide.
+
+Numbering is continuous across the whole guide, not per page. Each page first gets a number based on its position in the table of contents (for example ``2.24``), and the headings on that page extend it (``2.24.1``, ``2.24.1.1``, and so on). Folder/index pages number their own headings under a ``.0`` branch (``2.24.0``) so they do not collide with the child pages below them. Pages hidden from the table of contents are skipped.
+
+With numbering enabled, each page may have only one top-level heading. Simplifier shows an inline error if a page has two top-level headings, or a heading above the established top level.
+
+Formatting per page
+"""""""""""""""""""
+
+You can change how numbers are formatted for a page through its YAML header:
+
+::
+
+   ---
+   page-nr-format: Roman
+   page-nr-separator: "."
+   page-nr-casing: Lower
+   ---
+
+- **page-nr-format**: ``Number`` (default), ``Roman``, or ``Alpha``.
+- **page-nr-separator**: the separator between levels (default ``.``).
+- **page-nr-casing**: ``Upper`` (default) or ``Lower`` (applies to Roman and Alpha).
+
+Start numbering on the home page
+""""""""""""""""""""""""""""""""
+
+By default the Home folder is the root of your guide, so numbering starts on the first section below it rather than on the home page itself. To have the numbering start at ``1`` on your landing page, move your guide content into a single sub-folder and point the guide's root table of contents at it:
+
+1. Move all guide content out of ``Home/`` into a new folder, for example ``ig/``, and rename the landing page to ``home.page.md``.
+
+2. Point the top-level ``toc.yaml`` at that folder:
+
+   .. code-block:: yaml
+
+      - name: Table of Contents
+        filename: ig
+
+3. In the folder's own ``toc.yaml``, list the pages in order with the home page first:
+
+   .. code-block:: yaml
+
+      - name: Home
+        filename: home.page.md
+      - name: Specification
+        filename: specification
+      - name: Downloads
+        filename: downloads.page.md
+
+4. Add an ``Index.page.md`` in the folder so the root node renders a table of contents:
+
+   .. code-block:: text
+
+      # {{page-title}}
+
+      {{index:children}}
+
+5. Update any internal links (and, if you list one, your downloads package name) to the new path.
+
+This adds one extra navigation item for the root ("Table of Contents") node. Hide it with a CSS rule that matches its link back to the guide root (replace ``ig`` with your folder name):
+
+.. code-block:: CSS
+
+   /* Hide the Table of Contents menu item (links back to the guide root, e.g. .../ig?version=current) */
+   .header .nav.navbar-nav li > a[href$="/ig"],
+   .header .nav.navbar-nav li > a[href*="/ig?"] {
+       display: none !important;
+   }
 
 Search page
 ^^^^^^^^^^^
