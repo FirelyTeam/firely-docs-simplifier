@@ -124,6 +124,55 @@ Even though FHIRPath has boolean logic, FQL also lets you add multiple expressio
      name.given[0],
      name.family
 
+.. _fql_versioned_canonicals:
+
+**Versioned canonicals**: FQL does not (yet) support resolving versioned canonicals, so a canonical with pipe versioning (``url|version``) in a where clause does not match anything. Filter on the ``version`` field separately instead.
+
+Take a scope with two versions of the same ValueSet:
+
+.. code:: sql
+
+   using
+       scope
+   from
+       ValueSet
+   where
+       url = 'http://example.org/fhir/ValueSet/yes-no-unknown'
+   select
+       url, version
+
+.. image:: ../../images/FQLVersionsInScope.png
+
+Asking for one of those versions with pipe versioning returns no results:
+
+.. code:: sql
+
+   using
+       scope
+   from
+       ValueSet
+   where
+       url = 'http://example.org/fhir/ValueSet/yes-no-unknown|1.0.0'
+   select
+       url, version
+
+.. image:: ../../images/FQLPipeVersionNoResults.png
+
+Adding a separate filter on ``version`` does work:
+
+.. code:: sql
+
+   using
+       scope
+   from
+       ValueSet
+   where
+       url = 'http://example.org/fhir/ValueSet/yes-no-unknown' and version = '1.0.0'
+   select
+       url, version
+
+.. image:: ../../images/FQLVersionFilter.png
+
 From
 ~~~~
 
