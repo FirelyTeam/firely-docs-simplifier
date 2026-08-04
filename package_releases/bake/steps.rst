@@ -64,13 +64,50 @@ The ``category`` filter lets you filter supersets and subsets of known FHIR reso
 
 - **Conformance**: all conformance resources (StructureDefinitions, ...).
 - **Terminology**: all terminology resources (code systems, value sets, ...).
-- **Instance**: all instance resources (Patient, Organization, etc.).
-- **Profile**: all resource structure definitions.
-- **Extension**: structure definitions that describe an extension.
-- **Type**: all structure definitions that describe a type.
-- **Resource**: all files that are resources.
+- **Instance**: all resources that are not conformance resources (Patient, Organization, etc.).
+- **Example**: an alias for **Instance**; both select exactly the same resources.
+- **Profile**: structure definitions with ``kind`` = ``resource``.
+- **Extension**: structure definitions with ``type`` = ``extension``.
+- **Type**: structure definitions with ``kind`` = ``type`` or ``complex-type``.
+- **Resource**: all files that parse as a known FHIR resource.
 
-**Resource types**: you can also choose any resource type as a category, such as ``- category: StructureDefinition`` or ``- category: Patient``.
+Category names are case-insensitive, so ``- category: profile`` and ``- category: Profile`` are equivalent.
+
+**Resource types**: you can also choose any resource type as a category, such as ``- category: StructureDefinition`` or ``- category: Patient``. A resource type is matched on its exact name, so it *is* case-sensitive: ``- category: Patient`` works, ``- category: patient`` does not.
+
+.. _resource_categories:
+
+Current categorisation
+~~~~~~~~~~~~~~~~~~~~~~
+
+The table below lists how resource types are currently assigned to categories. The same assignment is used by :ref:`Quality Control <qc_genericproperties>`.
+
+.. list-table::
+   :header-rows: 1
+   :widths: 20 80
+
+   * - Category
+     - Resource types
+   * - Conformance
+     - StructureDefinition, ValueSet, CodeSystem, CapabilityStatement, OperationDefinition, SearchParameter, CompartmentDefinition, ImplementationGuide, ElementDefinition
+   * - Terminology
+     - ValueSet, CodeSystem, ConceptMap, NamingSystem
+   * - Instance / Example
+     - every resource type that is not in the Conformance list, so ConceptMap, NamingSystem, StructureMap, GraphDefinition, TestScript, Library, Questionnaire, ActivityDefinition, PlanDefinition, Measure, Patient, Observation, and so on
+
+``Instance`` is the exact complement of ``Conformance``: a resource is in one or the other, never in both.
+
+**Terminology is not a subset of Conformance**: ConceptMap and NamingSystem are Terminology, but they are not in the Conformance list, so ``- category: Conformance`` does not select them and ``- category: Instance`` does. In the default bake pipeline that means they end up in ``/examples`` rather than ``/package``.
+
+.. note::
+
+   Some resource types are not categorised the way the FHIR specification would suggest, in particular ConceptMap, NamingSystem, Questionnaire, StructureMap, GraphDefinition, TestScript and Library. We plan to improve the categorization based on a classification derived from the FHIR specification. Until then, use a ``files`` filter or a FHIRPath ``filter`` (or an explicit resource type as category) to route or select these resources yourself.
+
+   ::
+
+      route-conceptmaps-to-package:
+        - category: ConceptMap
+        - move: /package
 
 Delete
 ~~~~~~
