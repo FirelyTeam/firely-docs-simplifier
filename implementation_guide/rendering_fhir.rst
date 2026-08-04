@@ -113,10 +113,15 @@ By default the first tab is active; use ``active="true"`` to activate another. T
 .. image:: ../images/IGtabs.png
    :scale: 75%
 
-FQL tables
-----------
+FQL
+---
 
-With FQL you can create dynamic tables that retrieve information from the resources in scope. For the full language, see our :ref:`FQL documentation <fql>`.
+Where the widgets above render a fixed view of a resource, FQL gives you full control over *what* you surface. You write a query against the resources in your scope and pick exactly the elements you want: a single field, a computed value, or a whole table of profiles. Anything in the FHIR resources is reachable, so you are not limited to the fields a widget happens to expose. For the full language, see our :ref:`FQL documentation <fql>`.
+
+FQL tables
+~~~~~~~~~~
+
+The default output is a table, which is useful for overviews of the resources in your guide:
 
 .. code-block:: html
 
@@ -128,6 +133,46 @@ With FQL you can create dynamic tables that retrieve information from the resour
        order by
            name
    </fql>
+
+Inline FQL values
+~~~~~~~~~~~~~~~~~
+
+With ``output="inline"`` the query renders its value as plain text instead of a table, so you can weave live resource data into a sentence. Combine this with hidden template pages (see :ref:`ig_page_setup`) to reuse one query across every resource page.
+
+Create a hidden page ``fql-get-resource-base.page.md`` with a topic and a single inline query. The ``%canonical`` page variable resolves to the canonical URL of the page that includes it:
+
+.. code-block:: html
+
+   ---
+   topic: fql-get-resource-base
+   ---
+   <fql output="inline">
+       for Resource
+       where url=%canonical
+       select baseDefinition
+   </fql>
+
+Do the same for the description in ``fql-get-resource-description.page.md``:
+
+.. code-block:: html
+
+   ---
+   topic: fql-get-resource-description
+   ---
+   <fql output="inline">
+       for Resource
+       where url=%canonical
+       select description
+   </fql>
+
+Then include them anywhere in your text with the ``{{page:}}`` placeholder:
+
+::
+
+   This profile is based on {{page:fql-get-resource-base}} and is described as:
+   {{page:fql-get-resource-description}}
+
+Because the queries use ``output="inline"``, the values appear in the running sentence rather than as a separate block. The text stays in sync with the resources: change the profile's description and the page follows.
 
 You can save FQL statements for reuse across pages and projects: the IG editor can save custom snippets to a ``.snippet.md`` file, usable on every page in that project and shareable across projects.
 
