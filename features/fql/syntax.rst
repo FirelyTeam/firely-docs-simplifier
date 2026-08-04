@@ -743,6 +743,25 @@ Page Variables & Templates
 
 FQL supports **Page Variables**. This allows for dynamic filtering and the use of FQL within **Page Templates** for easy reuse across multiple pages.
 
+When a query runs inside a Simplifier Implementation Guide, everything defined in the page's YAML header, in the guide's ``variables.yaml``, and the built-in guide properties (``guide-title``, ``guide-version``, ``guide-fhir-version``, ``scope``) are passed to the query as variables. Reference them with a ``%`` prefix:
+
+::
+
+   ---
+   ballotStatus: draft
+   ---
+
+   <fql>
+   from
+       StructureDefinition
+   where
+       status = %ballotStatus
+   select
+       name, url
+   </fql>
+
+Since the value comes from the page, the same query keeps working when you move it into a page template that many pages apply. See :ref:`Page setup and reuse <ig_page_setup>` for where variables can be defined.
+
 Output Formats
 ~~~~~~~~~~~~~~
 
