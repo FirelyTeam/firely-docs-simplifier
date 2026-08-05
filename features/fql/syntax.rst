@@ -306,28 +306,23 @@ In a Simplifier guide, the default is your project (without package dependencies
 
 In most cases a project is the default scope, so you can leave out the using clause.
 
-**Dependency scope**: a common case is a project with all its package dependencies included. You can achieve this with the ``scope`` clause.
+**Dependency scope**: a common case is a project with all its package dependencies included. You can achieve this with the ``scope`` clause. This is what you need when you want to query resources (profiles, valuesets, examples) that live in one of your package dependencies instead of in your own project. ``using closure`` is a synonym.
 
 .. code:: sql
 
    using scope
    from Patient select id
 
-**Alias scopes**: FQL allows any other identifier (a simple name) to function as a scope alias, if a tool allows it. In Torinox, the url key of any of your own projects on Simplifier can be chosen as a scope.
+**Package scopes**: a single package can also be a scope, by naming it in the using clause.
 
 .. code:: sql
 
-   using myproject
+   using 'hl7.fhir.r3.core@3.0.2'
    from Patient select id
 
-**Package scopes**: this is not implemented yet, but we plan to allow any package that is a dependency in your project as a valid scope. It would probably look like this:
+A using string with an ``@`` sign, or with a dot in its name, is interpreted as a package, while a string that starts with ``http://`` or ``https://`` is treated as a FHIR server.
 
-.. code:: sql
-
-   using 'hl7.fhir.r3.core@latest'
-   from Patient select id
-
-The logic is probably going to be that a using string with an ``@`` sign is interpreted as a package, while a string that starts with ``http://`` or ``https://`` is treated as a FHIR server.
+On Simplifier you can query any package in the main feed, plus the packages in the private feed of your own organization. On Firely Terminal the package has to be installed on your machine, and you have to name an explicit version: ``@latest`` is not resolved there.
 
 Limitations
 ~~~~~~~~~~~
