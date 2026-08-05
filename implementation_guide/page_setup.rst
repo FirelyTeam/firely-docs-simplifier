@@ -25,10 +25,129 @@ The YAML header of a page (the part between the ``---`` lines) sets properties t
 
 Any property that a rendering widget understands (such as ``buttons``, ``diff``, ``hybrid``) can also be set in the header.
 
-Global variables
-----------------
+Variables
+---------
 
-The ``variables.yaml`` file in the root of your guide acts like an invisible page: instead of content, it holds variables you define once and reuse across the guide. You can also use it for guide-wide settings, such as the tree ``expand:`` option (for example ``expand: yes`` to expand every level, or ``expand: 3`` for the third level).
+A variable is a property with a name you pick yourself. Simplifier resolves a variable by looking, from most specific to most general:
+
+1. the arguments of the placeholder call itself
+2. the page's YAML header
+3. ``variables.yaml`` in the root of your guide
+4. the built-in guide properties
+
+The first match wins, so a page header overrides ``variables.yaml``, which overrides the built-ins.
+
+These variables are always available: ``guide-title``, ``guide-description``, ``guide-version``, ``guide-fhir-version``, and ``scope`` (the project or package the guide renders against).
+
+Defining variables
+~~~~~~~~~~~~~~~~~~
+
+The ``variables.yaml`` file in the root of your guide acts like an invisible page: instead of content, it holds variables you define once and reuse across the guide. Add it from the IG editor tree. Write plain YAML, without ``---`` fences:
+
+::
+
+   patient-profile: http://example.org/StructureDefinition/MyPatient
+   ballotStatus: draft
+
+You can also use it for guide-wide settings, such as the tree ``expand:`` option (for example ``expand: yes`` to expand every level, or ``expand: 3`` for the third level).
+
+The same keys work in a page's YAML header, where they apply to that page only:
+
+::
+
+   ---
+   topic: MyPatientPage
+   ballotStatus: final
+   ---
+
+Only simple key/value pairs are read; nested YAML and lists are ignored. Keep to letters, digits, and underscores in your own variable names, so they stay usable in FQL and PlantUML.
+
+Using variables
+~~~~~~~~~~~~~~~
+
+- On any page, and in the guide's master template: ``{{variable: ballotStatus}}``. Intellisense lists the variables it knows about.
+- In an FQL query: ``%ballotStatus`` (see :ref:`FQL page variables <fql_syntax>`).
+- In a PlantUML diagram: ``!$ballotStatus``. Dashes in a name become underscores here, so ``guide-title`` is ``!$guide_title``.
+
+Reusing variables across pages
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+A page header variable is also visible in whatever that page pulls in with ``{{page:}}``, which is what makes templating work: the template reads the variables, each page sets them. You can pass one-off values in the call itself:
+
+::
+
+   {{page: yourTemplatingPage, ballotStatus: draft}}
+
+This is how you describe several resources on one page while writing the layout only once. Two hidden template pages, each with a topic and no scope of its own:
+
+``fql-get-resource-description``
+
+::
+
+   ---
+   topic: fql-get-resource-description
+   ---
+
+   <fql output="inline">
+   from
+       StructureDefinition
+   where
+       url = %canonical
+   select
+       description
+   </fql>
+
+``resource-lm-view-tree``
+
+::
+
+   ---
+   topic: resource-lm-view-tree
+   ---
+
+   <tabs>
+      <tab title="Tree view" active="true">
+         {{tree, hybrid}}
+      </tab>
+      <tab title="Mappings">
+         {{page:fql-get-lm-mappings}}
+      </tab>
+      <tab title="Xml">
+         {{xml}}
+      </tab>
+      <tab title="Json">
+         {{json}}
+      </tab>
+   </tabs>
+
+And the visible page that applies them once per resource, passing the canonical in the call:
+
+::
+
+   ---
+   topic: LogicalModelsOverview
+   expand: yes
+   ---
+
+   # Page describing multiple resources
+
+   ## Endpoint
+
+   {{page: fql-get-resource-description, canonical: http://example.org/fhir/StructureDefinition/lm-Endpoint}}
+
+   {{page: resource-lm-view-tree, canonical: http://example.org/fhir/StructureDefinition/lm-Endpoint}}
+
+   ## ExecutionOrder
+
+   {{page: fql-get-resource-description, canonical: http://example.org/fhir/StructureDefinition/lm-ExecutionOrder}}
+
+   {{page: resource-lm-view-tree, canonical: http://example.org/fhir/StructureDefinition/lm-ExecutionOrder}}
+
+The ``canonical`` from the call sets the scope for the included page, so ``{{tree}}`` needs no parameter and the query picks the same value up as ``%canonical``. ``expand: yes`` in the header applies to every tree on the page.
+
+.. note::
+
+   Widget parameters are read literally, so ``{{tree: %patient-profile}}`` and ``{{tree: {{variable: patient-profile}}}}`` do not work. To point a widget at a different resource per page, set the scope in the page header (``subject``, ``canonical``, or ``name``) and leave the widget's parameter empty, as described under `Templating`_. The same goes for options such as ``expand``, ``buttons``, and ``diff``.
 
 Templating
 ----------
