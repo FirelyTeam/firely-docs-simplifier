@@ -48,18 +48,34 @@ Filters select which files in your project a rule applies to. You can specify mo
 
    - filter: id.exists()
 
-**Category filters**: select a group of resources that spans more or less than a single resource type.
+**Category filters**: select a group of resources that spans more or less than a single resource type. Quality Control uses the same categories as :ref:`bake <resource_categories>`:
 
-- ``profile``: all structure definitions that define a resource
-- ``extension``: all structure definitions that define an extension
-- ``conformance``: all conformance resources (value sets, code systems, structure definitions, etc.)
-- ``example``: all resources that are not conformance resources
+- ``Conformance``: all conformance resources (StructureDefinitions, ...).
+- ``Terminology``: all terminology resources (code systems, value sets, ...).
+- ``Instance``: all resources that are not conformance resources (Patient, Organization, etc.).
+- ``Example``: an alias for ``Instance``; both select exactly the same resources.
+- ``Profile``: structure definitions with ``kind`` = ``resource``.
+- ``Extension``: structure definitions with ``type`` = ``extension``.
+- ``Type``: structure definitions with ``kind`` = ``type`` or ``complex-type``.
+- ``Resource``: all files that parse as a known FHIR resource.
+
+Category names are case-insensitive, so ``category: profile`` and ``category: Profile`` are equivalent.
+
+**Resource types**: you can also choose any resource type as a category, such as ``category: StructureDefinition`` or ``category: Patient``. A resource type is matched on its exact name, so it *is* case-sensitive: ``category: Patient`` works, ``category: patient`` does not.
 
 ::
 
-   - status: "Create a snapshot for all extensions"
-     action: snapshot
-     category: extension
+   - name: extension-context
+     status: "Checking that all extensions define a context"
+     category: Extension
+     predicate: context.exists()
+     error-message: An extension must define at least one context
+
+**Current categorisation**: ``Conformance`` currently covers StructureDefinition, ValueSet, CodeSystem, CapabilityStatement, OperationDefinition, SearchParameter, CompartmentDefinition, ImplementationGuide and ElementDefinition. Everything else falls under ``Instance`` (``Example``), including ConceptMap, NamingSystem, StructureMap, GraphDefinition, TestScript and Library. See the :ref:`full table <resource_categories>` in the bake reference; Quality Control and bake share the same assignment.
+
+.. note::
+
+   Some resource types are not categorised the way the FHIR specification would suggest. We plan to improve the categorization based on a classification derived from the FHIR specification. Until then, use a ``files`` filter or a FHIRPath ``filter`` to select these resources yourself, for example ``filter: ConceptMap | NamingSystem``.
 
 Errors
 ------
