@@ -44,6 +44,48 @@ Lists the name and canonical from all profiles available in your project (includ
    select
      name, url
 
+Mappings of a profile in a package dependency
+---------------------------------------------
+
+Because ``using scope`` includes your package dependencies, you can query a profile that you do not maintain yourself. This lists the element mappings of a profile from one of your dependencies:
+
+.. code:: sql
+
+   using scope
+   from StructureDefinition
+   where url = 'http://hl7.org/fhir/StructureDefinition/Patient'
+   for snapshot.element
+   where mapping.exists()
+   select
+     Path: path,
+     Identity: mapping.identity,
+     Map: mapping.map
+
+An element can carry more than one mapping, so the last two columns can hold multiple values. To show only one mapping set, filter on its identity:
+
+.. code:: sql
+
+   using scope
+   from StructureDefinition
+   where url = 'http://hl7.org/fhir/StructureDefinition/Patient'
+   for snapshot.element
+   where mapping.where(identity = 'v2').exists()
+   select
+     Path: path,
+     V2: mapping.where(identity = 'v2').map
+
+The mapping declarations themselves (the legend of identities used in the profile) sit at the root of the StructureDefinition:
+
+.. code:: sql
+
+   using scope
+   from StructureDefinition
+   where url = 'http://hl7.org/fhir/StructureDefinition/Patient'
+   for mapping
+   select identity, name, uri
+
+The snapshot is only available if the package was published with snapshots. If it is missing, query ``differential.element`` instead, which holds only the mappings that the author added, not the ones inherited from the base resource.
+
 About profiles in a use case
 ----------------------------
 
