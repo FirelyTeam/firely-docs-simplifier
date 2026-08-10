@@ -137,7 +137,7 @@ a.icon-home:hover {
 	text-decoration: none;
 }
 
-.rst-content .btn:focus {
+.rst-content .btn:focus:not(:focus-visible) {
   outline: none;
 }
 
