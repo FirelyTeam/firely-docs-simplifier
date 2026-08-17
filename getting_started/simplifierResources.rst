@@ -32,7 +32,15 @@ The menu holds two slots, A and B:
 #. Navigate to the second file and choose ``Set as file B``. The two files do not have to be in the same project: you can compare across projects, across packages, and across package versions.
 #. Click ``Compare A <-> B`` to open a side-by-side diff. This option stays disabled until both slots are filled.
 
-The menu shows what is currently in each slot, as clickable links to the project or package and to the file itself. The same links appear above each side of the diff. Use ``Clear selection`` to empty both slots.
+The menu shows what is currently in each slot, as clickable links to the project or package and to the file itself. Use ``Clear selection`` to empty both slots.
+
+.. image:: ../images/CompareFileMenu.png
+   :scale: 75%
+
+The diff shows file A on the left and file B on the right, with the same links above each side.
+
+.. image:: ../images/CompareFilesDiff.png
+   :scale: 75%
 
 .. note::
 
