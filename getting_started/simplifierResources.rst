@@ -16,9 +16,27 @@ Depending on the type of resource, the different views include:
 * **Table** – This is a simple table view of the resource.
 * **XML & JSON** – Respective views of resources in either XML or JSON formatting.
 * **Related** - The references to the profiles from which this profile was derived.
-* **History** – On this tab you can view the difference between two versions of the same profile. This is a great feature for comparing and tracking changes.
+* **History** – On this tab you can view the difference between two versions of the same profile. This is a great feature for comparing and tracking changes. To compare two different files, see :ref:`compare-files`.
 * **Issues** - On this tab users with a paid account can track issues. New issues can be created by clicking the ``New issue`` button. The issue list can be filtered on open, closed or your own issues. By clicking on an issue you can read the entire conversation and add a new comment.
 * **Documentation** - Here you can provide extra documentation on your resource.
+
+.. _compare-files:
+
+Comparing two files
+"""""""""""""""""""
+The ``History`` tab compares two versions of the same file. To compare two *different* files, use the ``Compare`` menu at the top of any resource page or package file page.
+
+The menu holds two slots, A and B:
+
+#. Open the first file and choose ``Set as file A``.
+#. Navigate to the second file and choose ``Set as file B``. The two files do not have to be in the same project: you can compare across projects, across packages, and across package versions.
+#. Click ``Compare A <-> B`` to open a side-by-side diff. This option stays disabled until both slots are filled.
+
+The menu shows what is currently in each slot, as clickable links to the project or package and to the file itself. The same links appear above each side of the diff. Use ``Clear selection`` to empty both slots.
+
+.. note::
+
+   Your selection is stored in a browser cookie that expires after one day, which is what lets you pick the two files in separate visits. It is not shared between browsers or devices.
 
 Update Resources
 """"""""""""""""
