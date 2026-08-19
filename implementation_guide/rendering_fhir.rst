@@ -10,13 +10,20 @@ Reference a resource by its **canonical URL** (recommended, as the link keeps wo
 Finding resources (Intellisense)
 --------------------------------
 
-Simplifier has an Intellisense that helps you find the resource you want to render. It is triggered automatically after you type a command, for example ``{{tree:``. There are three modes:
+Simplifier has an Intellisense that helps you find what you want to reference. It is triggered automatically after you type a command, for example ``{{tree:``. Pick which suggestions you get from the **Intellisense** menu in the editor toolbar. The menu has two sections: one for resources and one for pages.
+
+Resources (used by widgets such as ``{{tree:``, ``{{table:`` and ``{{link:``):
 
 - **Canonical** (default): all canonical URLs in your guide's scope.
+- **Names**: the names of the resources in your guide's scope.
 - **Files**: all files in your scope, together with your package dependencies.
-- **Global**: all public projects and packages on Simplifier.
 
-Toggle between modes with the buttons at the bottom right of the editor, by pressing ``F1`` and choosing 'Change intellisense mode', or with ``Ctrl + I``. The mode only changes how Intellisense suggests; every valid render syntax works regardless of the selected mode.
+Pages (used by the ``{{pagelink:`` and ``{{page:`` widgets):
+
+- **Paths** (default): the filepaths of the pages in your guide.
+- **Topics**: the topics set in the YAML headers of your pages. Pages without a topic are not suggested. Linking by topic is the recommended way to reference pages (see :ref:`pagelinkingTopic`).
+
+The list filters as you keep typing. Cycle through the resource modes by pressing ``Ctrl + I``, or by pressing ``F1`` and choosing 'Change intellisense mode'. The selected modes only change what Intellisense suggests; every valid render syntax works regardless.
 
 Widgets
 -------
