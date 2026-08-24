@@ -5,13 +5,31 @@
      - License
    * - `AngleSharp <https://www.nuget.org/packages/AngleSharp>`__
      - MIT
+   * - `Azure.Identity <https://www.nuget.org/packages/Azure.Identity>`__
+     - MIT
+   * - `Azure.Monitor.Ingestion <https://www.nuget.org/packages/Azure.Monitor.Ingestion>`__
+     - MIT
    * - `Dapper <https://www.nuget.org/packages/Dapper>`__
      - Apache-2.0
    * - `Firely.Fhir.Packages <https://www.nuget.org/packages/Firely.Fhir.Packages>`__
      - BSD-3-Clause
-   * - `Hl7.DSTU2.FHIRPath <https://www.nuget.org/packages/Hl7.DSTU2.FHIRPath>`__
+   * - `Firely.Fhir.Validation <https://www.nuget.org/packages/Firely.Fhir.Validation>`__
+     - BSD-3-Clause
+   * - `Firely.Fhir.Validation.Compilation.STU3 <https://www.nuget.org/packages/Firely.Fhir.Validation.Compilation.STU3>`__
+     - BSD-3-Clause
+   * - `Firely.Fhir.Validation.R4 <https://www.nuget.org/packages/Firely.Fhir.Validation.R4>`__
+     - BSD-3-Clause
+   * - `Firely.Fhir.Validation.R4B <https://www.nuget.org/packages/Firely.Fhir.Validation.R4B>`__
+     - BSD-3-Clause
+   * - `Firely.Fhir.Validation.R5 <https://www.nuget.org/packages/Firely.Fhir.Validation.R5>`__
+     - BSD-3-Clause
+   * - `Firely.Fhir.Validation.STU3 <https://www.nuget.org/packages/Firely.Fhir.Validation.STU3>`__
+     - BSD-3-Clause
+   * - `Hl7.DSTU2.FhirPath <https://www.nuget.org/packages/Hl7.DSTU2.FhirPath>`__
      - BSD-3-Clause
    * - `Hl7.Fhir.Base <https://www.nuget.org/packages/Hl7.Fhir.Base>`__
+     - BSD-3-Clause
+   * - `Hl7.Fhir.Conformance <https://www.nuget.org/packages/Hl7.Fhir.Conformance>`__
      - BSD-3-Clause
    * - `Hl7.Fhir.DSTU2 <https://www.nuget.org/packages/Hl7.Fhir.DSTU2>`__
      - BSD-3-Clause
@@ -35,14 +53,6 @@
      - BSD-3-Clause
    * - `Hl7.Fhir.STU3 <https://www.nuget.org/packages/Hl7.Fhir.STU3>`__
      - BSD-3-Clause
-   * - `Hl7.Fhir.Validation.Legacy.R4 <https://www.nuget.org/packages/Hl7.Fhir.Validation.Legacy.R4>`__
-     - BSD-3-Clause
-   * - `Hl7.Fhir.Validation.Legacy.R4B <https://www.nuget.org/packages/Hl7.Fhir.Validation.Legacy.R4B>`__
-     - BSD-3-Clause
-   * - `Hl7.Fhir.Validation.Legacy.R5 <https://www.nuget.org/packages/Hl7.Fhir.Validation.Legacy.R5>`__
-     - BSD-3-Clause
-   * - `Hl7.Fhir.Validation.Legacy.STU3 <https://www.nuget.org/packages/Hl7.Fhir.Validation.Legacy.STU3>`__
-     - BSD-3-Clause
    * - `HtmlAgilityPack <https://www.nuget.org/packages/HtmlAgilityPack>`__
      - MIT
    * - `HtmlSanitizer <https://www.nuget.org/packages/HtmlSanitizer>`__
@@ -55,37 +65,43 @@
      - BSD-2-Clause
    * - `Markdig.SyntaxHighlighting <https://www.nuget.org/packages/Markdig.SyntaxHighlighting>`__
      - Apache-2.0
+   * - `MessagePack <https://www.nuget.org/packages/MessagePack>`__
+     - MIT
+   * - `MessagePack.Annotations <https://www.nuget.org/packages/MessagePack.Annotations>`__
+     - MIT
    * - `Microsoft.ApplicationInsights.AspNetCore <https://www.nuget.org/packages/Microsoft.ApplicationInsights.AspNetCore>`__
      - MIT
-   * - `Microsoft.AspNetCore.Authentication.Cookies <https://www.nuget.org/packages/Microsoft.AspNetCore.Authentication.Cookies>`__
-     - Apache-2.0
+   * - `Microsoft.ApplicationInsights.WorkerService <https://www.nuget.org/packages/Microsoft.ApplicationInsights.WorkerService>`__
+     - MIT
    * - `Microsoft.AspNetCore.Authentication.JwtBearer <https://www.nuget.org/packages/Microsoft.AspNetCore.Authentication.JwtBearer>`__
+     - MIT
+   * - `Microsoft.AspNetCore.Authentication.OpenIdConnect <https://www.nuget.org/packages/Microsoft.AspNetCore.Authentication.OpenIdConnect>`__
      - MIT
    * - `Microsoft.AspNetCore.DataProtection.StackExchangeRedis <https://www.nuget.org/packages/Microsoft.AspNetCore.DataProtection.StackExchangeRedis>`__
      - MIT
-   * - `Microsoft.AspNetCore.Identity <https://www.nuget.org/packages/Microsoft.AspNetCore.Identity>`__
+   * - `Microsoft.AspNetCore.Http.Abstractions <https://www.nuget.org/packages/Microsoft.AspNetCore.Http.Abstractions>`__
      - Apache-2.0
    * - `Microsoft.AspNetCore.Identity.EntityFrameworkCore <https://www.nuget.org/packages/Microsoft.AspNetCore.Identity.EntityFrameworkCore>`__
      - MIT
    * - `Microsoft.AspNetCore.Mvc.NewtonsoftJson <https://www.nuget.org/packages/Microsoft.AspNetCore.Mvc.NewtonsoftJson>`__
      - MIT
-   * - `Microsoft.AspNetCore.Mvc.Razor <https://www.nuget.org/packages/Microsoft.AspNetCore.Mvc.Razor>`__
-     - Apache-2.0
    * - `Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation <https://www.nuget.org/packages/Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation>`__
      - MIT
-   * - `Microsoft.AspNetCore.SignalR.Core <https://www.nuget.org/packages/Microsoft.AspNetCore.SignalR.Core>`__
-     - Apache-2.0
    * - `Microsoft.Bcl.HashCode <https://www.nuget.org/packages/Microsoft.Bcl.HashCode>`__
      - MIT
    * - `Microsoft.CodeAnalysis.Analyzers <https://www.nuget.org/packages/Microsoft.CodeAnalysis.Analyzers>`__
      - MIT
    * - `Microsoft.EntityFrameworkCore.Abstractions <https://www.nuget.org/packages/Microsoft.EntityFrameworkCore.Abstractions>`__
      - MIT
+   * - `Microsoft.EntityFrameworkCore.Design <https://www.nuget.org/packages/Microsoft.EntityFrameworkCore.Design>`__
+     - MIT
    * - `Microsoft.EntityFrameworkCore.Proxies <https://www.nuget.org/packages/Microsoft.EntityFrameworkCore.Proxies>`__
      - MIT
    * - `Microsoft.EntityFrameworkCore.SqlServer <https://www.nuget.org/packages/Microsoft.EntityFrameworkCore.SqlServer>`__
      - MIT
    * - `Microsoft.EntityFrameworkCore.Tools <https://www.nuget.org/packages/Microsoft.EntityFrameworkCore.Tools>`__
+     - MIT
+   * - `Microsoft.Extensions.Azure <https://www.nuget.org/packages/Microsoft.Extensions.Azure>`__
      - MIT
    * - `Microsoft.Extensions.Caching.StackExchangeRedis <https://www.nuget.org/packages/Microsoft.Extensions.Caching.StackExchangeRedis>`__
      - MIT
@@ -103,8 +119,6 @@
      - MIT
    * - `Microsoft.Extensions.DependencyInjection <https://www.nuget.org/packages/Microsoft.Extensions.DependencyInjection>`__
      - MIT
-   * - `Microsoft.Extensions.DependencyInjection.Abstractions <https://www.nuget.org/packages/Microsoft.Extensions.DependencyInjection.Abstractions>`__
-     - MIT
    * - `Microsoft.Extensions.Hosting <https://www.nuget.org/packages/Microsoft.Extensions.Hosting>`__
      - MIT
    * - `Microsoft.Extensions.Http <https://www.nuget.org/packages/Microsoft.Extensions.Http>`__
@@ -112,6 +126,8 @@
    * - `Microsoft.Extensions.Identity.Core <https://www.nuget.org/packages/Microsoft.Extensions.Identity.Core>`__
      - MIT
    * - `Microsoft.Extensions.Logging <https://www.nuget.org/packages/Microsoft.Extensions.Logging>`__
+     - MIT
+   * - `Microsoft.Extensions.Logging.ApplicationInsights <https://www.nuget.org/packages/Microsoft.Extensions.Logging.ApplicationInsights>`__
      - MIT
    * - `Microsoft.Extensions.Logging.Console <https://www.nuget.org/packages/Microsoft.Extensions.Logging.Console>`__
      - MIT
@@ -123,22 +139,22 @@
      - MIT
    * - `Microsoft.Orleans.Clustering.AzureStorage <https://www.nuget.org/packages/Microsoft.Orleans.Clustering.AzureStorage>`__
      - MIT
-   * - `Microsoft.Orleans.CodeGenerator.MSBuild <https://www.nuget.org/packages/Microsoft.Orleans.CodeGenerator.MSBuild>`__
-     - MIT
    * - `Microsoft.Orleans.Core.Abstractions <https://www.nuget.org/packages/Microsoft.Orleans.Core.Abstractions>`__
      - MIT
-   * - `Microsoft.Orleans.OrleansProviders <https://www.nuget.org/packages/Microsoft.Orleans.OrleansProviders>`__
+   * - `Microsoft.Orleans.Reminders <https://www.nuget.org/packages/Microsoft.Orleans.Reminders>`__
      - MIT
-   * - `Microsoft.Orleans.OrleansRuntime <https://www.nuget.org/packages/Microsoft.Orleans.OrleansRuntime>`__
+   * - `Microsoft.Orleans.Reminders.AzureStorage <https://www.nuget.org/packages/Microsoft.Orleans.Reminders.AzureStorage>`__
      - MIT
-   * - `Microsoft.Orleans.OrleansTelemetryConsumers.Linux <https://www.nuget.org/packages/Microsoft.Orleans.OrleansTelemetryConsumers.Linux>`__
+   * - `Microsoft.Orleans.Sdk <https://www.nuget.org/packages/Microsoft.Orleans.Sdk>`__
      - MIT
-   * - `Microsoft.Orleans.Runtime.Abstractions <https://www.nuget.org/packages/Microsoft.Orleans.Runtime.Abstractions>`__
+   * - `Microsoft.Orleans.Serialization.SystemTextJson <https://www.nuget.org/packages/Microsoft.Orleans.Serialization.SystemTextJson>`__
      - MIT
-   * - `Microsoft.TypeScript.MSBuild <https://www.nuget.org/packages/Microsoft.TypeScript.MSBuild>`__
-     - Microsoft
-   * - `Microsoft.VisualStudio.Azure.Containers.Tools.Targets <https://www.nuget.org/packages/Microsoft.VisualStudio.Azure.Containers.Tools.Targets>`__
-     - Microsoft
+   * - `Microsoft.Orleans.Server <https://www.nuget.org/packages/Microsoft.Orleans.Server>`__
+     - MIT
+   * - `Microsoft.Orleans.Streaming <https://www.nuget.org/packages/Microsoft.Orleans.Streaming>`__
+     - MIT
+   * - `Microsoft.Web.LibraryManager.Build <https://www.nuget.org/packages/Microsoft.Web.LibraryManager.Build>`__
+     - BSD-3-Clause AND MIT
    * - `MiniProfiler.AspNetCore.Mvc <https://www.nuget.org/packages/MiniProfiler.AspNetCore.Mvc>`__
      - MIT
    * - `MiniProfiler.EntityFrameworkCore <https://www.nuget.org/packages/MiniProfiler.EntityFrameworkCore>`__
@@ -148,8 +164,6 @@
    * - `Newtonsoft.Json <https://www.nuget.org/packages/Newtonsoft.Json>`__
      - MIT
    * - `Octokit <https://www.nuget.org/packages/Octokit>`__
-     - MIT
-   * - `OrleansDashboard <https://www.nuget.org/packages/OrleansDashboard>`__
      - MIT
    * - `Serilog <https://www.nuget.org/packages/Serilog>`__
      - Apache-2.0
@@ -163,21 +177,21 @@
      - Apache-2.0
    * - `Serilog.Sinks.Console <https://www.nuget.org/packages/Serilog.Sinks.Console>`__
      - Apache-2.0
-   * - `Serilog.Sinks.Literate <https://www.nuget.org/packages/Serilog.Sinks.Literate>`__
-     - Apache-2.0
    * - `StackExchange.Redis <https://www.nuget.org/packages/StackExchange.Redis>`__
      - MIT
    * - `Stripe.net <https://www.nuget.org/packages/Stripe.net>`__
      - Apache-2.0
+   * - `Swashbuckle.AspNetCore <https://www.nuget.org/packages/Swashbuckle.AspNetCore>`__
+     - MIT
    * - `System.ComponentModel.Annotations <https://www.nuget.org/packages/System.ComponentModel.Annotations>`__
+     - MIT
+   * - `System.Drawing.Common <https://www.nuget.org/packages/System.Drawing.Common>`__
+     - MIT
+   * - `System.Linq.Async <https://www.nuget.org/packages/System.Linq.Async>`__
      - MIT
    * - `System.ServiceModel.Primitives <https://www.nuget.org/packages/System.ServiceModel.Primitives>`__
      - MIT
    * - `System.ServiceModel.Syndication <https://www.nuget.org/packages/System.ServiceModel.Syndication>`__
-     - MIT
-   * - `System.Threading.Tasks.Dataflow <https://www.nuget.org/packages/System.Threading.Tasks.Dataflow>`__
-     - MIT
-   * - `System.ValueTuple <https://www.nuget.org/packages/System.ValueTuple>`__
      - MIT
    * - `Vonk.Core <https://www.nuget.org/packages/Vonk.Core>`__
      - Firely
@@ -199,6 +213,8 @@ For unit testing:
 
    * - Package
      - License
+   * - `FluentAssertions <https://www.nuget.org/packages/FluentAssertions>`__
+     - Apache-2.0
    * - `Microsoft.NET.Test.Sdk <https://www.nuget.org/packages/Microsoft.NET.Test.Sdk>`__
      - MIT
    * - `MockQueryable.Moq <https://www.nuget.org/packages/MockQueryable.Moq>`__
