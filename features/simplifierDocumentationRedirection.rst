@@ -1,41 +1,162 @@
-Documentation Redirection
-^^^^^^^^^^^^^^^^^^^^^^^^^
-Each project and resource in Simplifier has a Documentation URL. 
-If set, users that go to https://simplifier.net/resolve and enter a canonical URL will get automatically directed to that documentation url. The default (fallback) will be the resource page on Simplifier itself. 
+.. _canonical_resolving:
 
-Although for STU3 the scope ``All of Simplifier`` does work, it is best practice to select a package or a project as the scope. This ensures that the user is redirected to the intended location. 
+Resolving canonicals
+^^^^^^^^^^^^^^^^^^^^
 
-Resolving canonicals in FHIR R4 requires the use of a package (or project) scope and setting the FHIR version to R4. By default Simplifier will select the package ``hl7.fhir.r4.core 4.0.1``. 
+Every conformance resource in FHIR has a canonical URL, but that URL is an identifier and not
+necessarily a working web address. Simplifier's resolve page turns a canonical into a link you can
+actually follow: enter a canonical on `simplifier.net/resolve <https://simplifier.net/resolve>`_ and
+you are taken to the documentation for that resource.
 
-.. image::../images/CanonicalScope.png
+Where you end up is controlled by the *documentation URL* of the package or project that holds the
+resource. If none is set, Simplifier falls back to the resource page on Simplifier itself. See
+:ref:`documentation_url` below to point resolving at your own IG instead.
+
+Choosing a scope
+----------------
+
+A canonical is only unique within the specification that defines it, so the same canonical can occur
+in several packages and projects. The scope tells Simplifier where to look.
+
+.. image:: ../images/ResolveScopeSelector.png
   :align: center
-  :scale: 75%
+  :scale: 50%
 
-You can set the documentation URL of a single resource, but you can also set the the documentation URLs of all 
-resources in the project, because Simplifier works with templates for the documentation URL.  
+Selecting a package or project as the scope is best practice: it guarantees you land on the version
+you meant. Use the FHIR version filter (``Any``, ``DSTU2``, ``STU3``, ``R4``, ``R4B``, ``R5``) to
+narrow the package list, then pick the version you want.
 
-To edit a documentation URL choose the ``Settings`` menu on a resource page or on the project page.
-Then choose ``Documentation URL``.
+Leaving the scope on ``Everywhere`` also works, but for R4 and later it is unreliable, because the
+core packages and many national profiles reuse canonicals across FHIR versions. If you resolve
+without a scope, Simplifier defaults to ``hl7.fhir.r4.core 4.0.1``.
 
-You can choose several variable parts, like the projectkey or file key that we use in the URL in Simplifier and you can
-use several fields in your resource: the id, type, the profile base type, and the canonical URL itself.
-This allows you to just define one project level URL that will work for all resources on your project.
+Ranked matches
+--------------
 
-If no documentation URL is provided, Simplifier will default to the page on Simplifier itself as the location of your documentation.
+When Simplifier cannot route you to exactly one resource, it lists the candidates it found instead,
+ranked best first. Resolving
+``http://fhir.de/StructureDefinition/observation-de-vitalsign-koerpertemperatur`` with no scope gives:
 
-Creating your own resolve URL
------------------------------
-Besides using the resolve page on Simplifier, it is also possible to make a URL directly. Each resolve URL consitst of 5 parts, the base, FHIR version, scope and version and the canonical of the resource. Below is an example of a URL:
+.. image:: ../images/ResolveMatches.png
+  :align: center
+  :scale: 50%
 
-``https://simplifier.net/resolve`` ? ``fhirVersion=R4`` & ``scope=hl7.fhir.r4.core`` @ ``4.0.1``  & ``canonical=``
+The stars are a relevance score. A candidate scores higher when its canonical was actually found in
+the scope (rather than only matching a claimed base URL), when the scope is a package rather than a
+project, and when the scope's FHIR version matches the one you asked for. The label on the right
+tells you which kind of match it is:
 
-* The base for every resolve URL is ``https://simplifier.net/resolve?``. 
-   
-* FHIR version in the example is set to ``R4``. For ``STU3`` you add ``fhirVersion=STU3`` after the base. If a scope is added the FHIR version is derived from there. 
-   
-* The scope of the resolve is set by using the package name or project URL Key.
-   
-* The version is set by ``@versionnumber``, if you always want to resolve to the latest version of a package you can use ``@latest`` for the version. If the scope is set to a live project the scope will always be ``@current``. 
+.. list-table::
+  :header-rows: 1
+  :widths: 25 75
 
-* Last you add the resource canonical of the resource you want to resolve to. 
+  * - Label
+    - Meaning
+  * - ``claimed canonical``
+    - The canonical was found in this scope, and the scope has claimed the base URL. Most reliable.
+  * - ``unclaimed canonical``
+    - The canonical was found in this scope, but the base URL is not claimed.
+  * - ``claimed base url``
+    - The canonical itself was not found, but this scope has claimed its base URL. A likely owner.
+  * - ``conflict``
+    - More than one scope claims this base URL. Pick the scope explicitly.
 
+Claiming your base URLs on your package or project makes your own resources rank first here. See
+:ref:`canonical_claims`.
+
+Picking the top match, ``de.basisprofil.r4@1.6.0``, resolves straight to the profile:
+
+.. image:: ../images/ResolveTarget.png
+  :align: center
+  :scale: 50%
+
+Building a resolve URL yourself
+-------------------------------
+
+Besides using the resolve page, you can construct a resolve URL directly, for example to put in your
+own documentation. This is the equivalent of the example above:
+
+.. code-block:: none
+
+  https://simplifier.net/resolve?scope=de.basisprofil.r4@1.6.0&canonical=http://fhir.de/StructureDefinition/observation-de-vitalsign-koerpertemperatur
+
+The base is always ``https://simplifier.net/resolve?``, followed by these parameters:
+
+.. list-table::
+  :header-rows: 1
+  :widths: 20 80
+
+  * - Parameter
+    - Description
+  * - ``scope``
+    - Package name or project URL key, optionally with ``@`` and a version:
+      ``de.basisprofil.r4@1.6.0``. Use ``@latest`` for the newest version of a package. For a live
+      project the scope is always ``@current``. When a scope is given, the FHIR version is derived
+      from it.
+  * - ``fhirVersion``
+    - ``DSTU2``, ``STU3``, ``R4``, ``R4B`` or ``R5``. Only needed when you do not pass a ``scope``.
+  * - ``canonical``
+    - The canonical URL of the resource you want to resolve to.
+  * - ``filepath``
+    - Resolve by path within the package instead of by canonical, for example
+      ``package/StructureDefinition-Patient.json``.
+  * - ``reference``
+    - Resolve by ``<type>/<id>``, for example ``Patient/3``.
+  * - ``name``
+    - Resolve by resource name.
+  * - ``best``
+    - Set ``best=true`` to let Simplifier pick the highest scoring scope for you instead of passing
+      one. Handy when you do not know which package owns the canonical.
+  * - ``target``
+    - Override which documentation to send the user to: ``preferred`` (the publisher's choice),
+      ``source`` (the Simplifier page for the content), ``package``, ``project`` or ``guide``.
+  * - ``tab``
+    - Open a specific tab on the target page, for example ``tab=xml``.
+
+The scope can also go in the path instead of the query string:
+``https://simplifier.net/resolve/de.basisprofil.r4@1.6.0?canonical=...``.
+
+.. note::
+  The ``scope`` version must be an exact version or ``latest``. Version ranges such as ``1.6.x`` or
+  ``~1.6.0`` are not supported; Simplifier falls back to the newest version of the package and shows
+  a warning.
+
+.. _documentation_url:
+
+Documentation URL
+^^^^^^^^^^^^^^^^^
+
+The documentation URL determines where resolving lands. Set it if you publish your own IG and want
+readers to arrive there rather than on Simplifier.
+
+To edit it, choose ``Settings`` on a resource page or on the project page, then ``Documentation URL``.
+You can set it for a single resource, or once at project level for every resource in the project,
+because Simplifier applies it as a template.
+
+Available template variables:
+
+.. list-table::
+  :header-rows: 1
+  :widths: 20 80
+
+  * - Variable
+    - Value
+  * - ``{canonical}``
+    - The canonical URL of the resource.
+  * - ``{type}``
+    - The resource type, for example ``StructureDefinition``.
+  * - ``{basetype}``
+    - The core base type the profile constrains, for example ``Patient``.
+  * - ``{id}``
+    - The resource id.
+  * - ``{projectkey}``
+    - The project URL key as used in Simplifier's own URLs.
+  * - ``{filekey}``
+    - The file URL key as used in Simplifier's own URLs.
+  * - ``{filepath}``
+    - The path of the file within the package.
+
+So a single project level template like
+``https://example.org/ig/{type}-{id}.html`` works for every resource in the project.
+
+If no documentation URL is set, Simplifier defaults to the resource page on Simplifier itself.
