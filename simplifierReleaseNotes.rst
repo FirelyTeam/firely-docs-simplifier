@@ -8,7 +8,7 @@ This page contains the release notes of simplifier.net.
 
 Simplifier 2026.4, August 19th, 2026
 -------------------------------------------
-You can find the related news article notes on `Simplifier. <https://simplifier.net/organization/firely/news/204>`_
+You can find the related news article on `Simplifier. <https://simplifier.net/organization/firely/news/204>`_
 
 Firely .NET SDK 6
 ~~~~~~~~~~~~~~~~~
