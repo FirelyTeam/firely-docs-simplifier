@@ -101,7 +101,7 @@ The ``index`` widget renders a navigable index:
 - ``{{index:current}}`` indexes the currently selected element.
 - ``{{index:Home}}`` (any page URL key) indexes that specific page.
 
-Add ``levels:<nr>`` to control how many levels of sub-folders and pages are included in the table of contents. For example, ``{{index:root, levels:2}}`` only lists two levels deep, hiding anything nested further below:
+Add ``levels:<nr>`` to control how many levels of sub-folders and pages are included in the table of contents. For example, ``{{index:root, levels:2}}`` only lists two levels deep, hiding anything nested further below.
 
 Tabs
 ----
