@@ -103,12 +103,6 @@ The ``index`` widget renders a navigable index:
 
 Add ``levels:<nr>`` to control how many levels of sub-folders and pages are included in the table of contents. For example, ``{{index:root, levels:2}}`` only lists two levels deep, hiding anything nested further below:
 
-::
-
-   {{index:root, levels:2}}
-
-Without ``levels``, the index includes every level below the indexed page.
-
 Tabs
 ----
 
