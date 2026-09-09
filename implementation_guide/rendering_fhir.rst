@@ -90,6 +90,8 @@ The supported fields depend on the resource type:
 
 If no fields are specified, all non-empty fields are rendered in the FHIR-defined order. If fields are specified (``{{metadata:canonicalUrl, url, version, publisher}}``), only those are rendered, in the order listed. The optional ``render-metadata-title`` flag also displays a title with the resource type and ``name``.
 
+.. _ig_index_widget:
+
 Index
 -----
 
@@ -98,6 +100,8 @@ The ``index`` widget renders a navigable index:
 - ``{{index:root}}`` indexes the entire IG.
 - ``{{index:current}}`` indexes the currently selected element.
 - ``{{index:Home}}`` (any page URL key) indexes that specific page.
+
+Add ``levels:<nr>`` to control how many levels of sub-folders and pages are included in the table of contents. For example, ``{{index:root, levels:2}}`` only lists two levels deep, hiding anything nested further below.
 
 Tabs
 ----
