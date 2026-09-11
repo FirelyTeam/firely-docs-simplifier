@@ -117,7 +117,7 @@ Every element mapping refers to a mapping set by its ``identity``, which is a sh
 
 The variable is needed because ``where(identity = identity)`` would compare the root mapping with itself: the field name at the root hides the one from the current item.
 
-You can try this query in the `FQL playground <https://simplifier.net/fql/8df1011b2dbb07f>`__.
+You can try this query in the `FQL playground <https://simplifier.net/fql/8df1012cbbd0d97>`__.
 
 About profiles in a use case
 ----------------------------
