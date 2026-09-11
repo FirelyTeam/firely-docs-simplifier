@@ -86,6 +86,39 @@ The mapping declarations themselves (the legend of identities used in the profil
 
 The snapshot is only available if the package was published with snapshots. If it is missing, query ``differential.element`` instead, which holds only the mappings that the author added, not the ones inherited from the base resource.
 
+.. _fql_example_mapping_names:
+
+Mapping names instead of identities
+-----------------------------------
+
+Every element mapping refers to a mapping set by its ``identity``, which is a short code such as ``v2`` or ``rim``. The readable ``name`` of that set is declared only once, at the root of the StructureDefinition. To show the name in a table of element mappings, use :ref:`%resource <fql_resource_variable>` to reach the root from inside the ``for`` clause, and ``defineVariable()`` to carry the identity of the current mapping into the lookup:
+
+.. code:: sql
+
+   from
+     StructureDefinition
+   where
+     url = %canonical
+   for
+     differential.element
+   select
+     id,
+     join mapping {
+       name: defineVariable('mid', identity).select(%resource.mapping.where(identity = %mid).name),
+       map,
+       comment
+     }
+   order by name
+   select
+     'Mapping name': name,
+     'Concept id': map,
+     'FHIR element': id,
+     Comments: comment
+
+The variable is needed because ``where(identity = identity)`` would compare the root mapping with itself: the field name at the root hides the one from the current item.
+
+You can try this query in the `FQL playground <https://simplifier.net/fql/8df1011b2dbb07f>`__.
+
 About profiles in a use case
 ----------------------------
 
