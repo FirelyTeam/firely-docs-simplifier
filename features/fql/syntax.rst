@@ -240,6 +240,26 @@ In this second query, you get one row per given name. If a patient has multiple 
    select
        given
 
+.. _fql_resource_variable:
+
+**Referring back to the resource**: a ``for`` clause moves your position into the resource, so every path after it is relative to the current item. The ``%resource`` variable brings you back to the resource that the current row came from, which lets you combine a value from deep inside a repeating element with a value that only exists at the root. Note that ``%context`` does not do this: inside a ``for`` clause it refers to the current item, not to the resource.
+
+.. code:: sql
+
+   from StructureDefinition
+   for differential.element
+   select
+       id,
+       profile: %resource.name
+
+**Passing a value into a lookup**: when you want to look something up at the root of the resource *by* a value from the current item, the two sides often have the same field name, and the name of the field at the root then hides the one from the current item. Use the FHIRPath function ``defineVariable()`` to capture the value first, and refer to it with a ``%`` prefix:
+
+.. code:: sql
+
+   defineVariable('mid', identity).select(%resource.mapping.where(identity = %mid).name)
+
+See :ref:`Mapping names instead of identities <fql_example_mapping_names>` for a full query built on this.
+
 
 Source selection
 ----------------
