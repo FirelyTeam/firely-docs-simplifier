@@ -98,7 +98,7 @@ Every element mapping refers to a mapping set by its ``identity``, which is a sh
    from
      StructureDefinition
    where
-     url = %canonical
+     url = 'http://example.org/fhir/StructureDefinition/your-profile'
    for
      differential.element
    select
@@ -118,6 +118,10 @@ Every element mapping refers to a mapping set by its ``identity``, which is a sh
 The variable is needed because ``where(identity = identity)`` would compare the root mapping with itself: the field name at the root hides the one from the current item.
 
 You can try this query in the `FQL playground <https://simplifier.net/fql/8df1012cbbd0d97>`__.
+
+.. warning::
+
+   In a Simplifier implementation guide this query only works with a literal canonical, as written above. When the same query filters on a page variable (``where url = %canonical``), ``%resource`` returns only the first repeat of a repeating root element, so only the elements that map to the first declared mapping set get a name and the other rows stay empty. ``%rootResource`` behaves the same way. Until that is fixed, render the legend as a separate table on the page, as shown under the mapping examples above, and keep ``identity`` in the element table.
 
 About profiles in a use case
 ----------------------------

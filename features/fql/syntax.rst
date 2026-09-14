@@ -260,6 +260,10 @@ In this second query, you get one row per given name. If a patient has multiple 
 
 See :ref:`Mapping names instead of identities <fql_example_mapping_names>` for a full query built on this.
 
+.. note::
+
+   In Simplifier implementation guides, ``%resource`` currently returns only the first repeat of a repeating root element when the query filters on a page variable such as ``%canonical``. With a literal value in the ``where`` clause it returns the whole resource.
+
 
 Source selection
 ----------------
