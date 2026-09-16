@@ -1,8 +1,7 @@
 Resources
 =========
 Simplifier is a repository for FHIR resources. There are a multitude of resources that are available to the public including profiles, extensions, valuesets, dictionaries, mappings, examples and more.
-
-.. _resource-page:
+.. _resource-page:
 
 Resource page
 """""""""""""
@@ -19,6 +18,53 @@ Depending on the type of resource, the different views include:
 * **History** – On this tab you can view the difference between two versions of the same profile. This is a great feature for comparing and tracking changes. To compare two different files, see :ref:`compare-files`.
 * **Issues** - On this tab users with a paid account can track issues. New issues can be created by clicking the ``New issue`` button. The issue list can be filtered on open, closed or your own issues. By clicking on an issue you can read the entire conversation and add a new comment.
 * **Documentation** - Here you can provide extra documentation on your resource.
+
+
+Update Resources
+""""""""""""""""
+When you want to update your resource, there are several ways to do so. Choose one of the following options from the ``Update`` menu at the top of the Resource page:
+
+* **Upload**: Update by uploading a file (either XML or JSON)
+* **Fetch**: Update by fetching from a different FHIR server (provide a GET request to the server where your resource is located)
+* **Edit**: Update by editing the last version (opens a XML-editor in a small window where you can directly edit the XML code of your resource)
+* **Editor**: Update by editing the last version (opens a stand-alone full screen XML-editor in a different tab where you can directly edit the XML code of your resource)
+
+
+Download Resources
+""""""""""""""""""
+You may also choose to download the resource and save a local copy on your computer. You can either choose to download the resource as a XML or JSON file or directly copy the XML or JSON code of the resource to your clipboard, so you can easily copy-paste it to another location.
+
+
+Add Resources
+"""""""""""""
+Go to your Project page to `add new resources <../adding_content/upload-resources.html>`_ to your project.
+
+
+Sharing resources with Snippet
+""""""""""""""""""""""""""""""
+The Snippet feature in Simplifier enables you to quickly share resources with another Simplifier user (e.g. for review purposes) without storing them in your project. Click on the ``Snippet`` button in the top right corner to use this feature.
+
+.. image:: ../images/Snippet.PNG
+   :scale: 75%
+
+Start by giving your Snippet a title, e.g. MyPatient. You can either upload a file or copy-paste your XML code in the editor. Select ``Add another file`` to upload more than one resource within the same Snippet. When you are finished uploading and editing your resources, click on the ``Create`` button on the right.
+
+Your Snippet will now be available on Simplifier. The URL is displayed at the top right of the Snippet. You can quickly copy the URL to your clipboard by clicking on the ``Copy`` icon at the right.
+
+.. image:: ../images/SnippetCopyLink.PNG
+   :scale: 75%
+
+When visiting the URL of a Snippet, you can choose to view either the XML code, JSON code or the rendered resource by selecting one of the available tabs. In the top right menu you can either select ``Edit`` to edit the resource, ``Clone`` to copy it in a new Snippet, ``New`` to create a new Snippet or ``Download`` to download the resource as a XML or JSON file. You can also validate the resource by using the green ``Validate`` button at the right.
+
+.. image:: ../images/Snippet2.PNG
+   :scale: 75%
+
+Personal Snippets
+-----------------
+Through your  `personal menu <simplifierPersonalContent.html#user-portal>`_ (click on your avatar at the top right and select ``Snippets``) you can access a list of all your Snippets. From here you can also quickly add a new Snippet by clicking the green ``+New`` button.
+
+.. image:: ../images/MySnippets.PNG
+   :scale: 75%
 
 .. _compare-files:
 
@@ -46,45 +92,3 @@ The diff shows file A on the left and file B on the right, with the same links a
 
    Your selection is stored in a browser cookie that expires after one day, which is what lets you pick the two files in separate visits. It is not shared between browsers or devices.
 
-Update Resources
-""""""""""""""""
-When you want to update your resource, there are several ways to do so. Choose one of the following options from the ``Update`` menu at the top of the Resource page:
-
-* **Upload**: Update by uploading a file (either XML or JSON)
-* **Fetch**: Update by fetching from a different FHIR server (provide a GET request to the server where your resource is located)
-* **Edit**: Update by editing the last version (opens a XML-editor in a small window where you can directly edit the XML code of your resource)
-* **Editor**: Update by editing the last version (opens a stand-alone full screen XML-editor in a different tab where you can directly edit the XML code of your resource)
-
-Download Resources
-""""""""""""""""""
-You may also choose to download the resource and save a local copy on your computer. You can either choose to download the resource as a XML or JSON file or directly copy the XML or JSON code of the resource to your clipboard, so you can easily copy-paste it to another location.
-
-Add Resources
-"""""""""""""
-Go to your Project page to `add new resources <../adding_content/upload-resources.html>`_ to your project.
-
-Sharing resources with Snippet
-""""""""""""""""""""""""""""""
-The Snippet feature in Simplifier enables you to quickly share resources with another Simplifier user (e.g. for review purposes) without storing them in your project. Click on the ``Snippet`` button in the top right corner to use this feature.
-
-.. image:: ../images/Snippet.PNG
-   :scale: 75%
-
-Start by giving your Snippet a title, e.g. MyPatient. You can either upload a file or copy-paste your XML code in the editor. Select ``Add another file`` to upload more than one resource within the same Snippet. When you are finished uploading and editing your resources, click on the ``Create`` button on the right.
-
-Your Snippet will now be available on Simplifier. The URL is displayed at the top right of the Snippet. You can quickly copy the URL to your clipboard by clicking on the ``Copy`` icon at the right.
-
-.. image:: ../images/SnippetCopyLink.PNG
-   :scale: 75%
-
-When visiting the URL of a Snippet, you can choose to view either the XML code, JSON code or the rendered resource by selecting one of the available tabs. In the top right menu you can either select ``Edit`` to edit the resource, ``Clone`` to copy it in a new Snippet, ``New`` to create a new Snippet or ``Download`` to download the resource as a XML or JSON file. You can also validate the resource by using the green ``Validate`` button at the right.
-
-.. image:: ../images/Snippet2.PNG
-   :scale: 75%
-
-Personal Snippets
------------------
-Through your  `personal menu <simplifierPersonalContent.html#user-portal>`_ (click on your avatar at the top right and select ``Snippets``) you can access a list of all your Snippets. From here you can also quickly add a new Snippet by clicking the green ``+New`` button.
-
-.. image:: ../images/MySnippets.PNG
-   :scale: 75%

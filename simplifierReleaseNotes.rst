@@ -17,6 +17,7 @@ Firely .NET SDK 6
 - Validation of resources with parsing issues: resources that fail to parse are now still validated instead of being rejected outright, with the parsing issues reported first.
 - Simplifier now accepts and renders examples of custom resources.
 - The legacy validator has been removed.
+- Snapshot generation now honours the ``elementdefinition-suppress`` extension on ``ElementDefinition.mapping`` and ``ElementDefinition.example``. See :ref:`Suppressing inherited mappings and examples <suppress-extension>`.
 
 HTML sanitization
 ~~~~~~~~~~~~~~~~~
