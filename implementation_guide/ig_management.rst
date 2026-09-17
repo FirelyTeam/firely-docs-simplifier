@@ -140,12 +140,7 @@ You repair it by removing the registration, registering the guide again from the
 
    Simplifier creates the guide and opens it in the IG editor. Your guide now renders again under the temporary key, but its published versions are not attached to it yet.
 
-4. **Link the published versions.** In the IG editor, open ``Settings`` (the gear icon) and go to the ``Url Key`` tab. Under *The following published guides are, or could be, linked with this guide*, click ``Link`` next to the published guide that belongs to your IG.
-
-   .. image:: ../images/IGLinkPublishedGuide.png
-      :scale: 75%
-
-5. **Set the URL key back.** With the published guide linked, change ``Url Key`` on the same tab back to the original key and click ``Save``. Your guide, its published versions and all existing links to them work as before.
+4. **Link the published versions and set the URL key back.** Attach the guide's published versions to the new registration and give it the original URL key again, as described under :ref:`Link a guide to an existing published guide <link_published_guide>`. Your guide, its published versions and all existing links to them then work as before.
 
 If the guide still does not open after this, contact Simplifier support through your `JIRA portal <https://firely.atlassian.net/servicedesk/customer/portal/1>`_ or email us at simplifier@fire.ly.
 
