@@ -145,6 +145,35 @@ The default output is a table, which is useful for overviews of the resources in
            name
    </fql>
 
+Obligations of a profile
+~~~~~~~~~~~~~~~~~~~~~~~~
+
+A query reaches into extensions as well, so you can surface information that no widget exposes. The example below lists the element-level `obligations <https://hl7.org/fhir/extensions/StructureDefinition-obligation.html>`_ of a profile, including the ones inherited from its base profiles. It uses the ``%canonical`` page variable, so the same block works on every resource page (see `Inline FQL values`_ for how to reuse one query across pages):
+
+.. code-block:: html
+
+   ### Obligations
+
+   Element-level obligations declared for this profile, including those inherited from its base profiles.
+
+   <fql>
+   from StructureDefinition
+   where url = %canonical
+   for snapshot.element
+   where extension.where(url = 'http://hl7.org/fhir/StructureDefinition/obligation').exists()
+   select
+       Element: id,
+       join for extension.where(url = 'http://hl7.org/fhir/StructureDefinition/obligation')
+       select {
+           Actor: extension.where(url = 'actor').value.toString().split('/').last(),
+           Obligation: extension.where(url = 'code').value.join(', ')
+       }
+   distinct
+   order by Actor, Element
+   </fql>
+
+The ``join`` keeps one row per element when an element carries several obligations, and ``distinct`` drops the duplicates that inherited obligations can produce.
+
 Inline FQL values
 ~~~~~~~~~~~~~~~~~
 
