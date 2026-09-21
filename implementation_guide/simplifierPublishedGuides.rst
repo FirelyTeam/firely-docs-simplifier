@@ -27,3 +27,28 @@ You may want to keep the guide and package version numbers in sync, but a few th
 The Publish Guide wizard walks you through the options: Public or Private, Read-only or Overwritable, and whether to set the guide as the default. Project admins can change these settings later.
 
 See also :ref:`Package Releases <package_releases>` for publishing and distributing the FHIR packages your guide is built on.
+
+.. _link_published_guide:
+
+Link a guide to an existing published guide
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+A published guide has a URL key of its own, and all versions published under that key form one series. Once you have published under a URL key, that key stays reserved. A guide is linked to at most one series: that link is what makes the published versions show up under the guide in the ``Guides`` tab, and what lets you publish new versions into the same series.
+
+Simplifier makes the link for you the first time you publish. You have to make it yourself whenever the guide you are working in is not the guide that produced the series, for example:
+
+- You had to register your guide again, after :ref:`repairing a broken link to guide.yaml <ig_broken_link>` or after deleting and recreating it from its ``guide.yaml``.
+- You copied or moved your guide to another project and want to keep publishing it under the same URL.
+
+To link them:
+
+1. Open your guide in the IG editor, click ``Settings`` (the gear icon) and go to the ``Url Key`` tab.
+
+2. Simplifier lists the published guides that are managed by the same team and are not linked to a guide. Click ``Link`` next to the one that belongs to your guide.
+
+   .. image:: ../images/IGLinkPublishedGuide.png
+      :scale: 75%
+
+3. With the series linked, set ``Url Key`` on the same tab to the key of that series and click ``Save``, so your guide and its published versions share one URL again.
+
+If you change a guide's URL key without linking, publishing starts a new series under the new key. The versions already published under the old key stay online and are not affected.
