@@ -174,3 +174,26 @@ If you want to filter multiple resources by a small set of canonicals:
        Version: version,
        Status: status,
        URL: url
+
+Obligations of a profile
+------------------------
+
+Lists the element-level `obligations <https://hl7.org/fhir/extensions/StructureDefinition-obligation.html>`_ of a profile, including the ones inherited from its base profiles. The ``join`` keeps one row per element when an element carries several obligations, and ``distinct`` drops the duplicates that inherited obligations can produce.
+
+.. code:: sql
+
+   from StructureDefinition
+   where url = %canonical
+   for snapshot.element
+   where extension.where(url = 'http://hl7.org/fhir/StructureDefinition/obligation').exists()
+   select
+       Element: id,
+       join for extension.where(url = 'http://hl7.org/fhir/StructureDefinition/obligation')
+       select {
+           Actor: extension.where(url = 'actor').value.toString().split('/').last(),
+           Obligation: extension.where(url = 'code').value.join(', ')
+       }
+   distinct
+   order by Actor, Element
+
+``%canonical`` is a page variable of the implementation guide editor: on a guide page it resolves to the canonical URL of that page, so the same query works on every resource page (see :ref:`ig_rendering_fhir`). Elsewhere, replace it with the canonical URL you want to inspect.
