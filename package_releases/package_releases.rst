@@ -10,6 +10,7 @@ This section covers how to publish, distribute, and manage FHIR package releases
    :titlesonly:
 
    simplifierPackages
+   canonical_resolution
    bake/bake
    package_feeds/package_feeds
    simplifierPackageCreationCheck
