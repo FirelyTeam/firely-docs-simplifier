@@ -329,6 +329,8 @@ Limitations
 
 Most implementations of FQL will not implement all scopes mentioned above. The default scope *should* work, but there are cases where a default scope has no meaning.
 
+On Simplifier, a query can cover at most 10,000 resources. A query over a larger scope fails straight away with ``Scope of <n> resources exceeds the 10000-resource limit for this query; narrow your 'using scope'/'from' clause.``, instead of running until it times out. Narrow the query with a smaller ``using`` scope, or a more specific ``from``.
+
 Field selection
 ---------------
 

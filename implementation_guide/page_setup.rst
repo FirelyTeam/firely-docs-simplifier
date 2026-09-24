@@ -182,7 +182,7 @@ With the ``{{page:}}`` placeholder you can render a hidden page as a template, s
 Linking to pages
 ----------------
 
-Use the ``pagelink`` placeholder to link to another page in your guide. Linking by **topic** is recommended: it keeps working even when a page's URL key or folder structure changes, or when the guide is exported or copied.
+Use the ``pagelink`` placeholder to link to another page in your guide, on any page and in the guide's master template. Linking by **topic** is recommended: it keeps working even when a page's URL key or folder structure changes, or when the guide is exported or copied.
 
 Set a topic in the page's YAML header:
 

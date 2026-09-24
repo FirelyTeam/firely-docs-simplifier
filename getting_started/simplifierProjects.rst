@@ -58,7 +58,7 @@ This tab also offers a search and filter option. You can filter your results to 
  
 Guides
 ------
-The ``Guides`` tab shows all Implementation Guides for this project built in Simplifier. Click on the Guide or hit the ``Browse`` button to go to the Implementation Guide. Use the `IG-editor <../features/simplifierIGeditor.html#implementation-guide-editor>`_ to create and edit Implementation Guides.
+The ``Guides`` tab lists all Implementation Guides for this project built in Simplifier, one row per guide, with its versions and whether it is public or private. Click on a row to open its menu, with actions such as ``Edit``, ``Preview``, ``Versions`` and ``Publish``, depending on your role. The ``Guides`` tabs of your portal, organizations and teams use the same list. Use the `IG-editor <../features/simplifierIGeditor.html#implementation-guide-editor>`_ to create and edit Implementation Guides.
  
 Team
 ----
@@ -74,7 +74,7 @@ On the ``Issues`` tab you can leave your issues regarding the project. Note that
 
 Dependencies
 ------------
-Currently references to other profiles are resolved by latest version. By adding package dependencies, references will be resolved in those packages. This gives you much better versioning control over the resources you include.
+References to other profiles are resolved in your project first, and then in the packages your project depends on. A project can have several versions of the same package in scope; a pinned reference (``url|version``) uses exactly that version, and an unpinned one the most recent version in scope. See :ref:`canonical_resolution` for the rules, and :ref:`view_dependencies` to see what is in scope.
 
 Releases
 ----------
@@ -106,6 +106,9 @@ Clicking this button will allow you to create a new project by entering a Displa
 .. image:: ../images/CreateProject.PNG 
    :scale: 75%
       
+.. note::
+   DSTU2 can no longer be chosen for a new project. Existing DSTU2 projects stay online, and their resources still render and download, but Bake, file management, updating resources, importing, creating packages, GitHub and the ``Query`` menu are no longer available for them.
+
 Project Management
 """"""""""""""""""
 You can always change your project settings by clicking on the ``Manage`` button in the right upper corner. There are a couple of options in the Manage menu, which will be explained below.
@@ -118,7 +121,7 @@ Properties
 Here you can edit the following properties: 
 
 - The title and subtitle of your project
-- The FHIR version (DSTU2 or STU3)
+- The FHIR version (STU3, R4, R4B or R5)
 - The scope of your project (core, international, national, institute, regional or test). As choosing the right scope will make it easier for others to find your project, please use test for all test projects and test projects only.
 - Issue tracking by project members and other Simplifier users:
 	- Turn issues on or off for this project (when activated the issues tab will be visible on the project page depending on the user's role)

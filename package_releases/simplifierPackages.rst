@@ -20,13 +20,17 @@ View releases
 ^^^^^^^^^^^^^
 Visit the ``Releases`` tab of any Simplifier project to see which packages are published from this project. For more information about a package and its content, click on the name of the package. 
 
-The ``Introduction`` page will give you an overview of the package:
+A package page has these tabs:
 
-* Install instructions; shows the command you need to install the package, click on the blue copy icon to copy it to your clipboard. Click on Firely Terminal or NPM to switch to your preferred tooling.
-* Release notes; shows the release notes given by the author of the package.
-* Dependencies; shows the dependencies to other packages.
-* History; shows the previous versions of the package, click on a version name to see the details.
-* Info; shows information about when the package was created, a link to the project it is part of and a download button to download the package.
+* ``Introduction``: the release notes given by the author of the package, how many conformance resources and examples it contains, and information such as when it was created, the project it is part of, its documentation and the feeds it is in.
+* ``Files``: every file in the package. Search and filter them by resource category, core base type, example resource type and FHIR status, the same way as on the ``Resources`` tab of a project.
+* ``Install``: the command you need to install the package. Click on the blue copy icon to copy it to your clipboard. Click on Firely Terminal or NPM to switch to your preferred tooling.
+* ``Dependencies``: the dependencies to other packages, see :ref:`view_dependencies`.
+* ``History``: the other versions of the package. Click on a version name to see the details.
+
+Use ``Download`` in the menu at the top of the page to download the package, with or without snapshots.
+
+A package URL can name a version range instead of an exact version. ``https://simplifier.net/packages/nictiz.fhir.nl.stu3.zib2017/1.3.x`` opens the highest listed ``1.3`` version; ``1.3`` and ``1.x`` work the same way. Pre-release and unlisted versions are skipped. If no version matches, Simplifier opens the newest version and tells you the requested version was not found.
 
 .. image:: ../images/PackageView.png
    :scale: 75%
@@ -65,6 +69,8 @@ Packages can be created as private packages or public packages. Private packages
 The package created with the highest semver will get the tag ``latest`` added to the package. Please `see how semver works with <https://semver.org>`_ regards to versioning and pre-release tags. 
 
 
+.. _pin_canonical_references:
+
 Pin canonical references
 ^^^^^^^^^^^^^^^^^^^^^^^^
 
@@ -79,6 +85,8 @@ With this option enabled, when the package is created:
 
 * Unversioned canonical references (for example ``baseDefinition`` or type profiles) are pinned to the version found in the dependency closure.
 * Every resource that does not already have a version is given the package version in its ``version`` element.
+
+How pinned and unpinned references are resolved is explained in :ref:`canonical_resolution`.
 
 .. note::
 
@@ -179,9 +187,28 @@ Below you can find an example of how to use the package.bake.yaml file in your o
 Dependencies
 -----------------------
 
+.. _view_dependencies:
+
 View dependencies
 ^^^^^^^^^^^^^^^^^
-Visit the ``Dependencies`` tab of any Simplifier project to see a list of its package dependencies as well as indirect dependencies. Click on the name of one of the listed packages to see the details of this package. This will show the information as explained in the View Packages section.
+Visit the ``Dependencies`` tab of any Simplifier project to see its dependencies. The tab has two tables:
+
+* ``Direct dependencies``: the packages you asked for in ``package.json``.
+* ``All dependencies``: what they resolved to, including the indirect dependencies (the dependencies of your dependencies). Direct dependencies are shown in bold.
+
+``All dependencies`` can list the same package more than once, in different versions, when your dependencies ask for different versions of it. All of them are in scope; which one a reference uses is explained in :ref:`canonical_resolution`.
+
+Each dependency shows its FHIR version. Tags point out packages that need attention:
+
+* ``Mismatch``: the FHIR version of this package does not match the FHIR version of your project.
+* ``Unlisted``: the author has unlisted this version. Consider upgrading or downgrading.
+* ``Pre-Release``: a pre-release package, which should not be used in an official package release.
+* ``Missing``: the dependency could not be found. Run a restore.
+* ``Uppercase`` and ``InvalidChars``: the package name contains uppercase letters or invalid characters.
+
+The ``Dependencies`` tab of a package lists its dependencies with their version, FHIR version and release date, and the same ``Unlisted`` and ``Missing`` tags.
+
+Click on the name of one of the listed packages to see the details of this package.
 
 .. image:: ../images/PackageAddDependencies.png
    :scale: 75%
@@ -206,7 +233,13 @@ To remove dependencies from your project, you could either select ``Manage`` and
 
 Restore dependencies
 ^^^^^^^^^^^^^^^^^^^^
-If you directly edit the package.json or import an updated version of your package.json form Github you need to perform a package restore. Under ``Manage`` you will find the ``Restore (advanced)`` option. This will update your project dependencies according to the available PackageManifest in you project. 
+A restore resolves the dependencies in your ``package.json`` again and updates ``All dependencies``. Click ``Restore`` on the ``Dependencies`` tab when:
+
+* you edited ``package.json`` directly, or imported an updated one from GitHub;
+* the tab says ``Your resolved dependencies are outdated. Run restore to update them.`` or ``Your resolved dependencies are invalid. Run restore to update them.``;
+* the tab says ``Some dependencies could not be found. Run restore to try resolving them again.``
+
+The ``Restore`` button turns green when a restore is needed.
 
 
 Firely Terminal

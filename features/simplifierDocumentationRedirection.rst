@@ -90,7 +90,8 @@ The base is always ``https://simplifier.net/resolve?``, followed by these parame
     - Description
   * - ``scope``
     - Package name or project URL key, optionally with ``@`` and a version:
-      ``de.basisprofil.r4@1.6.0``. Use ``@latest`` for the newest version of a package. For a live
+      ``de.basisprofil.r4@1.6.0``. Use ``@latest`` for the newest version of a package, or a
+      version range such as ``@1.6.x`` for the highest version in that range. For a live
       project the scope is always ``@current``. When a scope is given, the FHIR version is derived
       from it.
   * - ``fhirVersion``
@@ -116,10 +117,15 @@ The base is always ``https://simplifier.net/resolve?``, followed by these parame
 The scope can also go in the path instead of the query string:
 ``https://simplifier.net/resolve/de.basisprofil.r4@1.6.0?canonical=...``.
 
+The ``scope`` version can be an exact version, ``latest``, or a version range. A range resolves to
+the highest version of the package that matches it: ``de.basisprofil.r4@1.6.x`` and
+``de.basisprofil.r4@1.6`` both resolve to the highest ``1.6`` version, and ``de.basisprofil.r4@1.x``
+to the highest ``1`` version. This keeps a link in your own documentation pointing at the latest
+patch release without editing it for every release.
+
 .. note::
-  The ``scope`` version must be an exact version or ``latest``. Version ranges such as ``1.6.x`` or
-  ``~1.6.0`` are not supported; Simplifier falls back to the newest version of the package and shows
-  a warning.
+  If no version of the package matches, Simplifier falls back to the newest version of the package
+  and shows a warning.
 
 .. _documentation_url:
 
