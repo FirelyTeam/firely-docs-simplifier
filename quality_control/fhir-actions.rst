@@ -93,12 +93,16 @@ By default, all validation uses the Firely .NET SDK validator, which provides co
      action: validate
      flavor: netsdk
 
-**HL7 Java validator**: the HL7 Java validator runs as its own Quality Control action (currently for beta users). Add it as its own action. It is also available in the Validator Playground via the drop-down menu (also limited to beta users).
+**HL7 Java validator**: the HL7 Java validator is available as a Quality Control action to anyone who can use custom Quality Control rules. Add it to your rules file as its own action:
 
 ::
 
    - category: resource
      action: java-validate
+
+The Java validator only runs on public projects. On private projects this step is skipped with a warning.
+
+It is also available in the Validator Playground via the drop-down menu, but only for beta users.
 
 Dependencies
 ------------
