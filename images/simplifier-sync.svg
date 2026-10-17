@@ -1,0 +1,75 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 560" width="960" height="560" font-family="Roboto, Segoe UI, Helvetica, Arial, sans-serif">
+  <title>Sync options between Git and Simplifier.net</title>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#205069"/>
+    </marker>
+  </defs>
+
+  <text x="480" y="44" text-anchor="middle" font-family="Lato, Segoe UI, Helvetica, Arial, sans-serif" font-size="24" font-weight="700" fill="#205069">Syncing between Git and Simplifier.net</text>
+
+  <!-- Git (left) -->
+  <rect x="40" y="76" width="140" height="368" rx="12" fill="#205069"/>
+  <text x="110" y="254" text-anchor="middle" font-family="Lato, Segoe UI, Helvetica, Arial, sans-serif" font-size="17" font-weight="700" fill="#ffffff">Git repository</text>
+  <text x="110" y="276" text-anchor="middle" font-size="13" font-style="italic" fill="#2CB2D9">source of truth</text>
+
+  <!-- Simplifier (right) -->
+  <rect x="780" y="76" width="140" height="368" rx="12" fill="#2CB2D9"/>
+  <text x="850" y="244" text-anchor="middle" font-family="Lato, Segoe UI, Helvetica, Arial, sans-serif" font-size="17" font-weight="700" fill="#205069">Simplifier.net</text>
+  <text x="850" y="266" text-anchor="middle" font-family="Lato, Segoe UI, Helvetica, Arial, sans-serif" font-size="17" font-weight="700" fill="#205069">project</text>
+  <text x="850" y="288" text-anchor="middle" font-size="12" fill="#205069">publishes the IG</text>
+  <text x="850" y="304" text-anchor="middle" font-size="12" fill="#205069">&amp; packages</text>
+
+  <!-- Options: card x=236..724; connectors 180..236 and 724..780 -->
+  <g font-size="13" fill="#555555">
+    <!-- 1. Web interface: manual up/download on the git side -->
+    <line x1="183" y1="108" x2="233" y2="108" stroke="#205069" stroke-width="2" stroke-dasharray="4 3" marker-start="url(#arrow)" marker-end="url(#arrow)"/>
+    <line x1="727" y1="108" x2="777" y2="108" stroke="#205069" stroke-width="2" marker-start="url(#arrow)" marker-end="url(#arrow)"/>
+    <rect x="236" y="76" width="488" height="64" rx="8" fill="#ffffff" stroke="#98B4C0"/>
+    <text x="252" y="103" font-size="15" font-weight="700" fill="#333333">Simplifier web interface</text>
+    <text x="252" y="124">Editor, File manager or individual resources</text>
+    <rect x="618" y="96" width="90" height="24" rx="12" fill="#205069" fill-opacity="0.1"/>
+    <text x="663" y="112" text-anchor="middle" font-size="12" font-weight="700" fill="#205069">Manual</text>
+
+    <!-- 2. Zip & API -->
+    <line x1="183" y1="184" x2="233" y2="184" stroke="#205069" stroke-width="2" marker-start="url(#arrow)" marker-end="url(#arrow)"/>
+    <line x1="727" y1="184" x2="777" y2="184" stroke="#205069" stroke-width="2" marker-start="url(#arrow)" marker-end="url(#arrow)"/>
+    <rect x="236" y="152" width="488" height="64" rx="8" fill="#ffffff" stroke="#98B4C0"/>
+    <text x="252" y="179" font-size="15" font-weight="700" fill="#333333">Project zip &amp; API</text>
+    <text x="252" y="200">Each project is a FHIR server: zip download or API</text>
+    <rect x="618" y="172" width="90" height="24" rx="12" fill="#205069" fill-opacity="0.1"/>
+    <text x="663" y="188" text-anchor="middle" font-size="12" font-weight="700" fill="#205069">Scripted</text>
+
+    <!-- 3. GitHub webhook: one-way -->
+    <line x1="180" y1="260" x2="233" y2="260" stroke="#205069" stroke-width="2" marker-end="url(#arrow)"/>
+    <line x1="724" y1="260" x2="777" y2="260" stroke="#205069" stroke-width="2" marker-end="url(#arrow)"/>
+    <rect x="236" y="228" width="488" height="64" rx="8" fill="#ffffff" stroke="#98B4C0"/>
+    <text x="252" y="255" font-size="15" font-weight="700" fill="#333333">GitHub webhook</text>
+    <text x="252" y="276">One-way: pushes a GitHub branch to the project</text>
+    <rect x="618" y="248" width="90" height="24" rx="12" fill="#205069" fill-opacity="0.1"/>
+    <text x="663" y="264" text-anchor="middle" font-size="12" font-weight="700" fill="#205069">Automatic</text>
+
+    <!-- 4. Forge sync -->
+    <line x1="183" y1="336" x2="233" y2="336" stroke="#205069" stroke-width="2" marker-start="url(#arrow)" marker-end="url(#arrow)"/>
+    <line x1="727" y1="336" x2="777" y2="336" stroke="#205069" stroke-width="2" marker-start="url(#arrow)" marker-end="url(#arrow)"/>
+    <rect x="236" y="304" width="488" height="64" rx="8" fill="#ffffff" stroke="#98B4C0"/>
+    <text x="252" y="331" font-size="15" font-weight="700" fill="#333333">Forge sync</text>
+    <text x="252" y="352">Syncs the whole folder; conflict-resolution wizard</text>
+    <rect x="618" y="324" width="90" height="24" rx="12" fill="#205069" fill-opacity="0.1"/>
+    <text x="663" y="340" text-anchor="middle" font-size="12" font-weight="700" fill="#205069">Desktop</text>
+
+    <!-- 5. Firely Terminal -->
+    <line x1="183" y1="412" x2="233" y2="412" stroke="#205069" stroke-width="2" marker-start="url(#arrow)" marker-end="url(#arrow)"/>
+    <line x1="727" y1="412" x2="777" y2="412" stroke="#205069" stroke-width="2" marker-start="url(#arrow)" marker-end="url(#arrow)"/>
+    <rect x="236" y="380" width="488" height="64" rx="8" fill="#ffffff" stroke="#98B4C0"/>
+    <text x="252" y="407" font-size="15" font-weight="700" fill="#333333">Firely Terminal</text>
+    <text x="252" y="428">Quick, runs on macOS too, and in CI pipelines</text>
+    <rect x="618" y="400" width="90" height="24" rx="12" fill="#205069" fill-opacity="0.1"/>
+    <text x="663" y="416" text-anchor="middle" font-size="12" font-weight="700" fill="#205069">CLI / CI</text>
+  </g>
+
+  <!-- Golden rule -->
+  <rect x="40" y="468" width="880" height="70" rx="10" fill="#FBDB2A"/>
+  <text x="480" y="496" text-anchor="middle" font-size="14" fill="#205069"><tspan font-weight="700">Git is the source of truth:</tspan> change locally → commit &amp; push → sync to Simplifier</text>
+  <text x="480" y="520" text-anchor="middle" font-size="13" fill="#205069">Edited in Simplifier? Pull those changes into Git and commit them first. Agree on conflict rules, e.g. always TakeLocal.</text>
+</svg>
