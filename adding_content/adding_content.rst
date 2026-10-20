@@ -5,6 +5,9 @@ Adding and syncing content
 
 A Simplifier project is, in effect, a small FHIR server. There are several ways to get FHIR content into it, ranging from a one-off manual upload to fully automated synchronization. Pick the approach that fits how your team works:
 
+.. image:: ../images/simplifier-sync.svg
+   :alt: Sync options between a git repository and Simplifier.net: web interface, project ZIP and API, GitHub webhook, Forge sync, and Firely Terminal.
+
 - :doc:`Web interface <upload-resources>`: add resources directly in Simplifier, through the IG **Editor**, the **File manager**, or by uploading individual resources. Best for quick, ad-hoc changes.
 - :doc:`FHIR API and project ZIP <api>`: every project exposes a FHIR API (and a downloadable ZIP) you can use to read and manage its contents programmatically. Best for scripted or custom integrations.
 - :doc:`GitHub <github>`: a webhook keeps a GitHub branch synced one-way into the project. Best when git is your source of truth and you want changes to flow in automatically on push. For :doc:`other git hosts <other-git-repositories>` such as Azure DevOps or GitLab, use a Firely Terminal pipeline.
