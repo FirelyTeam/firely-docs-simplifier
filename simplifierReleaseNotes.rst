@@ -13,9 +13,9 @@ You can find the related news article on `Simplifier. <https://simplifier.net/or
 Private profiles and team members
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-- Users can now make their profile private in their account settings, with ``Make my profile private``. A private profile page only opens for its owner and is no longer linked anywhere on Simplifier; the name is still shown, as plain text.
 - Team managers can now make the members of a team private on the new ``Team settings`` page, by turning off ``Show team members publicly``. Members of a private team are hidden from anyone outside that team: on the team tab, in the feed, on project pages, in the journal, in file history and on user profiles. Existing teams stay public until a manager changes this. See :ref:`hide_team_members`.
 - Team owners now see the ``Last login`` of their team members, as a range such as "this month" or "over a year ago", so they can tell which members are still active.
+- Users can now make their profile private in their account settings. A private profile page only opens for its owner and is no longer linked anywhere on Simplifier; the name is still shown, as plain text.
 - The project log, import log, journal and organization news now show a user's display name instead of their username. Users can change their display name themselves under Account > Personal, and the logs follow when they do.
 
 Mermaid diagrams
@@ -36,22 +36,14 @@ Security
 - The package publication API is now rate limited per user.
 - NuGet and NPM packages have been reviewed and updated to address known vulnerabilities.
 
-Guides and packages
-~~~~~~~~~~~~~~~~~~~
-
-- A ``guide.yaml`` config file can now be linked to an existing guide, for instance after the file was deleted and uploaded again. See :ref:`ig_broken_link`.
-- Guide master templates can now load Simplifier's own rendering CSS and scripts through a placeholder, so a custom style picks up new and updated files without copying them over. See :doc:`implementation_guide/customize_your_ig`.
-- ``version=preview`` now works as an alias for the live guide, alongside ``version=current``. The versions page labels the live guide Preview. See :ref:`published_guides`.
-
-Website
-~~~~~~~
-
-- The homepage, Learn page, About page and footer have new text, built around creating Implementation Guides.
-- The Firely Terminal download page now shows that Firely Terminal requires the .NET 10 SDK.
-
 Other improvements & maintenance
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
+- A ``guide.yaml`` config file can now be linked to an existing guide, for instance after the file was deleted and uploaded again. See :ref:`ig_broken_link`.
+- Guide master templates can now load Simplifier's own rendering CSS and scripts through a placeholder, so a custom style picks up new and updated files without copying them over. See :ref:`stylesheet placeholders <stylesheet_placeholders>`.
+- ``version=preview`` now works as an alias for the live guide, alongside ``version=current``. The versions page labels the live guide Preview. See :ref:`published_guides`.
+- The homepage, Learn page, About page and footer have new text, built around creating Implementation Guides.
+- The Firely Terminal download page now shows that Firely Terminal requires the .NET 10 SDK.
 - Removed the Connectors feature, including the default connectors every user was subscribed to. The `FHIRPath playground <https://simplifier.net/fhirpath>`_ covers what the PathFhinder connectors did.
 - Improved the performance of package lookups.
 

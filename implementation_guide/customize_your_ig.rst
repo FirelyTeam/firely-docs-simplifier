@@ -56,6 +56,8 @@ When using the Two Level Menu:
 .. image:: ../images/TwoLevelIg.png
    :scale: 75%
 
+.. _stylesheet_placeholders:
+
 Stylesheet specific placeholders: 
 """"""""""""""""""""""""""""""""""
 We do not recommend you alter these unless you have a specific desire to use an older style sheet for a specific version of your guide. 
