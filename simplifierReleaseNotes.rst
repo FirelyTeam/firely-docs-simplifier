@@ -6,6 +6,63 @@ Release Notes
 This page contains the release notes of simplifier.net.
 
 
+Simplifier 2026.6, November 3rd, 2026
+-------------------------------------------
+You can find the related news article on `Simplifier. <https://simplifier.net/organization/firely/news/NEWS_ID>`_
+
+Private profiles and team members
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+- Users can now make their profile private in their account settings, with ``Make my profile private``. A private profile page only opens for its owner and is no longer linked anywhere on Simplifier; the name is still shown, as plain text.
+- Team managers can now make the members of a team private on the new ``Team settings`` page, by turning off ``Show team members publicly``. Members of a private team are hidden from anyone outside that team: on the team tab, in the feed, on project pages, in the journal, in file history and on user profiles. Existing teams stay public until a manager changes this. See :ref:`hide_team_members`.
+- Team owners now see the ``Last login`` of their team members, as a range such as "this month" or "over a year ago", so they can tell which members are still active.
+- The project log, import log, journal and organization news now show a user's display name instead of their username. Users can change their display name themselves under Account > Personal, and the logs follow when they do.
+
+Mermaid diagrams
+~~~~~~~~~~~~~~~~
+
+- Mermaid diagrams now render in guides, both inline with the ``<mermaid>`` tag and from a Mermaid file (``.mmd`` or ``.mermaid``) with ``{{render:}}``.
+- They also render in project readmes, issues and comments, and in embeds. Mermaid files are accepted on import. See :ref:`mermaid`.
+- The guide editor has Mermaid snippets under ``Insert snippet``.
+- New `Mermaid playground <https://simplifier.net/mermaid>`_, with share links, to try a diagram before it goes into a guide. Invalid syntax shows an error message.
+- Mermaid is available on every plan.
+
+Security
+~~~~~~~~
+
+- Fixed a set of authorization issues found in our security review, where actions on projects, packages, guides, teams and organizations did not check every value sent with the request.
+- The package publication API is now rate limited per user.
+- NuGet and NPM packages have been reviewed and updated to address known vulnerabilities.
+
+Guides and packages
+~~~~~~~~~~~~~~~~~~~
+
+- A ``guide.yaml`` config file can now be linked to an existing guide, for instance after the file was deleted and uploaded again. See :ref:`ig_broken_link`.
+- Guide master templates can now load Simplifier's own rendering CSS and scripts through a placeholder, so a custom style picks up new and updated files without copying them over. See :doc:`implementation_guide/customize_your_ig`.
+- ``version=preview`` now works as an alias for the live guide, alongside ``version=current``. The versions page labels the live guide Preview. See :ref:`published_guides`.
+
+Website
+~~~~~~~
+
+- The homepage is repositioned on building Implementation Guides, with new counters for guides and packages and a wider search box.
+- The Learn page is redesigned around learning paths, Simplifier news and Firely courses, and replaces Snippets in the top menu.
+- The About page is rewritten around building Implementation Guides and now covers packages.
+- The footer now shows that Simplifier is built by Firely.
+- The resource overview now links each resource type to a search for profiles of that type and FHIR version, instead of to the FHIR core page.
+- The Firely Terminal download page now asks for the .NET 10 SDK and shows the latest released version.
+
+Other improvements & maintenance
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+- Removed the Connectors feature, including the default connectors every user was subscribed to. The `FHIRPath playground <https://simplifier.net/fhirpath>`_ covers what the PathFhinder connectors did.
+- Improved the performance of package lookups.
+
+Bug fixes
+~~~~~~~~~
+
+- Fixed the ``Documentation`` box on a package page only linking a guide when the guide version for that package version was also the guide's default version. Each package version now links every guide version that belongs to it, with the version in the link text.
+- Fixed packages published after mid-July not appearing on registry.fhir.org.
+
 Simplifier 2026.5, September 29th, 2026
 -------------------------------------------
 You can find the related news article on `Simplifier. <https://simplifier.net/organization/firely/news/206>`_
