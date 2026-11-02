@@ -25,7 +25,9 @@ Mermaid diagrams
 - They also render in project readmes, issues and comments, and in embeds. Mermaid files are accepted on import. See :ref:`mermaid`.
 - The guide editor has Mermaid snippets under ``Insert snippet``.
 - New `Mermaid playground <https://simplifier.net/mermaid>`_, with share links, to try a diagram before it goes into a guide. Invalid syntax shows an error message.
-- Mermaid is available on every plan.
+
+.. note::
+   Guides with a custom style copied before this release need one script line in their master template to show Mermaid diagrams. See :ref:`mermaid_custom_style`.
 
 Security
 ~~~~~~~~
@@ -44,12 +46,8 @@ Guides and packages
 Website
 ~~~~~~~
 
-- The homepage is repositioned on building Implementation Guides, with new counters for guides and packages and a wider search box.
-- The Learn page is redesigned around learning paths, Simplifier news and Firely courses, and replaces Snippets in the top menu.
-- The About page is rewritten around building Implementation Guides and now covers packages.
-- The footer now shows that Simplifier is built by Firely.
-- The resource overview now links each resource type to a search for profiles of that type and FHIR version, instead of to the FHIR core page.
-- The Firely Terminal download page now asks for the .NET 10 SDK and shows the latest released version.
+- The homepage, Learn page, About page and footer have new text, built around creating Implementation Guides.
+- The Firely Terminal download page now shows that Firely Terminal requires the .NET 10 SDK.
 
 Other improvements & maintenance
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -61,7 +59,6 @@ Bug fixes
 ~~~~~~~~~
 
 - Fixed the ``Documentation`` box on a package page only linking a guide when the guide version for that package version was also the guide's default version. Each package version now links every guide version that belongs to it, with the version in the link text.
-- Fixed packages published after mid-July not appearing on registry.fhir.org.
 
 Simplifier 2026.5, September 29th, 2026
 -------------------------------------------
