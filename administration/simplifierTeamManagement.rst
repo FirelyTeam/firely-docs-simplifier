@@ -101,7 +101,7 @@ Members of the team are then hidden from everyone who is not a member: on the ``
 Last login of team members
 --------------------------
 
-The project owner sees on the ``Team`` tab when each member last logged in to Simplifier, in a ``Last login`` tag next to the member. It shows a range rather than a date: this month, within 3 months, within a year, over a year ago or over 2 years ago. Use it to find members who no longer need their access.
+The team owner, marked ``owner`` in the member list, sees on the ``Team`` tab when each member last logged in to Simplifier, in a ``Last login`` tag next to the member. It shows a range rather than a date: this month, within 3 months, within a year, over a year ago or over 2 years ago. Use it to find members who no longer need their access.
 
 Enterprise license
 ------------------
