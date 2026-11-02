@@ -86,6 +86,23 @@ When adding new team members to your project you have the option to assign "Admi
 
 
 
+.. _hide_team_members:
+
+Hide team members
+-----------------
+
+By default, anyone who can see a project can also see who is in its team. Team admins can hide the members from everyone outside the team:
+
+1. Open the ``Team`` tab of the project and click ``Configure team``.
+2. On the ``Team settings`` page, turn off ``Show team members publicly`` and click ``Save``.
+
+Members of the team are then hidden from everyone who is not a member: on the ``Team`` tab, and wherever Simplifier would otherwise show their name, such as the project log, the file history and user profiles. Team members still see each other as before. Existing teams stay public until you change this setting.
+
+Last login of team members
+--------------------------
+
+The project owner sees on the ``Team`` tab when each member last logged in to Simplifier, in a ``Last login`` tag next to the member. It shows a range rather than a date: this month, within 3 months, within a year, over a year ago or over 2 years ago. Use it to find members who no longer need their access.
+
 Enterprise license
 ------------------
 

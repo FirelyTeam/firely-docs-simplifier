@@ -63,6 +63,7 @@ We do not recommend you alter these unless you have a specific desire to use an 
 * **content** - Provides the api for where we resolve the static files. Default templates are resolved from the webserver file server, if a CSS is available we resolve from there. 
 * **style-folder** - Provides the folder of your custom style sheet.
 * **version** - Specifies the specific version of you style sheet. By default it will select the latest version. 
+* **simplifier-rendering-dependencies** - Loads the CSS and JavaScript that Simplifier uses to render FHIR content in your guide, such as tree tables. The default styles use it since release 2026.6. If your custom style was copied from a default style before that, you can replace its own references to these files with ``{{ simplifier-rendering-dependencies }}``, so files that Simplifier adds later reach your guide as well. To show :doc:`Mermaid diagrams <simplifierMermaid>` in a custom style, see :ref:`mermaid_custom_style`.
 
 Consolidated Metadata Table in Implementation Guides
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^

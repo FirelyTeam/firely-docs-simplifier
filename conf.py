@@ -64,6 +64,10 @@ _redirect_moves = {
     "data_governance_and_quality_control/data_governance_and_quality_control": "package_releases/package_releases",
     "data_governance_and_quality_control/simplifierCanonicalClaims": "dependencies/canonical-claims",
 
+    # --- removed features ---
+    # Connectors were removed in Simplifier 2026.6; the release notes say so.
+    "features/simplifierConnectors": "simplifierReleaseNotes",
+
 }
 
 redirects = {}
