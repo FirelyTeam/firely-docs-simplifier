@@ -8,7 +8,7 @@ This page contains the release notes of simplifier.net.
 
 Simplifier 2026.6, November 3rd, 2026
 -------------------------------------------
-You can find the related news article on `Simplifier. <https://simplifier.net/organization/firely/news/NEWS_ID>`_
+You can find the related news article on `Simplifier. <https://simplifier.net/organization/firely/news/247>`_
 
 Private profiles and team members
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
