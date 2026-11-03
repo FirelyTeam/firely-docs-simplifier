@@ -1,0 +1,8 @@
+{
+  "Packages": [
+    {
+      "Name": "Simplifier.Licensing",
+      "Ignore": true
+    }
+  ]
+}
