@@ -1,0 +1,59 @@
+{
+  "Packages": [
+    {
+      "Name": "Simplifier.Licensing",
+      "Ignore": true
+    },
+    {
+      "Name": "ColorCode.Portable",
+      "License": "MS-PL"
+    },
+    {
+      "Name": "HtmlAgilityPack",
+      "License": "MIT"
+    },
+    {
+      "Name": "Microsoft.Identity.Client.NativeInterop",
+      "License": "Microsoft"
+    },
+    {
+      "Name": "^Serilog\\.(Extensions\\.Logging\\.ApplicationInsights|Formatting\\.Compact|Sinks\\.ApplicationInsights|Sinks\\.AzureTableStorage|Sinks\\.PeriodicBatching)$",
+      "License": "Apache-2.0"
+    },
+    {
+      "Name": "SourceGear.sqlite3",
+      "License": "Public Domain"
+    },
+    {
+      "Name": "Stripe.net",
+      "License": "Apache-2.0"
+    },
+    {
+      "Name": "^System\\.(Private\\.ServiceModel|ServiceModel\\.Primitives|ServiceModel\\.Syndication)$",
+      "License": "MIT"
+    },
+    {
+      "Name": "WindowsAzure.Storage",
+      "License": "Apache-2.0"
+    }
+  ],
+  "Sections": [
+    {
+      "Name": "UnitTest",
+      "Packages": [
+        {
+          "Name": "Moq",
+          "License": "BSD-3-Clause"
+        },
+        {
+          "Name": "xunit.abstractions",
+          "License": "Apache-2.0"
+        },
+        {
+          "Name": "MockQueryable.Core",
+          "License": "MIT"
+        }
+      ]
+    }
+  ]
+}
