@@ -1,5 +1,5 @@
-PlantUML Support in Guides
-=================================
+PlantUML Support
+================
 
 Simplifier allows you to create and display diagrams within your guides using PlantUML. You can embed diagrams directly in the editor or upload existing files for rendering. In the `PlantUML playground <https://simplifier.net/plantuml>`_ you can also check if the rendering looks as expected before adding it to your guide.
 

@@ -6,6 +6,52 @@ Release Notes
 This page contains the release notes of simplifier.net.
 
 
+Simplifier 2026.6, November 3rd, 2026
+-------------------------------------------
+You can find the related news article on `Simplifier. <https://simplifier.net/organization/firely/news/247>`_
+
+Private profiles and team members
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+- Team managers can now make the members of a team private on the new ``Team settings`` page, by turning off ``Show team members publicly``. Members of a private team are hidden from anyone outside that team: on the team tab, in the feed, on project pages, in the journal, in file history and on user profiles. Existing teams stay public until a manager changes this. See :ref:`hide_team_members`.
+- Team owners now see the ``Last login`` of their team members, as a range such as "this month" or "over a year ago", so they can tell which members are still active.
+- Users can now make their profile private in their account settings. A private profile page only opens for its owner and is no longer linked anywhere on Simplifier; the name is still shown, as plain text.
+- The project log, import log, journal and organization news now show a user's display name instead of their username. Users can change their display name themselves under Account > Personal, and the logs follow when they do.
+
+Mermaid diagrams
+~~~~~~~~~~~~~~~~
+
+- Mermaid diagrams now render in guides, both inline with the ``<mermaid>`` tag and from a Mermaid file (``.mmd`` or ``.mermaid``) with ``{{render:}}``.
+- They also render in project readmes, issues and comments, and in embeds. Mermaid files are accepted on import. See :ref:`mermaid`.
+- The guide editor has Mermaid snippets under ``Insert snippet``.
+- New `Mermaid playground <https://simplifier.net/mermaid>`_, with share links, to try a diagram before it goes into a guide. Invalid syntax shows an error message.
+
+.. note::
+   Guides with a custom style copied before this release need one script line in their master template to show Mermaid diagrams. See :ref:`mermaid_custom_style`.
+
+Security
+~~~~~~~~
+
+- Fixed a set of authorization issues found in our security review, where actions on projects, packages, guides, teams and organizations did not check every value sent with the request.
+- The package publication API is now rate limited per user.
+- NuGet and NPM packages have been reviewed and updated to address known vulnerabilities.
+
+Other improvements & maintenance
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+- A ``guide.yaml`` config file can now be linked to an existing guide, for instance after the file was deleted and uploaded again. See :ref:`ig_broken_link`.
+- Guide master templates can now load Simplifier's own rendering CSS and scripts through a placeholder, so a custom style picks up new and updated files without copying them over. See :ref:`stylesheet placeholders <stylesheet_placeholders>`.
+- ``version=preview`` now works as an alias for the live guide, alongside ``version=current``. The versions page labels the live guide Preview. See :ref:`published_guides`.
+- The homepage, Learn page, About page and footer have new text, built around creating Implementation Guides.
+- The Firely Terminal download page now shows that Firely Terminal requires the .NET 10 SDK.
+- Removed the Connectors feature, including the default connectors every user was subscribed to. The `FHIRPath playground <https://simplifier.net/fhirpath>`_ covers what the PathFhinder connectors did.
+- Improved the performance of package lookups.
+
+Bug fixes
+~~~~~~~~~
+
+- Fixed the ``Documentation`` box on a package page only linking a guide when the guide version for that package version was also the guide's default version. Each package version now links every guide version that belongs to it, with the version in the link text.
+
 Simplifier 2026.5, September 29th, 2026
 -------------------------------------------
 You can find the related news article on `Simplifier. <https://simplifier.net/organization/firely/news/206>`_

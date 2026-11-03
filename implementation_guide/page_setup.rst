@@ -241,4 +241,4 @@ And lists::
    1. First
    2. Second
 
-For dynamic tables, use :ref:`FQL tables <ig_rendering_fhir>`; for diagrams, see :doc:`PlantUML <simplifierPlantUML>`.
+For dynamic tables, use :ref:`FQL tables <ig_rendering_fhir>`; for diagrams, see :doc:`PlantUML <simplifierPlantUML>` and :doc:`Mermaid <simplifierMermaid>`.

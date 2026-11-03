@@ -114,7 +114,14 @@ The guide keeps showing up in the ``Guides`` tab, but opening it gives this erro
 .. image:: ../images/IGBrokenGuideError.png
    :scale: 75%
 
-You repair it by removing the registration, registering the guide again from the ``guide.yaml`` that is now in your project, and re-attaching the published versions to that new registration.
+The quickest repair is to link your guide to the ``guide.yaml`` that is now in your project:
+
+1. Go to ``Manage`` > ``File manager`` and open that ``guide.yaml``.
+2. Click ``Link to`` in its menu. The list shows the guides in this project that have no configuration file linked to them. Choose the URL key of your guide.
+
+Your guide keeps its URL key, its settings and its published versions, and opens again. ``Link to`` is shown to project members who can edit the project, as long as the ``guide.yaml`` is not linked to a guide yet.
+
+If your guide is not in that list, you repair it by removing the registration, registering the guide again from the ``guide.yaml`` that is now in your project, and re-attaching the published versions to that new registration.
 
 .. important::
 

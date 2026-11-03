@@ -13,12 +13,12 @@ Publishing a guide goes hand in hand with :ref:`releasing a FHIR package <packag
 
 #. You keep one editable version of your guide in your project, the head of your development branch (just like your resources).
 #. When you are happy with the conformance resources, you :ref:`release a FHIR package <package_management>`. You then point your editable guide's scope at that released package version and check that everything looks right.
-#. If so, you publish a release of your guide. You can also make it the new default guide, which is where people land when they open the guide URL without a version number (or with ``current``).
+#. If so, you publish a release of your guide. You can also make it the new default guide, which is where people land when they open the guide URL without a version number. The live guide stays available with ``?version=preview``; the older ``?version=current`` still works too.
 #. You then switch your editable guide's scope back to the project (``current``) and continue editing the next release of both.
 
 You may want to keep the guide and package version numbers in sync, but a few things differ between the two release processes:
 
-- The guide version number is currently just a string. We may enforce semver for Simplifier-created guides for consistency.
+- The guide version number is currently just a string. We may enforce semver for Simplifier-created guides for consistency. ``preview`` and ``current`` are reserved for the live guide and cannot be used as a version number.
 - A guide version can be **overwritable** or **read-only** (you can switch a read-only release to overwritable later). Package versions are always final and can only be unlisted. For example:
 
   - You could spot a typo in a guide release and overwrite it with a new release under the same version number, still pointing at the same package.

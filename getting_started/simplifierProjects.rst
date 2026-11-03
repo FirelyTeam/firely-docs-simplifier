@@ -62,7 +62,7 @@ The ``Guides`` tab lists all Implementation Guides for this project built in Sim
  
 Team
 ----
-On the ``Team`` tab you can find all project members and their role. This tab also offers a search option, allowing you to search for other members using their full name or username. Depending on your role in the project you can `add project members <simplifierProjects.html#id1>`_ here.
+On the ``Team`` tab you can find all project members and their role. This tab also offers a search option, allowing you to search for other members using their full name or username. Depending on your role in the project you can `add project members <simplifierProjects.html#id1>`_ here. If the team admins have :ref:`hidden the team members <hide_team_members>`, only members of the team see who is in it.
 
 Log
 ---

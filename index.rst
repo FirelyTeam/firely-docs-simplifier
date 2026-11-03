@@ -61,7 +61,6 @@ Below you will find the documentation for the platform.
   :caption: Integrations
 
   features/simplifierEmbeddedRendering
-  features/simplifierConnectors
   features/simplifierFirely-server
 
 .. toctree::

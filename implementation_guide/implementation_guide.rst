@@ -25,4 +25,5 @@ The pages below will elaborate further on getting started and how you can use th
   page_setup
   customize_your_ig
   simplifierPlantUML
+  simplifierMermaid
   ig_management

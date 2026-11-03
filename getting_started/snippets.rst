@@ -2,7 +2,7 @@
 
 Snippets
 ========
-The Snippet feature in Simplifier enables you to quickly share resources with another Simplifier user (e.g. for review purposes) without storing them in your project. Click on the ``Snippet`` button in the top right corner to use this feature.
+The Snippet feature in Simplifier enables you to quickly share resources with another Simplifier user (e.g. for review purposes) without storing them in your project. To create one, click ``CREATE SNIPPET`` on the Simplifier homepage, or open ``Snippets`` from your personal menu and click ``Create``.
 
 .. image:: ../images/Snippet.PNG
    :scale: 75%
@@ -21,7 +21,7 @@ When visiting the URL of a Snippet, you can choose to view either the XML code, 
 
 Personal Snippets
 -----------------
-Through your  `personal menu <simplifierPersonalContent.html#user-portal>`_ (click on your avatar at the top right and select ``Snippets``) you can access a list of all your Snippets. From here you can also quickly add a new Snippet by clicking the green ``+New`` button.
+Through your  `personal menu <simplifierPersonalContent.html#user-portal>`_ (click on your avatar at the top right and select ``Snippets``) you can access a list of all your Snippets. From here you can also quickly add a new Snippet by clicking the ``Create`` button.
 
 .. image:: ../images/MySnippets.PNG
    :scale: 75%
