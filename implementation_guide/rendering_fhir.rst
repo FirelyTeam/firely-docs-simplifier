@@ -44,21 +44,24 @@ The following widgets embed Simplifier content. Most take a canonical URL (or a 
 Tree and render properties
 --------------------------
 
-The ``tree`` widget accepts properties that control how it renders:
+The ``tree``, ``dict`` and ``table`` widgets accept properties that control how they render a profile:
 
-- Form: show the ``diff``, ``snap``, or ``hybrid`` form of the resource.
+- Form: show the ``diff``, ``snap`` (or ``snapshot``), or ``hybrid`` form of the resource. The views are explained under :ref:`resource rendering <resource-rendering>`.
 
   ::
 
      {{tree:http://hl7.org/fhir/StructureDefinition/Patient, diff}}
-     {{tree:http://hl7.org/fhir/StructureDefinition/Patient, snap}}
-     {{tree:http://hl7.org/fhir/StructureDefinition/Patient, hybrid}}
+     {{dict:http://hl7.org/fhir/StructureDefinition/Patient, snap}}
+     {{table:http://hl7.org/fhir/StructureDefinition/Patient, hybrid}}
 
-- ``buttons``: show ``diff``, ``snap``, and ``hybrid`` buttons so the reader can switch between them.
+- ``buttons``: show the ``diff``, ``snap``, and ``hybrid`` buttons and the ``show common`` toggle, so the reader can switch between them. A form property sets the view the buttons start with; once the reader picks a view, their choice is remembered in a browser cookie and wins over the form property, on this page and the next.
 
   ::
 
      {{tree:http://hl7.org/fhir/StructureDefinition/Patient, buttons}}
+     {{dict:http://hl7.org/fhir/StructureDefinition/Patient, diff, buttons}}
+
+Without a form property, the ``tree`` shows the ``snap`` form, and with ``buttons`` the ``dict`` and ``table`` start in ``snap`` as well. A ``dict`` or ``table`` with neither a form property nor ``buttons`` shows every element, as it did before these properties existed. A form property in the page header applies to every widget on the page; one on the widget itself overrides it.
 
 - ``expand``: fully expand the tree, or give a number for the level of expansion.
 

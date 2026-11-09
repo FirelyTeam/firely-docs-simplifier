@@ -40,11 +40,13 @@ A profile says two things at once: what it changed (its differential) and what t
 
 ``show common`` is a separate toggle. By default the tree hides the elements that are the same in every resource and carry no information about the profile: ``id`` elements, the attributes inherited from ``Resource`` and ``DomainResource``, XML attributes, and extension roots the profile did not touch. Turn it on to show them anyway. The toggle has no effect in the ``diff`` view, where these elements are hidden already unless the profile constrained them, and it is disabled there.
 
-Your choice of view and of ``show common`` is remembered in a browser cookie, so it carries over to the next profile you open.
+The ``Details`` and ``Table`` tabs of a profile have the same buttons and filter their elements the same way.
+
+Your choice of view and of ``show common`` is remembered in a browser cookie, so it carries over to the next profile you open, and between the tree, details and table.
 
 .. note::
 
-   In an implementation guide you can fix the view per widget (``{{tree:<canonical>, diff}}``) or give the reader the buttons (``{{tree:<canonical>, buttons}}``). See :ref:`the tree widget properties <ig_rendering_fhir>`.
+   In an implementation guide you can fix the view per widget (``{{tree:<canonical>, diff}}``, also for ``{{dict}}`` and ``{{table}}``) or give the reader the buttons (``{{tree:<canonical>, buttons}}``). See :ref:`the widget properties <ig_rendering_fhir>`.
 
 What the colours mean
 """""""""""""""""""""
