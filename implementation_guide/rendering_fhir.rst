@@ -61,7 +61,20 @@ The ``tree``, ``dict`` and ``table`` widgets accept properties that control how 
      {{tree:http://hl7.org/fhir/StructureDefinition/Patient, buttons}}
      {{dict:http://hl7.org/fhir/StructureDefinition/Patient, diff, buttons}}
 
-Without a form property, the ``tree`` shows the ``snap`` form, and with ``buttons`` the ``dict`` and ``table`` start in ``snap`` as well. A ``dict`` or ``table`` with neither a form property nor ``buttons`` shows every element, as it did before these properties existed. A form property in the page header applies to every widget on the page; one on the widget itself overrides it.
+- ``filters`` (or ``filters: yes``): with ``buttons``, add the filter menu to the buttons: ``show common`` and the trait filters, as on the resource pages (see :ref:`resource rendering <resource-rendering>`). ``filters: no`` leaves it out again, e.g. for one widget on a page that turns it on for all.
+
+  ::
+
+     {{tree:http://hl7.org/fhir/StructureDefinition/Patient, buttons, filters}}
+
+- ``filters`` with filter names: start with these filters checked, separated by a space (a comma separates the widget's properties). With ``buttons`` the filter menu shows them checked, and the reader can change them; without, the rendering simply shows only the elements that match. The filters are ``mandatory``, ``binding``, ``invariant``, ``mustsupport``, ``modifier`` and ``mapping``, and the FHIRPath filters of the page (see `FHIRPath filters`_). An unknown name shows an error with the names you can use.
+
+  ::
+
+     {{dict:http://hl7.org/fhir/StructureDefinition/Patient, filters: mustsupport binding}}
+     {{tree:http://hl7.org/fhir/StructureDefinition/Patient, buttons, filters: mandatory}}
+
+Without a form property, the ``tree`` shows the ``snap`` form, and with ``buttons`` or filters to start with the ``dict`` and ``table`` start in ``snap`` as well. A ``dict`` or ``table`` with none of these shows every element, as it did before these properties existed. A property in the page header, or in the guide's ``variables.yaml``, applies to every widget on the page; one on the widget itself overrides it.
 
 - ``expand``: fully expand the tree, or give a number for the level of expansion.
 
@@ -75,6 +88,50 @@ Without a form property, the ``tree`` shows the ``snap`` form, and with ``button
   ::
 
      {{tree:http://hl7.be/fhir/be/StructureDefinition/Patient, lang: fr-BE}}
+
+FHIRPath filters
+----------------
+
+Besides the built-in filters, you can define filters of your own with a FHIRPath expression, under ``filters-fhirpath`` in the page header or in the guide's ``variables.yaml``. Each filter has a name of your own, which you use with ``filters``:
+
+::
+
+   ---
+   filters-fhirpath:
+     required:
+       expression: "binding.strength = 'required'"
+       name: required binding
+       description: Elements bound to a value set with required strength
+     fixedvalue: "(fixed | pattern).exists()"
+   ---
+
+   {{dict:http://example.org/fhir/StructureDefinition/my-patient, filters: required}}
+   {{tree:http://example.org/fhir/StructureDefinition/my-patient, buttons, filters}}
+
+- ``expression``: the FHIRPath expression. Write it alone, as ``fixedvalue`` above, when the filter needs nothing else. Quote it, so that commas and colons in it are no problem.
+- ``name``: its caption in the filter menu; by default the filter's name (``required``).
+- ``description``: its tooltip in the filter menu, with the expression after it.
+
+With ``buttons`` and ``filters``, the filter menu shows the page's FHIRPath filters after the built-in ones, below a line.
+
+An expression is evaluated on each element (an ElementDefinition), and the filter matches the elements it is true for, e.g. ``min >= 1``, ``binding.strength = 'required'`` or ``mustSupport = true and min >= 1``. For a condition across elements, write an expression on the profile instead: one that starts from its ``snapshot`` and selects the elements, e.g. ``snapshot.element.where((fixed | pattern).exists())``. Any expression that goes to ``snapshot`` is evaluated this way. This one selects the elements with a child that must be present:
+
+::
+
+   filters-fhirpath:
+     mandatorychild:
+       expression: "defineVariable('parents', snapshot.element.where(min >= 1 and id.contains('.')).select(id.replaceMatches('[.][^.]+$', ''))).snapshot.element.where(id in %parents)"
+       name: has mandatory child
+
+Good to know:
+
+- A filter's name has only letters, digits, ``-`` and ``_``. It cannot be one of the built-in filters' names, ``yes`` or ``no``, nor end in ``-diff``.
+- An expression that does not compile shows an error in the widgets that use filters. An expression that fails on an element (e.g. ``single()`` on two values) does not match it. A misspelled element name is no error in FHIRPath: the filter then matches nothing.
+- Prohibited elements (``max`` set to ``0``), and the elements in them, never match a filter.
+- A widget can set one property of a filter on its own line, e.g. ``filters-fhirpath.required.name: required``, or a short expression without commas, e.g. ``{{dict:..., filters-fhirpath.mandatory: min >= 1, filters: mandatory}}``.
+- Evaluating FHIRPath on every element takes more time than the built-in filters. Keep the number of FHIRPath filters on a page small.
+
+Try an expression in the `FHIRPath playground <https://simplifier.net/fhirpath>`__ first: for a StructureDefinition, its ``Rendering`` tab shows the tree with the expression as a filter, how many elements match, how long that took, and warnings about the expression.
 
 Metadata
 --------

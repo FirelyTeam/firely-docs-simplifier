@@ -38,15 +38,21 @@ A profile says two things at once: what it changed (its differential) and what t
    * - ``hybrid``
      - The full snapshot, with everything this profile changed in black and everything it inherited in grey. Elements the profile removed stay visible with a line through them. This is the default view.
 
-``show common`` is a separate toggle. By default the tree hides the elements that are the same in every resource and carry no information about the profile: ``id`` elements, the attributes inherited from ``Resource`` and ``DomainResource``, XML attributes, and extension roots the profile did not touch. Turn it on to show them anyway. The toggle has no effect in the ``diff`` view, where these elements are hidden already unless the profile constrained them, and it is disabled there.
+Next to the views, the ``filters`` button opens the filter menu:
 
-The ``Details`` and ``Table`` tabs of a profile have the same buttons and filter their elements the same way.
+- ``show common``: by default the tree hides the elements that are the same in every resource and carry no information about the profile: ``id`` elements, the attributes inherited from ``Resource`` and ``DomainResource``, XML attributes, and extension roots the profile did not touch. Check it to show them anyway. It has no effect in the ``diff`` view, where these elements are hidden already unless the profile constrained them, and it is disabled there.
+- The trait filters: ``mandatory``, ``has binding``, ``defines invariant``, ``must support``, ``is modifier`` and ``contains mapping``. Check one or more to see only the elements with any of them, with the elements above them that lead to them. Each shows how many elements it matches in the current view. In the ``diff`` view a filter matches an element only where the profile itself makes it match, e.g. where it sets must support, not where it inherits it.
+- ``clear`` unchecks everything in the menu.
 
-Your choice of view and of ``show common`` is remembered in a browser cookie, so it carries over to the next profile you open, and between the tree, details and table.
+Prohibited elements (``max`` set to ``0``), and the elements in them, never match a filter.
+
+The ``Details`` and ``Table`` tabs of a profile have the same buttons and filter menu, and filter their elements the same way.
+
+Your choice of view and of the filters is remembered in a browser cookie, so it carries over to the next profile you open, and between the tree, details and table.
 
 .. note::
 
-   In an implementation guide you can fix the view per widget (``{{tree:<canonical>, diff}}``, also for ``{{dict}}`` and ``{{table}}``) or give the reader the buttons (``{{tree:<canonical>, buttons}}``). See :ref:`the widget properties <ig_rendering_fhir>`.
+   In an implementation guide you can fix the view per widget (``{{tree:<canonical>, diff}}``, also for ``{{dict}}`` and ``{{table}}``), give the reader the buttons (``{{tree:<canonical>, buttons}}``) and the filter menu (``filters``), start with filters checked (``filters: mustsupport binding``), and define filters of your own with FHIRPath. See :ref:`the widget properties <ig_rendering_fhir>`.
 
 What the colours mean
 """""""""""""""""""""

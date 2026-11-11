@@ -23,7 +23,30 @@ The YAML header of a page (the part between the ``---`` lines) sets properties t
 - **expand**: ``1``, ``2``, ... expands resource trees to that depth; ``yes`` expands fully. Works for StructureDefinitions and example instances.
 - **lang**: sets the page language; all language-aware renderers pick it up automatically.
 
-Any property that a rendering widget understands (such as ``buttons``, ``diff``, ``hybrid``) can also be set in the header.
+Any property that a rendering widget understands (such as ``buttons``, ``diff``, ``hybrid``, ``filters``) can also be set in the header. In a widget such a property can stand alone (``{{tree, buttons, diff}}``); in the header it needs a value, ``yes`` (or ``no``), as YAML has no properties without one:
+
+::
+
+   ---
+   buttons: yes
+   diff: yes
+   filters: mustsupport binding
+   ---
+
+A property can also hold properties of its own, e.g. the FHIRPath filters of the page (see :ref:`the widget properties <ig_rendering_fhir>`):
+
+::
+
+   ---
+   filters-fhirpath:
+     required:
+       expression: "binding.strength = 'required'"
+       name: required binding
+   ---
+
+.. note::
+
+   A header that is not valid YAML, e.g. with a line ``hybrid`` without a value, is ignored as a whole: none of its properties apply, and the page gives no error.
 
 Variables
 ---------
