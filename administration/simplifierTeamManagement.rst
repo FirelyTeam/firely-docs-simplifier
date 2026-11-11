@@ -137,5 +137,30 @@ Team assignment can be done in the project page. Navigate to ``Change team`` and
    :scale: 75%
 
 
+.. _guest_users:
+
+Guest users
+```````````
+With an Enterprise license you can invite people as a ``Guest``, for example external reviewers, partners or customers who need to see your work but not take part in it. Guest is a role you choose when you invite someone to a team, next to ``Reader``, ``Writer`` and ``Admin``.
+
+A guest gets read access to the private content of the team they are invited to:
+
+- the team's private projects and their resources
+- the team's implementation guides, including published versions
+- the team's packages
+
+Access is limited to that one team. Being a guest in one team gives no access to the projects, guides or packages of other teams in your Organization, and a guest is not a member of the Organization. To give a guest access to more content, invite them to each team that needs it.
+
+A guest has less access than a ``Reader``. On private projects, guests cannot:
+
+- see the project ``Log``
+- view or create issues
+- see unlisted package versions or private package feeds
+
+Guests are also kept out of sight. They do not appear on the ``Team`` tab for visitors who are not logged in or for other guests, so external parties do not see who else has access. Readers, Writers and Admins of the team still see the guests in the member list.
+
+Guests count toward the maximum number of members of your team.
+
+
 
 
