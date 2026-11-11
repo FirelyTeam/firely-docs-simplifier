@@ -114,7 +114,7 @@ Besides the built-in filters, you can define filters of your own with a FHIRPath
 
 With ``buttons`` and ``filters``, the filter menu shows the page's FHIRPath filters after the built-in ones, below a line.
 
-An expression is evaluated on each element (an ElementDefinition), and the filter matches the elements it is true for, e.g. ``min >= 1``, ``binding.strength = 'required'`` or ``mustSupport = true and min >= 1``. For a condition across elements, write an expression on the profile instead: one that starts from its ``snapshot`` and selects the elements, e.g. ``snapshot.element.where((fixed | pattern).exists())``. Any expression that goes to ``snapshot`` is evaluated this way. This one selects the elements with a child that must be present:
+An expression is evaluated on each element (an ElementDefinition), and the filter matches the elements it is true for, e.g. ``min >= 1``, ``binding.strength = 'required'`` or ``mustSupport = true and min >= 1``. For a condition across elements, write an expression on the profile instead: one that starts from its ``snapshot`` and selects the elements, e.g. ``snapshot.element.where((fixed | pattern).exists())``. Any expression that goes to ``snapshot`` is evaluated this way, except through a variable: an expression on each element can look at the whole profile with ``%resource``, e.g. ``%resource.snapshot.element.where(path = %context.path + '.value').exists()``. This one selects the elements with a child that must be present:
 
 ::
 
