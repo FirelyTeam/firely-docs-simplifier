@@ -94,17 +94,25 @@ How pinned and unpinned references are resolved is explained in :ref:`canonical_
 
 Unlist releases
 ^^^^^^^^^^^^^^^
-Once a package is created it can be used by other implementers to build their project on top of. For this reason we do not delete packages from the Registry. Once a package is created it is there to stay. Implementers can depend on the availability of published packaged. 
+FHIR packages are building blocks: once released, other implementers may depend on them. For this reason, packages are never deleted from Simplifier or the Registry after they are created.
 
-In some cases you might want new implementers to no longer find a specific version of a package. For these cases you can ``unlist`` a package. This can be done by the package owner in the package Administration. 
+As the publisher, you are responsible for the quality of the packages you release. Mistakes can still happen, so you can ``unlist`` a release. Unlisting is meant for releases that are deprecated or published by mistake. It is not meant for releases that are still fine to use. This can be done by the package owner in the package Administration.
 
 .. image:: ../images/UnlistPackage.png
    :scale: 75%
 
-When a package is unlisted, it will no longer show up for implementers on the Registry or on Simplifier. As a creator of the package you will still be able to see the package with an unlisted label added.  
+When a release is unlisted:
+
+* It is no longer shown to outside users on Simplifier. Members of your team still see it there, with an *unlisted* label.
+* It no longer appears on the FHIR Registry (registry.fhir.org) for anyone.
+* Simplifier shows a warning on the dependency tabs of projects and packages that use it.
+* Projects that already depend on that exact version can still download it. Package tools give no warning about this.
+* Package tools no longer pick that version when resolving ``latest`` or a version range.
 
 .. image:: ../images/UnlistedPackage.png
    :scale: 75%
+
+An unlisted release can be listed again from the same menu.
 
 
 
