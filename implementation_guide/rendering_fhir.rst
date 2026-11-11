@@ -111,6 +111,7 @@ Besides the built-in filters, you can define filters of your own with a FHIRPath
 - ``expression``: the FHIRPath expression. Write it alone, as ``fixedvalue`` above, when the filter needs nothing else. Quote it, so that commas and colons in it are no problem.
 - ``name``: its caption in the filter menu; by default the filter's name (``required``).
 - ``description``: its tooltip in the filter menu, with the expression after it.
+- ``scope``: where the expression is evaluated: ``auto`` (the default, see below), ``element`` (on each element) or ``snapshot`` (on the profile).
 
 With ``buttons`` and ``filters``, the filter menu shows the page's FHIRPath filters after the built-in ones, below a line.
 
@@ -123,6 +124,15 @@ An expression is evaluated on each element (an ElementDefinition), and the filte
        expression: "defineVariable('parents', snapshot.element.where(min >= 1 and id.contains('.')).select(id.replaceMatches('[.][^.]+$', ''))).snapshot.element.where(id in %parents)"
        name: has mandatory child
 
+Simplifier tells the two kinds apart by the expression's form, which is not always right: an expression on the profile that reaches the elements without ``snapshot``, e.g. ``descendants().ofType(ElementDefinition)``, counts as one on each element. Then set its ``scope``:
+
+::
+
+   filters-fhirpath:
+     constrained:
+       expression: "descendants().ofType(ElementDefinition).where(constraint.exists())"
+       scope: snapshot
+
 Good to know:
 
 - A filter's name has only letters, digits, ``-`` and ``_``. It cannot be one of the built-in filters' names, ``yes`` or ``no``, nor end in ``-diff``.
@@ -131,7 +141,7 @@ Good to know:
 - A widget can set one property of a filter on its own line, e.g. ``filters-fhirpath.required.name: required``, or a short expression without commas, e.g. ``{{dict:..., filters-fhirpath.mandatory: min >= 1, filters: mandatory}}``.
 - Evaluating FHIRPath on every element takes more time than the built-in filters. Keep the number of FHIRPath filters on a page small.
 
-Try an expression in the `FHIRPath playground <https://simplifier.net/fhirpath>`__ first: for a StructureDefinition, its ``Filtered tree`` tab shows the tree with the expression as a filter, how many elements match, how long that took, and warnings about the expression.
+Try an expression in the `FHIRPath playground <https://simplifier.net/fhirpath>`__ first: for a StructureDefinition, its ``Filtered tree`` tab shows the tree with the expression as a filter, how many elements match, how long that took, and warnings about the expression. For a StructureDefinition, the ``Filter scope`` next to the run button does what ``scope`` does in a filter: ``auto``, ``element`` or ``snapshot``.
 
 Metadata
 --------
