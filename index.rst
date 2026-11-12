@@ -60,6 +60,7 @@ Below you will find the documentation for the platform.
   :maxdepth: 1
   :caption: Integrations
 
+  api/api
   features/simplifierEmbeddedRendering
   features/simplifierFirely-server
 
