@@ -60,14 +60,9 @@ Below you will find the documentation for the platform.
   :maxdepth: 1
   :caption: Integrations
 
+  api/api
   features/simplifierEmbeddedRendering
   features/simplifierFirely-server
-
-.. toctree::
-  :maxdepth: 1
-  :caption: API
-
-  api/api
 
 .. toctree::
   :maxdepth: 1
