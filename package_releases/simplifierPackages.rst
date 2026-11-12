@@ -11,7 +11,7 @@ Creating and publishing packages
 
 
 
-Simplifier.net offers functionality to handle packages and dependencies. This functionality allows you to publish packages based on your project resources, which can be immediately installed and used by people implementing your profiles. The Simplifier FHIR package server is NPM compatible. You may either connect to this server using a NPM client or use our cross platform FHIR command line tool called Firely Terminal. On this page we will explain how to create and manage packages in Simplifier, and where to learn about packages in Firely Terminal. The packages your project depends on are covered in :doc:`../dependencies/managing-dependencies`.
+Simplifier.net offers functionality to handle packages and dependencies. This functionality allows you to publish packages based on your project resources, which can be immediately installed and used by people implementing your profiles. The Simplifier FHIR package server is NPM compatible. You may either connect to this server using a NPM client or use our cross platform FHIR command line tool called Firely Terminal. To fetch packages over HTTP, see the :ref:`Package Server API <package_server_api>`. On this page we will explain how to create and manage packages in Simplifier, and where to learn about packages in Firely Terminal. The packages your project depends on are covered in :doc:`../dependencies/managing-dependencies`.
 
 Package Releases
 ----------------

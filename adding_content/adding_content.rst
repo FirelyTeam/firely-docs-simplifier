@@ -9,7 +9,7 @@ A Simplifier project is, in effect, a small FHIR server. There are several ways 
    :alt: Sync options between a git repository and Simplifier.net: web interface, project ZIP and API, GitHub webhook, Forge sync, and Firely Terminal.
 
 - :doc:`Web interface <upload-resources>`: add resources directly in Simplifier, through the IG **Editor**, the **File manager**, or by uploading individual resources. Best for quick, ad-hoc changes.
-- :doc:`FHIR API and project ZIP <api>`: every project exposes a FHIR API (and a downloadable ZIP) you can use to read and manage its contents programmatically. Best for scripted or custom integrations.
+- :doc:`FHIR API and project ZIP <api>`: every project exposes a FHIR API (and a downloadable ZIP) you can use to read and manage its contents programmatically. Best for scripted or custom integrations. Authentication and the other Simplifier APIs are covered in the :doc:`API section </api/api>`.
 - :doc:`GitHub <github>`: a webhook keeps a GitHub branch synced one-way into the project. Best when git is your source of truth and you want changes to flow in automatically on push. For :doc:`other git hosts <other-git-repositories>` such as Azure DevOps or GitLab, use a Firely Terminal pipeline.
 - :doc:`Forge <forge>`: syncs an entire local folder to a linked project (not just the profiles Forge created), with a conflict-resolution wizard. Best for data modelers working in Forge.
 - :doc:`Firely Terminal <firely-terminal>`: fast command-line sync that also runs on macOS and in CI/CD pipelines. Best for automation and power users.

@@ -65,6 +65,12 @@ Below you will find the documentation for the platform.
 
 .. toctree::
   :maxdepth: 1
+  :caption: API
+
+  api/api
+
+.. toctree::
+  :maxdepth: 1
   :caption: About
 
   Release notes <simplifierReleaseNotes>
