@@ -44,7 +44,7 @@ The following widgets embed Simplifier content. Most take a canonical URL (or a 
 Tree and render properties
 --------------------------
 
-The ``tree``, ``dict`` and ``table`` widgets accept properties that control how they render a profile:
+The ``tree``, ``dict`` and ``table`` widgets accept properties that control how they render a profile. Two of them work in pairs: ``modes`` and ``filters`` show a control the reader can use (the form buttons and the filter menu), and ``modes-selected`` and ``filters-selected`` say what the widget starts with.
 
 - Form: show the ``diff``, ``snap`` (or ``snapshot``), or ``hybrid`` form of the resource. The views are explained under :ref:`resource rendering <resource-rendering>`.
 
@@ -54,27 +54,35 @@ The ``tree``, ``dict`` and ``table`` widgets accept properties that control how 
      {{dict:http://hl7.org/fhir/StructureDefinition/Patient, snap}}
      {{table:http://hl7.org/fhir/StructureDefinition/Patient, hybrid}}
 
-- ``buttons``: show the ``diff``, ``snap``, and ``hybrid`` buttons and the ``show common`` toggle, so the reader can switch between them. A form property sets the view the buttons start with; once the reader picks a view, their choice is remembered in a browser cookie and wins over the form property, on this page and the next.
+- ``modes`` (or ``modes: yes``): show the ``diff``, ``snap``, and ``hybrid`` buttons, so the reader can switch between them. ``modes: no`` leaves them out again. Once the reader picks a view, their choice is remembered in a browser cookie and the buttons start with it, on this page and the next; without one they start in ``snap``. ``modes`` only takes ``yes`` or ``no``; the form to start with goes in ``modes-selected``. ``show common`` is in the filter menu (``filters``).
 
   ::
 
-     {{tree:http://hl7.org/fhir/StructureDefinition/Patient, buttons}}
-     {{dict:http://hl7.org/fhir/StructureDefinition/Patient, diff, buttons}}
+     {{tree:http://hl7.org/fhir/StructureDefinition/Patient, modes}}
 
-- ``filters`` (or ``filters: yes``): with ``buttons``, add the filter menu to the buttons: ``show common`` and the trait filters, as on the resource pages (see :ref:`resource rendering <resource-rendering>`). ``filters: no`` leaves it out again, e.g. for one widget on a page that turns it on for all.
-
-  ::
-
-     {{tree:http://hl7.org/fhir/StructureDefinition/Patient, buttons, filters}}
-
-- ``filters`` with filter names: start with these filters checked, separated by a space (a comma separates the widget's properties). With ``buttons`` the filter menu shows them checked, and the reader can change them; without, the rendering simply shows only the elements that match. The filters are ``mandatory``, ``binding``, ``invariant``, ``mustsupport``, ``modifier`` and ``mapping``, and the FHIRPath filters of the page (see `FHIRPath filters`_). An unknown name shows an error with the names you can use.
+- ``modes-selected``: the form to start with, ``diff``, ``hybrid`` or ``snap``. Unlike a form property, it replaces the view the reader chose before, as ``filters-selected`` does for the filters; with ``modes`` the reader can still switch. Without ``modes`` the widget shows that form, and the reader cannot switch.
 
   ::
 
-     {{dict:http://hl7.org/fhir/StructureDefinition/Patient, filters: mustsupport binding}}
-     {{tree:http://hl7.org/fhir/StructureDefinition/Patient, buttons, filters: mandatory}}
+     {{tree:http://hl7.org/fhir/StructureDefinition/Patient, modes, modes-selected: diff}}
 
-Without a form property, the ``tree`` shows the ``snap`` form, and with ``buttons`` or filters to start with the ``dict`` and ``table`` start in ``snap`` as well. A ``dict`` or ``table`` with none of these shows every element, as it did before these properties existed. A property in the page header, or in the guide's ``variables.yaml``, applies to every widget on the page; one on the widget itself overrides it.
+- ``filters`` (or ``filters: yes``): add the filter menu: ``show common`` and the trait filters, as on the resource pages (see :ref:`resource rendering <resource-rendering>`). With ``modes`` it comes after the form buttons; without, it is on its own and the rendering keeps its form. ``filters: no`` leaves it out again, e.g. for one widget on a page that turns it on for all. ``filters`` only takes ``yes`` or ``no``; the filters to start with go in ``filters-selected``.
+
+  ::
+
+     {{tree:http://hl7.org/fhir/StructureDefinition/Patient, modes, filters}}
+     {{dict:http://hl7.org/fhir/StructureDefinition/Patient, diff, filters}}
+
+- ``filters-selected``: start with these filters selected, separated by a space (a comma separates the widget's properties). With ``filters`` the filter menu shows them checked, and the reader can change them; without, the rendering simply shows only the elements that match. They replace the filters the reader chose before. The filters are ``mandatory``, ``binding``, ``invariant``, ``mustsupport``, ``modifier`` and ``mapping``, and the FHIRPath filters of the page (see `FHIRPath filters`_). An unknown name shows an error with the names you can use.
+
+  ::
+
+     {{dict:http://hl7.org/fhir/StructureDefinition/Patient, filters-selected: mustsupport binding}}
+     {{tree:http://hl7.org/fhir/StructureDefinition/Patient, modes, filters, filters-selected: mandatory}}
+
+With ``modes`` or ``modes-selected`` on the widget, its page or the guide, the older ``buttons`` and the form properties (``diff``, ``hybrid``, ``snap``) are ignored. Without them these work as before: ``buttons`` shows the form buttons, with a ``show common`` button when the widget has no ``filters`` or ``filters-selected``, and a form property sets the view the buttons start with until the reader picks one; once picked, the reader's choice wins over the form property.
+
+Without a form property or ``modes-selected``, the ``tree`` shows the ``snap`` form, and with ``modes``, the filter menu or filters to start with the ``dict`` and ``table`` start in ``snap`` as well. A ``dict`` or ``table`` with none of these shows every element, as it did before these properties existed. A property in the page header, or in the guide's ``variables.yaml``, applies to every widget on the page; one on the widget itself overrides it.
 
 - ``expand``: fully expand the tree, or give a number for the level of expansion.
 
@@ -92,7 +100,7 @@ Without a form property, the ``tree`` shows the ``snap`` form, and with ``button
 FHIRPath filters
 ----------------
 
-Besides the built-in filters, you can define filters of your own with a FHIRPath expression, under ``filters-fhirpath`` in the page header or in the guide's ``variables.yaml``. Each filter has a name of your own, which you use with ``filters``:
+Besides the built-in filters, you can define filters of your own with a FHIRPath expression, under ``filters-fhirpath`` in the page header or in the guide's ``variables.yaml``. Each filter has a name of your own, which you use with ``filters-selected``:
 
 ::
 
@@ -105,14 +113,14 @@ Besides the built-in filters, you can define filters of your own with a FHIRPath
      fixedvalue: "(fixed | pattern).exists()"
    ---
 
-   {{dict:http://example.org/fhir/StructureDefinition/my-patient, filters: required}}
-   {{tree:http://example.org/fhir/StructureDefinition/my-patient, buttons, filters}}
+   {{dict:http://example.org/fhir/StructureDefinition/my-patient, filters-selected: required}}
+   {{tree:http://example.org/fhir/StructureDefinition/my-patient, modes, filters}}
 
 - ``expression``: the FHIRPath expression. Write it alone, as ``fixedvalue`` above, when the filter needs nothing else. Quote it, so that commas and colons in it are no problem.
 - ``name``: its caption in the filter menu; by default the filter's name (``required``).
 - ``description``: its tooltip in the filter menu, with the expression after it.
 
-With ``buttons`` and ``filters``, the filter menu shows the page's FHIRPath filters after the built-in ones, below a line.
+The filter menu shows the page's FHIRPath filters after the built-in ones, below a line.
 
 An expression is evaluated on each element (an ElementDefinition), and the filter matches the elements it is true for, e.g. ``min >= 1``, ``binding.strength = 'required'`` or ``mustSupport = true and min >= 1``. For a condition across elements, write an expression on the profile instead: one that starts from its ``snapshot`` and selects the elements, e.g. ``snapshot.element.where((fixed | pattern).exists())``. Any expression that goes to ``snapshot`` is evaluated this way, except through a variable: an expression on each element can look at the whole profile with ``%resource``, e.g. ``%resource.snapshot.element.where(path = %context.path + '.value').exists()``. This one selects the elements with a child that must be present:
 
@@ -125,10 +133,10 @@ An expression is evaluated on each element (an ElementDefinition), and the filte
 
 Good to know:
 
-- A filter's name has only letters, digits, ``-`` and ``_``. It cannot be one of the built-in filters' names, ``yes`` or ``no``, nor end in ``-diff``.
+- A filter's name has only letters, digits, ``-`` and ``_``. It cannot be one of the built-in filters' names, nor end in ``-diff``.
 - An expression that does not compile shows an error in the widgets that use filters. An expression that fails on an element (e.g. ``single()`` on two values) does not match it. A misspelled element name is no error in FHIRPath: the filter then matches nothing.
 - Prohibited elements (``max`` set to ``0``), and the elements in them, never match a filter.
-- A widget can set one property of a filter on its own line, e.g. ``filters-fhirpath.required.name: required``, or a short expression without commas, e.g. ``{{dict:..., filters-fhirpath.mandatory: min >= 1, filters: mandatory}}``.
+- A widget can set one property of a filter on its own line, e.g. ``filters-fhirpath.required.name: required``, or a short expression without commas, e.g. ``{{dict:..., filters-fhirpath.mandatory: min >= 1, filters-selected: mandatory}}``.
 - Evaluating FHIRPath on every element takes more time than the built-in filters. Keep the number of FHIRPath filters on a page small.
 
 Try an expression in the `FHIRPath playground <https://simplifier.net/fhirpath>`__ first: for a StructureDefinition, its ``Filtered tree`` tab shows the tree with the expression as a filter, how many elements match, how long that took, and warnings about the expression.

@@ -52,7 +52,7 @@ Your choice of view and of the filters is remembered in a browser cookie, so it 
 
 .. note::
 
-   In an implementation guide you can fix the view per widget (``{{tree:<canonical>, diff}}``, also for ``{{dict}}`` and ``{{table}}``), give the reader the buttons (``{{tree:<canonical>, buttons}}``) and the filter menu (``filters``), start with filters checked (``filters: mustsupport binding``), and define filters of your own with FHIRPath. See :ref:`the widget properties <ig_rendering_fhir>`.
+   In an implementation guide you can fix the view per widget (``{{tree:<canonical>, diff}}``, also for ``{{dict}}`` and ``{{table}}``), give the reader the buttons (``{{tree:<canonical>, modes}}``) and start in a view (``modes-selected: diff``) and the filter menu (``filters``), start with filters selected (``filters-selected: mustsupport binding``), and define filters of your own with FHIRPath. See :ref:`the widget properties <ig_rendering_fhir>`.
 
 What the colours mean
 """""""""""""""""""""
