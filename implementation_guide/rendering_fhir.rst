@@ -80,7 +80,7 @@ The ``tree``, ``dict`` and ``table`` widgets accept properties that control how 
      {{dict:http://hl7.org/fhir/StructureDefinition/Patient, filters-selected: mustsupport binding}}
      {{tree:http://hl7.org/fhir/StructureDefinition/Patient, modes, filters, filters-selected: mandatory}}
 
-With ``modes`` or ``modes-selected`` on the widget, its page or the guide, the older ``buttons`` and the form properties (``diff``, ``hybrid``, ``snap``) are ignored. Without them these work as before: ``buttons`` shows the form buttons, with a ``show common`` button when the widget has no ``filters`` or ``filters-selected``, and a form property sets the view the buttons start with until the reader picks one; once picked, the reader's choice wins over the form property.
+With ``modes`` or ``modes-selected`` on the widget, its page or the guide, the older ``buttons`` and the form properties (``diff``, ``hybrid``, ``snap``) are ignored. Without them these work as before: ``buttons`` shows the form buttons, with a ``show common`` button when the widget has no ``filters``, ``filters-selected``, ``obligation-actor`` or ``obligation-code``, and a form property sets the view the buttons start with until the reader picks one; once picked, the reader's choice wins over the form property.
 
 - ``filters-extensions``: show the controls of these extension filters, separated by a space, in that order, e.g. ``obligation`` (see `Extension filters`_). ``filters-extensions`` alone (or ``yes``) shows all of them, ``filters-extensions: no`` none. Like ``modes`` and ``filters``, the controls come with or without the form buttons and the filter menu. A control only appears when the profile has the extension, or when the widget starts with the filter on.
 
