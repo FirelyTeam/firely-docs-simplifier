@@ -73,7 +73,7 @@ The ``tree``, ``dict`` and ``table`` widgets accept properties that control how 
      {{tree:http://hl7.org/fhir/StructureDefinition/Patient, modes, filters}}
      {{dict:http://hl7.org/fhir/StructureDefinition/Patient, diff, filters}}
 
-- ``filters-selected``: start with these filters selected, separated by a space (a comma separates the widget's properties). With ``filters`` the filter menu shows them checked, and the reader can change them; without, the rendering simply shows only the elements that match. They replace the filters the reader chose before. The filters are ``mandatory``, ``binding``, ``invariant``, ``mustsupport``, ``modifier`` and ``mapping``, and the FHIRPath filters of the page (see `FHIRPath filters`_). An unknown name shows an error with the names you can use.
+- ``filters-selected``: start with these filters selected, separated by a space (a comma separates the widget's properties). With ``filters`` the filter menu shows them checked, and the reader can change them; without, the rendering simply shows only the elements that match. They replace the filters the reader chose before. The filters are ``mandatory``, ``binding``, ``invariant``, ``mustsupport``, ``modifier`` and ``mapping``, the extension filters ``obligation`` and ``standards-status`` (see `Extension filters`_), and the FHIRPath filters of the page (see `FHIRPath filters`_). An unknown name shows an error with the names you can use.
 
   ::
 
@@ -82,7 +82,13 @@ The ``tree``, ``dict`` and ``table`` widgets accept properties that control how 
 
 With ``modes`` or ``modes-selected`` on the widget, its page or the guide, the older ``buttons`` and the form properties (``diff``, ``hybrid``, ``snap``) are ignored. Without them these work as before: ``buttons`` shows the form buttons, with a ``show common`` button when the widget has no ``filters`` or ``filters-selected``, and a form property sets the view the buttons start with until the reader picks one; once picked, the reader's choice wins over the form property.
 
-Without a form property or ``modes-selected``, the ``tree`` shows the ``snap`` form, and with ``modes``, the filter menu or filters to start with the ``dict`` and ``table`` start in ``snap`` as well. A ``dict`` or ``table`` with none of these shows every element, as it did before these properties existed. A property in the page header, or in the guide's ``variables.yaml``, applies to every widget on the page; one on the widget itself overrides it.
+- ``filters-extensions``: show the controls of these extension filters, separated by a space, in that order: ``obligation`` and ``standards-status`` (see `Extension filters`_). ``filters-extensions`` alone (or ``yes``) shows all of them, ``filters-extensions: no`` none. Like ``modes`` and ``filters``, the controls come with or without the form buttons and the filter menu. A control only appears when the profile has the extension, or when the widget starts with the filter on.
+
+  ::
+
+     {{tree:http://hl7.org/fhir/StructureDefinition/Patient, modes, filters, filters-extensions: obligation}}
+
+Without a form property or ``modes-selected``, the ``tree`` shows the ``snap`` form, and with ``modes``, the filter menu, extension filters or filters to start with the ``dict`` and ``table`` start in ``snap`` as well. A ``dict`` or ``table`` with none of these shows every element, as it did before these properties existed. A property in the page header, or in the guide's ``variables.yaml``, applies to every widget on the page; one on the widget itself overrides it.
 
 - ``expand``: fully expand the tree, or give a number for the level of expansion.
 
@@ -96,6 +102,27 @@ Without a form property or ``modes-selected``, the ``tree`` shows the ``snap`` f
   ::
 
      {{tree:http://hl7.be/fhir/be/StructureDefinition/Patient, lang: fr-BE}}
+
+Extension filters
+-----------------
+
+Besides the trait filters, the widgets can filter on two extensions on the profile's elements. Each has a control of its own next to the filter menu (``filters-extensions``): ``any`` shows every element with the extension, and below it you pick values. Each value shows how many elements it matches in the current view.
+
+- ``obligation``: the obligations (`obligation extension <https://hl7.org/fhir/extensions/StructureDefinition-obligation.html>`__), on the elements themselves and on the profile for the elements it lists. Pick the actors and what is asked of them (e.g. ``SHALL:populate``). The tree shows elements with obligations with an ``O`` flag, and the details list them.
+- ``standards-status``: the standards status of the elements (draft, trial-use, normative, informative, deprecated, external). The tree shows it as a flag, ``D``, ``TU``, ``N``, ``I``, ``XD`` or ``X``, and the details as ``Standards status``.
+
+A widget can start with an extension filter on, also without its control; then it simply shows only the elements that match:
+
+- ``filters-selected: obligation`` turns on ``any``;
+- ``obligation-actor:`` and ``obligation-code:`` pick the obligations' actors and codes, separated by a space. An actor can be named by its canonical or by its id, the last part of its url (``sender`` for ``.../ActorDefinition/sender``);
+- ``standards-status:`` picks statuses.
+
+::
+
+   {{dict:http://example.org/fhir/StructureDefinition/my-patient, filters-extensions: obligation, obligation-actor: sender}}
+   {{tree:http://example.org/fhir/StructureDefinition/my-patient, standards-status: trial-use draft}}
+
+A value the profile does not have shows checked in the control with a count of 0, so the reader sees why nothing matches. A misspelled parameter, such as ``obligation-actors``, shows an error. Like the other properties, these can be set in the page header or ``variables.yaml``.
 
 FHIRPath filters
 ----------------
