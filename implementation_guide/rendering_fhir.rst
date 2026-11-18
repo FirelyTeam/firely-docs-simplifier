@@ -136,7 +136,7 @@ Good to know:
 - A filter's name has only letters, digits, ``-`` and ``_``. It cannot be one of the built-in filters' names, nor end in ``-diff``.
 - An expression that does not compile shows an error in the widgets that use filters. An expression that fails on an element (e.g. ``single()`` on two values) does not match it. A misspelled element name is no error in FHIRPath: the filter then matches nothing.
 - Prohibited elements (``max`` set to ``0``), and the elements in them, never match a filter.
-- A widget can set one property of a filter on its own line, e.g. ``filters-fhirpath.required.name: required``, or a short expression without commas, e.g. ``{{dict:..., filters-fhirpath.mandatory: min >= 1, filters-selected: mandatory}}``.
+- A widget can set one property of a filter on its own line, e.g. ``filters-fhirpath.required.name: required``, or a short expression without commas, e.g. ``{{dict:..., filters-fhirpath.min1: min >= 1, filters-selected: min1}}``.
 - Evaluating FHIRPath on every element takes more time than the built-in filters. Keep the number of FHIRPath filters on a page small.
 
 Try an expression in the `FHIRPath playground <https://simplifier.net/fhirpath>`__ first: for a StructureDefinition, its ``Filtered tree`` tab shows the tree with the expression as a filter, how many elements match, how long that took, and warnings about the expression.
