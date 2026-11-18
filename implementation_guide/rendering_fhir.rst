@@ -80,7 +80,7 @@ The ``tree``, ``dict`` and ``table`` widgets accept properties that control how 
      {{dict:http://hl7.org/fhir/StructureDefinition/Patient, filters-selected: mustsupport binding}}
      {{tree:http://hl7.org/fhir/StructureDefinition/Patient, modes, filters, filters-selected: mandatory}}
 
-With ``modes`` or ``modes-selected`` on the widget, its page or the guide, the older ``buttons`` and the form properties (``diff``, ``hybrid``, ``snap``) are ignored. Without them these work as before: ``buttons`` shows the form buttons, with a ``show common`` button when the widget has no ``filters``, ``filters-selected``, ``obligation-actor`` or ``obligation-code``, and a form property sets the view the buttons start with until the reader picks one; once picked, the reader's choice wins over the form property.
+With ``modes`` or ``modes-selected`` on the widget, its page or the guide, the older ``buttons`` and the form properties (``diff``, ``hybrid``, ``snap``) are ignored. Without them these work as before: ``buttons`` shows the form buttons, with a ``show common`` button when the widget has no ``filters`` or ``filters-selected``, and a form property sets the view the buttons start with until the reader picks one; once picked, the reader's choice wins over the form property.
 
 - ``filters-extension``: show the controls of these extension filters, separated by a space, in that order, e.g. ``obligation`` (see `Extension filters`_). ``filters-extension`` alone (or ``yes``) shows all of them, ``filters-extension: no`` none. Like ``modes`` and ``filters``, the controls come with or without the form buttons and the filter menu. A control only appears when the profile has the extension, or when the widget starts with the filter on.
 
@@ -112,15 +112,27 @@ Besides the trait filters, the widgets can filter on extensions on the profile's
 
 A widget can start with an extension filter on, also without its control; then it simply shows only the elements that match:
 
-- ``filters-selected: obligation`` turns on ``any``;
-- ``obligation-actor:`` and ``obligation-code:`` pick the obligations' actors and codes, separated by a space. An actor can be named by its canonical or by its id, the last part of its url (``sender`` for ``.../ActorDefinition/sender``).
+- ``filters-selected: obligation`` (or ``filters-selected.obligation``) turns on ``any``;
+- ``filters-selected.obligation.actor:`` and ``filters-selected.obligation.code:`` pick the obligations' actors and codes, separated by a space. An actor can be named by its canonical or by its id, the last part of its url (``sender`` for ``.../ActorDefinition/sender``).
 
 ::
 
-   {{dict:http://example.org/fhir/StructureDefinition/my-patient, filters-extension: obligation, obligation-actor: sender}}
-   {{tree:http://example.org/fhir/StructureDefinition/my-patient, obligation-code: SHALL:populate}}
+   {{dict:http://example.org/fhir/StructureDefinition/my-patient, filters-extension: obligation, filters-selected.obligation.actor: sender}}
+   {{tree:http://example.org/fhir/StructureDefinition/my-patient, filters-selected: mustsupport, filters-selected.obligation.code: SHALL:populate}}
 
-A value the profile does not have shows checked in the control with a count of 0, so the reader sees why nothing matches. A misspelled parameter, such as ``obligation-actors``, shows an error. Like the other properties, these can be set in the page header or ``variables.yaml``.
+In the page header or ``variables.yaml``, ``filters-selected`` is then a map, as ``filters-fhirpath`` is, with ``yes`` for a filter without values:
+
+::
+
+   ---
+   filters-selected:
+     mustsupport: yes
+     obligation:
+       actor: sender
+       code: SHALL:populate
+   ---
+
+The widget, the page and the guide each give a whole selection: a widget with any ``filters-selected`` property of its own starts with only those filters, not also with the page's. A value the profile does not have shows checked in the control with a count of 0, so the reader sees why nothing matches. A misspelled filter or field, such as ``filters-selected.obligation.actors``, shows an error with the fields you can use.
 
 FHIRPath filters
 ----------------
