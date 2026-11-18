@@ -120,7 +120,7 @@ A widget can start with an extension filter on, also without its control; then i
    {{dict:http://example.org/fhir/StructureDefinition/my-patient, filters-extension: obligation, filters-selected.obligation.actor: sender}}
    {{tree:http://example.org/fhir/StructureDefinition/my-patient, filters-selected: mustsupport, filters-selected.obligation.code: SHALL:populate}}
 
-In the page header or ``variables.yaml``, ``filters-selected`` is then a map, as ``filters-fhirpath`` is, with ``yes`` for a filter without values:
+In the page header or ``variables.yaml``, ``filters-selected`` is then a map, as ``filters-fhirpath`` is, with ``yes`` (or no value) for a filter without values. Several values can also be a YAML list:
 
 ::
 
@@ -128,11 +128,17 @@ In the page header or ``variables.yaml``, ``filters-selected`` is then a map, as
    filters-selected:
      mustsupport: yes
      obligation:
-       actor: sender
+       actor: [sender, receiver]
        code: SHALL:populate
    ---
 
-The widget, the page and the guide each give a whole selection: a widget with any ``filters-selected`` property of its own starts with only those filters, not also with the page's. A value the profile does not have shows checked in the control with a count of 0, so the reader sees why nothing matches. A misspelled filter or field, such as ``filters-selected.obligation.actors``, shows an error with the fields you can use.
+Good to know:
+
+- The widget, the page and the guide each give a whole selection: a widget with any ``filters-selected`` property of its own starts with only those filters, not also with the page's. A widget with an empty ``filters-selected:`` starts with none, whatever the page selects.
+- A value the profile does not have shows checked in the control with a count of 0, so the reader sees why nothing matches.
+- A misspelled filter or field, such as ``filters-selected.obligation.actors``, shows an error with the fields you can use. So does a field without values, and a filter set to ``no`` while one of its fields picks values.
+- The names are case-sensitive, as those of the other properties: ``Filters-Selected`` is not read.
+- ``filters-extension`` in the page header or ``variables.yaml`` applies to every ``tree``, ``dict`` and ``table`` on the page or in the guide: a ``dict`` or ``table`` then starts in ``snap``, also for a profile without obligations, which gets no control.
 
 FHIRPath filters
 ----------------
