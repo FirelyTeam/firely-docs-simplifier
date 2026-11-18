@@ -122,6 +122,41 @@ Besides the built-in filters, you can define filters of your own with a FHIRPath
 
 The filter menu shows the page's FHIRPath filters after the built-in ones, below a line.
 
+**In the header and on a widget.** The header nests a filter's properties under ``filters-fhirpath:``. A widget cannot nest, so it writes each property on its own, joined by dots: ``filters-fhirpath.<filter>.<property>: <value>``. The filter's own value, ``filters-fhirpath.<filter>``, is its expression.
+
+In the page header or ``variables.yaml``:
+
+::
+
+   filters-fhirpath:
+     <filter>:
+       expression: "<FHIRPath>"
+       name: <caption>
+       description: <tooltip>
+     <filter>: "<FHIRPath>"
+
+On a widget:
+
+::
+
+   {{dict:..., filters-fhirpath.<filter>.expression: <FHIRPath>, filters-fhirpath.<filter>.name: <caption>, filters-selected: <filter>}}
+   {{dict:..., filters-fhirpath.<filter>: <FHIRPath>, filters-selected: <filter>}}
+
+For example, these define the same filter, in the header and on a widget:
+
+::
+
+   ---
+   filters-fhirpath:
+     required:
+       expression: "binding.strength = 'required'"
+       name: required binding
+   ---
+
+   {{dict:..., filters-fhirpath.required: binding.strength = 'required', filters-fhirpath.required.name: required binding, filters-selected: required}}
+
+A property on the widget wins over the same property in the header, so a widget can also change one property of the page's filter, e.g. ``{{dict:..., filters-fhirpath.required.name: required, filters-selected: required}}``. On a widget an expression cannot contain a comma, which separates the widget's properties; put such an expression in the header.
+
 An expression is evaluated on each element (an ElementDefinition), and the filter matches the elements it is true for, e.g. ``min >= 1``, ``binding.strength = 'required'`` or ``mustSupport = true and min >= 1``. For a condition across elements, write an expression on the profile instead: one that starts from its ``snapshot`` and selects the elements, e.g. ``snapshot.element.where((fixed | pattern).exists())``. Any expression that goes to ``snapshot`` is evaluated this way, also through a variable such as ``%resource``: on each element, ``%resource`` is that element itself, not the profile. This one selects the elements with a child that must be present:
 
 ::
@@ -136,7 +171,6 @@ Good to know:
 - A filter's name has only letters, digits, ``-`` and ``_``. It cannot be one of the built-in filters' names, nor end in ``-diff``.
 - An expression that does not compile shows an error in the widgets that use filters. An expression that fails on an element (e.g. ``single()`` on two values) does not match it. A misspelled element name is no error in FHIRPath: the filter then matches nothing.
 - Prohibited elements (``max`` set to ``0``), and the elements in them, never match a filter.
-- A widget can set one property of a filter on its own line, e.g. ``filters-fhirpath.required.name: required``, or a short expression without commas, e.g. ``{{dict:..., filters-fhirpath.min1: min >= 1, filters-selected: min1}}``.
 - Evaluating FHIRPath on every element takes more time than the built-in filters. Keep the number of FHIRPath filters on a page small.
 
 Try an expression in the `FHIRPath playground <https://simplifier.net/fhirpath>`__ first: for a StructureDefinition, its ``Filtered tree`` tab shows the tree with the expression as a filter, how many elements match, how long that took, and warnings about the expression.
