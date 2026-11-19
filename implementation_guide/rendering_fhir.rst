@@ -120,17 +120,60 @@ A widget can start with an extension filter on, also without its control; then i
    {{dict:http://example.org/fhir/StructureDefinition/my-patient, filters-extension: obligation, filters-selected.obligation.actor: sender}}
    {{tree:http://example.org/fhir/StructureDefinition/my-patient, filters-selected: mustsupport, filters-selected.obligation.code: SHALL:populate}}
 
-In the page header or ``variables.yaml``, ``filters-selected`` is then a map, as ``filters-fhirpath`` is, with ``yes`` (or no value) for a filter without values. Several values can also be a YAML list. The dotted names work in a header as well, e.g. ``filters-selected.obligation.actor: [sender, receiver]``:
+**In the header and on a widget.** The page header (or ``variables.yaml``) nests the values under ``filters-selected:``, as ``filters-fhirpath`` nests its filters, or writes them dotted, each on its own line. A widget cannot nest, so it writes each one dotted: ``filters-selected.<filter>.<field>: <values>``.
+
+In the page header or ``variables.yaml``, nested:
+
+::
+
+   filters-extension: <filter> <filter>
+   filters-selected:
+     <trait or filter>: yes                     # or no value
+     <extension filter>:
+       <field>: <value> <value>                 # or a list: [<value>, <value>]
+
+or dotted:
+
+::
+
+   filters-extension: <filter> <filter>
+   filters-selected: <trait or filter> <trait or filter>          # or a list: [<trait or filter>, <trait or filter>]
+   filters-selected.<extension filter>.<field>: <value> <value>   # or a list: [<value>, <value>]
+
+On a widget, where several values are separated by spaces:
+
+::
+
+   {{dict:..., filters-extension: <filter>, filters-selected: <trait or filter>, filters-selected.<extension filter>.<field>: <value> <value>}}
+
+For example, the same selection in the header, nested and dotted, and on a widget:
 
 ::
 
    ---
+   filters-extension: obligation
    filters-selected:
      mustsupport: yes
      obligation:
        actor: [sender, receiver]
        code: SHALL:populate
    ---
+
+::
+
+   ---
+   filters-extension: obligation
+   filters-selected: mustsupport
+   filters-selected.obligation.actor: [sender, receiver]
+   filters-selected.obligation.code: SHALL:populate
+   ---
+
+::
+
+   {{dict:..., filters-extension: obligation, filters-selected: mustsupport, filters-selected.obligation.actor: sender receiver, filters-selected.obligation.code: SHALL:populate}}
+
+- A value with a space goes in double quotes: ``filters-selected.obligation.code: "SHOULD:display if known" SHALL:populate``. In a YAML list, an item with a space needs no quotes of its own: ``code: ["SHOULD:display if known", SHALL:populate]`` picks the same two codes.
+- In a header, a filter without a value (``obligation:``) is on, as ``obligation: yes``. A field without a value (``actor:``, or an empty list ``actor: []``) shows an error, as on a widget; so does a filter with an empty list (``obligation: []``).
 
 Good to know:
 
