@@ -60,7 +60,7 @@ The ``tree``, ``dict`` and ``table`` widgets accept properties that control how 
 
      {{tree:http://hl7.org/fhir/StructureDefinition/Patient, modes}}
 
-- ``modes-selected``: the form to start with, ``diff``, ``hybrid`` or ``snap``. Unlike a form property, it replaces the view the reader chose before, as ``filters-selected`` does for the filters; with ``modes`` the reader can still switch. Without ``modes`` the widget shows that form, and the reader cannot switch.
+- ``modes-selected``: the form to start with, ``diff``, ``hybrid`` or ``snap``. Unlike a form property, it replaces the view the reader chose before, as ``filters-selected`` does for the filters; with ``modes`` the reader can still switch. Without ``modes`` the widget shows that form, and the reader cannot switch. ``modes-selected: last`` starts with the view the reader chose before (else ``snap``), also when the page or guide sets a form.
 
   ::
 
@@ -73,7 +73,7 @@ The ``tree``, ``dict`` and ``table`` widgets accept properties that control how 
      {{tree:http://hl7.org/fhir/StructureDefinition/Patient, modes, filters}}
      {{dict:http://hl7.org/fhir/StructureDefinition/Patient, diff, filters}}
 
-- ``filters-selected``: start with these filters selected, separated by a space (a comma separates the widget's properties). With ``filters`` the filter menu shows them checked, and the reader can change them; without, the rendering simply shows only the elements that match. They replace the filters the reader chose before. The filters are ``mandatory``, ``binding``, ``invariant``, ``mustsupport``, ``modifier`` and ``mapping``, the extension filter ``obligation`` (see `Extension filters`_), and the FHIRPath filters of the page (see `FHIRPath filters`_). An unknown name shows an error with the names you can use.
+- ``filters-selected``: start with these filters selected, separated by a space (a comma separates the widget's properties). With ``filters`` the filter menu shows them checked, and the reader can change them; without, the rendering simply shows only the elements that match. They replace the filters the reader chose before. The filters are ``mandatory``, ``binding``, ``invariant``, ``mustsupport``, ``modifier`` and ``mapping``, the extension filter ``obligation`` (see `Extension filters`_), and the FHIRPath filters of the page (see `FHIRPath filters`_). An unknown name shows an error with the names you can use. ``filters-selected: none`` starts with no filter, also instead of what the reader chose before; ``filters-selected: last`` starts with what the reader chose before (else no filter), also when the page or guide selects filters.
 
   ::
 
@@ -90,7 +90,7 @@ With ``modes`` or ``modes-selected`` on the widget, its page or the guide, the o
 
 Without a form property or ``modes-selected``, the ``tree`` shows the ``snap`` form, and with ``modes``, the filter menu, extension filters or filters to start with the ``dict`` and ``table`` start in ``snap`` as well. A ``dict`` or ``table`` with none of these shows every element, as it did before these properties existed. A property in the page header, or in the guide's ``variables.yaml``, applies to every widget on the page; one on the widget itself overrides it.
 
-Without a value, a property means the same on a widget and in the page header (``filters:``, also ``filters: {}`` or ``filters: []``): ``modes``, ``filters`` and ``filters-extension`` are the same as ``yes``, as when they stand alone; ``modes-selected`` and ``filters-selected`` select nothing, so they clear what the page or guide selects. In the header, a YAML list is the values separated by spaces, e.g. ``filters-extension: [obligation]``; a list for a property with one value, such as ``modes-selected: [diff, snap]``, shows an error.
+A property with a colon needs a value, on a widget and in the page header: ``filters:`` without a value (in the header also ``filters: {}``) shows an error. Only on a widget can a property stand alone, without a colon: ``modes``, ``filters`` and ``filters-extension`` alone are the same as ``yes``. In the header, ``true`` and ``false`` work as ``yes`` and ``no``. Several values are separated by spaces, also in the header; a YAML list shows an error, except for the values of an extension filter's field, which can contain a space (see `Extension filters`_).
 
 - ``expand``: fully expand the tree, or give a number for the level of expansion.
 
@@ -114,7 +114,7 @@ Besides the trait filters, the widgets can filter on extensions on the profile's
 
 A widget can start with an extension filter on, also without its control; then it simply shows only the elements that match:
 
-- ``filters-selected: obligation`` (or ``filters-selected.obligation``) turns on ``any``;
+- ``filters-selected: obligation`` (or ``filters-selected.obligation: yes``, on a widget also ``filters-selected.obligation`` alone) turns on ``any``;
 - ``filters-selected.obligation.actor:`` and ``filters-selected.obligation.code:`` pick the obligations' actors and codes, separated by a space. An actor can be named by its canonical or by its id, the last part of its url (``sender`` for ``.../ActorDefinition/sender``).
 
 ::
@@ -128,9 +128,9 @@ In the page header or ``variables.yaml``, nested:
 
 ::
 
-   filters-extension: <filter> <filter>                           # or a list: [<filter>, <filter>]; no value: all filters
+   filters-extension: <filter> <filter>                           # or yes (all filters), or no
    filters-selected:
-     <trait or filter>: yes                                       # or no value
+     <trait or filter>: yes                                       # or no
      <extension filter>:
        <field>: <value> <value>                                   # or a list: [<value>, <value>]
 
@@ -138,8 +138,8 @@ or dotted:
 
 ::
 
-   filters-extension: <filter> <filter>                           # or a list: [<filter>, <filter>]; no value: all filters
-   filters-selected: <trait or filter> <trait or filter>          # or a list: [<trait or filter>, <trait or filter>]
+   filters-extension: <filter> <filter>                           # or yes (all filters), or no
+   filters-selected: <trait or filter> <trait or filter>          # or none, or last
    filters-selected.<extension filter>.<field>: <value> <value>   # or a list: [<value>, <value>]
 
 On a widget, where several values are separated by spaces:
@@ -174,15 +174,16 @@ For example, the same selection in the header, nested and dotted, and on a widge
 
    {{dict:..., filters-extension: obligation, filters-selected: mustsupport, filters-selected.obligation.actor: sender receiver, filters-selected.obligation.code: SHALL:populate}}
 
-- A value with a space goes in double quotes: ``filters-selected.obligation.code: "SHOULD:display if known" SHALL:populate``. In a YAML list, an item with a space needs no quotes of its own: ``code: ["SHOULD:display if known", SHALL:populate]`` picks the same two codes.
-- A filter without a value (``filters-selected.obligation:``, in a header also ``obligation: {}`` or ``obligation: []``) is the same as ``obligation: yes``. A field without a value (``actor:``, or an empty list ``actor: []``) shows an error, on a widget and in a header.
+- A value with a space goes in double quotes: ``filters-selected.obligation.code: "SHOULD:display if known" SHALL:populate``. In the header a field's values can also be a YAML list, where an item with a space needs no quotes of its own: ``code: ["SHOULD:display if known", SHALL:populate]`` picks the same two codes. Only a field's values can be a list.
+- ``filters-selected.obligation: yes`` turns the filter on, ``no`` turns it off; without a value (``filters-selected.obligation:``, in a header also ``obligation: {}``) it shows an error. A field needs values: without (``actor:``, or an empty list ``actor: []``), or with ``yes`` or ``no``, it shows an error.
 
 Good to know:
 
-- The widget, the page and the guide each give a whole selection: a widget with any ``filters-selected`` property of its own starts with only those filters, not also with the page's. An empty ``filters-selected:`` (in a header also ``filters-selected: {}``, or ``filters-selected.obligation: no``) starts with none, also instead of what the reader chose before: on a widget whatever the page selects, in a page header whatever the guide selects.
+- The widget, the page and the guide each give a whole selection: a widget with any ``filters-selected`` property of its own starts with only those filters, not also with the page's. ``filters-selected: none`` (no filter, also instead of what the reader chose before) and ``filters-selected: last`` (what the reader chose before) replace the selection of the page or guide as well; each is the whole selection, so it cannot go with other filters. A selection that only turns filters off, such as ``filters-selected.obligation: no`` alone, shows an error: use ``filters-selected: none``.
+- On a widget a comma separates its properties, so separate filters with spaces: ``filters-selected: mustsupport, binding`` shows an error.
 - A value the profile does not have shows checked in the control with a count of 0, so the reader sees why nothing matches.
 - A misspelled filter or field, such as ``filters-selected.obligation.actors`` or ``filters-selected.obligations: no``, shows an error with the filters or fields you can use. So does a field without values, and a filter set to ``no`` while one of its fields, or the selection itself, turns it on.
-- The names are case-sensitive, as those of the other properties: ``Filters-Selected`` is not read, and ``filters-selected.Obligation`` shows an error.
+- The names are case-sensitive, as those of the other properties: ``Filters-Selected`` is not read, and ``filters-selected.Obligation`` shows an error, as does a FHIRPath filter's name in another case.
 - ``filters-extension`` in the page header or ``variables.yaml`` applies to every ``tree``, ``dict`` and ``table`` on the page or in the guide: a ``dict`` or ``table`` then starts in ``snap``, also for a profile without obligations, which gets no control.
 
 FHIRPath filters
@@ -256,7 +257,7 @@ An expression is evaluated on each element (an ElementDefinition), and the filte
 
 Good to know:
 
-- A filter's name has only letters, digits, ``-`` and ``_``. It cannot be one of the built-in filters' names, nor end in ``-diff``.
+- A filter's name has only letters, digits, ``-`` and ``_``. It cannot be one of the built-in filters' names, nor ``yes``, ``no``, ``none`` or ``last``, nor end in ``-diff``.
 - An expression that does not compile shows an error in the widgets that use filters. An expression that fails on an element (e.g. ``single()`` on two values) does not match it. A misspelled element name is no error in FHIRPath: the filter then matches nothing.
 - Prohibited elements (``max`` set to ``0``), and the elements in them, never match a filter.
 - Evaluating FHIRPath on every element takes more time than the built-in filters. Keep the number of FHIRPath filters on a page small.
