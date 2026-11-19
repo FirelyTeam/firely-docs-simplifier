@@ -82,7 +82,7 @@ The ``tree``, ``dict`` and ``table`` widgets accept properties that control how 
 
 With ``modes`` or ``modes-selected`` on the widget, its page or the guide, the older ``buttons`` and the form properties (``diff``, ``hybrid``, ``snap``) are ignored. Without them these work as before: ``buttons`` shows the form buttons, with a ``show common`` button when the widget has no ``filters`` or ``filters-selected``, and a form property sets the view the buttons start with until the reader picks one; once picked, the reader's choice wins over the form property.
 
-- ``filters-extension``: show the controls of these extension filters, separated by a space (or ``|`` or ``,``), in that order, e.g. ``obligation`` (see `Extension filters`_). ``filters-extension: all`` (or ``filters-extension`` alone) shows all of them, ``filters-extension: none`` none. Like ``modes`` and ``filters``, the controls come with or without the form buttons and the filter menu. A control only appears when the profile has the extension, or when the widget starts with the filter on.
+- ``filters-extension``: show the controls of these extension filters, separated by a space (or ``|`` or ``,``), in that order, e.g. ``obligation`` (see `Extension filters`_). ``filters-extension: all`` (or ``filters-extension`` alone) shows all of them, ``filters-extension: none`` none; ``all`` and ``none`` cannot go with other filters. Like ``modes`` and ``filters``, the controls come with or without the form buttons and the filter menu. A control only appears when the profile has the extension, or when the widget starts with the filter on.
 
   ::
 
@@ -257,7 +257,7 @@ An expression is evaluated on each element (an ElementDefinition), and the filte
 
 Good to know:
 
-- A filter's name has only letters, digits, ``-`` and ``_``. It cannot be one of the built-in filters' names, nor ``yes``, ``no``, ``none`` or ``last``, nor end in ``-diff``.
+- A filter's name has only letters, digits, ``-`` and ``_``. It cannot be one of the built-in filters' names, nor ``yes``, ``no``, ``true``, ``false``, ``none`` or ``last``, nor end in ``-diff``.
 - An expression that does not compile shows an error in the widgets that use filters. An expression that fails on an element (e.g. ``single()`` on two values) does not match it. A misspelled element name is no error in FHIRPath: the filter then matches nothing.
 - Prohibited elements (``max`` set to ``0``), and the elements in them, never match a filter.
 - Evaluating FHIRPath on every element takes more time than the built-in filters. Keep the number of FHIRPath filters on a page small.
