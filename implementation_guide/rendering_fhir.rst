@@ -90,7 +90,7 @@ With ``modes`` or ``modes-selected`` on the widget, its page or the guide, the o
 
 Without a form property or ``modes-selected``, the ``tree`` shows the ``snap`` form, and with ``modes``, the filter menu, extension filters or filters to start with the ``dict`` and ``table`` start in ``snap`` as well. A ``dict`` or ``table`` with none of these shows every element, as it did before these properties existed. A property in the page header, or in the guide's ``variables.yaml``, applies to every widget on the page; one on the widget itself overrides it.
 
-Without a value, a property means the same on a widget and in the page header (``filters:``, also ``filters: {}`` or ``filters: []``): ``modes``, ``filters`` and ``filters-extension`` are on, as when they stand alone; ``modes-selected`` and ``filters-selected`` select nothing, so they clear what the page or guide selects. In the header, a YAML list is the values separated by spaces, e.g. ``filters-extension: [obligation]``; a list for a property with one value, such as ``modes-selected: [diff, snap]``, shows an error.
+Without a value, a property means the same on a widget and in the page header (``filters:``, also ``filters: {}`` or ``filters: []``): ``modes``, ``filters`` and ``filters-extension`` are the same as ``yes``, as when they stand alone; ``modes-selected`` and ``filters-selected`` select nothing, so they clear what the page or guide selects. In the header, a YAML list is the values separated by spaces, e.g. ``filters-extension: [obligation]``; a list for a property with one value, such as ``modes-selected: [diff, snap]``, shows an error.
 
 - ``expand``: fully expand the tree, or give a number for the level of expansion.
 
@@ -175,7 +175,7 @@ For example, the same selection in the header, nested and dotted, and on a widge
    {{dict:..., filters-extension: obligation, filters-selected: mustsupport, filters-selected.obligation.actor: sender receiver, filters-selected.obligation.code: SHALL:populate}}
 
 - A value with a space goes in double quotes: ``filters-selected.obligation.code: "SHOULD:display if known" SHALL:populate``. In a YAML list, an item with a space needs no quotes of its own: ``code: ["SHOULD:display if known", SHALL:populate]`` picks the same two codes.
-- A filter without a value (``filters-selected.obligation:``, in a header also ``obligation: {}`` or ``obligation: []``) is on, as ``obligation: yes``. A field without a value (``actor:``, or an empty list ``actor: []``) shows an error, on a widget and in a header.
+- A filter without a value (``filters-selected.obligation:``, in a header also ``obligation: {}`` or ``obligation: []``) is the same as ``obligation: yes``. A field without a value (``actor:``, or an empty list ``actor: []``) shows an error, on a widget and in a header.
 
 Good to know:
 
