@@ -82,13 +82,15 @@ The ``tree``, ``dict`` and ``table`` widgets accept properties that control how 
 
 With ``modes`` or ``modes-selected`` on the widget, its page or the guide, the older ``buttons`` and the form properties (``diff``, ``hybrid``, ``snap``) are ignored. Without them these work as before: ``buttons`` shows the form buttons, with a ``show common`` button when the widget has no ``filters`` or ``filters-selected``, and a form property sets the view the buttons start with until the reader picks one; once picked, the reader's choice wins over the form property.
 
-- ``filters-extension``: show the controls of these extension filters, separated by a space, in that order, e.g. ``obligation`` (see `Extension filters`_). ``filters-extension`` alone (or ``yes``) shows all of them, ``filters-extension: no`` none. Like ``modes`` and ``filters``, the controls come with or without the form buttons and the filter menu. A control only appears when the profile has the extension, or when the widget starts with the filter on.
+- ``filters-extension``: show the controls of these extension filters, separated by a space (or ``|`` or ``,``), in that order, e.g. ``obligation`` (see `Extension filters`_). ``filters-extension`` alone (or ``yes``) shows all of them, ``filters-extension: no`` none. Like ``modes`` and ``filters``, the controls come with or without the form buttons and the filter menu. A control only appears when the profile has the extension, or when the widget starts with the filter on.
 
   ::
 
      {{tree:http://hl7.org/fhir/StructureDefinition/Patient, modes, filters, filters-extension: obligation}}
 
 Without a form property or ``modes-selected``, the ``tree`` shows the ``snap`` form, and with ``modes``, the filter menu, extension filters or filters to start with the ``dict`` and ``table`` start in ``snap`` as well. A ``dict`` or ``table`` with none of these shows every element, as it did before these properties existed. A property in the page header, or in the guide's ``variables.yaml``, applies to every widget on the page; one on the widget itself overrides it.
+
+Without a value, a property means the same on a widget and in the page header (``filters:``, also ``filters: {}`` or ``filters: []``): ``modes``, ``filters`` and ``filters-extension`` are on, as when they stand alone; ``modes-selected`` and ``filters-selected`` select nothing, so they clear what the page or guide selects. In the header, a YAML list is the values separated by spaces, e.g. ``filters-extension: [obligation]``; a list for a property with one value, such as ``modes-selected: [diff, snap]``, shows an error.
 
 - ``expand``: fully expand the tree, or give a number for the level of expansion.
 
@@ -173,7 +175,7 @@ For example, the same selection in the header, nested and dotted, and on a widge
    {{dict:..., filters-extension: obligation, filters-selected: mustsupport, filters-selected.obligation.actor: sender receiver, filters-selected.obligation.code: SHALL:populate}}
 
 - A value with a space goes in double quotes: ``filters-selected.obligation.code: "SHOULD:display if known" SHALL:populate``. In a YAML list, an item with a space needs no quotes of its own: ``code: ["SHOULD:display if known", SHALL:populate]`` picks the same two codes.
-- In a header, a filter without a value (``obligation:``, or an empty map ``obligation: {}``) is on, as ``obligation: yes``. A field without a value (``actor:``, or an empty list ``actor: []``) shows an error, as on a widget; so does a filter with an empty list (``obligation: []``).
+- A filter without a value (``filters-selected.obligation:``, in a header also ``obligation: {}`` or ``obligation: []``) is on, as ``obligation: yes``. A field without a value (``actor:``, or an empty list ``actor: []``) shows an error, on a widget and in a header.
 
 Good to know:
 
