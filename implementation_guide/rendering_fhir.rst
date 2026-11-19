@@ -173,13 +173,13 @@ For example, the same selection in the header, nested and dotted, and on a widge
    {{dict:..., filters-extension: obligation, filters-selected: mustsupport, filters-selected.obligation.actor: sender receiver, filters-selected.obligation.code: SHALL:populate}}
 
 - A value with a space goes in double quotes: ``filters-selected.obligation.code: "SHOULD:display if known" SHALL:populate``. In a YAML list, an item with a space needs no quotes of its own: ``code: ["SHOULD:display if known", SHALL:populate]`` picks the same two codes.
-- In a header, a filter without a value (``obligation:``) is on, as ``obligation: yes``. A field without a value (``actor:``, or an empty list ``actor: []``) shows an error, as on a widget; so does a filter with an empty list (``obligation: []``).
+- In a header, a filter without a value (``obligation:``, or an empty map ``obligation: {}``) is on, as ``obligation: yes``. A field without a value (``actor:``, or an empty list ``actor: []``) shows an error, as on a widget; so does a filter with an empty list (``obligation: []``).
 
 Good to know:
 
-- The widget, the page and the guide each give a whole selection: a widget with any ``filters-selected`` property of its own starts with only those filters, not also with the page's. An empty ``filters-selected:`` (or ``filters-selected.obligation: no``) starts with none, also instead of what the reader chose before: on a widget whatever the page selects, in a page header whatever the guide selects.
+- The widget, the page and the guide each give a whole selection: a widget with any ``filters-selected`` property of its own starts with only those filters, not also with the page's. An empty ``filters-selected:`` (in a header also ``filters-selected: {}``, or ``filters-selected.obligation: no``) starts with none, also instead of what the reader chose before: on a widget whatever the page selects, in a page header whatever the guide selects.
 - A value the profile does not have shows checked in the control with a count of 0, so the reader sees why nothing matches.
-- A misspelled filter or field, such as ``filters-selected.obligation.actors``, shows an error with the fields you can use. So does a field without values, and a filter set to ``no`` while one of its fields, or the selection itself, turns it on.
+- A misspelled filter or field, such as ``filters-selected.obligation.actors`` or ``filters-selected.obligations: no``, shows an error with the filters or fields you can use. So does a field without values, and a filter set to ``no`` while one of its fields, or the selection itself, turns it on.
 - The names are case-sensitive, as those of the other properties: ``Filters-Selected`` is not read, and ``filters-selected.Obligation`` shows an error.
 - ``filters-extension`` in the page header or ``variables.yaml`` applies to every ``tree``, ``dict`` and ``table`` on the page or in the guide: a ``dict`` or ``table`` then starts in ``snap``, also for a profile without obligations, which gets no control.
 
