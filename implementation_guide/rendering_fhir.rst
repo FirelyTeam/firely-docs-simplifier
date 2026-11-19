@@ -82,7 +82,7 @@ The ``tree``, ``dict`` and ``table`` widgets accept properties that control how 
 
 With ``modes`` or ``modes-selected`` on the widget, its page or the guide, the older ``buttons`` and the form properties (``diff``, ``hybrid``, ``snap``) are ignored. Without them these work as before: ``buttons`` shows the form buttons, with a ``show common`` button when the widget has no ``filters`` or ``filters-selected``, and a form property sets the view the buttons start with until the reader picks one; once picked, the reader's choice wins over the form property.
 
-- ``filters-extension``: show the controls of these extension filters, separated by a space (or ``|`` or ``,``), in that order, e.g. ``obligation`` (see `Extension filters`_). ``filters-extension`` alone (or ``yes``) shows all of them, ``filters-extension: no`` none. Like ``modes`` and ``filters``, the controls come with or without the form buttons and the filter menu. A control only appears when the profile has the extension, or when the widget starts with the filter on.
+- ``filters-extension``: show the controls of these extension filters, separated by a space (or ``|`` or ``,``), in that order, e.g. ``obligation`` (see `Extension filters`_). ``filters-extension: all`` (or ``filters-extension`` alone) shows all of them, ``filters-extension: none`` none. Like ``modes`` and ``filters``, the controls come with or without the form buttons and the filter menu. A control only appears when the profile has the extension, or when the widget starts with the filter on.
 
   ::
 
@@ -90,7 +90,7 @@ With ``modes`` or ``modes-selected`` on the widget, its page or the guide, the o
 
 Without a form property or ``modes-selected``, the ``tree`` shows the ``snap`` form, and with ``modes``, the filter menu, extension filters or filters to start with the ``dict`` and ``table`` start in ``snap`` as well. A ``dict`` or ``table`` with none of these shows every element, as it did before these properties existed. A property in the page header, or in the guide's ``variables.yaml``, applies to every widget on the page; one on the widget itself overrides it.
 
-A property with a colon needs a value, on a widget and in the page header: ``filters:`` without a value (in the header also ``filters: {}``) shows an error. Only on a widget can a property stand alone, without a colon: ``modes``, ``filters`` and ``filters-extension`` alone are the same as ``yes``. In the header, ``true`` and ``false`` work as ``yes`` and ``no``. Several values are separated by spaces, also in the header; a YAML list shows an error, except for the values of an extension filter's field, which can contain a space (see `Extension filters`_).
+A property with a colon needs a value, on a widget and in the page header: ``filters:`` without a value (in the header also ``filters: {}``) shows an error. Only on a widget can a property stand alone, without a colon: ``modes`` and ``filters`` alone are the same as ``yes``, and ``filters-extension`` alone the same as ``all``. In the header, ``true`` and ``false`` work as ``yes`` and ``no``. Several values are separated by spaces, also in the header; a YAML list shows an error, except for the values of an extension filter's field, which can contain a space (see `Extension filters`_).
 
 - ``expand``: fully expand the tree, or give a number for the level of expansion.
 
@@ -128,7 +128,7 @@ In the page header or ``variables.yaml``, nested:
 
 ::
 
-   filters-extension: <filter> <filter>                           # or yes (all filters), or no
+   filters-extension: <filter> <filter>                           # or all, or none
    filters-selected:
      <trait or filter>: yes                                       # or no
      <extension filter>:
@@ -138,7 +138,7 @@ or dotted:
 
 ::
 
-   filters-extension: <filter> <filter>                           # or yes (all filters), or no
+   filters-extension: <filter> <filter>                           # or all, or none
    filters-selected: <trait or filter> <trait or filter>          # or none, or last
    filters-selected.<extension filter>.<field>: <value> <value>   # or a list: [<value>, <value>]
 
