@@ -128,17 +128,17 @@ In the page header or ``variables.yaml``, nested:
 
 ::
 
-   filters-extension: <filter> <filter>                         # or a list: [<filter>, <filter>]; no value: all filters
+   filters-extension: <filter> <filter>                           # or a list: [<filter>, <filter>]; no value: all filters
    filters-selected:
-     <trait or filter>: yes                     # or no value
+     <trait or filter>: yes                                       # or no value
      <extension filter>:
-       <field>: <value> <value>                 # or a list: [<value>, <value>]
+       <field>: <value> <value>                                   # or a list: [<value>, <value>]
 
 or dotted:
 
 ::
 
-   filters-extension: <filter> <filter>                         # or a list: [<filter>, <filter>]; no value: all filters
+   filters-extension: <filter> <filter>                           # or a list: [<filter>, <filter>]; no value: all filters
    filters-selected: <trait or filter> <trait or filter>          # or a list: [<trait or filter>, <trait or filter>]
    filters-selected.<extension filter>.<field>: <value> <value>   # or a list: [<value>, <value>]
 
