@@ -141,6 +141,23 @@ Some elements show a small labelled box in the description column. Like the flag
 * **Pattern** - the element must match a pattern.
 * **Impose** - the element imposes another profile through the ``structuredefinition-imposeProfile`` extension.
 
+.. _questionnaire-rendering:
+
+Questionnaires
+""""""""""""""
+A Questionnaire (STU3, R4, R4B and R5) has two views:
+
+- The ``Overview`` tab shows the tree of its items, with groups you can open and close like the elements of a profile. Hover over an item to see its details in the details panel, such as its link id, type and cardinality, and click it to keep them there.
+- The ``Form`` tab shows the questionnaire as the form it describes, with the browser's own controls, so you can try it out. The ``show details`` button shows the details of each item under it. On a project file you can link to the tab directly by adding ``/~form`` to the page's address.
+
+A QuestionnaireResponse shows on its ``Overview`` tab as the filled-in form, read only, with the same ``show details`` button.
+
+An item's ``text`` shows as plain text: the ``rendering-xhtml`` and ``rendering-markdown`` extensions are not used.
+
+.. note::
+
+   In an implementation guide ``{{render:<canonical>}}`` shows the tree of a Questionnaire, and ``{{form:<canonical>}}`` the form, in the look you choose. See :ref:`the questionnaire widgets <ig_questionnaires>`.
+
 .. _suppress-extension:
 
 Suppressing inherited mappings and examples
