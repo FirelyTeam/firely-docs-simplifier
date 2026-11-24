@@ -279,31 +279,31 @@ A Questionnaire or a QuestionnaireResponse (STU3, R4, R4B and R5) renders as it 
 
    {{render:http://example.org/fhir/Questionnaire/intake}}
    {{form:http://example.org/fhir/Questionnaire/intake}}
-   {{form:QuestionnaireResponse/intake-response, details-button}}
+   {{form:QuestionnaireResponse/intake-response, buttons}}
 
 The ``form`` widget takes three properties:
 
-- ``style``: the look of the form. ``cool`` (the default) is the look of the forms on Simplifier; ``hl7`` is the look of an HL7 implementation guide, a table with the question, the answer and the details in columns of their own; ``none`` leaves the form unstyled. Any other name of letters, digits and dashes is a style of your own (see below).
-- ``details-button`` (or ``details-button: yes``): add the ``show details`` button, so the reader can show and hide the details of each item, such as its link id, type and cardinality. ``details-button: no`` leaves it out again. As with ``modes``, the widget has no button unless you ask for it.
-- ``details-visible`` (or ``details-visible: yes``): show the details at first. With ``details-button`` the reader can hide them; without, they are always shown. Without ``details-visible`` the details start hidden, so a widget with neither property shows only the questions.
+- ``form-style``: the look of the form. ``cool`` (the default) is the look of the forms on Simplifier; ``formal`` is the look of the FHIR specification's tables, with the question, the answer and the details in columns of their own; ``none`` leaves the form unstyled. Any other name of letters, digits and dashes is a style of your own (see below).
+- ``buttons`` (or ``buttons: yes``): add the ``show details`` button, so the reader can show and hide the details of each item, such as its link id, type and cardinality. ``buttons: no`` leaves it out again. As for a tree, the widget has no button unless you ask for it.
+- ``form-details`` (or ``form-details: yes``): show the details at first. With ``buttons`` the reader can hide them; without, they are always shown. Without ``form-details`` the details start hidden, so a widget with neither property shows only the questions.
 
 ::
 
-   {{form:http://example.org/fhir/Questionnaire/intake, style: hl7}}
-   {{form:http://example.org/fhir/Questionnaire/intake, details-button, details-visible}}
+   {{form:http://example.org/fhir/Questionnaire/intake, form-style: formal}}
+   {{form:http://example.org/fhir/Questionnaire/intake, buttons, form-details}}
 
-**In the header.** In the page header or the guide's ``variables.yaml`` these properties start with ``form-``: ``form-style``, ``form-details-button`` and ``form-details-visible``. They apply to every ``form`` widget on the page or in the guide, and a property on the widget itself overrides them. A ``style``, ``details-button`` or ``details-visible`` in the header is not read by the ``form`` widget.
+**In the header.** The same properties in the page header or the guide's ``variables.yaml`` apply to every ``form`` widget on the page or in the guide, and a property on the widget itself overrides them. ``buttons`` in the header also gives every tree on the page its mode buttons; set it on the widget when you only want it for the form.
 
 ::
 
    ---
-   form-style: hl7
-   form-details-button: yes
+   form-style: formal
+   form-details: yes
    ---
 
-The values follow the rules of ``modes`` and ``filters`` (see `Tree and render properties`_): only on a widget can ``details-button`` and ``details-visible`` stand alone, a property with a colon needs a value, a keyword (``cool``, ``hl7``, ``none``, ``yes``, ``no``) is never quoted, and in the header ``true`` and ``false`` work as ``yes`` and ``no``. A wrong value shows an error in the widget, as does a ``form`` widget for a resource that is not a Questionnaire or QuestionnaireResponse, or for a DSTU2 one.
+The values follow the rules of ``modes`` and ``filters`` (see `Tree and render properties`_): only on a widget can ``buttons`` and ``form-details`` stand alone, a property with a colon needs a value, a keyword (``cool``, ``formal``, ``none``, ``yes``, ``no``) is never quoted, and in the header ``true`` and ``false`` work as ``yes`` and ``no``. A wrong value shows an error in the widget, as does a ``form`` widget for a resource that is not a Questionnaire or QuestionnaireResponse, or for a DSTU2 one.
 
-**A style of your own.** ``style: house-style`` gives the form the classes ``questionnaire-form style-house-style``: style it in your guide's stylesheet under ``.questionnaire-form.style-house-style``. Until you do, the form looks as with ``none``. The details and the button are hidden with the ``hidden`` attribute, so keep that working in your stylesheet:
+**A style of your own.** ``form-style: house-style`` gives the form the classes ``questionnaire-form style-house-style``: style it in your guide's stylesheet under ``.questionnaire-form.style-house-style``. Until you do, the form looks as with ``none``. The details and the button are hidden with the ``hidden`` attribute, so keep that working in your stylesheet:
 
 ::
 
@@ -313,6 +313,7 @@ Good to know:
 
 - An item's ``text`` shows as plain text. The ``rendering-xhtml`` and ``rendering-markdown`` extensions, which give it formatting, are not used.
 - The ``tree`` widget renders a Questionnaire as a generic resource tree, not as the tree of its items: use ``render`` for that.
+- Use one ``form`` widget per page: two forms on one page with the same link ids interfere with each other, e.g. picking an answer in one clears it in the other.
 
 Metadata
 --------

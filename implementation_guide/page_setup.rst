@@ -45,13 +45,13 @@ A property can also hold properties of its own, e.g. the FHIRPath filters of the
        name: required binding
    ---
 
-The properties of the ``form`` widget, which renders a Questionnaire as a form, start with ``form-`` in the header: ``form-style``, ``form-details-button`` and ``form-details-visible`` set ``style``, ``details-button`` and ``details-visible`` for every ``form`` widget on the page (see :ref:`the questionnaire widgets <ig_questionnaires>`):
+The properties of the ``form`` widget, which renders a Questionnaire as a form, work the same way: ``form-style``, ``form-details`` and ``buttons`` in the header apply to every ``form`` widget on the page (see :ref:`the questionnaire widgets <ig_questionnaires>`):
 
 ::
 
    ---
-   form-style: hl7
-   form-details-button: yes
+   form-style: formal
+   form-details: yes
    ---
 
 .. note::
