@@ -45,6 +45,15 @@ A property can also hold properties of its own, e.g. the FHIRPath filters of the
        name: required binding
    ---
 
+The properties of the ``form`` widget, which renders a Questionnaire as a form, work the same way: ``form-style``, ``form-details`` and ``buttons`` in the header apply to every ``form`` widget on the page (see :ref:`the questionnaire widgets <ig_questionnaires>`):
+
+::
+
+   ---
+   form-style: formal
+   form-details: yes
+   ---
+
 .. note::
 
    A header that is not valid YAML, e.g. with a line ``hybrid`` without a value, is ignored as a whole: none of its properties apply, and the page gives no error.

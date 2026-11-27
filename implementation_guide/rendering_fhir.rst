@@ -39,6 +39,7 @@ The following widgets embed Simplifier content. Most take a canonical URL (or a 
 - ``{{link:canonicalUrl}}`` links to the resource page on Simplifier. Add a title with ``{{link:canonicalUrl, title:'Base Patient'}}``.
 - ``{{namingsystems:ProjectName}}`` lists all naming systems of a project in a table.
 - ``{{render:canonicalUrl}}`` renders and parses any file type; ``{{source:canonicalUrl}}`` renders any file unparsed (preserving indentation and line breaks).
+- ``{{form:canonicalUrl}}`` renders a Questionnaire as the form it describes, or a QuestionnaireResponse as the filled-in form (see `Questionnaires`_).
 - ``{{index:root}}`` / ``{{index:current}}`` add an index (see `Index`_).
 
 Tree and render properties
@@ -265,6 +266,56 @@ Good to know:
 - Evaluating FHIRPath on every element takes more time than the built-in filters. Keep the number of FHIRPath filters on a page small.
 
 Try an expression in the `FHIRPath playground <https://simplifier.net/fhirpath>`__ first: for a StructureDefinition, its ``Filtered tree`` tab shows the tree with the expression as a filter, how many elements match, how long that took, and warnings about the expression.
+
+.. _ig_questionnaires:
+
+Questionnaires
+--------------
+
+A Questionnaire or a QuestionnaireResponse (STU3, R4, R4B and R5) renders as it does on its resource page (see :ref:`questionnaire-rendering`):
+
+- ``{{render:canonicalUrl}}`` renders a Questionnaire as the tree of its items, as on its ``Overview`` tab, with the details of an item in the details panel. ``expand`` opens it further, as for the ``tree`` widget. A QuestionnaireResponse renders as the filled-in form, with the ``show details`` button. Both render this way also when they are examples, instead of showing their narrative.
+- ``{{form:canonicalUrl}}`` renders a Questionnaire as the form it describes, as on its ``Form`` tab, or a QuestionnaireResponse as the filled-in form.
+
+::
+
+   {{render:http://example.org/fhir/Questionnaire/intake}}
+   {{form:http://example.org/fhir/Questionnaire/intake}}
+   {{form:QuestionnaireResponse/intake-response, buttons}}
+
+The ``form`` widget takes three properties:
+
+- ``form-style``: the look of the form. ``cool`` (the default) is the look of the forms on Simplifier; ``formal`` is the look of the FHIR specification's tables, with the question, the answer and the details in columns of their own; ``none`` leaves the form unstyled. Any other name of letters, digits and dashes is a style of your own (see below).
+- ``buttons`` (or ``buttons: yes``): add the ``show details`` button, so the reader can show and hide the details of each item, such as its link id, type and cardinality. ``buttons: no`` leaves it out again. As for a tree, the widget has no button unless you ask for it.
+- ``form-details`` (or ``form-details: yes``): show the details at first. With ``buttons`` the reader can hide them; without, they are always shown. Without ``form-details`` the details start hidden, so a widget with neither property shows only the questions.
+
+::
+
+   {{form:http://example.org/fhir/Questionnaire/intake, form-style: formal}}
+   {{form:http://example.org/fhir/Questionnaire/intake, buttons, form-details}}
+
+**In the header.** The same properties in the page header or the guide's ``variables.yaml`` apply to every ``form`` widget on the page or in the guide, and a property on the widget itself overrides them. ``buttons`` in the header also gives every tree on the page its mode buttons; set it on the widget when you only want it for the form.
+
+::
+
+   ---
+   form-style: formal
+   form-details: yes
+   ---
+
+The values follow the rules of ``modes`` and ``filters`` (see `Tree and render properties`_): only on a widget can ``buttons`` and ``form-details`` stand alone, a property with a colon needs a value, a keyword (``cool``, ``formal``, ``none``, ``yes``, ``no``) is never quoted, and in the header ``true`` and ``false`` work as ``yes`` and ``no``. A wrong value shows an error in the widget, as does a ``form`` widget for a resource that is not a Questionnaire or QuestionnaireResponse, or for a DSTU2 one.
+
+**A style of your own.** ``form-style: house-style`` gives the form the classes ``questionnaire-form style-house-style``: style it in your guide's stylesheet under ``.questionnaire-form.style-house-style``. Until you do, the form looks as with ``none``. The details and the button are hidden with the ``hidden`` attribute, so keep that working in your stylesheet:
+
+::
+
+   .questionnaire-form [hidden] { display: none !important; }
+
+Good to know:
+
+- An item's ``text`` shows as plain text. The ``rendering-xhtml`` and ``rendering-markdown`` extensions, which give it formatting, are not used.
+- The ``tree`` widget renders a Questionnaire as a generic resource tree, not as the tree of its items: use ``render`` for that.
+- Use one ``form`` widget per page: two forms on one page with the same link ids interfere with each other, e.g. picking an answer in one clears it in the other.
 
 Metadata
 --------
