@@ -44,6 +44,8 @@ Next to the views, the ``filters`` button opens the filter menu:
 - The trait filters: ``mandatory``, ``has binding``, ``defines invariant``, ``must support``, ``is modifier`` and ``contains mapping``. Check one or more to see only the elements with any of them, with the elements above them that lead to them. Each shows how many elements it matches in the current view. In the ``diff`` view a filter matches an element only where the profile itself makes it match, e.g. where it sets must support, not where it inherits it.
 - ``clear`` unchecks everything in the menu.
 
+Next to the filter menu, a profile with obligations gets an ``obligations`` control. Check ``any`` to see the elements with obligations, or pick values, e.g. an actor and what is asked of it. Each value shows how many elements it matches.
+
 Prohibited elements (``max`` set to ``0``), and the elements in them, never match a filter.
 
 The ``Details`` and ``Table`` tabs of a profile have the same buttons and filter menu, and filter their elements the same way.
@@ -52,7 +54,7 @@ Your choice of view and of the filters is remembered in a browser cookie, so it 
 
 .. note::
 
-   In an implementation guide you can fix the view per widget (``{{tree:<canonical>, diff}}``, also for ``{{dict}}`` and ``{{table}}``), give the reader the buttons (``{{tree:<canonical>, modes}}``) and start in a view (``modes-selected: diff``) and the filter menu (``filters``), start with filters selected (``filters-selected: mustsupport binding``), and define filters of your own with FHIRPath. See :ref:`the widget properties <ig_rendering_fhir>`.
+   In an implementation guide you can fix the view per widget (``{{tree:<canonical>, diff}}``, also for ``{{dict}}`` and ``{{table}}``), give the reader the buttons (``{{tree:<canonical>, modes}}``) and start in a view (``modes-selected: diff``) and the filter menu (``filters``), start with filters selected (``filters-selected: mustsupport binding``), add the obligations control (``filters-extension``), and define filters of your own with FHIRPath. See :ref:`the widget properties <ig_rendering_fhir>`.
 
 What the colours mean
 """""""""""""""""""""

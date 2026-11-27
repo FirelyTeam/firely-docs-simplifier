@@ -23,7 +23,7 @@ The YAML header of a page (the part between the ``---`` lines) sets properties t
 - **expand**: ``1``, ``2``, ... expands resource trees to that depth; ``yes`` expands fully. Works for StructureDefinitions and example instances.
 - **lang**: sets the page language; all language-aware renderers pick it up automatically.
 
-Any property that a rendering widget understands (such as ``modes``, ``modes-selected``, ``diff``, ``hybrid``, ``filters``, ``filters-selected``) can also be set in the header. In a widget such a property can stand alone (``{{tree, modes, diff}}``); in the header it needs a value, ``yes`` (or ``no``), as YAML has no properties without one:
+Any property that a rendering widget understands (such as ``modes``, ``modes-selected``, ``diff``, ``hybrid``, ``filters``, ``filters-selected``, ``filters-extension``, ``filters-selected.obligation.actor``) can also be set in the header. In a widget such a property can stand alone (``{{tree, modes, diff}}``). In the header it always needs a value, ``yes`` (or ``no``): ``modes:`` or ``filters:`` without a value (or with an empty ``{}``) shows an error in the widgets, as on a widget. Several values are separated by spaces, as on a widget; a YAML list only works for the values of an extension filter's field, such as ``filters-selected.obligation.actor`` (see :ref:`the widget properties <ig_rendering_fhir>`):
 
 ::
 
