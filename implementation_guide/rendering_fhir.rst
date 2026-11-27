@@ -44,21 +44,45 @@ The following widgets embed Simplifier content. Most take a canonical URL (or a 
 Tree and render properties
 --------------------------
 
-The ``tree`` widget accepts properties that control how it renders:
+The ``tree``, ``dict`` and ``table`` widgets accept properties that control how they render a profile. Two of them work in pairs: ``modes`` and ``filters`` show a control the reader can use (the form buttons and the filter menu), and ``modes-selected`` and ``filters-selected`` say what the widget starts with.
 
-- Form: show the ``diff``, ``snap``, or ``hybrid`` form of the resource.
+- Form: show the ``diff``, ``snap`` (or ``snapshot``), or ``hybrid`` form of the resource. The views are explained under :ref:`resource rendering <resource-rendering>`.
 
   ::
 
      {{tree:http://hl7.org/fhir/StructureDefinition/Patient, diff}}
-     {{tree:http://hl7.org/fhir/StructureDefinition/Patient, snap}}
-     {{tree:http://hl7.org/fhir/StructureDefinition/Patient, hybrid}}
+     {{dict:http://hl7.org/fhir/StructureDefinition/Patient, snap}}
+     {{table:http://hl7.org/fhir/StructureDefinition/Patient, hybrid}}
 
-- ``buttons``: show ``diff``, ``snap``, and ``hybrid`` buttons so the reader can switch between them.
+- ``modes`` (or ``modes: yes``): show the ``diff``, ``snap``, and ``hybrid`` buttons, so the reader can switch between them. ``modes: no`` leaves them out again. Once the reader picks a view, their choice is remembered in a browser cookie and the buttons start with it, on this page and the next; without one they start in ``snap``. ``modes`` only takes ``yes`` or ``no``; the form to start with goes in ``modes-selected``. ``show common`` is in the filter menu (``filters``).
 
   ::
 
-     {{tree:http://hl7.org/fhir/StructureDefinition/Patient, buttons}}
+     {{tree:http://hl7.org/fhir/StructureDefinition/Patient, modes}}
+
+- ``modes-selected``: the form to start with, ``diff``, ``hybrid`` or ``snap``. Unlike a form property, it replaces the view the reader chose before, as ``filters-selected`` does for the filters; with ``modes`` the reader can still switch. Without ``modes`` the widget shows that form, and the reader cannot switch.
+
+  ::
+
+     {{tree:http://hl7.org/fhir/StructureDefinition/Patient, modes, modes-selected: diff}}
+
+- ``filters`` (or ``filters: yes``): add the filter menu: ``show common`` and the trait filters, as on the resource pages (see :ref:`resource rendering <resource-rendering>`). With ``modes`` it comes after the form buttons; without, it is on its own and the rendering keeps its form. ``filters: no`` leaves it out again, e.g. for one widget on a page that turns it on for all. ``filters`` only takes ``yes`` or ``no``; the filters to start with go in ``filters-selected``.
+
+  ::
+
+     {{tree:http://hl7.org/fhir/StructureDefinition/Patient, modes, filters}}
+     {{dict:http://hl7.org/fhir/StructureDefinition/Patient, diff, filters}}
+
+- ``filters-selected``: start with these filters selected, separated by a space (a comma separates the widget's properties). With ``filters`` the filter menu shows them checked, and the reader can change them; without, the rendering simply shows only the elements that match. They replace the filters the reader chose before. The filters are ``mandatory``, ``binding``, ``invariant``, ``mustsupport``, ``modifier`` and ``mapping``, and the FHIRPath filters of the page (see `FHIRPath filters`_). An unknown name shows an error with the names you can use.
+
+  ::
+
+     {{dict:http://hl7.org/fhir/StructureDefinition/Patient, filters-selected: mustsupport binding}}
+     {{tree:http://hl7.org/fhir/StructureDefinition/Patient, modes, filters, filters-selected: mandatory}}
+
+With ``modes`` or ``modes-selected`` on the widget, its page or the guide, the older ``buttons`` and the form properties (``diff``, ``hybrid``, ``snap``) are ignored. Without them these work as before: ``buttons`` shows the form buttons, with a ``show common`` button when the widget has no ``filters`` or ``filters-selected``, and a form property sets the view the buttons start with until the reader picks one; once picked, the reader's choice wins over the form property.
+
+Without a form property or ``modes-selected``, the ``tree`` shows the ``snap`` form, and with ``modes``, the filter menu or filters to start with the ``dict`` and ``table`` start in ``snap`` as well. A ``dict`` or ``table`` with none of these shows every element, as it did before these properties existed. A property in the page header, or in the guide's ``variables.yaml``, applies to every widget on the page; one on the widget itself overrides it.
 
 - ``expand``: fully expand the tree, or give a number for the level of expansion.
 
@@ -72,6 +96,86 @@ The ``tree`` widget accepts properties that control how it renders:
   ::
 
      {{tree:http://hl7.be/fhir/be/StructureDefinition/Patient, lang: fr-BE}}
+
+FHIRPath filters
+----------------
+
+Besides the built-in filters, you can define filters of your own with a FHIRPath expression, under ``filters-fhirpath`` in the page header or in the guide's ``variables.yaml``. Each filter has a name of your own, which you use with ``filters-selected``:
+
+::
+
+   ---
+   filters-fhirpath:
+     required:
+       expression: "binding.strength = 'required'"
+       name: required binding
+       description: Elements bound to a value set with required strength
+     fixedvalue: "(fixed | pattern).exists()"
+   ---
+
+   {{dict:http://example.org/fhir/StructureDefinition/my-patient, filters-selected: required}}
+   {{tree:http://example.org/fhir/StructureDefinition/my-patient, modes, filters}}
+
+- ``expression``: the FHIRPath expression. Write it alone, as ``fixedvalue`` above, when the filter needs nothing else. Quote it, so that commas and colons in it are no problem.
+- ``name``: its caption in the filter menu; by default the filter's name (``required``).
+- ``description``: its tooltip in the filter menu, with the expression after it.
+
+The filter menu shows the page's FHIRPath filters after the built-in ones, below a line.
+
+**In the header and on a widget.** The header nests a filter's properties under ``filters-fhirpath:``. A widget cannot nest, so it writes each property on its own, joined by dots: ``filters-fhirpath.<filter>.<property>: <value>``. The filter's own value, ``filters-fhirpath.<filter>``, is its expression.
+
+In the page header or ``variables.yaml``:
+
+::
+
+   filters-fhirpath:
+     <filter>:
+       expression: "<FHIRPath>"
+       name: <caption>
+       description: <tooltip>
+     <filter>: "<FHIRPath>"
+
+On a widget:
+
+::
+
+   {{dict:..., filters-fhirpath.<filter>.expression: <FHIRPath>, filters-fhirpath.<filter>.name: <caption>, filters-selected: <filter>}}
+   {{dict:..., filters-fhirpath.<filter>: <FHIRPath>, filters-selected: <filter>}}
+
+For example, these define the same filter, in the header and on a widget:
+
+::
+
+   ---
+   filters-fhirpath:
+     required:
+       expression: "binding.strength = 'required'"
+       name: required binding
+   ---
+
+   {{dict:..., filters-fhirpath.required: binding.strength = 'required', filters-fhirpath.required.name: required binding, filters-selected: required}}
+
+A property on the widget wins over the same property in the header, so a widget can also change one property of the page's filter, e.g. ``{{dict:..., filters-fhirpath.required.name: required, filters-selected: required}}``. On a widget an expression cannot contain a comma, which separates the widget's properties; put such an expression in the header.
+
+Other characters in a widget's expression are read as written, also those that Markdown uses, such as ``*``, ``_`` and ``$``, and also in a table or an HTML block. Put the widget in the page's text, not in a code span or code block: a widget there still renders, but its FHIRPath filter shows an error that its expression is not valid. To show the syntax of a widget on a page, leave out the ``{{`` and ``}}``, as a widget always renders, also in code.
+
+An expression is evaluated on each element (an ElementDefinition), and the filter matches the elements it is true for, e.g. ``min >= 1``, ``binding.strength = 'required'`` or ``mustSupport = true and min >= 1``. For a condition across elements, write an expression on the profile instead: one that starts from its ``snapshot`` and selects the elements, e.g. ``snapshot.element.where((fixed | pattern).exists())``. Any expression that goes to ``snapshot`` is evaluated this way, also through a variable such as ``%resource``: on each element, ``%resource`` is that element itself, not the profile. This one selects the elements with a child that must be present:
+
+::
+
+   filters-fhirpath:
+     mandatorychild:
+       expression: "defineVariable('parents', snapshot.element.where(min >= 1 and id.contains('.')).select(id.replaceMatches('[.][^.]+$', ''))).snapshot.element.where(id in %parents)"
+       name: has mandatory child
+
+Good to know:
+
+- A filter's name has only letters, digits, ``-`` and ``_``. It cannot be one of the built-in filters' names, nor end in ``-diff``.
+- An expression that does not compile shows an error in the widgets that use filters. An expression that fails on an element (e.g. ``single()`` on two values) does not match it. A misspelled element name is no error in FHIRPath: the filter then matches nothing.
+- Prohibited elements (``max`` set to ``0``), and the elements in them, never match a filter.
+- Evaluating FHIRPath on every element takes more time than the built-in filters. Keep the number of FHIRPath filters on a page small.
+
+Try an expression in the `FHIRPath playground <https://simplifier.net/fhirpath>`__ first: for a StructureDefinition, its ``Filtered tree`` tab shows the tree with the expression as a filter, how many elements match, how long that took, and warnings about the expression.
 
 Metadata
 --------
