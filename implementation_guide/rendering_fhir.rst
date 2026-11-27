@@ -157,6 +157,8 @@ For example, these define the same filter, in the header and on a widget:
 
 A property on the widget wins over the same property in the header, so a widget can also change one property of the page's filter, e.g. ``{{dict:..., filters-fhirpath.required.name: required, filters-selected: required}}``. On a widget an expression cannot contain a comma, which separates the widget's properties; put such an expression in the header.
 
+Other characters in a widget's expression are read as written, also those that Markdown uses, such as ``*``, ``_`` and ``$``, and also in a table or an HTML block. Put the widget in the page's text, not in a code span or code block: a widget there still renders, but its FHIRPath filter shows an error that its expression is not valid. To show the syntax of a widget on a page, leave out the ``{{`` and ``}}``, as a widget always renders, also in code.
+
 An expression is evaluated on each element (an ElementDefinition), and the filter matches the elements it is true for, e.g. ``min >= 1``, ``binding.strength = 'required'`` or ``mustSupport = true and min >= 1``. For a condition across elements, write an expression on the profile instead: one that starts from its ``snapshot`` and selects the elements, e.g. ``snapshot.element.where((fixed | pattern).exists())``. Any expression that goes to ``snapshot`` is evaluated this way, also through a variable such as ``%resource``: on each element, ``%resource`` is that element itself, not the profile. This one selects the elements with a child that must be present:
 
 ::
